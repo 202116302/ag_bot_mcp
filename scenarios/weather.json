@@ -1,0 +1,208 @@
+[
+  {
+    "scenario_id": "WTH-OF-001",
+    "cultivation": "open_field",
+    "domain": "weather",
+    "type": "simple",
+    "question": "노지 토마토 밭인데 내일 예보 보고 대비할 거 있어?",
+    "user_values": {},
+    "system_values": {
+      "weather": {
+        "station": "대관령(가상 시나리오)",
+        "tmin_forecast": 7.0,
+        "tmax_forecast": 22.0,
+        "rain_forecast_mm": 0,
+        "heavy_rain_warning": false
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "stage": "과실 비대기"
+      }
+    },
+    "expected": {
+      "decision": "보온 피복 (최저기온 7℃ ≤ 10℃)",
+      "decision_key": "보온 피복",
+      "required_items": [
+        "보온 피복이 필요함",
+        "최저기온 7℃가 10℃ 이하라 생육 저하 위험"
+      ]
+    },
+    "rule_ids": [
+      "WTH-01"
+    ],
+    "reference_call": {
+      "tool": "weather_risk_decision",
+      "args": {
+        "tmin_forecast": 7.0,
+        "tmax_forecast": 22.0,
+        "heavy_rain_warning": false
+      }
+    }
+  },
+  {
+    "scenario_id": "WTH-OF-002",
+    "cultivation": "open_field",
+    "domain": "weather",
+    "type": "boundary",
+    "question": "노지 토마토 밭인데 예보 보니까 덥다던데 대응해야 해?",
+    "user_values": {},
+    "system_values": {
+      "weather": {
+        "station": "대관령(가상 시나리오)",
+        "tmin_forecast": 12.0,
+        "tmax_forecast": 30.0,
+        "rain_forecast_mm": 0,
+        "heavy_rain_warning": false
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "stage": "과실 비대기"
+      }
+    },
+    "expected": {
+      "decision": "고온 대응 필요 (최고기온 30℃는 '30℃ 이상' 기준 해당)",
+      "decision_key": "고온 대응",
+      "required_items": [
+        "고온 대응이 필요함",
+        "최고기온 30℃가 '30℃ 이상' 기준에 해당"
+      ]
+    },
+    "rule_ids": [
+      "WTH-02"
+    ],
+    "reference_call": {
+      "tool": "weather_risk_decision",
+      "args": {
+        "tmin_forecast": 12.0,
+        "tmax_forecast": 30.0,
+        "heavy_rain_warning": false
+      }
+    }
+  },
+  {
+    "scenario_id": "WTH-OF-003",
+    "cultivation": "open_field",
+    "domain": "weather",
+    "type": "complex",
+    "question": "노지 토마토 밭인데 이번 주 날씨 보고 미리 할 일 있어?",
+    "user_values": {},
+    "system_values": {
+      "weather": {
+        "station": "대관령(가상 시나리오)",
+        "tmin_forecast": 18.0,
+        "tmax_forecast": 31.0,
+        "rain_forecast_mm": 120,
+        "heavy_rain_warning": true
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "stage": "과실 비대기"
+      }
+    },
+    "expected": {
+      "decision": "고온 대응 + 호우 대비 배수로 확보",
+      "decision_key": "배수로 확보",
+      "required_items": [
+        "고온 대응 (최고 31℃ ≥ 30℃)",
+        "호우 예보로 배수로 확보"
+      ]
+    },
+    "rule_ids": [
+      "WTH-02",
+      "WTH-03"
+    ],
+    "reference_call": {
+      "tool": "weather_risk_decision",
+      "args": {
+        "tmin_forecast": 18.0,
+        "tmax_forecast": 31.0,
+        "heavy_rain_warning": true
+      }
+    }
+  },
+  {
+    "scenario_id": "WTH-OF-004",
+    "cultivation": "open_field",
+    "domain": "weather",
+    "type": "calculation",
+    "question": "비 때문에 이랑 위까지 물이 10cm쯤 찼는데 하루 반째 안 빠지고 있어. 지금 과실 비대기인데 피해가 얼마나 될까?",
+    "user_values": {
+      "flood_type": "ridge",
+      "flood_days": 1.5
+    },
+    "system_values": {
+      "weather": {
+        "station": "대관령(가상 시나리오)",
+        "tmin_forecast": 17.0,
+        "tmax_forecast": 25.0,
+        "rain_forecast_mm": 10,
+        "heavy_rain_warning": false
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "stage": "과실 비대기"
+      }
+    },
+    "expected": {
+      "decision": "피해율 약 20%, 배수로 확보로 신속 배출",
+      "decision_key": "피해율 20%",
+      "required_items": [
+        "예상 피해율 20%",
+        "배수로를 확보해 물을 신속히 빼냄"
+      ]
+    },
+    "rule_ids": [
+      "WTH-03"
+    ],
+    "reference_call": {
+      "tool": "weather_risk_decision",
+      "args": {
+        "flood_type": "ridge",
+        "flood_days": 1.5
+      }
+    }
+  },
+  {
+    "scenario_id": "WTH-OF-005",
+    "cultivation": "open_field",
+    "domain": "weather",
+    "type": "missing",
+    "question": "노지 토마토 밭인데 다음 주에 추워진다던데 보온 덮어야 해?",
+    "user_values": {},
+    "system_values": {
+      "weather": {
+        "station": "대관령(가상 시나리오)",
+        "tmin_forecast": null,
+        "tmax_forecast": null,
+        "rain_forecast_mm": null,
+        "heavy_rain_warning": null
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "stage": "과실 비대기"
+      }
+    },
+    "expected": {
+      "decision": "기온 예보 자료가 없어 판단 보류 (최저 10℃ 이하이면 보온 피복이라는 기준만 안내)",
+      "decision_key": null,
+      "required_items": [
+        "기온 예보 값이 없음",
+        "판단을 보류하거나 예보 확인을 요청함",
+        "최저기온 10℃ 이하면 보온 피복"
+      ]
+    },
+    "rule_ids": [
+      "WTH-01"
+    ],
+    "reference_call": {
+      "tool": "weather_risk_decision",
+      "args": {}
+    },
+    "reference_status": "insufficient_data"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "unit": "kg/10a",
+  "basal_n": 10.6,
+  "basal_p": 3.0,
+  "basal_k": 3.0,
+  "topdressing_n": 8.6,
+  "topdressing_p": 0.0,
+  "topdressing_k": 0.0,
+  "pnu": "5271033027105280033",
+  "address": "전북특별자치도 완주군 이서면 용서리 일반 528-33",
+  "crop": "토마토(노지)",
+  "crop_code": "04016",
+  "source": "흙토람 비료사용처방 API",
+  "retrieved_at": "2026-11-17T16:50:27"
+}

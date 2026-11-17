@@ -3,22 +3,18 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "agri-dss"
-version = "0.1.0"
-description = "Traceable agricultural decision research prototype"
+name = "agbot"
+version = "3.0.0"
+description = "토마토 재배 의사결정지원: RAG vs MCP 판정 비교"
 requires-python = ">=3.11"
-dependencies = ["pydantic>=2,<3", "requests>=2.31,<3"]
+dependencies = ["requests>=2.31,<3", "mcp>=1.27,<2", "matplotlib>=3.8", "pyyaml>=6", "chromadb>=1.0", "pypdf>=5"]
 
 [project.optional-dependencies]
-dev = ["pytest>=7.4,<10", "pypdf>=5,<8"]
-mcp = ["mcp>=1.27,<2"]
+dev = ["pytest>=7.4"]
 
-[project.scripts]
-agri-dss = "agri_dss.cli:main"
-
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.setuptools]
+packages = ["agbot"]
 
 [tool.pytest.ini_options]
-pythonpath = ["src"]
 testpaths = ["tests"]
+pythonpath = ["."]

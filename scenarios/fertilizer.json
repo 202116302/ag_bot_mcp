@@ -1,0 +1,247 @@
+[
+  {
+    "scenario_id": "FER-OF-001",
+    "cultivation": "open_field",
+    "domain": "fertilizer",
+    "type": "simple",
+    "question": "흙토람 처방대로 밑거름 줄 때 요소는 몇 kg 넣어야 돼?",
+    "user_values": {},
+    "system_values": {
+      "fertilizer_prescription": {
+        "unit": "kg/10a",
+        "basal_n": 10.6,
+        "basal_p": 3.0,
+        "basal_k": 3.0,
+        "topdressing_n": 8.6,
+        "topdressing_p": 0.0,
+        "topdressing_k": 0.0,
+        "source": "흙토람 비료사용처방 API, 완주군 이서면 용서리 528-33, 토마토(노지) 04016",
+        "snapshot": "data/snapshots/wanju_fertilizer_open_field.json"
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "planting_date": "2026-07-01",
+        "today": "2026-06-25"
+      }
+    },
+    "expected": {
+      "decision": "밑거름 요소 23.0 kg/10a",
+      "decision_key": "제품량 환산",
+      "required_items": [
+        "요소 23.0kg/10a",
+        "질소 10.6kg ÷ 요소 질소 함량 46%"
+      ]
+    },
+    "rule_ids": [
+      "FER-01"
+    ],
+    "reference_call": {
+      "tool": "fertilizer_schedule",
+      "args": {
+        "basal_n": 10.6,
+        "basal_p": 3.0,
+        "basal_k": 3.0
+      }
+    },
+    "data_source": "api_snapshot"
+  },
+  {
+    "scenario_id": "FER-OF-002",
+    "cultivation": "open_field",
+    "domain": "fertilizer",
+    "type": "boundary",
+    "question": "웃거름 언제 줘야 돼? 오늘 줘도 돼?",
+    "user_values": {},
+    "system_values": {
+      "fertilizer_prescription": {
+        "unit": "kg/10a",
+        "basal_n": 10.6,
+        "basal_p": 3.0,
+        "basal_k": 3.0,
+        "topdressing_n": 8.6,
+        "topdressing_p": 0.0,
+        "topdressing_k": 0.0,
+        "source": "흙토람 비료사용처방 API, 완주군 이서면 용서리 528-33, 토마토(노지) 04016",
+        "snapshot": "data/snapshots/wanju_fertilizer_open_field.json"
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "planting_date": "2026-07-01",
+        "today": "2026-07-26"
+      }
+    },
+    "expected": {
+      "decision": "오늘(정식 후 25일)이 1차 웃거름 적기 시작일 → 줘도 됨",
+      "decision_key": "1차 웃거름 적기",
+      "required_items": [
+        "오늘 1차 웃거름을 줘도 됨",
+        "1차 웃거름은 정식 후 25~30일",
+        "오늘은 정식 후 25일"
+      ]
+    },
+    "rule_ids": [
+      "FER-03"
+    ],
+    "reference_call": {
+      "tool": "fertilizer_schedule",
+      "args": {
+        "planting_date": "2026-07-01",
+        "today": "2026-07-26",
+        "topdressing_n": 8.6
+      }
+    },
+    "data_source": "api_snapshot"
+  },
+  {
+    "scenario_id": "FER-OF-003",
+    "cultivation": "open_field",
+    "domain": "fertilizer",
+    "type": "complex",
+    "question": "지금 웃거름 몇 차 시기야? 그리고 웃거름 질소는 요소로 총 얼마야?",
+    "user_values": {},
+    "system_values": {
+      "fertilizer_prescription": {
+        "unit": "kg/10a",
+        "basal_n": 10.6,
+        "basal_p": 3.0,
+        "basal_k": 3.0,
+        "topdressing_n": 8.6,
+        "topdressing_p": 0.0,
+        "topdressing_k": 0.0,
+        "source": "흙토람 비료사용처방 API, 완주군 이서면 용서리 528-33, 토마토(노지) 04016",
+        "snapshot": "data/snapshots/wanju_fertilizer_open_field.json"
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "planting_date": "2026-07-01",
+        "today": "2026-08-18"
+      }
+    },
+    "expected": {
+      "decision": "2차 웃거름 적기 (8/15~8/25), 웃거름 요소 총 18.7 kg/10a",
+      "decision_key": "2차 웃거름 적기",
+      "required_items": [
+        "지금은 2차 웃거름 시기",
+        "2차 적기 2026-08-15~2026-08-25",
+        "웃거름 요소 총 18.7kg/10a"
+      ]
+    },
+    "rule_ids": [
+      "FER-01",
+      "FER-03"
+    ],
+    "reference_call": {
+      "tool": "fertilizer_schedule",
+      "args": {
+        "topdressing_n": 8.6,
+        "topdressing_p": 0.0,
+        "topdressing_k": 0.0,
+        "planting_date": "2026-07-01",
+        "today": "2026-08-18"
+      }
+    },
+    "data_source": "api_snapshot"
+  },
+  {
+    "scenario_id": "FER-OF-004",
+    "cultivation": "open_field",
+    "domain": "fertilizer",
+    "type": "calculation",
+    "question": "우리 밭이 3000㎡인데 밑거름으로 요소, 용성인비, 염화가리 각각 몇 kg 넣어야 돼?",
+    "user_values": {
+      "area_m2": 3000
+    },
+    "system_values": {
+      "fertilizer_prescription": {
+        "unit": "kg/10a",
+        "basal_n": 10.6,
+        "basal_p": 3.0,
+        "basal_k": 3.0,
+        "topdressing_n": 8.6,
+        "topdressing_p": 0.0,
+        "topdressing_k": 0.0,
+        "source": "흙토람 비료사용처방 API, 완주군 이서면 용서리 528-33, 토마토(노지) 04016",
+        "snapshot": "data/snapshots/wanju_fertilizer_open_field.json"
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "planting_date": "2026-07-01",
+        "today": "2026-06-25"
+      }
+    },
+    "expected": {
+      "decision": "요소 69.1kg, 용성인비 45.0kg, 염화가리 15.0kg (3,000㎡)",
+      "decision_key": "제품량 환산",
+      "required_items": [
+        "요소 69.1kg",
+        "용성인비 45kg",
+        "염화가리 15kg"
+      ]
+    },
+    "rule_ids": [
+      "FER-01"
+    ],
+    "reference_call": {
+      "tool": "fertilizer_schedule",
+      "args": {
+        "basal_n": 10.6,
+        "basal_p": 3.0,
+        "basal_k": 3.0,
+        "area_m2": 3000
+      }
+    },
+    "data_source": "api_snapshot"
+  },
+  {
+    "scenario_id": "FER-OF-005",
+    "cultivation": "open_field",
+    "domain": "fertilizer",
+    "type": "missing",
+    "question": "2차 웃거름은 언제 주면 돼?",
+    "user_values": {},
+    "system_values": {
+      "fertilizer_prescription": {
+        "unit": "kg/10a",
+        "basal_n": 10.6,
+        "basal_p": 3.0,
+        "basal_k": 3.0,
+        "topdressing_n": 8.6,
+        "topdressing_p": 0.0,
+        "topdressing_k": 0.0,
+        "source": "흙토람 비료사용처방 API, 완주군 이서면 용서리 528-33, 토마토(노지) 04016",
+        "snapshot": "data/snapshots/wanju_fertilizer_open_field.json"
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "planting_date": null,
+        "today": "2026-08-10"
+      }
+    },
+    "expected": {
+      "decision": "정식일 정보가 없어 웃거름 날짜 판단 보류 (1차 웃거름 후 20~25일이라는 기준만 안내)",
+      "decision_key": null,
+      "required_items": [
+        "정식일 정보가 없음",
+        "날짜 판단을 보류하거나 정식일을 요청함",
+        "2차는 1차 웃거름 후 20~25일"
+      ]
+    },
+    "rule_ids": [
+      "FER-03"
+    ],
+    "reference_call": {
+      "tool": "fertilizer_schedule",
+      "args": {
+        "topdressing_n": 8.6,
+        "today": "2026-08-10"
+      }
+    },
+    "reference_status": "partial",
+    "data_source": "api_snapshot"
+  }
+]

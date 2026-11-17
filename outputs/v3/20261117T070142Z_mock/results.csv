@@ -1,0 +1,51 @@
+﻿scenario_id,domain,type,condition,repeat,decision_correct,n_items,n_present,evidence_presented,actions,error_type,input_mismatch,system_error,decision,tools,seconds,review_sample,judge_comment
+ENV-GH-001,climate,simple,rag,1,0,2,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.25,0,mock
+ENV-GH-001,climate,simple,mcp,1,1,2,2,1,기타,none,,,환기 · 차광 필요,get_greenhouse_env|get_weather|climate_control_decision,1.62,1,mock
+ENV-GH-002,climate,boundary,rag,1,0,2,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.28,0,mock
+ENV-GH-002,climate,boundary,mcp,1,1,2,2,1,기타,none,,,환기 · 차광 필요,get_greenhouse_env|get_weather|climate_control_decision,1.57,0,mock
+ENV-GH-003,climate,complex,rag,1,0,3,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.23,0,mock
+ENV-GH-003,climate,complex,mcp,1,1,3,3,1,기타,none,,,송풍 필요,get_greenhouse_env|get_weather|climate_control_decision,1.57,0,mock
+ENV-GH-004,climate,calculation,rag,1,0,3,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.37,0,mock
+ENV-GH-004,climate,calculation,mcp,1,1,3,3,1,기타,none,,,환기 · 차광 필요,get_greenhouse_env|get_weather|climate_control_decision,1.57,1,mock
+ENV-GH-005,climate,missing,rag,1,1,2,2,0,판단 보류,none,,,판단 보류: Mock 모델,,0.25,0,mock
+ENV-GH-005,climate,missing,mcp,1,0,2,0,1,기타,other,,,조치 불필요(현 상태 유지),get_greenhouse_env|get_weather|climate_control_decision,1.56,1,mock
+FER-OF-001,fertilizer,simple,rag,1,0,2,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.32,0,mock
+FER-OF-001,fertilizer,simple,mcp,1,0,2,0,1,기타,other,,,1차 웃거름 전 (2026-07-26부터),get_fertilizer_prescription|get_crop_status|fertilizer_schedule,1.56,0,mock
+FER-OF-002,fertilizer,boundary,rag,1,0,3,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.19,1,mock
+FER-OF-002,fertilizer,boundary,mcp,1,1,3,3,1,기타,none,,,1차 웃거름 적기,get_fertilizer_prescription|get_crop_status|fertilizer_schedule,1.57,0,mock
+FER-OF-003,fertilizer,complex,rag,1,0,3,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.35,0,mock
+FER-OF-003,fertilizer,complex,mcp,1,1,3,3,1,기타,none,,,2차 웃거름 적기,get_fertilizer_prescription|get_crop_status|fertilizer_schedule,1.57,0,mock
+FER-OF-004,fertilizer,calculation,rag,1,0,3,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.52,0,mock
+FER-OF-004,fertilizer,calculation,mcp,1,0,3,0,1,기타,other,area_m2: None ≠ 3000,,1차 웃거름 전 (2026-07-26부터),get_fertilizer_prescription|get_crop_status|fertilizer_schedule,1.57,0,mock
+FER-OF-005,fertilizer,missing,rag,1,1,3,3,0,판단 보류,none,,,판단 보류: Mock 모델,,0.16,0,mock
+FER-OF-005,fertilizer,missing,mcp,1,0,3,0,1,기타,other,,,제품량 환산 완료 (웃거름 날짜는 정식일 필요),get_fertilizer_prescription|get_crop_status|fertilizer_schedule,1.55,1,mock
+NUT-GH-001,nutrient,simple,rag,1,0,2,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.23,0,mock
+NUT-GH-001,nutrient,simple,mcp,1,1,2,2,1,기타,none,,,급액 실시,get_nutrient_status|nutrient_decision,1.55,0,mock
+NUT-GH-002,nutrient,boundary,rag,1,0,3,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.2,0,mock
+NUT-GH-002,nutrient,boundary,mcp,1,0,3,0,1,기타,other,,,급액 대기,get_nutrient_status|nutrient_decision,1.55,0,mock
+NUT-GH-003,nutrient,complex,rag,1,0,4,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.34,0,mock
+NUT-GH-003,nutrient,complex,mcp,1,1,4,4,1,기타,none,,,"급액 실시, 급액량 증가, 근권 EC 높임(배액률 낮춤)",get_nutrient_status|nutrient_decision,1.55,0,mock
+NUT-GH-004,nutrient,calculation,rag,1,0,3,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.31,1,mock
+NUT-GH-004,nutrient,calculation,mcp,1,1,3,3,1,기타,none,,,"급액 실시, 급액량 감소",get_nutrient_status|nutrient_decision,1.55,1,mock
+NUT-GH-005,nutrient,missing,rag,1,1,2,2,0,판단 보류,none,,,판단 보류: Mock 모델,,0.14,0,mock
+NUT-GH-005,nutrient,missing,mcp,1,0,2,0,1,기타,other,,,급액 실시,get_nutrient_status|nutrient_decision,1.55,0,mock
+TSK-OF-001,task,simple,rag,1,0,3,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.31,0,mock
+TSK-OF-001,task,simple,mcp,1,1,3,3,1,기타,none,open_flowers: None ≠ 4,,처리 가능 (50배액),get_crop_status|get_weather|task_decision,1.62,0,mock
+TSK-OF-002,task,boundary,rag,1,0,2,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.23,0,mock
+TSK-OF-002,task,boundary,mcp,1,1,2,2,1,기타,none,open_flowers: None ≠ 3,,처리 가능 (50배액),get_crop_status|get_weather|task_decision,1.55,0,mock
+TSK-OF-003,task,complex,rag,1,0,3,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.3,0,mock
+TSK-OF-003,task,complex,mcp,1,1,3,3,1,기타,none,open_flowers: None ≠ 3,,"처리 가능 (100배액), 고온(30℃ 이상) 시간대 처리 회피",get_crop_status|get_weather|task_decision,1.55,0,mock
+TSK-GH-004,task,calculation,rag,1,0,4,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.5,0,mock
+TSK-GH-004,task,calculation,mcp,1,0,4,0,1,기타,other,hydroponic: None ≠ True; harvest_end_date: None ≠ '2026-07-20'; current_truss: None ≠ 5,,6~8단 적심,get_crop_status|get_weather|task_decision,1.55,0,mock
+TSK-GH-005,task,missing,rag,1,1,3,3,0,판단 보류,none,,,판단 보류: Mock 모델,,0.25,0,mock
+TSK-GH-005,task,missing,mcp,1,1,3,3,0,판단 보류,none,coloring_pct: None ≠ 30,,판단 보류(필수 입력 누락),get_crop_status|get_weather|task_decision,1.56,0,mock
+WTH-OF-001,weather,simple,rag,1,0,2,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.21,0,mock
+WTH-OF-001,weather,simple,mcp,1,1,2,2,1,기타,none,,,보온 피복,get_weather|weather_risk_decision,1.56,1,mock
+WTH-OF-002,weather,boundary,rag,1,0,2,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.2,0,mock
+WTH-OF-002,weather,boundary,mcp,1,1,2,2,1,기타,none,,,고온 대응,get_weather|weather_risk_decision,1.55,0,mock
+WTH-OF-003,weather,complex,rag,1,0,2,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.23,1,mock
+WTH-OF-003,weather,complex,mcp,1,1,2,2,1,기타,none,,,"고온 대응, 배수로 확보",get_weather|weather_risk_decision,1.54,0,mock
+WTH-OF-004,weather,calculation,rag,1,0,2,0,0,판단 보류,other,,,판단 보류: Mock 모델,,0.66,0,mock
+WTH-OF-004,weather,calculation,mcp,1,0,2,0,1,기타,other,flood_type: None ≠ 'ridge'; flood_days: None ≠ 1.5,,특별 대응 불필요,get_weather|weather_risk_decision,1.61,0,mock
+WTH-OF-005,weather,missing,rag,1,1,3,3,0,판단 보류,none,,,판단 보류: Mock 모델,,0.23,0,mock
+WTH-OF-005,weather,missing,mcp,1,1,3,3,0,판단 보류,none,,,판단 보류(필수 입력 누락),get_weather|weather_risk_decision,1.61,0,mock

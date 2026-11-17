@@ -1,0 +1,99 @@
+{
+  "model": "mock",
+  "reasoning_effort": "none",
+  "repeats": 2,
+  "modes": [
+    "mcp",
+    "rag"
+  ],
+  "questions": [
+    {
+      "id": "F1",
+      "domain": "fertilizer",
+      "type": "조회",
+      "question": "완주 필지 시설 토마토의 밑거름 질소 처방량은 얼마야?",
+      "expected": [
+        14.4
+      ]
+    },
+    {
+      "id": "F2",
+      "domain": "fertilizer",
+      "type": "조회",
+      "question": "밑거름으로 질소, 인산, 칼리를 각각 얼마나 줘야 해?",
+      "expected": [
+        14.4,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "id": "F3",
+      "domain": "fertilizer",
+      "type": "계산",
+      "question": "밑거름과 웃거름을 합친 질소 총 처방량은 몇 kg/10a야?",
+      "expected": [
+        25.3
+      ]
+    },
+    {
+      "id": "E1",
+      "domain": "environment",
+      "type": "조회",
+      "question": "스마트팜 온실의 내부온도 최고값과 최저값은?",
+      "expected": [
+        32.33,
+        24.67
+      ]
+    },
+    {
+      "id": "E2",
+      "domain": "environment",
+      "type": "조회",
+      "question": "온실 내부습도 평균은 얼마였어?",
+      "expected": [
+        90.4
+      ]
+    },
+    {
+      "id": "E3",
+      "domain": "environment",
+      "type": "계산",
+      "question": "온실 내부 CO2 농도의 최고값과 최저값 차이는?",
+      "expected": [
+        105.0
+      ]
+    },
+    {
+      "id": "W1",
+      "domain": "weather",
+      "type": "조회",
+      "question": "전주 현재 기온과 습도는?",
+      "expected": [
+        15.6,
+        93.0
+      ]
+    },
+    {
+      "id": "W2",
+      "domain": "weather",
+      "type": "조회",
+      "question": "전주 1시간 강수량과 풍속 알려줘",
+      "expected": [
+        0.4,
+        1.7
+      ]
+    },
+    {
+      "id": "C1",
+      "domain": "fertilizer+weather",
+      "type": "복합",
+      "question": "전주 현재 기온이랑 토마토 웃거름 질소 처방량을 같이 알려줘",
+      "expected": [
+        15.6,
+        10.9
+      ]
+    }
+  ],
+  "tolerance": 0.01
+}

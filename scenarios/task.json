@@ -1,0 +1,217 @@
+[
+  {
+    "scenario_id": "TSK-OF-001",
+    "cultivation": "open_field",
+    "domain": "task",
+    "type": "simple",
+    "question": "지금 3번 화방에 꽃이 4개 피었는데 착과제 뿌려도 돼?",
+    "user_values": {
+      "truss": 3,
+      "open_flowers": 4
+    },
+    "system_values": {
+      "weather": {
+        "temp_mean": 18.0,
+        "temp_max": 26.0
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "stage": "fruit_set"
+      }
+    },
+    "expected": {
+      "decision": "처리 가능, 토마토톤 50배액 (평균기온 18℃ ≤ 20℃)",
+      "decision_key": "처리 가능 (50배액)",
+      "required_items": [
+        "처리 가능",
+        "농도 50배액",
+        "근거: 평균기온 20℃ 이하"
+      ]
+    },
+    "rule_ids": [
+      "TSK-03",
+      "TSK-04"
+    ],
+    "reference_call": {
+      "tool": "task_decision",
+      "args": {
+        "task": "fruit_set",
+        "temp_mean": 18.0,
+        "temp_max": 26.0,
+        "open_flowers": 4
+      }
+    }
+  },
+  {
+    "scenario_id": "TSK-OF-002",
+    "cultivation": "open_field",
+    "domain": "task",
+    "type": "boundary",
+    "question": "꽃이 3개 폈는데 착과제 몇 배로 타야 돼?",
+    "user_values": {
+      "open_flowers": 3
+    },
+    "system_values": {
+      "weather": {
+        "temp_mean": 20.0,
+        "temp_max": 25.0
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "stage": "fruit_set"
+      }
+    },
+    "expected": {
+      "decision": "50배액 또는 100배액 모두 정답으로 인정. 문서가 '평균기온 20℃ 이하 50배액, 20℃ 이상 100배액'으로 표기해 평균기온 20.0℃는 두 기준에 모두 해당한다. 경계가 모호함을 언급했는지는 필수 항목으로 평가",
+      "decision_key": "50배액",
+      "required_items": [
+        "농도를 50배액 또는 100배액으로 제시",
+        "평균기온 20℃가 문서 기준의 경계값임을 언급"
+      ],
+      "accept_alternatives": [
+        "100배액"
+      ]
+    },
+    "rule_ids": [
+      "TSK-03"
+    ],
+    "reference_call": {
+      "tool": "task_decision",
+      "args": {
+        "task": "fruit_set",
+        "temp_mean": 20.0,
+        "temp_max": 25.0,
+        "open_flowers": 3
+      }
+    }
+  },
+  {
+    "scenario_id": "TSK-OF-003",
+    "cultivation": "open_field",
+    "domain": "task",
+    "type": "complex",
+    "question": "지금 3번 화방 꽃이 3개 피었는데 착과제 뿌려도 돼?",
+    "user_values": {
+      "truss": 3,
+      "open_flowers": 3
+    },
+    "system_values": {
+      "weather": {
+        "temp_mean": 22.0,
+        "temp_max": 31.0
+      },
+      "crop": {
+        "cultivation": "open_field",
+        "cropping_type": "노지",
+        "stage": "fruit_set"
+      }
+    },
+    "expected": {
+      "decision": "처리 가능하나 고온 시간대 회피, 100배액",
+      "decision_key": "고온(30℃ 이상) 시간대 처리 회피",
+      "required_items": [
+        "농도: 100배액",
+        "근거 기준: 평균기온 20℃ 이상",
+        "고온(30℃ 이상) 시간대 처리 회피"
+      ]
+    },
+    "rule_ids": [
+      "TSK-03",
+      "TSK-04"
+    ],
+    "reference_call": {
+      "tool": "task_decision",
+      "args": {
+        "task": "fruit_set",
+        "temp_mean": 22.0,
+        "temp_max": 31.0,
+        "open_flowers": 3
+      }
+    }
+  },
+  {
+    "scenario_id": "TSK-GH-004",
+    "cultivation": "greenhouse_hydroponic",
+    "domain": "task",
+    "type": "calculation",
+    "question": "수확은 7월 20일에 끝낼 건데 순지르기는 언제 해야 돼? 지금 5화방까지 올라왔어.",
+    "user_values": {
+      "harvest_end_date": "2026-07-20",
+      "current_truss": 5
+    },
+    "system_values": {
+      "crop": {
+        "cultivation": "greenhouse_hydroponic",
+        "cropping_type": "반촉성",
+        "hydroponic": true,
+        "today": "2026-05-20"
+      }
+    },
+    "expected": {
+      "decision": "적심일 2026-05-31 (수확 종료 50일 전), 반촉성 6~8단 기준",
+      "decision_key": "적심일 2026-05-31",
+      "required_items": [
+        "적심일 2026-05-31",
+        "수확 종료 예정일 50일 전",
+        "마지막 화방 위 잎 2매 남김",
+        "반촉성 적심 6~8단"
+      ]
+    },
+    "rule_ids": [
+      "TSK-01",
+      "TSK-02"
+    ],
+    "reference_call": {
+      "tool": "task_decision",
+      "args": {
+        "task": "topping",
+        "cropping_type": "반촉성",
+        "hydroponic": true,
+        "harvest_end_date": "2026-07-20",
+        "today": "2026-05-20",
+        "current_truss": 5
+      }
+    }
+  },
+  {
+    "scenario_id": "TSK-GH-005",
+    "cultivation": "greenhouse_hydroponic",
+    "domain": "task",
+    "type": "missing",
+    "question": "토마토 착색이 30%쯤 됐는데 지금 따도 돼?",
+    "user_values": {
+      "coloring_pct": 30
+    },
+    "system_values": {
+      "crop": {
+        "cultivation": "greenhouse_hydroponic",
+        "cropping_type": "억제",
+        "hydroponic": true,
+        "season": null
+      }
+    },
+    "expected": {
+      "decision": "억제재배는 혹서기/저온기 기준이 달라 시기 정보 없이 판단 보류 (혹서기면 수확, 저온기면 50%까지 대기)",
+      "decision_key": null,
+      "required_items": [
+        "혹서기인지 저온기인지 정보가 필요함",
+        "혹서기는 착색초기 수확",
+        "저온기는 50% 착색기 수확"
+      ]
+    },
+    "rule_ids": [
+      "TSK-05"
+    ],
+    "reference_call": {
+      "tool": "task_decision",
+      "args": {
+        "task": "harvest",
+        "cropping_type": "억제",
+        "coloring_pct": 30
+      }
+    },
+    "reference_status": "insufficient_data"
+  }
+]

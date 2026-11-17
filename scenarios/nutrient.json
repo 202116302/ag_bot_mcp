@@ -1,0 +1,188 @@
+[
+  {
+    "scenario_id": "NUT-GH-001",
+    "cultivation": "greenhouse_hydroponic",
+    "domain": "nutrient",
+    "type": "simple",
+    "question": "오늘 일사량 기준으로 지금 급액해야 돼?",
+    "user_values": {},
+    "system_values": {
+      "nutrient": {
+        "solar_accum": 210,
+        "supply_volume": null,
+        "drain_volume": null,
+        "supply_ec": 1.4,
+        "drain_ec": 2.5,
+        "supply_ph": 5.9
+      }
+    },
+    "expected": {
+      "decision": "급액 실시 (적산일사량 210 J/㎠ ≥ 180 J/㎠)",
+      "decision_key": "급액 실시",
+      "required_items": [
+        "지금 급액함",
+        "급액 기준: 적산일사량 180 J/㎠"
+      ]
+    },
+    "rule_ids": [
+      "NUT-01"
+    ],
+    "reference_call": {
+      "tool": "nutrient_decision",
+      "args": {
+        "solar_accum": 210
+      }
+    }
+  },
+  {
+    "scenario_id": "NUT-GH-002",
+    "cultivation": "greenhouse_hydroponic",
+    "domain": "nutrient",
+    "type": "boundary",
+    "question": "배액 EC랑 급액 EC 지금 괜찮은 거야?",
+    "user_values": {},
+    "system_values": {
+      "nutrient": {
+        "solar_accum": 120,
+        "supply_volume": null,
+        "drain_volume": null,
+        "supply_ec": 1.5,
+        "drain_ec": 3.0,
+        "supply_ph": 5.9
+      }
+    },
+    "expected": {
+      "decision": "근권 EC 3.0, 급액 EC 1.5 모두 기준 범위(상한 포함) 이내 → EC 조정 불필요",
+      "decision_key": "근권 EC 적정 / 급액 EC 적정",
+      "required_items": [
+        "근권(배액) EC 3.0은 2.0~3.0 범위 이내",
+        "급액 EC 1.5는 1.2~1.5 기준 이내",
+        "조정 불필요"
+      ]
+    },
+    "rule_ids": [
+      "NUT-03",
+      "NUT-04"
+    ],
+    "reference_call": {
+      "tool": "nutrient_decision",
+      "args": {
+        "supply_ec": 1.5,
+        "drain_ec": 3.0
+      }
+    }
+  },
+  {
+    "scenario_id": "NUT-GH-003",
+    "cultivation": "greenhouse_hydroponic",
+    "domain": "nutrient",
+    "type": "complex",
+    "question": "배액도 적게 나오고 배액 EC도 낮은데 급액을 어떻게 조정해?",
+    "user_values": {},
+    "system_values": {
+      "nutrient": {
+        "solar_accum": 200,
+        "supply_volume": 1000,
+        "drain_volume": 100,
+        "supply_ec": 1.3,
+        "drain_ec": 1.6,
+        "supply_ph": 5.9
+      }
+    },
+    "expected": {
+      "decision": "급액량 증가로 배액률(10%)을 20~30%로 맞추는 것을 우선, 근권 EC가 낮은 것은 급액 EC로 조정",
+      "decision_key": "급액량 증가",
+      "required_items": [
+        "배액률 10%로 목표 20~30%보다 낮음",
+        "급액량을 늘림",
+        "근권 EC 1.6이 2.0보다 낮음",
+        "배액률 조절과 EC 조절 방향이 충돌함을 언급"
+      ]
+    },
+    "rule_ids": [
+      "NUT-02",
+      "NUT-03"
+    ],
+    "reference_call": {
+      "tool": "nutrient_decision",
+      "args": {
+        "supply_volume": 1000,
+        "drain_volume": 100,
+        "drain_ec": 1.6
+      }
+    }
+  },
+  {
+    "scenario_id": "NUT-GH-004",
+    "cultivation": "greenhouse_hydroponic",
+    "domain": "nutrient",
+    "type": "calculation",
+    "question": "오늘 급액량하고 배액량으로 배액률 계산해서 급액량 조정해줘.",
+    "user_values": {},
+    "system_values": {
+      "nutrient": {
+        "solar_accum": 230,
+        "supply_volume": 2400,
+        "drain_volume": 840,
+        "supply_ec": 1.4,
+        "drain_ec": 2.6,
+        "supply_ph": 5.9
+      }
+    },
+    "expected": {
+      "decision": "배액률 35% → 급액량 감소",
+      "decision_key": "급액량 감소",
+      "required_items": [
+        "배액률 35%",
+        "급액량을 줄임",
+        "목표 배액률 20~30%"
+      ]
+    },
+    "rule_ids": [
+      "NUT-02"
+    ],
+    "reference_call": {
+      "tool": "nutrient_decision",
+      "args": {
+        "supply_volume": 2400,
+        "drain_volume": 840
+      }
+    }
+  },
+  {
+    "scenario_id": "NUT-GH-005",
+    "cultivation": "greenhouse_hydroponic",
+    "domain": "nutrient",
+    "type": "missing",
+    "question": "배액률이 적당한지 봐줘.",
+    "user_values": {},
+    "system_values": {
+      "nutrient": {
+        "solar_accum": 190,
+        "supply_volume": 2000,
+        "drain_volume": null,
+        "supply_ec": 1.4,
+        "drain_ec": 2.4,
+        "supply_ph": 5.9
+      }
+    },
+    "expected": {
+      "decision": "배액량 자료가 없어 배액률 판단 보류",
+      "decision_key": null,
+      "required_items": [
+        "배액량 값이 없음",
+        "배액률을 계산할 수 없어 판단을 보류하거나 배액량 확인을 요청함"
+      ]
+    },
+    "rule_ids": [
+      "NUT-02"
+    ],
+    "reference_call": {
+      "tool": "nutrient_decision",
+      "args": {
+        "supply_volume": 2000
+      }
+    },
+    "reference_status": "insufficient_data"
+  }
+]

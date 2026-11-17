@@ -1,0 +1,71 @@
+{
+  "region_name": "전주시완산구",
+  "source": "http://weather-rda.digitalag.kr:8001 (기상청 자료 중계)",
+  "retrieved_at": "2026-11-14T07:28:59.955065+00:00",
+  "source_files": [
+    "outputs/api_probe/20261114T072859954061Z/jeonju_weather.json",
+    "outputs/api_probe/20261114T072859954061Z/jeonju_forecast.json"
+  ],
+  "current": {
+    "base_date": "2026-11-14",
+    "base_time": "1600",
+    "values": {
+      "T1H": {
+        "name": "기온",
+        "value": 15.6,
+        "unit": "℃"
+      },
+      "RN1": {
+        "name": "1시간 강수량",
+        "value": 0.4,
+        "unit": "mm"
+      },
+      "REH": {
+        "name": "습도",
+        "value": 93.0,
+        "unit": "%"
+      },
+      "WSD": {
+        "name": "풍속",
+        "value": 1.7,
+        "unit": "m/s"
+      },
+      "VEC": {
+        "name": "풍향",
+        "value": 177.0,
+        "unit": "deg"
+      },
+      "PTY": {
+        "name": "강수형태",
+        "value": 1.0,
+        "unit": "code"
+      }
+    }
+  },
+  "forecast": [
+    {
+      "fcst_date": "2026-11-14",
+      "fcst_time": "1500",
+      "category": "POP",
+      "name": "강수확률",
+      "value": 60.0,
+      "unit": "%"
+    },
+    {
+      "fcst_date": "2026-11-14",
+      "fcst_time": "1600",
+      "category": "POP",
+      "name": "강수확률",
+      "value": 60.0,
+      "unit": "%"
+    },
+    {
+      "fcst_date": "2026-11-14",
+      "fcst_time": "1700",
+      "category": "POP",
+      "name": "강수확률",
+      "value": 60.0,
+      "unit": "%"
+    }
+  ]
+}

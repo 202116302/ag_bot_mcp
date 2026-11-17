@@ -1,0 +1,46 @@
+{
+  "model": "gpt-5.4-mini-2026-03-17",
+  "reasoning_effort": "none",
+  "max_output_tokens": 1800,
+  "embed_model": "text-embedding-3-small",
+  "search_k": 5,
+  "repeats": 10,
+  "conditions": [
+    "rag",
+    "mcp"
+  ],
+  "scenarios": [
+    "ENV-GH-001",
+    "ENV-GH-002",
+    "ENV-GH-003",
+    "ENV-GH-004",
+    "ENV-GH-005",
+    "FER-OF-001",
+    "FER-OF-002",
+    "FER-OF-003",
+    "FER-OF-004",
+    "FER-OF-005",
+    "NUT-GH-001",
+    "NUT-GH-002",
+    "NUT-GH-003",
+    "NUT-GH-004",
+    "NUT-GH-005",
+    "TSK-OF-001",
+    "TSK-OF-002",
+    "TSK-OF-003",
+    "TSK-GH-004",
+    "TSK-GH-005",
+    "WTH-OF-001",
+    "WTH-OF-002",
+    "WTH-OF-003",
+    "WTH-OF-004",
+    "WTH-OF-005"
+  ],
+  "git_commit": "fc30f60",
+  "hashes": {
+    "knowledge/rules.yaml": "bbe5e902d8ba",
+    "knowledge/chunks.jsonl": "668f61db5c1e",
+    "agbot/chat.py": "4647c62ee271",
+    "agbot/rules.py": "326dd13e79e5"
+  }
+}

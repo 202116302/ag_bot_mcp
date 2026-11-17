@@ -1,0 +1,53 @@
+[
+  {
+    "scenario_id": "ENV-GH-001", "cultivation": "greenhouse_hydroponic", "domain": "climate", "type": "simple",
+    "question": "지금 하우스 안이 많이 더운데 환기해야 돼?",
+    "user_values": {},
+    "system_values": {"greenhouse_env": {"temp": 33.0, "rh": 60, "time_of_day": "day"}, "weather": {"outdoor_temp": 24.0}},
+    "expected": {"decision": "환기·차광 필요", "decision_key": "환기 · 차광",
+                 "required_items": ["환기와 차광이 필요함", "근거 기준: 주간 30℃ 이상이면 생육 불량·낙화"]},
+    "rule_ids": ["ENV-01"],
+    "reference_call": {"tool": "climate_control_decision", "args": {"greenhouse_temp": 33.0, "greenhouse_rh": 60, "outdoor_temp": 24.0, "time_of_day": "day"}}
+  },
+  {
+    "scenario_id": "ENV-GH-002", "cultivation": "greenhouse_hydroponic", "domain": "climate", "type": "boundary",
+    "question": "하우스 온도 괜찮아? 뭐 조치해야 할 거 있어?",
+    "user_values": {},
+    "system_values": {"greenhouse_env": {"temp": 30.0, "rh": 55, "time_of_day": "day"}, "weather": {"outdoor_temp": 22.0}},
+    "expected": {"decision": "환기·차광 필요 (30℃는 '30℃ 이상' 기준에 해당)", "decision_key": "환기 · 차광",
+                 "required_items": ["환기와 차광이 필요함", "현재 30℃가 '30℃ 이상' 기준에 해당함"]},
+    "rule_ids": ["ENV-01"],
+    "reference_call": {"tool": "climate_control_decision", "args": {"greenhouse_temp": 30.0, "greenhouse_rh": 55, "outdoor_temp": 22.0, "time_of_day": "day"}}
+  },
+  {
+    "scenario_id": "ENV-GH-003", "cultivation": "greenhouse_hydroponic", "domain": "climate", "type": "complex",
+    "question": "밤인데 하우스 습도가 높네. 환기할까?",
+    "user_values": {},
+    "system_values": {"greenhouse_env": {"temp": 16.0, "rh": 85, "time_of_day": "night"}, "weather": {"outdoor_temp": 8.0}},
+    "expected": {"decision": "환기하지 말고 송풍으로 습도를 낮춤 (외기온 10℃ 이하라 야간 환기 중지)", "decision_key": "송풍 필요",
+                 "required_items": ["송풍으로 습도를 낮춤", "외기온이 10℃ 이하이므로 야간 환기는 하지 않음", "습도 70% 이상이면 열과 우려"]},
+    "rule_ids": ["ENV-06", "ENV-08"],
+    "reference_call": {"tool": "climate_control_decision", "args": {"greenhouse_temp": 16.0, "greenhouse_rh": 85, "outdoor_temp": 8.0, "time_of_day": "night"}}
+  },
+  {
+    "scenario_id": "ENV-GH-004", "cultivation": "greenhouse_hydroponic", "domain": "climate", "type": "calculation",
+    "question": "하우스가 너무 뜨거운데 차광막 치면 몇 도까지 내려갈 수 있어?",
+    "user_values": {},
+    "system_values": {"greenhouse_env": {"temp": 32.0, "rh": 60, "time_of_day": "day"}, "weather": {"outdoor_temp": 27.0}},
+    "expected": {"decision": "환기·차광 필요, 차광 시 최대 4℃ 낮춰 약 28℃", "decision_key": "환기 · 차광",
+                 "required_items": ["환기와 차광이 필요함", "차광으로 최대 4℃ 낮출 수 있음", "약 28℃까지 낮출 수 있음"]},
+    "rule_ids": ["ENV-01", "ENV-07"],
+    "reference_call": {"tool": "climate_control_decision", "args": {"greenhouse_temp": 32.0, "greenhouse_rh": 60, "outdoor_temp": 27.0, "time_of_day": "day"}}
+  },
+  {
+    "scenario_id": "ENV-GH-005", "cultivation": "greenhouse_hydroponic", "domain": "climate", "type": "missing",
+    "question": "열과 생길까 봐 걱정인데 송풍기 틀어야 해?",
+    "user_values": {},
+    "system_values": {"greenhouse_env": {"temp": 26.0, "rh": null, "time_of_day": "day"}, "weather": {"outdoor_temp": 20.0}},
+    "expected": {"decision": "습도 측정값이 없어 송풍 필요 여부 판단 보류", "decision_key": null,
+                 "required_items": ["하우스 습도 값이 없음", "송풍 필요 여부는 판단을 보류하거나 습도 확인을 요청함"]},
+    "rule_ids": ["ENV-06"],
+    "reference_call": {"tool": "climate_control_decision", "args": {"greenhouse_temp": 26.0, "outdoor_temp": 20.0, "time_of_day": "day"}},
+    "reference_status": "partial"
+  }
+]

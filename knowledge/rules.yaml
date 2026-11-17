@@ -1,0 +1,86 @@
+# 판정 규칙표 (mcp_agri_dss_spec.md 6절)
+# - 각 규칙은 doc_id와 원문 clause를 가진다. clause는 knowledge/chunks.jsonl 안에 실제로 있어야 한다(테스트로 확인).
+# - 경계 처리: 문서의 "이상/이하"는 포함(>=, <=). 문서 표현이 겹치는 경우는 boundary에 결정을 적는다.
+# - 단위는 출처 표기를 그대로 쓴다.
+
+climate:
+  ENV-01: {doc_id: JEJU-TOMATO, page: 2, clause: "30℃이상의 높은 온도에서는 광합성에 의한 생산보다 호흡에 의한 소비가 많아져서 생육이 나빠지고 꽃이 잘 떨어진다",
+           day_max: 30, unit: "℃", action: "환기·차광"}
+  ENV-02: {doc_id: JEJU-TOMATO, page: 2, clause: "생육에 가장 적당한 온도는 낮 온도가 25∼27℃이고 밤 온도는 17℃정도",
+           day_optimal: [25, 27], night_optimal: 17, unit: "℃"}
+  ENV-03: {doc_id: JEJU-TOMATO, page: 1, clause: "밤온도가 20℃이상이면 공동과, 낙화가 많아지고 품질도 나빠진다",
+           night_max: 20, unit: "℃", action: "야간 환기"}
+  ENV-04: {doc_id: JEJU-TOMATO, page: 2, clause: "10℃이하일 때는 생육이 떨어진다",
+           min_growth: 10, unit: "℃", action: "난방·보온"}
+  ENV-05: {doc_id: JEJU-TOMATO, page: 2, clause: "5℃이하에서는 생육이 정지되고",
+           growth_stop: 5, unit: "℃", action: "즉시 난방"}
+  ENV-06: {doc_id: JEJU-TOMATO, page: 25, clause: "70% 이상시 발생이 우려되며",
+           rh_max: 70, rh_target: 50, unit: "%", action: "송풍·환기",
+           note: "열과 대책: 송풍으로 공중습도 저하 (50%이하)"}
+  ENV-07: {doc_id: RDA-WEATHER-2025, page: 45, clause: "온실 내부온도를 차광하지 않은 경우보다 최대 4℃ 낮출 수 있음",
+           shading_effect: 4, fog_effect: [4, 5], unit: "℃", explain_only: true}
+  ENV-08: {doc_id: JEJU-TOMATO, page: 4, clause: "외기온이 10℃이하로 떨어지면 야간환기를 멈춘다",
+           outdoor_min_for_night_vent: 10, unit: "℃",
+           priority: "야간 고습(ENV-06)과 저온 외기(ENV-08)가 겹치면 환기 대신 송풍으로 습도를 낮춘다"}
+
+nutrient:
+  NUT-01: {doc_id: MOON-2018, page: 3, clause: "적산일사량이 180J/㎠에 도달하였을 때 급액",
+           solar_trigger: 180, unit: "J/㎠"}
+  NUT-02: {doc_id: JEJU-TOMATO, page: 17, clause: "배액율을 20∼30% 내외로 관리하여야 하며",
+           drain_rate: [20, 30], unit: "%", reference: "HWANG-2012 표준배액률 처리 23.8%"}
+  NUT-03: {doc_id: JEJU-TOMATO, page: 17, clause: "근권 EC는 2.0∼3.0mS/cm 내외로 관리",
+           root_ec: [2.0, 3.0], sugar_up_ec: [2.9, 3.6], unit: "mS/cm",
+           note: "근권 EC는 배액율을 증감시키므로써 조절"}
+  NUT-04: {doc_id: MOON-2018, page: 3, clause: "표준배양액은 EC 1.2-1.5, pH 5.8-6.0",
+           supply_ec: [1.2, 1.5], unit: "dS/m",
+           alternative: {doc_id: HWANG-2012, supply_ec: [1.5, 2.5], note: "생육단계에 따라. 사용자 결정으로 MOON-2018 채택"}}
+  NUT-05: {doc_id: MOON-2018, page: 3, clause: "표준배양액은 EC 1.2-1.5, pH 5.8-6.0",
+           supply_ph: [5.8, 6.0],
+           alternative: {doc_id: HWANG-2012, supply_ph: [5.6, 6.0]}}
+
+fertilizer:
+  FER-01: {doc_id: JEJU-TOMATO, page: 13, clause: "요소52.2kg 용성인비 82kg, 염화가리 39.7kg",
+           contents: {urea_n: 0.46, fused_p: 0.20, kcl_k: 0.60},
+           note: "제품량 = 성분량 ÷ 성분 함량. 함량은 JEJU 300평당 환산값에서 역산 (24.0/52.2, 16.4/82, 23.8/39.7)"}
+  FER-02: {doc_id: JEJU-TOMATO, page: 13, clause: "노지토마토 : 질소 24.0kg, 인산 16.4kg, 칼리 23.8kg",
+           per_300pyeong: {n: 24.0, p: 16.4, k: 23.8}, pyeong_300_m2: 991.7,
+           note: "흙토람 처방이 없을 때 대체. 10a(1,000㎡) 환산 = 값 × 1000 / 991.7"}
+  FER-03: {doc_id: JEJU-TOMATO, page: 14, clause: "웃거름은 정식후 25∼30일경에 1차, 2차는 1차 웃거름을 준 20∼25일후에",
+           first: [25, 30], interval: [20, 25], unit: "일", rounds: 3}
+  FER-04: {doc_id: JEJU-TOMATO, page: 12, clause: "정식골에 3요소를 밑거름으로 주고",
+           note: "밑거름·웃거름 배분은 흙토람 처방서의 밑거름/웃거름 값을 그대로 쓴다"}
+
+weather:
+  WTH-01: {doc_id: JEJU-TOMATO, page: 2, clause: "10℃이하일 때는 생육이 떨어진다",
+           tmin: 10, unit: "℃", action: "보온 피복"}
+  WTH-02: {doc_id: JEJU-TOMATO, page: 2, clause: "30℃이상의 높은 온도에서는 광합성에 의한 생산보다 호흡에 의한 소비가 많아져서 생육이 나빠지고 꽃이 잘 떨어진다",
+           tmax: 30, unit: "℃", action: "고온 대응(차광·관수량 조절)"}
+  WTH-03: {doc_id: RDA-WEATHER-2025, page: 44, clause: "배수로 확보하여 유입 침관수 신속히 배출",
+           ridge_flood: {0.5: 2, 1: 5, 1.5: 20, 2: 40}, furrow_flood: {3: 3, 5: 10, 7: 20, 10: 30},
+           unit: "일 → 피해율 %", stage: "생육중기(과비대기)",
+           note: "폭우 판단 수치 기준은 문서에 없으므로 기상특보(호우) 여부를 입력으로 받는다"}
+
+task:
+  TSK-01: {doc_id: JEJU-TOMATO, page: 15, clause: "순지르기는 수확 종료 예정 50일 전에 하는데 마지막으로 수확 할 화방의 위에 있는 잎 2개를 남기고 잘라준다",
+           days_before_end: 50, leaves_left: 2}
+  TSK-02: {doc_id: JEJU-TOMATO, page: 4, clause: "적심, 적엽은 6∼8단에서 실시",
+           trusses: {semi_forcing: [6, 8], retarding: [5, 6], open_field: [5, 6], forcing: null},
+           clauses: {retarding: "적심, 적엽은 수세와 시세를 보아가면서 5∼6단에서 실시",
+                     open_field: "5∼6단 적심하며", forcing: "과번무시 적심, 적엽을 실시",
+                     hydroponic: "양액재배시 세력이 왕성한 시기에 일찍 적심하면"},
+           note: "촉성은 단수 기준이 없음(no_rule). 양액재배는 세력을 보아 적심"}
+  TSK-03: {doc_id: JEJU-TOMATO, page: 18, clause: "평균기온 20℃를 기준으로 하여 그 이하일 때에는 물 1리터 당 약액 20cc(50배액), 20℃ 이상일 때는 10cc(100배액)",
+           temp_threshold: 20, low: "50배액", high: "100배액",
+           boundary: "20℃는 '이하'(50배액)에 포함. 20℃ 초과일 때 100배액"}
+  TSK-04: {doc_id: JEJU-TOMATO, page: 18, clause: "각 화방 당 꽃이 3∼5개 피었을 때",
+           open_flowers: [3, 5], high_temp: 30,
+           clauses: {high_temp: "식물생장조정제를 고온(30℃이상)시에 처리하거나", repeat: "고온기 처리나 중복처리는 피한다"}}
+  TSK-05: {doc_id: JEJU-TOMATO, page: 35, clause: "변색기 과실 꼭지점에 주황색의 색상이 발현되고 과피 전체의 10% 이하 착색",
+           stage_upper: [[10, "변색기"], [30, "최색기"], [60, "도색기"], [90, "담적색기"]],
+           boundary: "0% 녹숙기, 상한 이하이면 해당 단계(10%→변색기, 30%→최색기, 60%→도색기), 90% 이상 완숙기",
+           harvest_pct: {open_field: 1, semi_forcing: 50, retarding_hot: 1, retarding_cold: 50, default: 90},
+           clauses: {open_field: "착색초기에 수확한다", semi_forcing: "조기수확은 50% 착색되었을 때 실시",
+                     retarding: "혹서기의 수확은 착색초기에 실시하고 저온기에는 50% 착색기에", default: "완숙기에 수확하는 것이다"},
+           note: "착색초기 = 변색기 진입(착색 > 0%)으로 정의. 촉성은 별도 기준이 없어 일반 기준(완숙기 90%)"}
+  TSK-06: {doc_id: JEJU-TOMATO, page: 15, clause: "될 수 있는 대로 빨리 따주고", explain_only: true,
+           note: "곁순 제거·적엽은 판정 없음, RAG 설명만"}

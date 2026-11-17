@@ -13,3 +13,10 @@ data/*인증키*.txt
 build/
 dist/
 *.egg-info/
+
+# v3: vector DB is rebuilt by scripts/build_index.py
+knowledge/chroma/
+
+# API keys (root)
+API_key.txt
+*key*.txt
