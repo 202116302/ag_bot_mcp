@@ -1,0 +1,100 @@
+{
+  "version": "1.0-demo",
+  "provider": "mock",
+  "repeats": 10,
+  "cases": [
+    {
+      "case_id": "SYNTHETIC-BELOW",
+      "category": "boundary",
+      "overrides": {
+        "soil_moisture_value": 19.9
+      },
+      "expected_decision": "IRRIGATION_REQUIRED",
+      "expected_code": "RULE_MATCH"
+    },
+    {
+      "case_id": "SYNTHETIC-EQUAL",
+      "category": "boundary",
+      "overrides": {
+        "soil_moisture_value": 20.0
+      },
+      "expected_decision": "IRRIGATION_NOT_REQUIRED",
+      "expected_code": "RULE_NOT_MATCH"
+    },
+    {
+      "case_id": "SYNTHETIC-ABOVE",
+      "category": "boundary",
+      "overrides": {
+        "soil_moisture_value": 20.1
+      },
+      "expected_decision": "IRRIGATION_NOT_REQUIRED",
+      "expected_code": "RULE_NOT_MATCH"
+    },
+    {
+      "case_id": "SYNTHETIC-ZERO",
+      "category": "zero",
+      "overrides": {
+        "soil_moisture_value": 0.0
+      },
+      "expected_decision": "IRRIGATION_REQUIRED",
+      "expected_code": "RULE_MATCH"
+    },
+    {
+      "case_id": "SYNTHETIC-MISSING",
+      "category": "missing",
+      "overrides": {
+        "soil_moisture_value": null
+      },
+      "expected_decision": "INSUFFICIENT_INFORMATION",
+      "expected_code": "MISSING_INPUT"
+    },
+    {
+      "case_id": "SYNTHETIC-UNIT",
+      "category": "applicability",
+      "overrides": {
+        "soil_moisture_unit": "kpa_tension"
+      },
+      "expected_decision": "INSUFFICIENT_INFORMATION",
+      "expected_code": "UNIT_MISMATCH"
+    },
+    {
+      "case_id": "SYNTHETIC-STAGE",
+      "category": "applicability",
+      "overrides": {
+        "growth_stage": "other_stage"
+      },
+      "expected_decision": "INSUFFICIENT_INFORMATION",
+      "expected_code": "STAGE_MISMATCH"
+    },
+    {
+      "case_id": "SYNTHETIC-CROP",
+      "category": "applicability",
+      "overrides": {
+        "crop": "other_crop"
+      },
+      "expected_decision": "INSUFFICIENT_INFORMATION",
+      "expected_code": "CROP_MISMATCH"
+    },
+    {
+      "case_id": "SYNTHETIC-SYSTEM",
+      "category": "applicability",
+      "overrides": {
+        "cultivation_system": "hydroponic"
+      },
+      "expected_decision": "INSUFFICIENT_INFORMATION",
+      "expected_code": "CULTIVATION_MISMATCH"
+    },
+    {
+      "case_id": "SYNTHETIC-RANGE",
+      "category": "range",
+      "overrides": {
+        "soil_moisture_value": 101.0
+      },
+      "expected_decision": "INSUFFICIENT_INFORMATION",
+      "expected_code": "VALUE_OUT_OF_RANGE"
+    }
+  ],
+  "scenario_sha256": "f80bc3ba04be72eee4919825e749d5f92649b6b82ee7e8f2d25be3ed5bdca875",
+  "script_sha256": "3b8b3cdfc2a0e86662fa6ab76d23ed5656db2e42a12d8ee0b9f28c49d3af0913",
+  "started_at": "2026-11-16T05:28:45.745350+00:00"
+}

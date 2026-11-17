@@ -1,0 +1,17 @@
+{
+  "rule_id": "irrigation_synthetic_001",
+  "version": "0.1.0-demo",
+  "status": "demo_only",
+  "applicable_crop": "demo_crop",
+  "growth_stage": "demo_stage",
+  "cultivation_system": "demo_soil",
+  "input_unit": "percent_vwc",
+  "operator": "<",
+  "threshold": 20.0,
+  "sources": [{
+    "source_id": "synthetic_rule_reference",
+    "title": "Synthetic software fixture; not an agricultural recommendation",
+    "location": "data/references/demo/irrigation.md",
+    "verified": false
+  }]
+}

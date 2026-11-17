@@ -1,0 +1,360 @@
+{
+  "interpretation": "provider_transcription_fidelity_not_agricultural_accuracy",
+  "provider": "openai",
+  "repeats": 10,
+  "case_count": 3,
+  "statistics": {
+    "mcp": {
+      "model_attempted": 30,
+      "guard_attempted": 0,
+      "guard_passed": 0,
+      "delivered_failed": 2,
+      "repeat_consistency": {
+        "nutrients": {
+          "attempted": 10,
+          "parseable": 8,
+          "majority_fraction_with_failures": 0.8
+        },
+        "provenance_limits": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "zero_values": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        }
+      },
+      "raw_numeric_pass": {
+        "passed": 28,
+        "attempted": 30,
+        "fraction": 0.9333333333333333
+      },
+      "raw_unit_pass": {
+        "passed": 28,
+        "attempted": 30,
+        "fraction": 0.9333333333333333
+      },
+      "raw_identity_pass": {
+        "passed": 28,
+        "attempted": 30,
+        "fraction": 0.9333333333333333
+      },
+      "raw_notices_pass": {
+        "passed": 28,
+        "attempted": 30,
+        "fraction": 0.9333333333333333
+      },
+      "traceable": {
+        "passed": 28,
+        "attempted": 30,
+        "fraction": 0.9333333333333333
+      },
+      "delivered_valid": {
+        "passed": 28,
+        "attempted": 30,
+        "fraction": 0.9333333333333333
+      }
+    },
+    "rag": {
+      "model_attempted": 30,
+      "guard_attempted": 0,
+      "guard_passed": 0,
+      "delivered_failed": 1,
+      "repeat_consistency": {
+        "nutrients": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "provenance_limits": {
+          "attempted": 10,
+          "parseable": 9,
+          "majority_fraction_with_failures": 0.9
+        },
+        "zero_values": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        }
+      },
+      "raw_numeric_pass": {
+        "passed": 29,
+        "attempted": 30,
+        "fraction": 0.9666666666666667
+      },
+      "raw_unit_pass": {
+        "passed": 29,
+        "attempted": 30,
+        "fraction": 0.9666666666666667
+      },
+      "raw_identity_pass": {
+        "passed": 29,
+        "attempted": 30,
+        "fraction": 0.9666666666666667
+      },
+      "raw_notices_pass": {
+        "passed": 29,
+        "attempted": 30,
+        "fraction": 0.9666666666666667
+      },
+      "traceable": {
+        "passed": 30,
+        "attempted": 30,
+        "fraction": 1.0
+      },
+      "delivered_valid": {
+        "passed": 29,
+        "attempted": 30,
+        "fraction": 0.9666666666666667
+      }
+    }
+  },
+  "conditions_failed": 0,
+  "all_passed": false,
+  "pairs": [
+    {
+      "trial": 1,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": false
+    },
+    {
+      "trial": 1,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": false
+    },
+    {
+      "trial": 7,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": false
+    },
+    {
+      "trial": 9,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    }
+  ],
+  "analysis_sha256": "242cf9b9587a2a3b0bac8c11b6a359cf725c830df754bb600e9834cf9c457174",
+  "scorer_sha256": "fdc85c3426697a30f1e60c4c2c025c868fd9ac77d4c1e0fa3e507087fde8b905"
+}

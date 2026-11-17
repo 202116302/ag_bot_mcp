@@ -1,0 +1,25 @@
+{
+  "review_date": "2026-11-16",
+  "scope": "PROVIDE getEnvDataList, PFS_0000001_01, 2023-07-25",
+  "sources": [
+    {"type": "provided_pdf", "path": "data/[PROVIDE]스마트팜_빅데이터_제공 서비스_OPENAPI_기술명세서_v2.0.pdf", "sections": "환경 정보 응답 명세와 별첨 항목코드"},
+    {"type": "official_web", "url": "https://www.smartfarmkorea.net/openApi/openApiList.do?menuId=M1104030101", "sections": "환경 정보 요청·출력항목 및 샘플", "checked_on": "2026-11-16"}
+  ],
+  "findings": {
+    "measDate_format": "yyyy-mm-dd hh:mm:ss",
+    "senVal_description": "측정값, String",
+    "TI_unit": null,
+    "HI_humidity_basis": null,
+    "HI_unit": null,
+    "CI_unit": null,
+    "timezone": null,
+    "aggregation_method": null
+  },
+  "limits": [
+    "확인한 환경 응답 명세에서는 단위·시간대·집계 방식이 명시되지 않았다. 기관 전체에 관련 정보가 없다는 뜻은 아니다.",
+    "한 시간 간격 시각이 관찰돼도 원시 측정 주기나 한 시간 평균임을 확정하지 않는다.",
+    "작기별 서비스의 cntCollect를 PROVIDE의 평균 계산 규칙으로 대신 사용하지 않는다.",
+    "다른 데이터셋의 단위나 국내 서비스라는 사실만으로 이 응답의 단위·시간대를 채우지 않는다."
+  ],
+  "operational_decision": "원시 숫자·문헌을 함께 조회하고 환경 적합성·제어 판단 보류를 유지한다."
+}

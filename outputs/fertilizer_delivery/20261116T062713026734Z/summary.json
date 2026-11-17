@@ -1,0 +1,610 @@
+{
+  "interpretation": "provider_transcription_fidelity_not_agricultural_accuracy",
+  "provider": "mock",
+  "repeats": 10,
+  "case_count": 6,
+  "statistics": {
+    "mcp": {
+      "model_attempted": 40,
+      "guard_attempted": 20,
+      "guard_passed": 20,
+      "delivered_failed": 0,
+      "repeat_consistency": {
+        "nutrients": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "prescription_full": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "provenance_limits": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "zero_values": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        }
+      },
+      "raw_numeric_pass": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      },
+      "raw_unit_pass": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      },
+      "raw_identity_pass": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      },
+      "raw_notices_pass": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      },
+      "traceable": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      },
+      "delivered_valid": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      }
+    },
+    "rag": {
+      "model_attempted": 40,
+      "guard_attempted": 20,
+      "guard_passed": 20,
+      "delivered_failed": 0,
+      "repeat_consistency": {
+        "nutrients": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "prescription_full": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "provenance_limits": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "zero_values": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        }
+      },
+      "raw_numeric_pass": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      },
+      "raw_unit_pass": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      },
+      "raw_identity_pass": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      },
+      "raw_notices_pass": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      },
+      "traceable": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      },
+      "delivered_valid": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      }
+    }
+  },
+  "conditions_failed": 0,
+  "all_passed": true,
+  "pairs": [
+    {
+      "trial": 1,
+      "case_id": "prescription_full",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "unregistered_parcel",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "unregistered_crop",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "prescription_full",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "unregistered_parcel",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "unregistered_crop",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "prescription_full",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "unregistered_parcel",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "unregistered_crop",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "prescription_full",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "unregistered_parcel",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "unregistered_crop",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "prescription_full",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "unregistered_parcel",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "unregistered_crop",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "prescription_full",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "unregistered_parcel",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "unregistered_crop",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "prescription_full",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "unregistered_parcel",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "unregistered_crop",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "prescription_full",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "unregistered_parcel",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "unregistered_crop",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "prescription_full",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "unregistered_parcel",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "unregistered_crop",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "prescription_full",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "nutrients",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "zero_values",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "provenance_limits",
+      "kind": "model_delivery",
+      "comparable": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "unregistered_parcel",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "unregistered_crop",
+      "kind": "local_guard",
+      "comparable": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    }
+  ],
+  "analysis_sha256": "242cf9b9587a2a3b0bac8c11b6a359cf725c830df754bb600e9834cf9c457174",
+  "scorer_sha256": "fdc85c3426697a30f1e60c4c2c025c868fd9ac77d4c1e0fa3e507087fde8b905"
+}

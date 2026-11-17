@@ -1,0 +1,15 @@
+{
+  "operation": "getEnvDataList",
+  "retrieved_at": "2026-11-16T16:36:45.612787+09:00",
+  "endpoint_template": "https://www.smartfarmkorea.net/Agree_WS/webservices/ProvideRestService/getEnvDataList/{serviceKey}",
+  "arguments": [
+    "PFS_0000001_01",
+    "2023-07-25",
+    "FG",
+    "EI",
+    "HI02",
+    "080300"
+  ],
+  "http_status": 200,
+  "body": "[{\"standardCategory\":null,\"standardElement\":null,\"measDate\":null,\"fatrCode\":null,\"standardType\":null,\"facilityId\":null,\"sectCode\":null,\"itemCode\":null,\"fldCode\":null,\"senVal\":null,\"statusCode\":\"03\",\"statusMessage\":\"NODATA_ERROR\"}]"
+}

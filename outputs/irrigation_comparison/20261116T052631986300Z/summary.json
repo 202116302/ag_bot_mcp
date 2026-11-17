@@ -1,0 +1,48 @@
+{
+  "interpretation": "synthetic_software_test_not_agricultural_accuracy",
+  "provider": "mock",
+  "repeats": 1,
+  "statistics": {
+    "mcp": {
+      "attempted": 2,
+      "completed": 2,
+      "failed": 0,
+      "decision_correct": 2,
+      "contract_correct": 2,
+      "decision_accuracy_synthetic": 1.0
+    },
+    "rag": {
+      "attempted": 2,
+      "completed": 2,
+      "failed": 0,
+      "decision_correct": 2,
+      "contract_correct": 2,
+      "decision_accuracy_synthetic": 1.0
+    }
+  },
+  "pairs": [
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-EQUAL",
+      "comparable": false,
+      "errors": [
+        "mcp_scenario_changed",
+        "rag_scenario_changed"
+      ],
+      "both_completed": false,
+      "decisions_equal": null
+    },
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-MISSING",
+      "comparable": false,
+      "errors": [
+        "mcp_scenario_changed",
+        "rag_scenario_changed"
+      ],
+      "both_completed": false,
+      "decisions_equal": null
+    }
+  ],
+  "all_passed": false
+}

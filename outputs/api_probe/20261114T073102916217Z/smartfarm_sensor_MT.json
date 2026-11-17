@@ -1,0 +1,11 @@
+{
+  "probe": "smartfarm_sensor_MT",
+  "retrieved_at": "2026-11-14T07:31:02.921216+00:00",
+  "http_status": 200,
+  "content_type": "application/json",
+  "body": "[{\"fldCode\":null,\"fatrCode\":null,\"facilityId\":null,\"itemCode\":null,\"sectCode\":null,\"measDate\":null,\"standardCategory\":null,\"standardElement\":null,\"standardType\":null,\"senVal\":null,\"statusCode\":\"03\",\"statusMessage\":\"NODATA_ERROR\"}]",
+  "structure": {
+    "records": 1
+  },
+  "tomato_records": 0
+}

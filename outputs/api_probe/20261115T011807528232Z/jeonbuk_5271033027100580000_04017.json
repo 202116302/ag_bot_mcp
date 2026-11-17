@@ -1,0 +1,19 @@
+{
+  "probe": "jeonbuk_5271033027100580000_04017",
+  "retrieved_at": "2026-11-15T01:18:11.835184+00:00",
+  "endpoint": "https://apis.data.go.kr/1390802/SoilEnviron/FrtlzrUse/getSoilFrtlzrExamInfo",
+  "parameters": {
+    "PNU_Code": "5271033027100580000",
+    "animix_Ratio_Cattl": 28,
+    "animix_Ratio_Pig": 22,
+    "animix_Ratio_Chick": 19,
+    "crop_Code": "04017"
+  },
+  "http_status": 200,
+  "content_type": "text/xml;charset=utf-8",
+  "body": "\r\n\r\n\r\n\r\n\r\n\r\n<response>\r\n\t<header>\r\n\t\t<result_Code>200</result_Code>\r\n\t\t<result_Msg>정상</result_Msg>\r\n\t</header>\r\n\t\r\n\t<body>\r\n \t\t<items>\r\n\t\t\t<item>\r\n\t\t\t\t<pnu_Code>5271033027100580000</pnu_Code>\r\n\t\t\t\t<addr>전북특별자치도 완주군 이서면 용서리 일반 58</addr>\r\n\t\t\t\t<crop_Code>04017</crop_Code>\r\n\t\t\t\t<crop_Nm>토마토(시설)</crop_Nm>\r\n\t\t\t\t<pre_Fert_N>16.0</pre_Fert_N>\r\n\t\t\t\t<pre_Fert_P>24.1</pre_Fert_P>\r\n\t\t\t\t<pre_Fert_K>9.7</pre_Fert_K>\r\n\t\t\t\t<post_Fert_N>12.0</post_Fert_N>\r\n\t\t\t\t<post_Fert_P>0.0</post_Fert_P>\r\n\t\t\t\t<post_Fert_K>22.7</post_Fert_K>\r\n\t\t\t\t<pre_Compost_Cattl>2000</pre_Compost_Cattl>\r\n\t\t\t\t<pre_Compost_Pig>440</pre_Compost_Pig>\r\n\t\t\t\t<pre_Compost_Chick>340</pre_Compost_Chick>\r\n\t\t\t\t<pre_Compost_Mix>721</pre_Compost_Mix>\r\n\t\t\t</item>\r\n\t\t</items>\r\n\t</body>\r\n\t\r\n</response>\r\n\r\n\r\n",
+  "service_status": {
+    "result_Code": "200",
+    "result_Msg": "정상"
+  }
+}

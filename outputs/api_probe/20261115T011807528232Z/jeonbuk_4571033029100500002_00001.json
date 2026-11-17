@@ -1,0 +1,20 @@
+{
+  "probe": "jeonbuk_4571033029100500002_00001",
+  "retrieved_at": "2026-11-15T01:18:14.581229+00:00",
+  "endpoint": "https://apis.data.go.kr/1390802/SoilEnviron/FrtlzrUse/getSoilFrtlzrExamRiceInfo",
+  "parameters": {
+    "PNU_Code": "4571033029100500002",
+    "animix_Ratio_Cattl": 28,
+    "animix_Ratio_Pig": 22,
+    "animix_Ratio_Chick": 19,
+    "crop_Code": "00001",
+    "rice_Qlt_Code": "1"
+  },
+  "http_status": 200,
+  "content_type": "text/xml;charset=utf-8",
+  "body": "\r\n\r\n\r\n\r\n\r\n \r\n<response>\r\n\t<header>\r\n\t\t<result_Code>301</result_Code>\r\n\t\t<result_Msg>요청 데이터 없음</result_Msg>\r\n\t</header>\r\n\t\r\n</response>",
+  "service_status": {
+    "result_Code": "301",
+    "result_Msg": "요청 데이터 없음"
+  }
+}

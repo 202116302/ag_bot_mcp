@@ -1,0 +1,14 @@
+{
+  "fertilizer": {
+    "default_pnu_code": "5271033027105280033",
+    "previous_pnu_code": "5211110100100120003",
+    "address": "전북특별자치도 완주군 이서면 용서리 528-33",
+    "record_path": "data/references/fertilizer/wanju_tomato_20261115.json",
+    "crop_code": "04017",
+    "crop_name": "토마토(시설)"
+  },
+  "weather": {
+    "base_url": "http://weather-rda.digitalag.kr:8001",
+    "sample_region_name": "전주시완산구"
+  }
+}

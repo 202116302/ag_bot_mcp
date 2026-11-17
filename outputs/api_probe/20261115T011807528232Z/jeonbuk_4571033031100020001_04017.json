@@ -1,0 +1,19 @@
+{
+  "probe": "jeonbuk_4571033031100020001_04017",
+  "retrieved_at": "2026-11-15T01:18:15.877448+00:00",
+  "endpoint": "https://apis.data.go.kr/1390802/SoilEnviron/FrtlzrUse/getSoilFrtlzrExamInfo",
+  "parameters": {
+    "PNU_Code": "4571033031100020001",
+    "animix_Ratio_Cattl": 28,
+    "animix_Ratio_Pig": 22,
+    "animix_Ratio_Chick": 19,
+    "crop_Code": "04017"
+  },
+  "http_status": 200,
+  "content_type": "text/xml;charset=utf-8",
+  "body": "\r\n\r\n\r\n\r\n\r\n\r\n<response>\r\n\t<header>\r\n\t\t<result_Code>301</result_Code>\r\n\t\t<result_Msg>요청 데이터 없음</result_Msg>\r\n\t</header>\r\n\t\r\n</response>\r\n\r\n\r\n",
+  "service_status": {
+    "result_Code": "301",
+    "result_Msg": "요청 데이터 없음"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "probe": "weather_forecast",
+  "retrieved_at": "2026-11-14T07:21:23.565132+00:00",
+  "error_type": "ConnectionError"
+}

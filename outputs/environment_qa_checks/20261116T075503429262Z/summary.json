@@ -1,0 +1,265 @@
+{
+  "provider": "openai",
+  "scenario_sha256": "a1f13008d06b0c5c6c7df308fe1a5f25828f98f7901a94a368363762e6e412fa",
+  "interpretation": "lookup_and_citation_contract_check_not_control_accuracy",
+  "total": 18,
+  "passed": 12,
+  "all_passed": false,
+  "cases": [
+    {
+      "case_id": "overview",
+      "path": "mcp",
+      "status": "conflict",
+      "error_code": "ENVIRONMENT_ANSWER_CONFLICT",
+      "passed": false,
+      "errors": [
+        "status_mismatch",
+        "runtime_check_failed",
+        "citations_mismatch"
+      ],
+      "model_calls": 2,
+      "tool_calls": 1
+    },
+    {
+      "case_id": "overview",
+      "path": "rag",
+      "status": "conflict",
+      "error_code": "ENVIRONMENT_ANSWER_CONFLICT",
+      "passed": false,
+      "errors": [
+        "status_mismatch",
+        "runtime_check_failed",
+        "citations_mismatch",
+        "field_set_mismatch",
+        "HI02_status_mismatch",
+        "HI02_record_count_mismatch",
+        "HI02_unit_invented"
+      ],
+      "model_calls": 1,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "general_temperature",
+      "path": "mcp",
+      "status": "partial",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 2,
+      "tool_calls": 1
+    },
+    {
+      "case_id": "general_temperature",
+      "path": "rag",
+      "status": "conflict",
+      "error_code": "ENVIRONMENT_ANSWER_CONFLICT",
+      "passed": false,
+      "errors": [
+        "status_mismatch",
+        "runtime_check_failed",
+        "field_set_mismatch"
+      ],
+      "model_calls": 1,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "cherry_temperature",
+      "path": "mcp",
+      "status": "partial",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 2,
+      "tool_calls": 1
+    },
+    {
+      "case_id": "cherry_temperature",
+      "path": "rag",
+      "status": "conflict",
+      "error_code": "ENVIRONMENT_ANSWER_CONFLICT",
+      "passed": false,
+      "errors": [
+        "status_mismatch",
+        "runtime_check_failed",
+        "field_set_mismatch"
+      ],
+      "model_calls": 1,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "humidity",
+      "path": "mcp",
+      "status": "partial",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 2,
+      "tool_calls": 1
+    },
+    {
+      "case_id": "humidity",
+      "path": "rag",
+      "status": "conflict",
+      "error_code": "ENVIRONMENT_ANSWER_CONFLICT",
+      "passed": false,
+      "errors": [
+        "status_mismatch",
+        "runtime_check_failed",
+        "field_set_mismatch"
+      ],
+      "model_calls": 1,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "co2",
+      "path": "mcp",
+      "status": "partial",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 2,
+      "tool_calls": 1
+    },
+    {
+      "case_id": "co2",
+      "path": "rag",
+      "status": "conflict",
+      "error_code": "ENVIRONMENT_ANSWER_CONFLICT",
+      "passed": false,
+      "errors": [
+        "status_mismatch",
+        "runtime_check_failed",
+        "field_set_mismatch"
+      ],
+      "model_calls": 1,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "irrigation_excluded",
+      "path": "mcp",
+      "status": "deferred",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "irrigation_excluded",
+      "path": "rag",
+      "status": "deferred",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "current_control",
+      "path": "mcp",
+      "status": "deferred",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "current_control",
+      "path": "rag",
+      "status": "deferred",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "different_parcel",
+      "path": "mcp",
+      "status": "deferred",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "different_parcel",
+      "path": "rag",
+      "status": "deferred",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "different_facility",
+      "path": "mcp",
+      "status": "deferred",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "different_facility",
+      "path": "rag",
+      "status": "deferred",
+      "error_code": null,
+      "passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    }
+  ],
+  "pairs": [
+    {
+      "case_id": "overview",
+      "same_conditions": true,
+      "errors": []
+    },
+    {
+      "case_id": "general_temperature",
+      "same_conditions": true,
+      "errors": []
+    },
+    {
+      "case_id": "cherry_temperature",
+      "same_conditions": true,
+      "errors": []
+    },
+    {
+      "case_id": "humidity",
+      "same_conditions": true,
+      "errors": []
+    },
+    {
+      "case_id": "co2",
+      "same_conditions": true,
+      "errors": []
+    },
+    {
+      "case_id": "irrigation_excluded",
+      "same_conditions": true,
+      "errors": []
+    },
+    {
+      "case_id": "current_control",
+      "same_conditions": true,
+      "errors": []
+    },
+    {
+      "case_id": "different_parcel",
+      "same_conditions": true,
+      "errors": []
+    },
+    {
+      "case_id": "different_facility",
+      "same_conditions": true,
+      "errors": []
+    }
+  ]
+}

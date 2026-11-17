@@ -1,0 +1,11 @@
+{
+  "probe": "smartfarm_seasons_1",
+  "retrieved_at": "2026-11-14T07:27:37.431710+00:00",
+  "http_status": 200,
+  "content_type": "application/json",
+  "body": "[{\"itemCode\":\"080300\",\"croppingSerlNo\":79,\"croppingSystem\":\"B0004000000000000002\",\"cultivationArea\":1180.0,\"calCultivationArea\":3894.0,\"plantNum\":9504.0,\"calPlantNum\":3.0,\"stemSlabNum\":4.0,\"planSlabNum\":4.0,\"plantDensity\":2.44,\"standardPlantDensity\":2.5,\"floodlightDec\":0.8,\"leafArea\":0.0,\"stndTemp\":20.0,\"stndWeight\":180.0,\"stndSolar\":150.0,\"stndMeta\":130.0,\"croppingEndDate\":\"2016-12-31\",\"croppingSeasonName\":\"데프니스_20150902\",\"croppingDate\":\"2015-09-02\",\"statusCode\":\"00\",\"statusMessage\":\"NORMAL_CODE\"},{\"itemCode\":\"080300\",\"croppingSerlNo\":4940,\"croppingSystem\":null,\"cultivationArea\":1785.0,\"calCultivationArea\":5900.0,\"plantNum\":9840.0,\"calPlantNum\":1.0,\"stemSlabNum\":null,\"planSlabNum\":null,\"plantDensity\":null,\"standardPlantDensity\":null,\"floodlightDec\":null,\"leafArea\":null,\"stndTemp\":null,\"stndWeight\":null,\"stndSolar\":null,\"stndMeta\":null,\"croppingEndDate\":\"2022-07-30\",\"croppingSeasonName\":\"2021년 토마토\",\"croppingDate\":\"2021-09-13\",\"statusCode\":null,\"statusMessage\":null},{\"itemCode\":\"080300\",\"croppingSerlNo\":5957,\"croppingSystem\":null,\"cultivationArea\":1785.0,\"calCultivationArea\":5900.0,\"plantNum\":12000.0,\"calPlantNum\":1.0,\"stemSlabNum\":null,\"planSlabNum\":null,\"plantDensity\":null,\"standardPlantDensity\":null,\"floodlightDec\":null,\"leafArea\":null,\"stndTemp\":null,\"stndWeight\":null,\"stndSolar\":null,\"stndMeta\":null,\"croppingEndDate\":\"2023-07-25\",\"croppingSeasonName\":\"2022년_토마토\",\"croppingDate\":\"2022-09-21\",\"statusCode\":null,\"statusMessage\":null}]",
+  "structure": {
+    "records": 3
+  },
+  "tomato_records": 3
+}

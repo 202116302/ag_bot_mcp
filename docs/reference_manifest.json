@@ -1,0 +1,32 @@
+[
+  {
+    "path": "data/29 토마토_저화질_단면.pdf",
+    "bytes": 13411860,
+    "sha256": "70a46a767fd4cadd2b5b3a9470bb0b6cb4677742e7dfea2c0ef7d6b023ff1c7f"
+  },
+  {
+    "path": "data/[CROPSEASON]작기별_스마트팜_빅데이터_제공_서비스_OPENAPI_기술명세서_v2.0.pdf",
+    "bytes": 319643,
+    "sha256": "d8ef4978371dfe440cd32ccf1f9000fb2577aead7295acb36d8af3b347dde499"
+  },
+  {
+    "path": "data/[PROVIDE]스마트팜_빅데이터_제공 서비스_OPENAPI_기술명세서_v2.0.pdf",
+    "bytes": 382013,
+    "sha256": "58dee92cd8feb40e3bea87ef2b95eebc5decacc0e7b1e000ea30d298433323e5"
+  },
+  {
+    "path": "data/OPEN API기술명세서_비료사용처방 정보.pdf",
+    "bytes": 158154,
+    "sha256": "b06303df473a00a0d5fad78d47422f0d2b84394b8a75cadd11943a062eec7250"
+  },
+  {
+    "path": "data/OPEN API기술명세서_비료사용처방 체험 정보_V2_ver1.0.pdf",
+    "bytes": 212692,
+    "sha256": "58774fea91450f5496044fd3714c06cf53ef0267f4f35da502f01414fec6062f"
+  },
+  {
+    "path": "data/밭작물 물관리 지침서_전주.pdf",
+    "bytes": 1739858,
+    "sha256": "36f3e9c27833dc769d4c3cc17ebbe958b4fccbc97b078d8aad128bfcd00d93e7"
+  }
+]

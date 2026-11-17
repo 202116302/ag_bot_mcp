@@ -1,0 +1,3 @@
+# Recorded SHA-256 values depend on exact source/data/artifact bytes.
+# Preserve line endings across platforms and Git configurations.
+* -text

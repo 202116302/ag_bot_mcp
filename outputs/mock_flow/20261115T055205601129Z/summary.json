@@ -1,0 +1,212 @@
+{
+  "started_at": "2026-11-15T05:52:05.604565+00:00",
+  "provider": "mock",
+  "model": "mock-fertilizer-v1",
+  "scenario_sha256": "f50d30dbae8f6359df0ec6306a5fdd6f29e3a7d5911efa75bbd304d8217316f6",
+  "interpretation": "flow_contract_check_not_model_accuracy",
+  "total": 10,
+  "passed": 10,
+  "failed": 0,
+  "cases": [
+    {
+      "case_id": "fertilizer_prescription",
+      "domain": "시비",
+      "question": "선택한 필지의 시설 토마토 비료 처방을 알려줘.",
+      "expected_behavior": "비료 도구 조회 후 수치·단위·출처 검증",
+      "expected_tools": [
+        "get_fertilizer_prescription"
+      ],
+      "expected_statuses": [
+        "completed"
+      ],
+      "actual_tools": [
+        "get_fertilizer_prescription"
+      ],
+      "actual_status": "completed",
+      "structured_claims_passed": true,
+      "flow_passed": true,
+      "errors": [],
+      "model_calls": 2,
+      "tool_calls": 1
+    },
+    {
+      "case_id": "fertilizer_nutrients",
+      "domain": "시비",
+      "question": "선택 필지에서 밑거름과 웃거름의 질소·인산·칼리 처방량을 보여줘.",
+      "expected_behavior": "비료 도구 조회 후 저장된 성분량 제시",
+      "expected_tools": [
+        "get_fertilizer_prescription"
+      ],
+      "expected_statuses": [
+        "completed"
+      ],
+      "actual_tools": [
+        "get_fertilizer_prescription"
+      ],
+      "actual_status": "completed",
+      "structured_claims_passed": true,
+      "flow_passed": true,
+      "errors": [],
+      "model_calls": 2,
+      "tool_calls": 1
+    },
+    {
+      "case_id": "irrigation_actual",
+      "domain": "관수",
+      "question": "선택한 실제 토마토 필지에 오늘 물을 줘야 할까?",
+      "expected_behavior": "수분 자료 부족으로 판단 보류; 비료나 합성 관수 도구로 대체하지 않음",
+      "expected_tools": [],
+      "expected_statuses": [
+        "deferred",
+        "unsupported",
+        "insufficient_information"
+      ],
+      "actual_tools": [],
+      "actual_status": "deferred",
+      "structured_claims_passed": null,
+      "flow_passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "weather_forecast",
+      "domain": "기상",
+      "question": "선택한 필지에 내일 비가 얼마나 올까?",
+      "expected_behavior": "기상 도구 미연결과 필지 위치 매핑 미확인으로 보류",
+      "expected_tools": [],
+      "expected_statuses": [
+        "deferred",
+        "unsupported",
+        "insufficient_information"
+      ],
+      "actual_tools": [],
+      "actual_status": "deferred",
+      "structured_claims_passed": null,
+      "flow_passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "growth_stage",
+      "domain": "생육",
+      "question": "지금 이 필지 토마토는 어느 생육단계인지 알려줘.",
+      "expected_behavior": "생육 관측자료가 없어 판단 보류",
+      "expected_tools": [],
+      "expected_statuses": [
+        "deferred",
+        "unsupported",
+        "insufficient_information"
+      ],
+      "actual_tools": [],
+      "actual_status": "deferred",
+      "structured_claims_passed": null,
+      "flow_passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "climate_control",
+      "domain": "환경제어",
+      "question": "오늘 이 농장의 온실 환기창을 열어야 할까?",
+      "expected_behavior": "온실 환경자료·규칙·도구가 없어 판단 보류",
+      "expected_tools": [],
+      "expected_statuses": [
+        "deferred",
+        "unsupported",
+        "insufficient_information"
+      ],
+      "actual_tools": [],
+      "actual_status": "deferred",
+      "structured_claims_passed": null,
+      "flow_passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "soil_chemistry",
+      "domain": "토양검정",
+      "question": "선택한 필지의 실제 토양 pH와 유기물 함량을 알려줘.",
+      "expected_behavior": "원시 화학성 자료가 없어 보류; 비료 처방량으로 추정하지 않음",
+      "expected_tools": [],
+      "expected_statuses": [
+        "deferred",
+        "unsupported",
+        "insufficient_information"
+      ],
+      "actual_tools": [],
+      "actual_status": "deferred",
+      "structured_claims_passed": null,
+      "flow_passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    },
+    {
+      "case_id": "fertilizer_and_irrigation",
+      "domain": "시비+관수",
+      "question": "선택 필지의 비료 처방을 보여주고, 오늘 관수가 필요한지도 알려줘.",
+      "expected_behavior": "비료만 조회하고 관수용 수분 자료 부재를 명시",
+      "expected_tools": [
+        "get_fertilizer_prescription"
+      ],
+      "expected_statuses": [
+        "completed",
+        "partial"
+      ],
+      "actual_tools": [
+        "get_fertilizer_prescription"
+      ],
+      "actual_status": "partial",
+      "structured_claims_passed": true,
+      "flow_passed": true,
+      "errors": [],
+      "model_calls": 2,
+      "tool_calls": 1
+    },
+    {
+      "case_id": "fertilizer_and_weather",
+      "domain": "시비+기상",
+      "question": "선택 필지의 비료 처방과 내일 예상 강수량을 함께 알려줘.",
+      "expected_behavior": "비료만 조회하고 기상 미지원 범위를 명시",
+      "expected_tools": [
+        "get_fertilizer_prescription"
+      ],
+      "expected_statuses": [
+        "completed",
+        "partial"
+      ],
+      "actual_tools": [
+        "get_fertilizer_prescription"
+      ],
+      "actual_status": "partial",
+      "structured_claims_passed": true,
+      "flow_passed": true,
+      "errors": [],
+      "model_calls": 2,
+      "tool_calls": 1
+    },
+    {
+      "case_id": "unregistered_parcel",
+      "domain": "미등록 필지",
+      "question": "기본 필지 말고 PNU 5211110100100120003의 비료 처방을 보여줘.",
+      "expected_behavior": "요청한 필지가 미등록이면 보류; 기본 필지 처방으로 대체하지 않음",
+      "expected_tools": [],
+      "expected_statuses": [
+        "deferred",
+        "unsupported",
+        "insufficient_information"
+      ],
+      "actual_tools": [],
+      "actual_status": "deferred",
+      "structured_claims_passed": null,
+      "flow_passed": true,
+      "errors": [],
+      "model_calls": 0,
+      "tool_calls": 0
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+﻿case_id,category,status,error_code,run_id,decision,decision_code,expected_decision,expected_code,completed,decision_correct,contract_correct,trial,path,file,model_calls,tool_calls,elapsed_seconds
+SYNTHETIC-EQUAL,boundary,completed,,36355194-faf6-4b40-bd71-f1e8f396ce39,IRRIGATION_NOT_REQUIRED,RULE_NOT_MATCH,IRRIGATION_NOT_REQUIRED,RULE_NOT_MATCH,True,True,True,1,mcp,01_SYNTHETIC-EQUAL_mcp.json,2,1,1.9866
+SYNTHETIC-EQUAL,boundary,completed,,ea34f373-60c8-4bc5-95dc-2d1f614f5888,IRRIGATION_NOT_REQUIRED,RULE_NOT_MATCH,IRRIGATION_NOT_REQUIRED,RULE_NOT_MATCH,True,True,True,1,rag,01_SYNTHETIC-EQUAL_rag.json,1,0,0.0058
+SYNTHETIC-MISSING,missing,completed,,219fa0b1-a0bd-41ce-b1d2-1aa2fd5a8cc8,INSUFFICIENT_INFORMATION,MISSING_INPUT,INSUFFICIENT_INFORMATION,MISSING_INPUT,True,True,True,1,mcp,01_SYNTHETIC-MISSING_mcp.json,2,1,1.3467
+SYNTHETIC-MISSING,missing,completed,,bd0f6ca8-833c-40b5-ac2a-635d4a206a61,INSUFFICIENT_INFORMATION,MISSING_INPUT,INSUFFICIENT_INFORMATION,MISSING_INPUT,True,True,True,1,rag,01_SYNTHETIC-MISSING_rag.json,1,0,0.0036

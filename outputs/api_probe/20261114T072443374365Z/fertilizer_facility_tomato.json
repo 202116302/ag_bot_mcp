@@ -1,0 +1,11 @@
+{
+  "probe": "fertilizer_facility_tomato",
+  "retrieved_at": "2026-11-14T07:24:43.375368+00:00",
+  "http_status": 200,
+  "content_type": "text/xml;charset=utf-8",
+  "body": "\r\n\r\n\r\n\r\n\r\n\r\n<response>\r\n\t<header>\r\n\t\t<result_Code>301</result_Code>\r\n\t\t<result_Msg>요청 데이터 없음</result_Msg>\r\n\t</header>\r\n\t\r\n</response>\r\n\r\n\r\n",
+  "service_status": {
+    "result_Code": "301",
+    "result_Msg": "요청 데이터 없음"
+  }
+}

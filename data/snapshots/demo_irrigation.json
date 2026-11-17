@@ -1,0 +1,10 @@
+{
+  "snapshot_id": "SYNTHETIC-001",
+  "version": "0.1.0-demo",
+  "crop": "demo_crop",
+  "growth_stage": "demo_stage",
+  "cultivation_system": "demo_soil",
+  "soil_moisture_value": 18.0,
+  "soil_moisture_unit": "percent_vwc",
+  "source_ids": ["synthetic_fixture"]
+}

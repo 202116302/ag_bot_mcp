@@ -1,0 +1,15 @@
+.tools/
+__pycache__/
+.env
+.env.*
+!.env.example
+data/API_key.txt
+data/*key*.txt
+data/*KEY*.txt
+data/*인증키*.txt
+# Experiment outputs are versioned with the project for reproducibility.
+.venv/
+.pytest_cache/
+build/
+dist/
+*.egg-info/

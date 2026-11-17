@@ -1,0 +1,150 @@
+{
+  "interpretation": "provider_transcription_fidelity_not_agricultural_accuracy",
+  "statistics": {
+    "mcp": {
+      "model_attempted": 40,
+      "guard_attempted": 20,
+      "guard_passed": 20,
+      "delivered_failed": 2,
+      "repeat_consistency": {
+        "nutrients": {
+          "attempted": 10,
+          "parseable": 8,
+          "majority_fraction_with_failures": 0.8
+        },
+        "prescription_full": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "provenance_limits": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "zero_values": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        }
+      },
+      "raw_numeric_pass": {
+        "passed": 38,
+        "attempted": 40,
+        "fraction": 0.95
+      },
+      "raw_unit_pass": {
+        "passed": 38,
+        "attempted": 40,
+        "fraction": 0.95
+      },
+      "raw_identity_pass": {
+        "passed": 38,
+        "attempted": 40,
+        "fraction": 0.95
+      },
+      "raw_notices_pass": {
+        "passed": 38,
+        "attempted": 40,
+        "fraction": 0.95
+      },
+      "traceable": {
+        "passed": 38,
+        "attempted": 40,
+        "fraction": 0.95
+      },
+      "delivered_valid": {
+        "passed": 38,
+        "attempted": 40,
+        "fraction": 0.95
+      }
+    },
+    "rag": {
+      "model_attempted": 40,
+      "guard_attempted": 20,
+      "guard_passed": 20,
+      "delivered_failed": 1,
+      "repeat_consistency": {
+        "nutrients": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "prescription_full": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "provenance_limits": {
+          "attempted": 10,
+          "parseable": 9,
+          "majority_fraction_with_failures": 0.9
+        },
+        "zero_values": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        }
+      },
+      "raw_numeric_pass": {
+        "passed": 39,
+        "attempted": 40,
+        "fraction": 0.975
+      },
+      "raw_unit_pass": {
+        "passed": 39,
+        "attempted": 40,
+        "fraction": 0.975
+      },
+      "raw_identity_pass": {
+        "passed": 39,
+        "attempted": 40,
+        "fraction": 0.975
+      },
+      "raw_notices_pass": {
+        "passed": 39,
+        "attempted": 40,
+        "fraction": 0.975
+      },
+      "traceable": {
+        "passed": 40,
+        "attempted": 40,
+        "fraction": 1.0
+      },
+      "delivered_valid": {
+        "passed": 39,
+        "attempted": 40,
+        "fraction": 0.975
+      }
+    }
+  },
+  "errors": [
+    {
+      "batch": "20261116T063042523842Z",
+      "file": "01_nutrients_mcp.json",
+      "error_code": "OPENAI_NETWORK_ERROR"
+    },
+    {
+      "batch": "20261116T063042523842Z",
+      "file": "07_nutrients_mcp.json",
+      "error_code": "OPENAI_NETWORK_ERROR"
+    },
+    {
+      "batch": "20261116T063042523842Z",
+      "file": "08_provenance_limits_rag.json",
+      "error_code": "OPENAI_NETWORK_ERROR"
+    }
+  ],
+  "source_batches": [
+    {
+      "directory": "20261116T062729068253Z",
+      "protocol_sha256": "e775c27e095469f04d436553644becda9f0998146885ca4788a3b4c4b136841e",
+      "summary_sha256": "c3c7f63402ba2d2d2b8c7a90fb81f352cab881e87c392baa7353d3a46ffb6fa9"
+    },
+    {
+      "directory": "20261116T063042523842Z",
+      "protocol_sha256": "8941e52e8ab8855afd5523950f51bc3fd76e3d91deb487d3522afb86d5cb0ff3",
+      "summary_sha256": "c687f03de7343eff6eaacf8f3c4380b5aa8cd602859eb78b8f0b9420ab969c91"
+    }
+  ]
+}

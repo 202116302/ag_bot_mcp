@@ -1,0 +1,16 @@
+{
+  "probe": "fertilizer_supplied_code",
+  "retrieved_at": "2026-11-14T07:45:16.960932+00:00",
+  "endpoint": "https://apis.data.go.kr/1390802/SoilEnviron/FrtlzrUse/getSoilFrtlzrExamInfo",
+  "parameters": {
+    "PNU_Code": "5211300000",
+    "crop_Code": "04017"
+  },
+  "http_status": 200,
+  "content_type": "text/xml;charset=utf-8",
+  "body": "\r\n\r\n\r\n\r\n\r\n\r\n<response>\r\n\t<header>\r\n\t\t<result_Code>201</result_Code>\r\n\t\t<result_Msg>요청변수 형식이 일치하지 않은 경우</result_Msg>\r\n\t</header>\r\n\t\r\n</response>\r\n\r\n\r\n",
+  "service_status": {
+    "result_Code": "201",
+    "result_Msg": "요청변수 형식이 일치하지 않은 경우"
+  }
+}

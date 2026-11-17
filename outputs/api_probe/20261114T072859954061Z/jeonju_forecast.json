@@ -1,0 +1,11 @@
+{
+  "probe": "jeonju_forecast",
+  "retrieved_at": "2026-11-14T07:28:59.956065+00:00",
+  "http_status": 200,
+  "content_type": "application/json",
+  "body": "[{\"id\":433840229,\"region_name\":\"전주시완산구\",\"nx\":63,\"ny\":89,\"base_date\":\"2026-11-14\",\"base_time\":\"1400\",\"fcst_date\":\"2026-11-14\",\"fcst_time\":\"1500\",\"category\":\"POP\",\"fcst_value\":\"60\",\"created_at\":\"2026-11-14T05:17:31.294180\"},{\"id\":433840241,\"region_name\":\"전주시완산구\",\"nx\":63,\"ny\":89,\"base_date\":\"2026-11-14\",\"base_time\":\"1400\",\"fcst_date\":\"2026-11-14\",\"fcst_time\":\"1600\",\"category\":\"POP\",\"fcst_value\":\"60\",\"created_at\":\"2026-11-14T05:17:31.294180\"},{\"id\":433840253,\"region_name\":\"전주시완산구\",\"nx\":63,\"ny\":89,\"base_date\":\"2026-11-14\",\"base_time\":\"1400\",\"fcst_date\":\"2026-11-14\",\"fcst_time\":\"1700\",\"category\":\"POP\",\"fcst_value\":\"60\",\"created_at\":\"2026-11-14T05:17:31.294180\"}]",
+  "structure": {
+    "records": 3
+  },
+  "tomato_records": 0
+}

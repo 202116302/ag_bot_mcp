@@ -1,0 +1,11 @@
+{
+  "probe": "smartfarm_seasons_3",
+  "retrieved_at": "2026-11-14T07:27:37.684086+00:00",
+  "http_status": 200,
+  "content_type": "application/json",
+  "body": "[{\"itemCode\":\"080300\",\"croppingSerlNo\":81,\"croppingDate\":\"2015-09-02\",\"croppingEndDate\":\"2016-12-31\",\"croppingSystem\":\"B0004000000000000002\",\"cultivationArea\":1500.0,\"calCultivationArea\":4950.0,\"plantNum\":11860.0,\"calPlantNum\":3.0,\"stemSlabNum\":4.0,\"planSlabNum\":2.0,\"plantDensity\":2.4,\"standardPlantDensity\":2.5,\"floodlightDec\":0.7,\"leafArea\":0.0,\"stndTemp\":18.0,\"stndWeight\":180.0,\"stndSolar\":100.0,\"stndMeta\":130.0,\"croppingSeasonName\":\"데프니스_20150902\",\"statusCode\":\"00\",\"statusMessage\":\"NORMAL_CODE\"}]",
+  "structure": {
+    "records": 1
+  },
+  "tomato_records": 1
+}

@@ -1,0 +1,11 @@
+{
+  "probe": "weather_sample",
+  "retrieved_at": "2026-11-14T07:27:37.431710+00:00",
+  "http_status": 200,
+  "content_type": "application/json",
+  "body": "[{\"sido\":\"충청북도\",\"region_name\":\"증평군\",\"base_date\":\"2026-11-14\",\"base_time\":\"1600\",\"T1H\":11.9,\"RN1\":0.5,\"UUU\":-0.3,\"VVV\":-0.1,\"REH\":91.0,\"PTY\":1.0,\"VEC\":63.0,\"WSD\":0.4}]",
+  "structure": {
+    "records": 1
+  },
+  "tomato_records": 0
+}

@@ -1,0 +1,758 @@
+{
+  "provider": "mock",
+  "repeats": 10,
+  "interpretation": "historical_lookup_citation_fidelity_not_agricultural_or_control_accuracy",
+  "statistics": {
+    "mcp": {
+      "model_attempted": 50,
+      "guard_attempted": 40,
+      "guard_passed": 40,
+      "failures_by_code": {},
+      "repeat_consistency": {
+        "cherry_temperature": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "co2": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "general_temperature": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "humidity": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "overview": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        }
+      },
+      "raw_numeric_pass": {
+        "passed": 50,
+        "attempted": 50,
+        "fraction": 1.0
+      },
+      "raw_citation_pass": {
+        "passed": 50,
+        "attempted": 50,
+        "fraction": 1.0
+      },
+      "raw_scope_pass": {
+        "passed": 50,
+        "attempted": 50,
+        "fraction": 1.0
+      },
+      "raw_identity_pass": {
+        "passed": 50,
+        "attempted": 50,
+        "fraction": 1.0
+      },
+      "delivered_valid": {
+        "passed": 50,
+        "attempted": 50,
+        "fraction": 1.0
+      }
+    },
+    "rag": {
+      "model_attempted": 50,
+      "guard_attempted": 40,
+      "guard_passed": 40,
+      "failures_by_code": {},
+      "repeat_consistency": {
+        "cherry_temperature": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "co2": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "general_temperature": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "humidity": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "overview": {
+          "attempted": 10,
+          "parseable": 10,
+          "majority_fraction_with_failures": 1.0
+        }
+      },
+      "raw_numeric_pass": {
+        "passed": 50,
+        "attempted": 50,
+        "fraction": 1.0
+      },
+      "raw_citation_pass": {
+        "passed": 50,
+        "attempted": 50,
+        "fraction": 1.0
+      },
+      "raw_scope_pass": {
+        "passed": 50,
+        "attempted": 50,
+        "fraction": 1.0
+      },
+      "raw_identity_pass": {
+        "passed": 50,
+        "attempted": 50,
+        "fraction": 1.0
+      },
+      "delivered_valid": {
+        "passed": 50,
+        "attempted": 50,
+        "fraction": 1.0
+      }
+    }
+  },
+  "pairs": [
+    {
+      "trial": 1,
+      "case_id": "overview",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "general_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "cherry_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "humidity",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "co2",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "irrigation_excluded",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "current_control",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "different_parcel",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 1,
+      "case_id": "different_facility",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "overview",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "general_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "cherry_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "humidity",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "co2",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "irrigation_excluded",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "current_control",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "different_parcel",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 2,
+      "case_id": "different_facility",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "overview",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "general_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "cherry_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "humidity",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "co2",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "irrigation_excluded",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "current_control",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "different_parcel",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 3,
+      "case_id": "different_facility",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "overview",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "general_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "cherry_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "humidity",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "co2",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "irrigation_excluded",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "current_control",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "different_parcel",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 4,
+      "case_id": "different_facility",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "overview",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "general_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "cherry_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "humidity",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "co2",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "irrigation_excluded",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "current_control",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "different_parcel",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 5,
+      "case_id": "different_facility",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "overview",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "general_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "cherry_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "humidity",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "co2",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "irrigation_excluded",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "current_control",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "different_parcel",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 6,
+      "case_id": "different_facility",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "overview",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "general_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "cherry_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "humidity",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "co2",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "irrigation_excluded",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "current_control",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "different_parcel",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 7,
+      "case_id": "different_facility",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "overview",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "general_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "cherry_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "humidity",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "co2",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "irrigation_excluded",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "current_control",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "different_parcel",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 8,
+      "case_id": "different_facility",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "overview",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "general_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "cherry_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "humidity",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "co2",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "irrigation_excluded",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "current_control",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "different_parcel",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 9,
+      "case_id": "different_facility",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "overview",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "general_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "cherry_temperature",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "humidity",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "co2",
+      "same_conditions": true,
+      "raw_answers_equal": true,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "irrigation_excluded",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "current_control",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "different_parcel",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    },
+    {
+      "trial": 10,
+      "case_id": "different_facility",
+      "same_conditions": true,
+      "raw_answers_equal": null,
+      "both_passed": true
+    }
+  ],
+  "conditions_failed": 0,
+  "all_passed": true,
+  "analysis_code_sha256": "cc924b179a78a639dc332d95454c14bbe4ba2f2cd7a6ea05be714757fc1232ec"
+}

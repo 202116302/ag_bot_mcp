@@ -1,0 +1,28 @@
+{
+  "version": "1.0-demo",
+  "provider": "mock",
+  "repeats": 1,
+  "cases": [
+    {
+      "case_id": "SYNTHETIC-EQUAL",
+      "category": "boundary",
+      "overrides": {
+        "soil_moisture_value": 20.0
+      },
+      "expected_decision": "IRRIGATION_NOT_REQUIRED",
+      "expected_code": "RULE_NOT_MATCH"
+    },
+    {
+      "case_id": "SYNTHETIC-MISSING",
+      "category": "missing",
+      "overrides": {
+        "soil_moisture_value": null
+      },
+      "expected_decision": "INSUFFICIENT_INFORMATION",
+      "expected_code": "MISSING_INPUT"
+    }
+  ],
+  "scenario_sha256": "f80bc3ba04be72eee4919825e749d5f92649b6b82ee7e8f2d25be3ed5bdca875",
+  "script_sha256": "ad536dc178abbc33f862756d48b8bf487f99dc6770e6a5444b5ec8067225bdcc",
+  "started_at": "2026-11-16T05:26:31.988295+00:00"
+}

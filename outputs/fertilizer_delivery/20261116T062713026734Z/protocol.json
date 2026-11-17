@@ -1,0 +1,122 @@
+{
+  "version": "1.0",
+  "study": {
+    "version": "1.0",
+    "scope": "saved_provider_prescription_delivery",
+    "excluded_domains": [
+      "irrigation",
+      "weather",
+      "growth",
+      "climate_control",
+      "agronomic_decision_accuracy"
+    ],
+    "reference_method": "Fixed transcription of saved provider response, verified against original XML; not agronomic ground truth",
+    "reference": {
+      "pnu_code": "5271033027105280033",
+      "crop_code": "04017",
+      "status": "available",
+      "source_record": "data/references/fertilizer/wanju_tomato_20261115.json",
+      "source_sha256": "cb894d73957c68b6ba45d40e17041db72ebd04b34a2b2e2279fc1471eb074e35",
+      "unit": "kg/10a",
+      "amounts": {
+        "basal_n": "14.4",
+        "basal_p": "3.0",
+        "basal_k": "3.0",
+        "topdressing_n": "10.9",
+        "topdressing_p": "0.0",
+        "topdressing_k": "0.0",
+        "compost_cattle": "0",
+        "compost_pig": "0",
+        "compost_chicken": "0",
+        "compost_mix": "0"
+      },
+      "provider_fields": {
+        "basal_n": "pre_Fert_N",
+        "basal_p": "pre_Fert_P",
+        "basal_k": "pre_Fert_K",
+        "topdressing_n": "post_Fert_N",
+        "topdressing_p": "post_Fert_P",
+        "topdressing_k": "post_Fert_K",
+        "compost_cattle": "pre_Compost_Cattl",
+        "compost_pig": "pre_Compost_Pig",
+        "compost_chicken": "pre_Compost_Chick",
+        "compost_mix": "pre_Compost_Mix"
+      },
+      "notices": [
+        "provider_calculated",
+        "actual_crop_unknown",
+        "soil_test_date_unknown",
+        "not_irrigation_data",
+        "applicability_not_reviewed"
+      ]
+    },
+    "cases": [
+      {
+        "case_id": "prescription_full",
+        "kind": "model_delivery",
+        "question": "선택한 필지의 시설 토마토 비료 처방과 자료의 한계를 알려줘.",
+        "expected_status": "completed"
+      },
+      {
+        "case_id": "nutrients",
+        "kind": "model_delivery",
+        "question": "선택 필지의 밑거름과 웃거름 질소·인산·칼리 비료 처방량을 단위와 함께 보여줘.",
+        "expected_status": "completed"
+      },
+      {
+        "case_id": "zero_values",
+        "kind": "model_delivery",
+        "question": "선택 필지의 퇴비 처방과 웃거름 인산·칼리를 보여주고, 비료 처방의 0인 값도 빠뜨리지 말아줘.",
+        "expected_status": "completed"
+      },
+      {
+        "case_id": "provenance_limits",
+        "kind": "model_delivery",
+        "question": "선택 필지의 비료 처방 수치와 출처를 보여주고 실제 작물·검정일자 확인 여부와 적용 한계를 알려줘.",
+        "expected_status": "completed"
+      },
+      {
+        "case_id": "unregistered_parcel",
+        "kind": "local_guard",
+        "question": "PNU 5211110100100120003의 비료 처방을 알려줘.",
+        "expected_status": "deferred"
+      },
+      {
+        "case_id": "unregistered_crop",
+        "kind": "local_guard",
+        "question": "선택 필지의 작물 코드 00001 비료 처방을 알려줘.",
+        "expected_status": "deferred"
+      }
+    ]
+  },
+  "provider": "mock",
+  "repeats": 10,
+  "study_snapshot_sha256": "ed9aab12c4fc56f9fa4f108815c0250175336501f06e2d1862d59370346d166a",
+  "started_at": "2026-11-16T06:27:13.032073+00:00",
+  "study_sha256": "659e3799f26395cb9be256da7da0686d6c54d5ba20a401ea217876f2013fd149",
+  "suite_sha256": "242cf9b9587a2a3b0bac8c11b6a359cf725c830df754bb600e9834cf9c457174",
+  "scorer_sha256": "fdc85c3426697a30f1e60c4c2c025c868fd9ac77d4c1e0fa3e507087fde8b905",
+  "pinned": {
+    "source_sha256": "cb894d73957c68b6ba45d40e17041db72ebd04b34a2b2e2279fc1471eb074e35",
+    "source_record": "data/references/fertilizer/wanju_tomato_20261115.json",
+    "normalized_evidence_sha256": "f3137953aa0deb37d2295107ac56b803f780dc57316610ffbf1cda757c6231b4",
+    "config": {
+      "model": "gpt-5.4-mini-2026-03-17",
+      "reasoning_effort": "none",
+      "max_output_tokens": 1800,
+      "max_model_calls": 3,
+      "max_tool_calls": 2
+    },
+    "provider": "mock",
+    "requested_model": "mock-fertilizer-v1",
+    "code_sha256": {
+      "assistant.py": "460b6e12081b70f3ef440ca01b85dda6c7aa3a8d212866eb8e227e3013ed801e",
+      "rag.py": "79540062f1d9c4d12fb0257a5deabd7b3d4f1c77189d101e3e05477c018b84c8",
+      "llm.py": "855e12371d8c9b4e260e7eb70e67c96d3fccdb3d372158f7a692e95038e497fd",
+      "explanation.py": "7a9b2821271f6fbcd9497f8ef3756ee9156615c09cc12cf9aa98435250f83322",
+      "fertilizer.py": "306582df22c22a3770c1549413f6cb0c74b686a0b6be7c3c1aafb506e2fa76d0",
+      "mcp_server.py": "d5e39f27bfe57d9c0735cab7e7a47b5d69ac00b5cc73cc99f9787a4d3c4c2c06",
+      "routing.py": "26a6cebf3f12a011a80c23913706acd5f7e791f62f83b56f00ab3271da8531fb"
+    }
+  }
+}

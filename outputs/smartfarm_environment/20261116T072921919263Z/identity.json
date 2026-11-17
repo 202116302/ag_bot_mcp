@@ -1,0 +1,7 @@
+{
+  "operation": "getIdentityDataList",
+  "retrieved_at": "2026-11-16T16:29:21.919263+09:00",
+  "endpoint_template": "https://www.smartfarmkorea.net/Agree_WS/webservices/ProvideRestService/getIdentityDataList/{serviceKey}",
+  "arguments": [],
+  "error_code": "SMARTFARM_NETWORK_ERROR"
+}

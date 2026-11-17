@@ -1,0 +1,930 @@
+{
+  "interpretation": "synthetic_software_test_not_agricultural_accuracy",
+  "provider": "mock",
+  "repeats": 10,
+  "statistics": {
+    "mcp": {
+      "attempted": 100,
+      "completed": 100,
+      "failed": 0,
+      "decision_correct": 100,
+      "contract_correct": 100,
+      "decision_accuracy_synthetic": 1.0,
+      "repeat_consistency": {
+        "SYNTHETIC-BELOW": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-EQUAL": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-ABOVE": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-ZERO": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-MISSING": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-UNIT": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-STAGE": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-CROP": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-SYSTEM": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-RANGE": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        }
+      }
+    },
+    "rag": {
+      "attempted": 100,
+      "completed": 100,
+      "failed": 0,
+      "decision_correct": 100,
+      "contract_correct": 100,
+      "decision_accuracy_synthetic": 1.0,
+      "repeat_consistency": {
+        "SYNTHETIC-BELOW": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-EQUAL": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-ABOVE": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-ZERO": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-MISSING": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-UNIT": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-STAGE": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-CROP": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-SYSTEM": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        },
+        "SYNTHETIC-RANGE": {
+          "attempted": 10,
+          "completed": 10,
+          "majority_fraction_with_failures": 1.0
+        }
+      }
+    }
+  },
+  "pairs": [
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-BELOW",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-EQUAL",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-ABOVE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-ZERO",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-MISSING",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-UNIT",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-STAGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-CROP",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-SYSTEM",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 1,
+      "case_id": "SYNTHETIC-RANGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 2,
+      "case_id": "SYNTHETIC-BELOW",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 2,
+      "case_id": "SYNTHETIC-EQUAL",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 2,
+      "case_id": "SYNTHETIC-ABOVE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 2,
+      "case_id": "SYNTHETIC-ZERO",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 2,
+      "case_id": "SYNTHETIC-MISSING",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 2,
+      "case_id": "SYNTHETIC-UNIT",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 2,
+      "case_id": "SYNTHETIC-STAGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 2,
+      "case_id": "SYNTHETIC-CROP",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 2,
+      "case_id": "SYNTHETIC-SYSTEM",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 2,
+      "case_id": "SYNTHETIC-RANGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 3,
+      "case_id": "SYNTHETIC-BELOW",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 3,
+      "case_id": "SYNTHETIC-EQUAL",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 3,
+      "case_id": "SYNTHETIC-ABOVE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 3,
+      "case_id": "SYNTHETIC-ZERO",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 3,
+      "case_id": "SYNTHETIC-MISSING",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 3,
+      "case_id": "SYNTHETIC-UNIT",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 3,
+      "case_id": "SYNTHETIC-STAGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 3,
+      "case_id": "SYNTHETIC-CROP",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 3,
+      "case_id": "SYNTHETIC-SYSTEM",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 3,
+      "case_id": "SYNTHETIC-RANGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 4,
+      "case_id": "SYNTHETIC-BELOW",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 4,
+      "case_id": "SYNTHETIC-EQUAL",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 4,
+      "case_id": "SYNTHETIC-ABOVE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 4,
+      "case_id": "SYNTHETIC-ZERO",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 4,
+      "case_id": "SYNTHETIC-MISSING",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 4,
+      "case_id": "SYNTHETIC-UNIT",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 4,
+      "case_id": "SYNTHETIC-STAGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 4,
+      "case_id": "SYNTHETIC-CROP",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 4,
+      "case_id": "SYNTHETIC-SYSTEM",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 4,
+      "case_id": "SYNTHETIC-RANGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 5,
+      "case_id": "SYNTHETIC-BELOW",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 5,
+      "case_id": "SYNTHETIC-EQUAL",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 5,
+      "case_id": "SYNTHETIC-ABOVE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 5,
+      "case_id": "SYNTHETIC-ZERO",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 5,
+      "case_id": "SYNTHETIC-MISSING",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 5,
+      "case_id": "SYNTHETIC-UNIT",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 5,
+      "case_id": "SYNTHETIC-STAGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 5,
+      "case_id": "SYNTHETIC-CROP",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 5,
+      "case_id": "SYNTHETIC-SYSTEM",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 5,
+      "case_id": "SYNTHETIC-RANGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 6,
+      "case_id": "SYNTHETIC-BELOW",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 6,
+      "case_id": "SYNTHETIC-EQUAL",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 6,
+      "case_id": "SYNTHETIC-ABOVE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 6,
+      "case_id": "SYNTHETIC-ZERO",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 6,
+      "case_id": "SYNTHETIC-MISSING",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 6,
+      "case_id": "SYNTHETIC-UNIT",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 6,
+      "case_id": "SYNTHETIC-STAGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 6,
+      "case_id": "SYNTHETIC-CROP",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 6,
+      "case_id": "SYNTHETIC-SYSTEM",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 6,
+      "case_id": "SYNTHETIC-RANGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 7,
+      "case_id": "SYNTHETIC-BELOW",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 7,
+      "case_id": "SYNTHETIC-EQUAL",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 7,
+      "case_id": "SYNTHETIC-ABOVE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 7,
+      "case_id": "SYNTHETIC-ZERO",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 7,
+      "case_id": "SYNTHETIC-MISSING",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 7,
+      "case_id": "SYNTHETIC-UNIT",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 7,
+      "case_id": "SYNTHETIC-STAGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 7,
+      "case_id": "SYNTHETIC-CROP",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 7,
+      "case_id": "SYNTHETIC-SYSTEM",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 7,
+      "case_id": "SYNTHETIC-RANGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 8,
+      "case_id": "SYNTHETIC-BELOW",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 8,
+      "case_id": "SYNTHETIC-EQUAL",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 8,
+      "case_id": "SYNTHETIC-ABOVE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 8,
+      "case_id": "SYNTHETIC-ZERO",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 8,
+      "case_id": "SYNTHETIC-MISSING",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 8,
+      "case_id": "SYNTHETIC-UNIT",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 8,
+      "case_id": "SYNTHETIC-STAGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 8,
+      "case_id": "SYNTHETIC-CROP",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 8,
+      "case_id": "SYNTHETIC-SYSTEM",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 8,
+      "case_id": "SYNTHETIC-RANGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 9,
+      "case_id": "SYNTHETIC-BELOW",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 9,
+      "case_id": "SYNTHETIC-EQUAL",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 9,
+      "case_id": "SYNTHETIC-ABOVE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 9,
+      "case_id": "SYNTHETIC-ZERO",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 9,
+      "case_id": "SYNTHETIC-MISSING",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 9,
+      "case_id": "SYNTHETIC-UNIT",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 9,
+      "case_id": "SYNTHETIC-STAGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 9,
+      "case_id": "SYNTHETIC-CROP",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 9,
+      "case_id": "SYNTHETIC-SYSTEM",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 9,
+      "case_id": "SYNTHETIC-RANGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 10,
+      "case_id": "SYNTHETIC-BELOW",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 10,
+      "case_id": "SYNTHETIC-EQUAL",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 10,
+      "case_id": "SYNTHETIC-ABOVE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 10,
+      "case_id": "SYNTHETIC-ZERO",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 10,
+      "case_id": "SYNTHETIC-MISSING",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 10,
+      "case_id": "SYNTHETIC-UNIT",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 10,
+      "case_id": "SYNTHETIC-STAGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 10,
+      "case_id": "SYNTHETIC-CROP",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 10,
+      "case_id": "SYNTHETIC-SYSTEM",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    },
+    {
+      "trial": 10,
+      "case_id": "SYNTHETIC-RANGE",
+      "comparable": true,
+      "errors": [],
+      "both_completed": true,
+      "decisions_equal": true
+    }
+  ],
+  "all_passed": true
+}

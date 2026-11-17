@@ -1,0 +1,40 @@
+{
+  "question": "선택한 필지의 시설 토마토 비료 처방과 자료의 한계를 알려줘.",
+  "provider": "mock",
+  "repeats": 1,
+  "interpretation": "saved_prescription_delivery_check_not_agricultural_accuracy",
+  "passed": 1,
+  "pairs": [
+    {
+      "comparable": true,
+      "errors": [],
+      "both_answered": true,
+      "structured_answers_equal": true,
+      "statuses_equal": true,
+      "passed": true,
+      "trial": 1,
+      "order": [
+        "mcp",
+        "rag"
+      ],
+      "runs": {
+        "mcp": {
+          "run_id": "d4651063-99f0-4f93-816e-a3d892d83d95",
+          "status": "completed",
+          "error_code": null,
+          "elapsed_seconds": 1.8255,
+          "model_calls": 2,
+          "tool_calls": 1
+        },
+        "rag": {
+          "run_id": "47b014ad-4a43-4ac7-bb13-f277d2439c5a",
+          "status": "completed",
+          "error_code": null,
+          "elapsed_seconds": 0.0034,
+          "model_calls": 1,
+          "tool_calls": 0
+        }
+      }
+    }
+  ]
+}

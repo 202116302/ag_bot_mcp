@@ -1,0 +1,12 @@
+{
+  "key_source": ".env:smartfarm_data",
+  "call_limit": 6,
+  "interpretation": "historical_data_mart_availability_check",
+  "fertilizer_parcel_link": "not_established",
+  "direct_sensor_connection": false,
+  "unit_status": "unconfirmed",
+  "fields": {},
+  "status": "probe_failed",
+  "error_code": "SMARTFARM_HTTP_OR_NETWORK_ERROR",
+  "calls": 1
+}

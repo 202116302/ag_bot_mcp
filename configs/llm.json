@@ -1,0 +1,7 @@
+{
+  "model": "gpt-5.4-mini-2026-03-17",
+  "reasoning_effort": "none",
+  "max_output_tokens": 1800,
+  "max_model_calls": 3,
+  "max_tool_calls": 2
+}

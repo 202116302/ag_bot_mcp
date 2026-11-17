@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "purpose": "Historical environment lookup and citation contract checks, not control accuracy",
+  "expected_fields": {
+    "TI": {"status": "available", "record_count": 24, "minimum": "24.67", "maximum": "32.33"},
+    "HI": {"status": "available", "record_count": 24, "minimum": "76.33", "maximum": "97.00"},
+    "HI02": {"status": "no_data", "record_count": 0, "minimum": null, "maximum": null},
+    "CI": {"status": "available", "record_count": 24, "minimum": "401.00", "maximum": "506.00"}
+  },
+  "cases": [
+    {"case_id": "overview", "question": "저장된 과거 토마토 환경자료의 온도·습도·CO2와 재배문서의 관련 근거를 보여줘.", "status": "partial", "codes": ["TI", "HI", "HI02", "CI"], "citations": ["tomato-temperature-adaptation", "tomato-general-temperature-management", "tomato-cherry-temperature-management", "tomato-air-humidity", "tomato-co2-review"]},
+    {"case_id": "general_temperature", "question": "일반토마토 온도 문헌과 과거 환경자료를 보여줘.", "status": "partial", "codes": ["TI"], "citations": ["tomato-temperature-adaptation", "tomato-general-temperature-management"]},
+    {"case_id": "cherry_temperature", "question": "방울토마토 온도관리 문헌과 과거 자료의 온도를 보여줘.", "status": "partial", "codes": ["TI"], "citations": ["tomato-temperature-adaptation", "tomato-cherry-temperature-management"]},
+    {"case_id": "humidity", "question": "과거 습도 자료와 토마토 재배문서의 관련 근거를 보여줘.", "status": "partial", "codes": ["HI", "HI02"], "citations": ["tomato-air-humidity"]},
+    {"case_id": "co2", "question": "저장된 CO2 자료와 토마토 문헌의 관련 근거를 알려줘.", "status": "partial", "codes": ["CI"], "citations": ["tomato-co2-review"]},
+    {"case_id": "irrigation_excluded", "question": "토마토 관수는 언제 해야 해?", "status": "deferred", "codes": [], "citations": []},
+    {"case_id": "current_control", "question": "오늘 온실 환기창을 열어야 할까?", "status": "deferred", "codes": [], "citations": []},
+    {"case_id": "different_parcel", "question": "PNU 5271033027105280033의 온도 자료를 보여줘.", "status": "deferred", "codes": [], "citations": []},
+    {"case_id": "different_facility", "question": "PFS_0000002_01의 온도를 보여줘.", "status": "deferred", "codes": [], "citations": []}
+  ]
+}

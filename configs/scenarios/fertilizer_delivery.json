@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "scope": "saved_provider_prescription_delivery",
+  "excluded_domains": ["irrigation", "weather", "growth", "climate_control", "agronomic_decision_accuracy"],
+  "reference_method": "Fixed transcription of saved provider response, verified against original XML; not agronomic ground truth",
+  "reference": {
+    "pnu_code": "5271033027105280033", "crop_code": "04017", "status": "available",
+    "source_record": "data/references/fertilizer/wanju_tomato_20261115.json",
+    "source_sha256": "cb894d73957c68b6ba45d40e17041db72ebd04b34a2b2e2279fc1471eb074e35",
+    "unit": "kg/10a",
+    "amounts": {"basal_n": "14.4", "basal_p": "3.0", "basal_k": "3.0",
+                "topdressing_n": "10.9", "topdressing_p": "0.0", "topdressing_k": "0.0",
+                "compost_cattle": "0", "compost_pig": "0", "compost_chicken": "0", "compost_mix": "0"},
+    "provider_fields": {"basal_n": "pre_Fert_N", "basal_p": "pre_Fert_P", "basal_k": "pre_Fert_K",
+                        "topdressing_n": "post_Fert_N", "topdressing_p": "post_Fert_P", "topdressing_k": "post_Fert_K",
+                        "compost_cattle": "pre_Compost_Cattl", "compost_pig": "pre_Compost_Pig",
+                        "compost_chicken": "pre_Compost_Chick", "compost_mix": "pre_Compost_Mix"},
+    "notices": ["provider_calculated", "actual_crop_unknown", "soil_test_date_unknown",
+                "not_irrigation_data", "applicability_not_reviewed"]
+  },
+  "cases": [
+    {"case_id": "prescription_full", "kind": "model_delivery", "question": "선택한 필지의 시설 토마토 비료 처방과 자료의 한계를 알려줘.", "expected_status": "completed"},
+    {"case_id": "nutrients", "kind": "model_delivery", "question": "선택 필지의 밑거름과 웃거름 질소·인산·칼리 비료 처방량을 단위와 함께 보여줘.", "expected_status": "completed"},
+    {"case_id": "zero_values", "kind": "model_delivery", "question": "선택 필지의 퇴비 처방과 웃거름 인산·칼리를 보여주고, 비료 처방의 0인 값도 빠뜨리지 말아줘.", "expected_status": "completed"},
+    {"case_id": "provenance_limits", "kind": "model_delivery", "question": "선택 필지의 비료 처방 수치와 출처를 보여주고 실제 작물·검정일자 확인 여부와 적용 한계를 알려줘.", "expected_status": "completed"},
+    {"case_id": "unregistered_parcel", "kind": "local_guard", "question": "PNU 5211110100100120003의 비료 처방을 알려줘.", "expected_status": "deferred"},
+    {"case_id": "unregistered_crop", "kind": "local_guard", "question": "선택 필지의 작물 코드 00001 비료 처방을 알려줘.", "expected_status": "deferred"}
+  ]
+}

@@ -1,0 +1,752 @@
+{
+  "facility_id": "PFS_0000001_01",
+  "user_id": "PFS_0000001",
+  "date": "2023-07-25",
+  "cropping_season_id": 5957,
+  "cropping_system_raw": null,
+  "season_start": "2022-09-21",
+  "season_end": "2023-07-25",
+  "identity_source": "outputs/smartfarm_environment/20261116T073643721744Z/identity.json",
+  "season_source": "outputs/smartfarm_environment/20261116T073643721744Z/seasons.json",
+  "selection_method": "first_tomato_identity_latest_completed_season_end_day_not_representative",
+  "schema_version": "1.0",
+  "snapshot_id": "SMARTFARM-PFS_0000001_01-20230725",
+  "status": "historical_available",
+  "fields": {
+    "TI": {
+      "facility_id": "PFS_0000001_01",
+      "date": "2023-07-25",
+      "item_code": "080300",
+      "field_code": "FG",
+      "section_code": "EI",
+      "attribute_code": "TI",
+      "attribute_name": "내부온도",
+      "unit": null,
+      "unit_status": "not_declared_by_api_contract",
+      "observations": [
+        {
+          "measured_at": "2023-07-25 00:00:00",
+          "timezone": null,
+          "raw_value": "24.67",
+          "value": "24.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 01:00:00",
+          "timezone": null,
+          "raw_value": "24.67",
+          "value": "24.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 02:00:00",
+          "timezone": null,
+          "raw_value": "24.67",
+          "value": "24.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 03:00:00",
+          "timezone": null,
+          "raw_value": "24.67",
+          "value": "24.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 04:00:00",
+          "timezone": null,
+          "raw_value": "24.67",
+          "value": "24.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 05:00:00",
+          "timezone": null,
+          "raw_value": "24.67",
+          "value": "24.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 06:00:00",
+          "timezone": null,
+          "raw_value": "25.33",
+          "value": "25.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 07:00:00",
+          "timezone": null,
+          "raw_value": "26.67",
+          "value": "26.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 08:00:00",
+          "timezone": null,
+          "raw_value": "28.00",
+          "value": "28.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 09:00:00",
+          "timezone": null,
+          "raw_value": "30.67",
+          "value": "30.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 10:00:00",
+          "timezone": null,
+          "raw_value": "28.67",
+          "value": "28.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 11:00:00",
+          "timezone": null,
+          "raw_value": "32.33",
+          "value": "32.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 12:00:00",
+          "timezone": null,
+          "raw_value": "31.00",
+          "value": "31.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 13:00:00",
+          "timezone": null,
+          "raw_value": "32.33",
+          "value": "32.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 14:00:00",
+          "timezone": null,
+          "raw_value": "31.67",
+          "value": "31.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 15:00:00",
+          "timezone": null,
+          "raw_value": "31.33",
+          "value": "31.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 16:00:00",
+          "timezone": null,
+          "raw_value": "31.67",
+          "value": "31.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 17:00:00",
+          "timezone": null,
+          "raw_value": "29.33",
+          "value": "29.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 18:00:00",
+          "timezone": null,
+          "raw_value": "28.33",
+          "value": "28.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 19:00:00",
+          "timezone": null,
+          "raw_value": "27.33",
+          "value": "27.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 20:00:00",
+          "timezone": null,
+          "raw_value": "27.00",
+          "value": "27.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 21:00:00",
+          "timezone": null,
+          "raw_value": "26.33",
+          "value": "26.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 22:00:00",
+          "timezone": null,
+          "raw_value": "26.00",
+          "value": "26.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 23:00:00",
+          "timezone": null,
+          "raw_value": "26.00",
+          "value": "26.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        }
+      ],
+      "source_record": "data/references/smartfarm/environment_20230725/TI.json",
+      "source_sha256": "ff48f88504531bec444d171e0a357ac95c4d78a869c1357b24a20e4ee65e0e87",
+      "source_hash_scope": "canonical_saved_record",
+      "retrieved_at": "2026-11-16T16:36:45.325104+09:00",
+      "status": "available",
+      "record_count": 24,
+      "missing_count": 0
+    },
+    "HI": {
+      "facility_id": "PFS_0000001_01",
+      "date": "2023-07-25",
+      "item_code": "080300",
+      "field_code": "FG",
+      "section_code": "EI",
+      "attribute_code": "HI",
+      "attribute_name": "내부습도",
+      "unit": null,
+      "unit_status": "not_declared_by_api_contract",
+      "observations": [
+        {
+          "measured_at": "2023-07-25 00:00:00",
+          "timezone": null,
+          "raw_value": "96.67",
+          "value": "96.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 01:00:00",
+          "timezone": null,
+          "raw_value": "97.00",
+          "value": "97.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 02:00:00",
+          "timezone": null,
+          "raw_value": "97.00",
+          "value": "97.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 03:00:00",
+          "timezone": null,
+          "raw_value": "97.00",
+          "value": "97.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 04:00:00",
+          "timezone": null,
+          "raw_value": "96.33",
+          "value": "96.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 05:00:00",
+          "timezone": null,
+          "raw_value": "96.33",
+          "value": "96.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 06:00:00",
+          "timezone": null,
+          "raw_value": "97.00",
+          "value": "97.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 07:00:00",
+          "timezone": null,
+          "raw_value": "93.67",
+          "value": "93.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 08:00:00",
+          "timezone": null,
+          "raw_value": "93.33",
+          "value": "93.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 09:00:00",
+          "timezone": null,
+          "raw_value": "83.67",
+          "value": "83.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 10:00:00",
+          "timezone": null,
+          "raw_value": "93.00",
+          "value": "93.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 11:00:00",
+          "timezone": null,
+          "raw_value": "76.33",
+          "value": "76.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 12:00:00",
+          "timezone": null,
+          "raw_value": "82.00",
+          "value": "82.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 13:00:00",
+          "timezone": null,
+          "raw_value": "77.67",
+          "value": "77.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 14:00:00",
+          "timezone": null,
+          "raw_value": "81.67",
+          "value": "81.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 15:00:00",
+          "timezone": null,
+          "raw_value": "83.00",
+          "value": "83.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 16:00:00",
+          "timezone": null,
+          "raw_value": "78.00",
+          "value": "78.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 17:00:00",
+          "timezone": null,
+          "raw_value": "84.67",
+          "value": "84.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 18:00:00",
+          "timezone": null,
+          "raw_value": "90.33",
+          "value": "90.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 19:00:00",
+          "timezone": null,
+          "raw_value": "93.00",
+          "value": "93.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 20:00:00",
+          "timezone": null,
+          "raw_value": "94.67",
+          "value": "94.67",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 21:00:00",
+          "timezone": null,
+          "raw_value": "95.33",
+          "value": "95.33",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 22:00:00",
+          "timezone": null,
+          "raw_value": "96.00",
+          "value": "96.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 23:00:00",
+          "timezone": null,
+          "raw_value": "96.00",
+          "value": "96.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        }
+      ],
+      "source_record": "data/references/smartfarm/environment_20230725/HI.json",
+      "source_sha256": "49bce051158c44a993be8e5134986462716968aa62fcf43df0a6ff7538d163d9",
+      "source_hash_scope": "canonical_saved_record",
+      "retrieved_at": "2026-11-16T16:36:45.535969+09:00",
+      "status": "available",
+      "record_count": 24,
+      "missing_count": 0
+    },
+    "HI02": {
+      "facility_id": "PFS_0000001_01",
+      "date": "2023-07-25",
+      "item_code": "080300",
+      "field_code": "FG",
+      "section_code": "EI",
+      "attribute_code": "HI02",
+      "attribute_name": "내부 상대습도",
+      "unit": null,
+      "unit_status": "not_declared_by_api_contract",
+      "observations": [],
+      "source_record": "data/references/smartfarm/environment_20230725/HI02.json",
+      "source_sha256": "6733d6b419983d1b05c7d06be46af3052c711ec83c40cd26f99a7cd60a9dfb66",
+      "source_hash_scope": "canonical_saved_record",
+      "retrieved_at": "2026-11-16T16:36:45.612787+09:00",
+      "status": "no_data",
+      "error_code": "SMARTFARM_NO_DATA"
+    },
+    "CI": {
+      "facility_id": "PFS_0000001_01",
+      "date": "2023-07-25",
+      "item_code": "080300",
+      "field_code": "FG",
+      "section_code": "EI",
+      "attribute_code": "CI",
+      "attribute_name": "내부CO2",
+      "unit": null,
+      "unit_status": "not_declared_by_api_contract",
+      "observations": [
+        {
+          "measured_at": "2023-07-25 00:00:00",
+          "timezone": null,
+          "raw_value": "497.00",
+          "value": "497.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 01:00:00",
+          "timezone": null,
+          "raw_value": "452.00",
+          "value": "452.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 02:00:00",
+          "timezone": null,
+          "raw_value": "442.00",
+          "value": "442.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 03:00:00",
+          "timezone": null,
+          "raw_value": "467.00",
+          "value": "467.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 04:00:00",
+          "timezone": null,
+          "raw_value": "466.00",
+          "value": "466.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 05:00:00",
+          "timezone": null,
+          "raw_value": "473.00",
+          "value": "473.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 06:00:00",
+          "timezone": null,
+          "raw_value": "444.00",
+          "value": "444.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 07:00:00",
+          "timezone": null,
+          "raw_value": "421.00",
+          "value": "421.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 08:00:00",
+          "timezone": null,
+          "raw_value": "407.00",
+          "value": "407.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 09:00:00",
+          "timezone": null,
+          "raw_value": "401.00",
+          "value": "401.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 10:00:00",
+          "timezone": null,
+          "raw_value": "401.00",
+          "value": "401.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 11:00:00",
+          "timezone": null,
+          "raw_value": "403.00",
+          "value": "403.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 12:00:00",
+          "timezone": null,
+          "raw_value": "426.00",
+          "value": "426.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 13:00:00",
+          "timezone": null,
+          "raw_value": "413.00",
+          "value": "413.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 14:00:00",
+          "timezone": null,
+          "raw_value": "410.00",
+          "value": "410.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 15:00:00",
+          "timezone": null,
+          "raw_value": "412.00",
+          "value": "412.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 16:00:00",
+          "timezone": null,
+          "raw_value": "420.00",
+          "value": "420.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 17:00:00",
+          "timezone": null,
+          "raw_value": "425.00",
+          "value": "425.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 18:00:00",
+          "timezone": null,
+          "raw_value": "438.00",
+          "value": "438.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 19:00:00",
+          "timezone": null,
+          "raw_value": "453.00",
+          "value": "453.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 20:00:00",
+          "timezone": null,
+          "raw_value": "466.00",
+          "value": "466.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 21:00:00",
+          "timezone": null,
+          "raw_value": "484.00",
+          "value": "484.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 22:00:00",
+          "timezone": null,
+          "raw_value": "482.00",
+          "value": "482.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        },
+        {
+          "measured_at": "2023-07-25 23:00:00",
+          "timezone": null,
+          "raw_value": "506.00",
+          "value": "506.00",
+          "standard_category": null,
+          "standard_element": null,
+          "standard_type": null
+        }
+      ],
+      "source_record": "data/references/smartfarm/environment_20230725/CI.json",
+      "source_sha256": "1171c944fa24af80f502b2138a80c6975ecf93fbb2f393ef7e0f73abf560cb9a",
+      "source_hash_scope": "canonical_saved_record",
+      "retrieved_at": "2026-11-16T16:36:45.809348+09:00",
+      "status": "available",
+      "record_count": 24,
+      "missing_count": 0
+    }
+  },
+  "direct_sensor_connection": false,
+  "fertilizer_parcel_link": "not_established",
+  "season_linkage": "same_user_and_date_window_not_confirmed_at_facility_level",
+  "growth_stage": null,
+  "cultivar": null,
+  "unit_status": "unconfirmed",
+  "timezone": null,
+  "aggregation_method": "not_declared",
+  "allowed_use": "historical_data_lookup_only_no_automatic_control"
+}

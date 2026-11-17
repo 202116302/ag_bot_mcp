@@ -1,0 +1,55 @@
+{
+  "status": "candidate_not_executable",
+  "source_document": "data/29 토마토_저화질_단면.pdf",
+  "source_sha256": "70a46a767fd4cadd2b5b3a9470bb0b6cb4677742e7dfea2c0ef7d6b023ff1c7f",
+  "review_method": "local_page_image_and_extracted_text",
+  "reviewed_at": "2026-11-16",
+  "bibliography": {"title": "농업기술길잡이 106 토마토", "publisher": "농촌진흥청",
+                   "publication_date": "2020-12-18", "edition": "개정9판 1쇄",
+                   "isbn": "978-89-480-6627-2", "pdf_pages": 364},
+  "preferred_candidate": {
+    "candidate_id": "tomato_soil_fertigation_tensiometer_start",
+    "pdf_page": 132, "printed_page": 129,
+    "context_pdf_pages": [114, 116, 117, 121, 125, 126, 131, 132],
+    "section": "제5장 관비재배 기술 / 05 토마토 관비재배 / 가. 물관리",
+    "evidence_type": "explicit_irrigation_start_point",
+    "general_start_kpa_as_printed": -20,
+    "cultivar_start_ranges_kpa_as_printed": [
+      {"group": "일본계", "as_printed": "-20∼-25", "range_min": -25, "range_max": -20,
+       "table_5_12_cultivar": "슈퍼도태랑"},
+      {"group": "유럽계", "as_printed": "-30∼-35", "range_min": -35, "range_max": -30,
+       "table_5_12_cultivar": "라피토"}
+    ],
+    "scope_inferred_from_context": "시설 토양 관비재배, 텐시오미터 사용",
+    "growth_stage_specific_threshold": null,
+    "operator_as_printed": null,
+    "conditional_research_formalization": {
+      "status": "proposed_not_source_quote_not_executable",
+      "signed_kpa": {"threshold": -20, "proposed_operator": "<=", "alternative_boundary_operator": "<"},
+      "positive_tension_kpa": {"threshold": 20, "proposed_operator": ">=", "alternative_boundary_operator": ">"},
+      "precondition": "같은 토양수분장력에 대한 부호 정의·단위가 확인된 경우에만 대응시킨다. 함수율%나 의미 불명의 센서값에는 적용하지 않는다.",
+      "boundary_note": "도달 시 시작한다는 운용 정의는 연구자의 형식화다. 원문에 등호는 명시돼 있지 않다."
+    }
+  },
+  "sections": [
+    {"pdf_page": 43, "printed_page": 40, "section": "마. 토양수분",
+     "ranges_kpa": [{"stage_text": "생육 전반기", "lower": 10, "upper": 30},
+                    {"stage_text": "후반기", "lower": 3, "upper": 10}]},
+    {"pdf_page": 249, "printed_page": 246, "section": "다. 토양수분과 관수",
+     "ranges_kpa": [{"stage_text": "생육 초기에서 착과되는 기간까지", "lower": 20, "upper": 30},
+                    {"stage_text": "착과 이후부터 과실비대기를 거쳐 수확기", "lower": 10, "upper": 20}]}
+  ],
+  "measurement_findings": [
+    {"pdf_page": 125, "printed_page": 122, "finding": "텐시오미터 0∼100 kPa 측정범위와 TDR/FDR 용적수분함량(%) 설명"},
+    {"pdf_page": 126, "printed_page": 123, "finding": "표 5-11은 중량% 표다. 부피수분함량%의 직접 환산표로 사용하지 않는다."},
+    {"pdf_page": 132, "printed_page": 129, "finding": "관수개시점은 음수 표기. 센서 부호 규약 확인 후 비교 방향을 정한다."}
+  ],
+  "text_quality_flags": [
+    {"pdf_page": 79, "printed_page": 76, "finding": "원본 이미지 pF 2.3∼2.5에 -2∼-30 kPa 병기. PDF 93쪽의 유사 문장은 -20∼-30 kPa. 원문 오기 가능성으로 보존하고 자동 교정하지 않는다."}
+  ],
+  "unresolved": ["품종군과 일반 -20 kPa 기준의 선택", "경계 등호 포함 여부와 센서 오차·이력 처리",
+                 "실제 필지의 토양 관비재배 여부·품종·생육단계", "센서 단위·부호·설치 위치와 실제 수분 관측값",
+                 "관수 종료점·관수량·1회 시간·히스테리시스에 대한 별도 근거"],
+  "report": "docs/tomato_literature_review.md",
+  "policy": "생육단계별 유지 범위를 평균하지 않는다. 우선 후보는 PDF 132쪽의 명시적 관수개시점이다. 확인된 문헌 수치와 연구자의 경계 해석을 구분하며, 현 상태는 실행 불가 후보로 유지한다."
+}

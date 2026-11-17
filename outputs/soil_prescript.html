@@ -1,0 +1,5794 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<title>흙토람 - 비료사용처방</title>
+<meta name="WT.ti" content="토양환경정보시스템 > 비료사용처방 > 비료사용처방" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/css/base.css?ver=20260716"> 
+<link type="text/css" rel="stylesheet" href="/css/font.css"> 
+<link type="text/css" rel="stylesheet" href="/css/module.css?ver=20261105"> 
+<link type="text/css" rel="stylesheet" href="/css/style.css?ver=20260728"> 
+<link type="text/css" rel="stylesheet" href="/css/sub.css?ver=20260828"> 
+<link type="text/css" rel="stylesheet" href="/css/swiper.min.css"> 
+<link type="text/css" rel="stylesheet" href="/css/crownix-viewer.min.css?ver=20250812">
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/css/swiper-bundle.min.css" /> -->
+<link type="text/css" rel="stylesheet" href="/css/style_2026.css?ver=20260910"> 
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- <script type="text/javascript" src="/js/swiper-bundle.min.js"></script> -->
+
+
+
+<script type="text/javascript" src="/js/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js?ver=20250812"></script>
+<script type="text/javascript" src="/js/jquery.floatThead.js"></script>
+
+<script type="text/javascript" src="/js/jquery-migrate-3.3.2.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.common.js"></script>
+<script type="text/javascript" src="/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/js/jquery.fileDownload.js"></script>
+<script type="text/javascript" src="/js/swiper.min.js"></script>
+<script type="text/javascript" src="/js/soil_common.js"></script>
+<script type="text/javascript" src="/js/rate.js"></script>
+<script type="text/javascript" src="/js/calendar.js"></script>
+<script type="text/javascript" src="/js/quick.js?ver=20231211"></script>
+
+
+<script type="text/javascript" src="/js/common.js?ver=20260728"></script>
+
+<script type="text/javascript" src="/js/ui-script.js?ver=20260728"></script>
+
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+
+<script type="text/javascript" src="/js/sha1.js"></script>
+<script type="text/javascript" src="/js/sha256.js"></script>
+
+
+<script type="text/javascript" src="/js/crypto/components/core-min.js"></script>
+<script type="text/javascript" src="/js/crypto/components/sha256-min.js"></script>
+<script type="text/javascript" src="/js/crypto/components/enc-base64-min.js"></script>
+<script type="text/javascript" src="/js/crypto/rsa/jsbn.js"></script>
+<script type="text/javascript" src="/js/crypto/rsa/prng4.js"></script>
+<script type="text/javascript" src="/js/crypto/rsa/rng.js"></script>
+<script type="text/javascript" src="/js/crypto/rsa/rsa.js"></script>
+
+
+	<script type="text/javascript" src="/js/crownix-viewer.min.js?ver=20250812"></script>
+	<link type="text/css" rel="stylesheet" href="/css/crownix-viewer.min.css?ver=20250812">
+
+
+
+<link href="/anyid/css/app.css" rel="stylesheet">
+<link href="/anyid/css/app_soil.css" rel="stylesheet">
+<script type="text/javascript" src="/anyid/js/manifest.js"></script>
+<script type="text/javascript" src="/anyid/js/vendor.js"></script>
+<script type="text/javascript" src="/anyid/js/app.js"></script>
+<script type="text/javascript" src="/js/modal.js"></script>
+
+
+
+
+	<script>
+		var anyidAdaptor = anyidAdaptor || {};
+		
+		/*이용기관 수정 영역 Start*/
+		anyidAdaptor.orgLogin = function(data){
+			//정부 통합인증SDK_연계가이드 4.4.1.3 이용기관 로그인(토글 off) 참조
+			//제공되는 라이브러리 메소드로 인증데이터 decrypt 이후 자체 로그인 로직 개발
+			return false;
+		}
+		/*이용기관 수정 영역 End*/
+		
+		
+		/*이용기관 문구수정 영역 Start*/
+		anyidAdaptor.JoinConfirm = function(portalJoinUri, memberData){
+			if(!confirm('Any-ID 사용자등록 하시겠습니까?')) {
+				anyidAdaptor.orgLogin(anyidAdaptor.certData);
+				return;
+			}else{
+				anyidAdaptor.receiveAnyIdJoin(portalJoinUri, memberData);
+			}
+		}
+		/*이용기관 문구수정 영역 End*/
+		
+		anyidAdaptor.portalJoinUri = "null";
+		anyidAdaptor.certData = null;
+		anyidAdaptor.ssoByPass = "0";
+		anyidAdaptor.niRegYn = "null";
+		anyidAdaptor.agencyContextPath = "";
+		
+		anyidAdaptor.success = function(data){
+			if(anyidAdaptor.ssoByPass != 0 || !data.useSso) {
+				anyidAdaptor.orgLogin(data);
+			} else {
+				anyidAdaptor.certData = data;
+				anyidAdaptor.userCheck();
+			}  
+		}
+		
+		anyidAdaptor.userCheck = function(){
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", anyidAdaptor.agencyContextPath + "/oidc/userCheck", true);
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					var response = JSON.parse(xhr.responseText);
+					if (response.success) {
+						anyidAdaptor.ssoLogin();
+					} else {
+						setTimeout(function() {
+							anyidAdaptor.receiveAnyIdJoin(response.uri, response.data);
+						}, 100);  
+					}
+				}
+			};
+
+			let jsonObject = new Object();
+			jsonObject.txId = anyidAdaptor.certData.txId;
+			jsonObject.ssob = anyidAdaptor.certData.ssob;
+			jsonObject.userSeCd = anyidAdaptor.certData.userSeCd;
+			
+			let jsonStr = JSON.stringify(jsonObject);
+			let encodedString = btoa(jsonStr);
+			
+			var data = "data=" + encodedString + "&txId=" + anyidAdaptor.certData.txId;
+			xhr.send(data);
+			
+		}
+
+		//anyid가입
+		anyidAdaptor.receiveAnyIdJoin = function(portalJoinUri, memberData){
+			var url = portalJoinUri+encodeURIComponent(memberData);
+			anyidAdaptor.popup(url,"openAnyIdRegistUserIdv",700,740);
+
+			window.addEventListener("message", function(event) {
+				var result;
+				try {
+					result = JSON.parse(event.data);
+				} catch (error) {
+					console.error("Received message is not valid JSON:", error);
+					return;
+				}
+				if(!result.funcName || (result.funcName !== "trmsAgreComplete" && result.funcName !== "registUserComplete")) {
+					return;
+				}
+				if(result.status === "success") {
+					if(result.trmsAgreYn == "Y"){
+						anyidAdaptor.ssoLogin();
+					}else{
+						anyidAdaptor.orgLogin(anyidAdaptor.certData);
+					}
+				}else{
+					anyidAdaptor.orgLogin(anyidAdaptor.certData);
+				}
+			}, false);
+		}
+
+		// 팝업 호출
+		anyidAdaptor.popup = function(url, name, width, height){
+			let left = (screen.width) ? (screen.width-width)/2 : 0;
+			let top = (screen.height) ? (screen.height-height)/2 : 0;
+			let popup=window.open(url, name ,"resizable=yes,toolbar=no,scrollbars=yes,location=no,top="+top+"px,left="+left+"px,width="+width+"px,height="+height+"px");
+			if(popup){
+				popup.focus();
+			}
+		}
+
+		anyidAdaptor.ssoLogin = function(){
+			let jsonObject = new Object();
+			jsonObject.txId = anyidAdaptor.certData.txId;
+			jsonObject.ssob = anyidAdaptor.certData.ssob;
+			jsonObject.userSeCd = anyidAdaptor.certData.userSeCd;
+			jsonObject.afData = anyidAdaptor.certData.afData;
+			let jsonStr = JSON.stringify(jsonObject);
+			
+			let encodedString = btoa(jsonStr);
+			var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/ssoLogin";
+			var urlWithParams = baseUrl + "?data=" + encodedString;
+			window.location.href = urlWithParams;
+			
+		}
+		
+		anyidAdaptor.ssoLoginPageSub = function(baseUrl, endPoint, acrValues){
+			var subUrl = "";
+			
+			if (endPoint && endPoint.trim() !== "") {
+				subUrl = "?endPoint=" + encodeURIComponent(endPoint);
+			}
+			
+			if (!acrValues && acrValues.trim() == "") {
+				acrValues = "3";
+			}
+			
+			if (acrValues && acrValues.trim() !== "") {
+				if(subUrl == ""){
+					subUrl = "?";
+				}else{
+					subUrl = subUrl + "&";
+				}
+				subUrl = subUrl + "acrValues=" + acrValues;
+			}
+			
+			window.location.replace(baseUrl+subUrl);
+		}
+		
+		/**/
+		anyidAdaptor.ssoLogout = function(endPoint) {
+			endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+			var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/ssoLogout";
+			baseUrl = baseUrl + "?endPoint=" + encodeURIComponent(endPoint);
+			window.location.replace(baseUrl);
+		}
+		/**/
+		anyidAdaptor.reAuthLevel = function(endPoint, acrValues){
+			endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+			var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/reAuthLevel";
+			anyidAdaptor.ssoLoginPageSub(baseUrl, endPoint, acrValues);
+
+		}
+		/**/
+		anyidAdaptor.ssoLoginPage = function(endPoint, acrValues){
+			endPoint = typeof endPoint !== 'undefined' ? endPoint : "/";
+			var baseUrl = window.location.origin + anyidAdaptor.agencyContextPath + "/oidc/auth";
+			anyidAdaptor.ssoLoginPageSub(baseUrl, endPoint, acrValues);
+		}
+		
+		/**/
+		anyidAdaptor.ssoSvcToSvc = function(url, endPoint){
+			var baseUrl = url + "/oidc/svcToSvc?endPoint=" + encodeURIComponent(endPoint);
+			window.open(baseUrl, "_blank");
+		}
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+<!-- 공지사항 내용과 같이 엔터 처리 필요한 경우 -->
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/js/exam.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	var sibiType;
+	$(document).ready(function(){
+		jQuery("select[name=crop_gbn]").children("[value='13']").remove();
+		sibiType = "";
+
+		if(sibiType == "sibiExam") {
+			jibunSearch('rigubun');
+		}
+	});
+
+	function fnAddrPopOpen(){
+		window.open("/sibi/sibiAddrAjaxPopup.do", "addrPop", "width=896, height=700, top=150, left=150");
+	}
+
+	function fnSetAddrFromPop(lawdCd){
+		// 시도 셋팅 후 Change Event
+		if(lawdCd.substr(0, 2) != "36") $("#sido_cd_mini").val(lawdCd.substr(0, 2));
+		else{
+			if($("#sido_cd_mini option[value=36110]").length > 0) $("#sido_cd_mini").val(lawdCd.substr(0, 5));
+			else $("#sido_cd_mini").val(lawdCd.substr(0, 2));
+		}
+		changeSidoCombo({sido:'sido_cd_mini', sgg:'sgg_cd_mini', umd:'umd_cd_mini', ri:'ri_cd_mini', full_yn:'Y', asyncAt:'false'});
+		// 시군구
+		if(lawdCd.substr(0, 2) != "36" && lawdCd.substr(0, 5) != "36110"){
+			if(lawdCd.substr(2, 3) == "000") $("#sgg_cd_mini").val("");
+			else $("#sgg_cd_mini").val(lawdCd.substr(2, 3));
+			changeSggComboMap({sido:'sido_cd_mini', sgg:'sgg_cd_mini', umd:'umd_cd_mini', ri:'ri_cd_mini', full_yn:'Y', asyncAt:'false'});
+		}
+		// 읍면동
+		if(lawdCd.substr(5, 3) == "000") $("#umd_cd_mini").val("");
+		else $("#umd_cd_mini").val(lawdCd.substr(5, 3));
+		changeUmdCombo({sido:'sido_cd_mini', sgg:'sgg_cd_mini', umd:'umd_cd_mini', ri:'ri_cd_mini', full_yn:'Y', asyncAt:'false'});
+		// 리
+		if(lawdCd.substr(8, 2) == "00") $("#ri_cd_mini").val("");
+		else $("#ri_cd_mini").val(lawdCd.substr(8, 2));
+
+		if($("#ri_cd_mini").val() != "") jibunSearch('rigubun');
+		else if($("#umd_cd_mini").val() != "") jibunSearch('umdgubun');
+
+		
+		var san = parseInt(lawdCd.substring(10, 11), 10);
+		var bon = parseInt(lawdCd.substring(11, 15), 10);
+		var bu = parseInt(lawdCd.substring(15), 10);
+
+		$("#san option[value=" + san + "]").attr("selected", true);
+		if(bon != 0) $("#bon").val(bon);
+		if(bu != 0) $("#bu").val(bu);
+
+		getNearJibun();
+	}
+
+	function search(){
+		var f = document.inForm;
+		f.action = selfUrl;
+		f.submit();
+		showLoading();
+	}
+	function addrSearch(){
+		var f = document.inForm;
+		if(f.addr_nm.value==""){
+			alert("리(동)이름을 입력하세요.");
+			f.addr_nm.focus();
+			return;
+		}
+		$.get("/sibi/sibiPrescriptProc.do",{"mode":"JIBN_NAME","addr_nm":f.addr_nm.value},function(data){
+			if(data=="false"){
+				alert('해당 지역에 비료사용처방 대상 농지가 존재하지 않습니다.');
+			}else{
+				showBackground();
+				var w = 300;
+				var h = 200;
+				$("<div id='addr_search_div'></div>")
+					.css({
+						position:'absolute',
+						left:($(window).width()-w)/2,
+						top:($(window).height()-h)/2,
+						width:w,
+						cursor:'pointer',
+						display:'none',
+						backgroundColor:'#FFFFD0',
+						color:"#000000",
+					  	fontSize:12,
+					  	padding:2,
+					    border:"solid 1 #B5B00D"
+					})
+				.html(data)
+				.appendTo('body')
+				.fadeIn();
+			}
+		});
+	}
+
+	function jibunSearch(gubun){
+		/* if($("#crop_cd").val() == ""){
+			return false;
+		} */
+		if( gubun == "umdgubun") {
+			$("#ri_cd_mini").val("");
+		}
+		$("#jibun_div").hide();
+		$("#calc_div").hide();
+		$("#ormt_calc_div").hide();
+		$("#sel_jibn").html("");
+		$("#jibn_tr").hide();
+		$("#jibn_search_tr").hide();
+		$("#CMPND_FERT").hide();
+		$("#ORMT_MTRIL").hide();
+		$("#INSAM_CMPND_FERT").hide();
+		//$("#sel_btn").hide();
+
+		$("#crop_fert_recmd").hide();
+		clearjibnSearch();
+
+		var f = document.inForm;
+		var exam_type = $("#exam_type_select").val();
+		var sgg_cd = $("#sido_cd_mini").val()+$("#sgg_cd_mini").val();
+		var umd_cd = $("#umd_cd_mini").val();
+
+		if($("#ri_cd_mini").val()!=""){
+			umd_cd+=$("#ri_cd_mini").val();
+		}else{
+			umd_cd+="00";
+		}
+
+		//20150728
+		if(umd_cd.substring(0,1)=="1"){
+			umd_cd = $("#umd_cd_mini").val()+"00";
+		}
+
+		//읍면동 선택시 동(1)이거나 리 선택시 동이 아닐때만 검색
+		if(umd_cd.substring(0,1)=="1"||umd_cd.substring(3,5)!="00"){
+			f.sgg_cd_search.value=sgg_cd;
+			f.umd_cd_search.value=umd_cd;
+			getJibunName();
+		}
+
+		/* 20181114 규섭 코딩 : 신설된 동들은 적용이 안되어 예외조건문을 바꿈 */
+		else if(umd_cd.substring(0,1)!="2" && umd_cd.substring(0,1)!="3" && umd_cd.substring(0,1)!="4"){
+			umd_cd = $("#umd_cd_mini").val()+"00";
+		}
+
+		else if((umd_cd.substring(0,1)!="2" && umd_cd.substring(0,1)!="3" && umd_cd.substring(0,1)!="4") || umd_cd.substring(3,5)!="00"){
+			f.sgg_cd_search.value=sgg_cd;
+			f.umd_cd_search.value=umd_cd;
+			getJibunName();
+		}
+	}
+
+	function addrSearchClose(){
+		hideBackground();
+		$("#addr_search_div").remove();
+	}
+
+	function jibunNameSearch(sgg_cd,umd_cd){
+		var f = document.inForm;
+		f.sgg_cd_search.value=sgg_cd;
+		f.umd_cd_search.value=umd_cd;
+		addrSearchClose();
+		getJibunName();
+	}
+
+	function jibunExamTypeSearch(){
+		$("#calc_div").hide();
+		$("#ormt_calc_div").hide();
+		$("#jibn_tr").hide();
+		$("#jibn_search_tr").hide();
+		$("#CMPND_FERT").hide();
+		$("#ORMT_MTRIL").hide();
+		$("#ORGANIC_FERT").hide();
+		$("#INSAM_CMPND_FERT").hide();
+		//$("#sel_btn").hide();
+
+		$("#crop_fert_recmd").hide();
+		clearjibnSearch();
+		$("#jibun_div").html("");
+		var exam_type=$("input[name=exam_type_radio]").val();
+
+		//유기자재 관련추가
+		if($("input[name=organicAt]:radio:checked").val() == "Y"){
+			exam_type = "1";
+		}
+
+		$("#exam_type_search").val(exam_type);
+		if($("#sgg_cd_search").val()!="" && $("#umd_cd_search").val()!=""){
+			getJibunName();
+		}
+	}
+	function getJibunName(){
+		var f = document.inForm;
+		var sgg_cd = f.sgg_cd_search.value;
+		var umd_cd = f.umd_cd_search.value;
+
+		var sido_nm = $("#sido_cd_mini option:selected").text();
+		var sgg_nm = $("#sgg_cd_mini option:selected").text();
+		if (sgg_cd != "" && sgg_cd != null && sgg_cd.length == 5 && umd_cd.length == 5) {
+			showLoading();
+	
+			$.ajax({
+				url : "/sibi/sibiPrescriptProc.do"
+				, data : {
+					"mode" : "JIBN"
+					, "sgg_cd" : sgg_cd
+					, "umd_cd" : umd_cd
+					, "exam_type" : $("#exam_type_search").val()
+					, "exam_day_str" : $("#exam_day_str").val().replaceAll("-", "")
+					, "exam_day_end" : $("#exam_day_end").val().replaceAll("-", "")
+				}
+				, dataType : "html"
+				, async : true
+				, success : function(data){
+					hideLoading();
+					var select = "<option value=\"\">지번선택</option>"+data;
+					if(data==""){
+						alertStr = "아래의 농업기술센터 담당자에게 토양검정을 의뢰하십시오.\n\n";
+						$.ajax({
+							type: "POST",
+							url: "/sibi/sibiPrescriptProc.do",
+							dataType: 'json',
+							data: {"mode":"MANAGER","sgg_cd":sgg_cd, "sido_nm":sido_nm, "sgg_nm":sgg_nm},
+							error: function(){
+								alert('Ajax Error');
+							},
+	
+							success: function(resultData){
+								if(resultData.length>0){
+									for(var i=0; i<resultData.length; i++){
+										jsonData = resultData[i];
+										alertStr = alertStr + jsonData.center_nm + " 농업기술센터 담당자 (" + jsonData.tel + ") \n";
+									}
+								}else{
+									alertStr = "해당 지역 농업기술센터 담당자에게 토양검정을 의뢰하십시오.";
+								}
+	
+								//alert("선택된 지역에 처방된 지번이 존재하지 않습니다.\n\n다른 지역을 선택하여 주십시요. \n\n"+alertStr);
+								alert("선택된 지역에 처방된 지번이 존재하지 않습니다.\n\n"+"하단의 선택 지역 화학성 평균값을 확인하십시오.\n\n----------------------------------------------------------------\n\n"+alertStr);
+	
+								$("#sel_jibn").html(select);
+								$("#jibn_tr").hide();
+								$("#jibn_search_tr").hide();
+								clearjibnSearch();
+							}
+						});
+					}else{
+						$("#sel_jibn").html(select);
+						$("#jibn_tr").show();
+						$("#jibn_search_tr").show();
+	
+						if(sibiType == "sibiExam") {
+							var sel_jibn_select = "";
+							$("#sel_jibn").val(sel_jibn_select);
+							js_detail();
+						}
+	
+					}
+	
+					$("#chemical_div").load("/sibi/sibiAvgChemical.do",{"sgg_cd":sgg_cd,"umd_cd":umd_cd,"exam_type":$("#exam_type_search").val(),"gubun":"P"});
+					//$("#jibn_td").html(data);
+					//$("#jibn_tr").show();
+				}
+			});
+		} else {
+			$("#crop_gbn").val(""); 
+			$("#crop_cd").val(""); 
+			alert("지역을 먼저 선택해주세요.");
+		}
+	}
+
+	//지역 검색 방법 선택
+	function selectAreaMode(mode){
+		var f = document.inForm;
+		if(!f.area_select.checked){
+			$("#select_tr1").show();
+			$("#select_tr2").hide();
+		}else{
+			$("#select_tr2").show();
+			$("#select_tr1").hide();
+		}
+	}
+	//작물 검색 방법 선택
+	function selectCropMode(){
+		var f = document.inForm;
+		if(!f.crop_select.checked){
+			$("#select_crop_tr1").show();
+			$("#select_crop_tr2").hide();
+			selectCropCd(1);
+		}else{
+			$("#select_crop_tr2").show();
+			$("#select_crop_tr1").hide();
+			selectCropCd(2);
+		}
+	}
+
+	//작물 선택지 변경시 물관리처방서 연계 초기화
+	function selectCropCd(flag){
+		var f = document.inForm;
+		if(flag==1){
+			if(f.crop_cd_1.value==""){
+				f.prescriptGubun.checked = false;
+				selectPrescriptGubun();
+			}
+		}else{
+			if(!f.crop_cd_2||f.crop_cd_2.value==""){
+				f.prescriptGubun.checked = false;
+				selectPrescriptGubun();
+			}
+		}
+		waterChange();
+	}
+
+	//작물명 검색
+	function searchCrop(){
+		var f = document.inForm;
+		if(f.crop_nm.value==""){
+			alert("작물명을 입력하세요.");
+			f.crop_nm.focus();
+			return;
+		}
+		$("#crop_cd_search_span").load("/sibi/sibiPrescriptProc.do",{"mode":"CROP","crop_nm":f.crop_nm.value});
+	}
+
+	//지번 선택
+	function js_detail(){
+		//var sgg_cd = $("#sgg_cd_search").val();
+		//var umd_cd = $("#umd_cd_search").val();
+		//var jibn = $("#sel_jibn").val().split(",")[0];
+		var exam_type_search=$("input[name=exam_type_radio]").val();
+
+		$("#calc_div").hide();
+		$("#ormt_calc_div").hide();
+		//$("#sel_btn").hide();
+		$("#CMPND_FERT").hide();
+		$("#ORMT_MTRIL").hide();
+		$("#jibun_div").show();
+
+		$("#crop_fert_recmd").hide();
+		//2011.02.08 변경
+		var pnu = $("#sel_jibn").val().split(",")[0];
+/* 		var jibn = pnu.substring(10,19);
+		var sgg_cd = pnu.substring(0,5);
+		var umd_cd = pnu.substring(5,10); */
+		var sgg_cd = $("#sgg_cd_search").val();
+		var umd_cd = $("#umd_cd_search").val();
+
+		var jibn = pnu;
+		var sgg_cd = sgg_cd;
+		var umd_cd = umd_cd;
+
+		//2011.02.08 변경
+		if($("input[name=organicAt]:radio:checked").val() == "Y"){
+			flag = "5";
+		}else{
+			flag = "2";
+		}
+		// 기타지번 추가
+		//js_jibn_etc();
+
+		var crop_gbn = "";
+		var crop_cd = "";
+
+		var exam_day = "";
+
+		var exam_type = $("#sel_jibn").val().split(",")[1];
+		
+		showLoading();
+		
+		$.ajax({
+			url : "/sibi/sibiPrescriptDetail.do"
+			, data : {
+				"sgg_cd" : sgg_cd
+				, "umd_cd" : umd_cd
+				, "jibn" : jibn
+				, "exam_type" : exam_type
+				, "exam_day_str" : $("#exam_day_str").val().replaceAll("-", "")
+				, "exam_day_end" : $("#exam_day_end").val().replaceAll("-", "")
+				, "flag" : flag
+				, "sibiType" : sibiType
+				, "crop_gbn" : crop_gbn
+				, "crop_cd" : crop_cd
+				, "exam_day" : exam_day
+			}
+			, dataType : "html"
+			, async : true
+			, success : function(data){
+				hideLoading();
+				$("#jibun_div").html(data);
+				$("#jibun_div").find("tr").has("select[name=crop_gbn]").remove();
+				sibiType = "";
+			}
+			, error : function(){
+				alert("에러가 발생하였습니다. 관리자에게 문의하세요.");
+				return false;
+			}
+		});
+
+		
+	}
+
+
+	// 기타지번 추가
+	/* function js_jibn_etc(){
+		if($("#sel_jibn").val()=="") return;
+		$("#jibun_div").show();
+		//2011.02.08 변경
+		var pnu = $("#sel_jibn").val().split(",")[0];
+		var jibn = pnu.substring(10,19);
+		var sgg_cd = pnu.substring(0,5);
+		var umd_cd = pnu.substring(5,10);
+		//2011.02.08 변경
+		var exam_type = $("#sel_jibn").val().split(",")[1];
+		$("#JDiv").load("sibiPrescriptJibnEtc.jsp"
+				,{"mode":"EXAM","sgg_cd":sgg_cd,"umd_cd":umd_cd,"jibn":jibn,"exam_type":exam_type,"exam_day_str":$("#exam_day_str").val().replaceAll("-",""),"exam_day_end":$("#exam_day_end").val().replaceAll("-",""), "flag":"1"}
+				,function(data){
+					//rdLoad();
+				}
+		);
+	}		 */
+
+
+	// 기타지번 추가
+	/*  function js_jibn_etc_detail(){
+		if($("#sel_jibn").val()=="") return;
+		$("#jibun_div").show();
+		//2011.02.08 변경
+		var pnu = $("#sel_jibn").val().split(",")[0];
+		var jibn = pnu.substring(10,19);
+		var sgg_cd = pnu.substring(0,5);
+		var umd_cd = pnu.substring(5,10);
+		//2011.02.08 변경
+		var exam_type = $("#sel_jibn").val().split(",")[1];
+		var sJibn = $("#sel_jibn_etc").val();
+
+		$("#jibun_div").load("sibiPrescriptDetail.jsp"
+				,{"sgg_cd":sgg_cd,"umd_cd":umd_cd,"jibn":jibn,"exam_type":exam_type,"exam_day_str":$("#exam_day_str").val().replaceAll("-",""),"exam_day_end":$("#exam_day_end").val().replaceAll("-",""), "flag":"1","sJibn":sJibn}
+				,function(data){
+					//rdLoad();
+				}
+		);
+	}	 */
+
+	//물관리처방서 연계 선택
+	function selectPrescriptGubun(){
+		var f = document.inForm;
+		if(!f.prescriptGubun.checked){
+			$("#station_tr").hide();
+		}else{
+			if(checkCrop()){
+				$("#station_tr").show();
+			}else{
+				f.prescriptGubun.checked = false;
+			}
+		}
+	}
+
+
+	//도움말
+	function help(){
+		windowOpen("/sibi/sibiHelp.do","help",700,635,"1","center","0");
+	}
+
+
+	function createCropCode() {
+		var frm = document.inForm;
+		var crop_cd ="";
+		if(!frm.crop_select.checked){
+			crop_cd = frm.crop_cd_1.value;
+		}else{
+			if(frm.crop_cd_2){
+				crop_cd = frm.crop_cd_2.value;
+			}
+		}
+		frm.crop_cd.value = crop_cd;
+	}
+
+	//작물 선택 여부 반환
+	function checkCrop() {
+		var frm = document.inForm;
+		if(frm.crop_cd.value==""){
+			alert("작물을 선택하세요.");
+			frm.crop_cd.focus();
+			$("#calc_div").hide();
+			$("#CMPND_FERT").hide();
+			$("#crop_fert_recmd").hide();
+			$("#ORGANIC_FERT").hide();
+			$("#ormt_calc_div").hide();
+			$("#ORMT_MTRIL").hide();
+			return false;
+		}
+		return true;
+	}
+	/*
+		createCropCode();
+		if(frm.crop_cd.value==""){
+			alert("작물을 선택하세요.");
+			if(!frm.crop_select.checked){
+				if(frm.crop_gbn.value==""){
+					frm.crop_gbn.focus();
+				}else{
+					frm.crop_cd_1.focus();
+				}
+			}else{
+				if(frm.crop_cd_2){
+					frm.crop_cd_1.focus();
+				}else{
+					frm.crop_nm.focus();
+				}
+			}
+			return false;
+		}
+		return true;
+	}
+	*/
+
+	//시비처방서 조회
+	//sibiPrescriptDetail.jsp 검색 조건을 사용하여. RD 화면을 보여줌
+
+	function showSibi() {
+		if(!checkCrop())return;
+
+		var frm = document.inForm;
+
+		//잔디 액비
+		/* if(frm.crop_cd.value=="00577" || frm.crop_cd.value=="00578"){
+			alert("잔디는 비료 처방 할 수 없습니다.");
+			return;
+		} */
+
+		var farmData = JSON.parse($("#exam_day_search").val());
+
+		frm.sgg_cd.value = farmData.sgg_cd;
+		frm.any_year.value = farmData.any_year;
+		frm.buss_gbn.value = farmData.buss_gbn;
+		frm.exam_type.value = farmData.exam_type;
+		frm.exam_no.value = farmData.exam_no;
+		frm.exam_num.value = farmData.exam_num;
+		frm.seqno.value = farmData.seqno;
+		frm.umd_cd.value = farmData.umd_cd;
+		frm.jibn.value = farmData.jibn;
+		frm.jibn_etc.value = farmData.jibn_etc;
+		frm.exam_day.value = farmData.exam_day;
+		frm.farmer_nm.value = farmData.farmer_nm;
+		frm.farmer_addr.value = farmData.farmer_addr;
+		frm.clay.value = farmData.clay;
+		frm.acid.value = farmData.acid;
+		frm.om.value = farmData.om;
+		frm.vldpha.value = farmData.vldpha;
+		frm.posifert_k.value = farmData.posifert_k;
+		frm.posifert_ca.value = farmData.posifert_ca;
+		frm.posifert_mg.value = farmData.posifert_mg;
+		frm.vldsia.value = farmData.vldsia;
+		frm.selc.value = farmData.selc;
+		frm.limeamo.value = farmData.limeamo;
+		frm.cec.value = farmData.cec;
+		frm.nit.value = farmData.nit;
+		frm.ammo.value = farmData.ammo;
+		frm.area1.value = farmData.area1;
+		frm.area2.value = farmData.area2;
+		frm.soilsign.value = farmData.soilsign;
+		frm.usr_id.value = farmData.usr_id;
+		frm.rgs_id.value = farmData.rgs_id;
+
+		frm.nh_pre_user_input.checked=false;
+		frm.nh_post_user_input.checked=false;
+		$("#pre_fert_nm").attr("disabled", false);
+		$("#post_fert_nm").attr("disabled", false);
+		$("#nh_pre_fert_nm_text").val("");
+		$("#nh_post_fert_nm_text").val("");
+
+		$("#nh_post_fert_p").attr("disabled", false);
+		$("#post_Map_P").css("display","inline");
+		$("#nh_post_fert_k").attr("disabled", false);
+		$("#post_Map_K").css("display","inline");
+
+		frm.pre_fert_nm.value="";
+		frm.pre_result_total.value = "";
+		frm.pre_result_total2.value = "";
+		frm.pre_result_total3.value = "";
+		frm.post_fert_nm.value="";
+		frm.post_result_total.value = "";
+		frm.post_result_total2.value = "";
+		frm.post_result_total3.value = "";
+
+		frm.nh_pre_fert_n.value="0";
+		frm.nh_pre_fert_p.value="0";
+		frm.nh_pre_fert_k.value="0";
+		frm.nh_pre_fert_qy.value="20";
+		frm.nh_post_fert_n.value="0";
+		frm.nh_post_fert_p.value="0";
+		frm.nh_post_fert_k.value="0";
+		frm.nh_post_fert_qy.value="20";
+
+		frm.modng_at.value=farmData.modng_at;
+
+		if(frm.nh_pre_fert_qy.value == "" || frm.nh_pre_fert_qy.value ==  0 ){
+			alert("처방하실 밑거름 비료의 포대량을 (kg)을 입력하세요.");
+			$("#nh_pre_fert_qy").focus();
+			return;
+		}
+		if(frm.nh_post_fert_qy.value == "" || frm.nh_post_fert_qy.value ==  0 ){
+			alert("처방하실 웃거름 비료의 포대량을 (kg)을 입력하세요.");
+			$("#nh_post_fert_qy").focus();
+			return;
+		}
+
+		SetTempCalc();
+		//$("#calc_div").fadeIn('slow');
+
+		var exam_type_search=$("input[name=exam_type_radio]").val();
+
+		var preViewType = $("input[name=preViewType]:checked").val();
+
+		var crop_cd = $("#crop_cd option:selected").val();
+
+		if($("input[name=organicAt]:radio:checked").val() == "Y"){
+			$("#calc_div").hide();
+			$("#ormt_calc_div").show();
+			$("#ORMT_MTRIL").show();
+			$("#CMPND_FERT").hide();
+			$("#crop_fert_recmd").hide();
+			$("#ORGANIC_FERT").hide();
+			$("#INSAM_CMPND_FERT").hide();
+		} else if(preViewType == "F") {
+			$("#calc_div").show(); // 유기질 성분량, 추천량
+			$("#ormt_calc_div").hide();
+			$("#ORMT_MTRIL").hide();
+			$("#CMPND_FERT").hide();
+			$("#crop_fert_recmd").hide();
+			$("#ORGANIC_FERT").show();
+			$("#INSAM_CMPND_FERT").hide();
+		} else if(crop_cd == "00576" || crop_cd == "00338") {
+			$("#calc_div").show();
+			$("#INSAM_CMPND_FERT").show();
+			$("#ormt_calc_div").hide();
+			$("#ORMT_MTRIL").hide();
+			$("#CMPND_FERT").hide();
+			$("#crop_fert_recmd").hide();
+			$("#organic_calc_div").hide();
+			$("#ORGANIC_FERT").hide();
+		} else{
+			$("#organic_calc_div").hide(); // 유기질 성분량, 추천량
+			$("#calc_div").show();
+			$("#ormt_calc_div").hide();
+			$("#ORMT_MTRIL").hide();
+			$("#CMPND_FERT").show();
+			$("#crop_fert_recmd").show();
+			$("#ORGANIC_FERT").hide();
+			$("#INSAM_CMPND_FERT").hide();
+		}
+
+		if(frm.acid.value > 6.5 || frm.limeamo.value == 0) {
+			$("#limingMtril").attr("disabled", true);
+			$("#LIMING_MTRIL_PS").css("display", "block");
+			$("#O_LIMING_MTRIL_PS").css("display", "block");
+			$("#limingMtril").val("");
+			$("#o_limingMtril").val("");
+		} else {
+			$("#limingMtril").attr("disabled", false);
+			$("#LIMING_MTRIL_PS").css("display", "none");
+			$("#O_LIMING_MTRIL_PS").css("display", "none");
+		}
+
+		/*
+		windowOpen("about:blank","preView",750,900,1,"center",0);
+		frm.target = "preView";
+		frm.action = "sibiPrescriptView.jsp";
+		frm.submit();
+		*/
+	}
+
+		function nhListLoad(pre_n,pre_p,pre_k,post_n,post_p,post_k, param_crop_gbn){
+			$("#nhList").load("/sibi/sibiPrescriptDetailNh.do"
+					,{"type":"list"
+						,"pre_n":pre_n
+						,"pre_p":pre_p
+						,"pre_k":pre_k
+						,"post_n":post_n
+						,"post_p":post_p
+						,"post_k":post_k
+						,"crop_cd":$("#crop_cd").val()
+						,"crop_gbn":param_crop_gbn // 작물구분 추가 20210806
+					}, function() {
+						/* 질소,인산,칼리 값 비교후 시중유통비료 비활성화 여부 확인 */
+						var frm = document.inForm;
+
+						var nh_pre_disabled = 0;
+						if(frm.pre_n_300.value <= 0) {
+							nh_pre_disabled++;
+						}
+						if(frm.pre_p_300.value <= 0) {
+							nh_pre_disabled++;
+						}
+						if(frm.pre_k_300.value <= 0) {
+							nh_pre_disabled++;
+						}
+
+						var nh_post_disabled = 0;
+						if(frm.post_n_300.value <= 0) {
+							nh_post_disabled++;
+						}
+						if(frm.post_p_300.value <= 0) {
+							nh_post_disabled++;
+						}
+						if(frm.post_k_300.value <= 0) {
+							nh_post_disabled++;
+						}
+
+						/* 질소,인산 칼리 중 1개 이하의 성분량 값이 0보다 작을 경우 비종선택을 비활성화 시킴 (밑거름 비료 추천량)*/
+						if(nh_pre_disabled > 1) {
+							$(".nh_pre_order_area").css("display", "none");
+							$("#pre_fert_nm").attr("disabled", true);
+							$("input[name=pre_nh]").attr("disabled", true);
+							$("#nh_pre_user_input").attr("disabled", true);
+							$("#downDivArea").hide();
+						} else {
+							$(".nh_pre_order_area").css("display", "block");
+							$("#pre_fert_nm").attr("disabled", false);
+							$("input[name=pre_nh]").attr("disabled", false);
+							$("#nh_pre_user_input").attr("disabled", false);
+							$("#downDivArea").show();
+						}
+
+						/* 질소,인산 칼리 중 1개 이하의 성분량 값이 0보다 작을 경우 비종선택을 비활성화 시킴 (웃거름 비료 추천량)*/
+						if(nh_post_disabled > 1) {
+							$(".nh_post_order_area").css("display", "none");
+							$("#post_fert_nm").attr("disabled", true);
+							$("input[name=post_nh]").attr("disabled", true);
+							$("#nh_post_user_input").attr("disabled", true);
+							$("#upDivArea").hide();
+						} else {
+							$(".nh_post_order_area").css("display", "block");
+							$("#post_fert_nm").attr("disabled", false);
+							$("input[name=post_nh]").attr("disabled", false);
+							$("#nh_post_user_input").attr("disabled", false);
+							$("#upDivArea").show();
+						}
+
+					});
+		}
+/* 		function nhMsgLoad(area,crop_cd){
+			$("#nhMsg").load("sibiPrescriptDetailNh.jsp"
+					,{"type":"msg"
+						,"area":area
+						,"sel_nh_pre": $("input[name=pre_nh]:checked").val()
+						,"sel_nh_post": $("input[name=post_nh]:checked").val()
+					});
+		} */
+
+	function riceFertView(crop_gbn){
+		if(crop_gbn=="00"){
+			$("#rice_fert").show();
+			$("#organicAtArea").show();
+		}else{
+			$("#rice_fert").hide();
+			$("#organicAtArea").hide();
+		}
+	}
+
+	function organicAtChng(){
+		if($("#crop_gbn").val() != "00"){
+			$("#organicAt2").attr("checked", "checked");
+		}
+	}
+
+	function organicSelectView(crop_cd) {
+		$.ajax({
+			type: "post",
+			url: "/sibi/sibiPrescriptProc.do",
+			data: {"mode":"CROPINFO", "crop_cd":crop_cd},
+			dataType : "json",
+			error: function(){
+				alert('Ajax Error');
+			},
+			success: function(data){
+				$("#organicGbn").val(data.organic_gbn);
+				var option = "";
+				if( (data.pre_n_rate_type1 != null && data.pre_n_rate_type1 != "") && (data.fert_n_rate_type1 != null && data.fert_n_rate_type1 != "" ) ) {
+					option += "혼합유기질";
+					option += "$:$";
+					option += "1";
+					option += "$,$";
+				}
+
+				if( (data.pre_n_rate_type2 != null && data.pre_n_rate_type2 != "") && (data.fert_n_rate_type2 != null && data.fert_n_rate_type2 != "" ) ) {
+					option += "혼합유박";
+					option += "$:$";
+					option += "2";
+					option += "$,$";
+				}
+
+				if( (data.pre_n_rate_type3 != null && data.pre_n_rate_type3 != "") && (data.fert_n_rate_type3 != null && data.fert_n_rate_type3 != "" ) ) {
+					option += "유기복합";
+					option += "$:$";
+					option += "3";
+					option += "$,$";
+				}
+
+				clearCombo("organic_fert_type");
+				clearCombo("organic_fert_nm");
+				$("#result_organic").val("");
+				$("#fert_n").val("");
+				$("#fert_p").val("");
+				$("#fert_k").val("");
+				changeCombo("organic_fert_type", option);
+
+				if(data.organic_gbn == "Y") {
+					$("#preViewTypeBox").show();
+				}else{
+					var preViewType = $("input[name=preViewType]:checked").val();
+					if(preViewType == "F") {
+						$("#calc_div").hide();
+					}
+					$("input:radio[name='preViewType']:radio[value='N']").prop("checked", true);
+					$("#preViewTypeBox").hide();
+					$("#ORGANIC_FERT").hide();
+				}
+
+			}
+		});
+
+		/* if(crop_gbn=="00"){
+			$("#preViewTypeBox").show();
+		}else{
+			var preViewType = $("input[name=preViewType]:checked").val();
+			if(preViewType == "F") {
+				$("#calc_div").hide();
+			}
+			$("input:radio[name='preViewType']:radio[value='N']").attr("checked",true);
+			$("#preViewTypeBox").hide();
+			$("#ORGANIC_FERT").hide();
+		} */
+	}
+
+	function preViewTypeChange(preViewType) {
+		if(preViewType == "F") {
+			showSibi();
+			var organic_fert_nm = $("#organic_fert_nm").val();
+			if( !(organic_fert_nm == "" || organic_fert_nm == null)  ) {
+				SetOrganicNPK(organic_fert_nm);
+			}
+		} else {
+			showSibi();
+		}
+	}
+
+	//성분량 계산
+	function SetTempCalc(){
+		var frm = document.inForm;
+		var crop_cd = frm.crop_cd.value;
+		var exam_type=frm.exam_type.value;
+		var rice_fert=frm.rice_fert.value;
+
+
+		var param={
+			exam_type:exam_type,
+			nh_pre_fert_n:frm.nh_pre_fert_n.value,
+			nh_pre_fert_p:frm.nh_pre_fert_p.value,
+			nh_pre_fert_k:frm.nh_pre_fert_k.value,
+			nh_pre_fert_qy:frm.nh_pre_fert_qy.value,
+			 nh_post_fert_n:frm.nh_post_fert_n.value,
+			nh_post_fert_p:frm.nh_post_fert_p.value,
+			nh_post_fert_k:frm.nh_post_fert_k.value,
+			nh_post_fert_qy:frm.nh_post_fert_qy.value,
+			cow_drop_qy:frm.cow_drop_qy.value,
+			pig_drop_qy:frm.pig_drop_qy.value,
+			fowl_drop_qy:frm.fowl_drop_qy.value,
+			sawdust_drop_qy:frm.sawdust_drop_qy.value,
+			checkProgram:frm.checkProgram.value,
+			type:"S",
+			flag:'COMPUTE',
+			acid:frm.acid.value,
+			om:frm.om.value,
+			vldpha:frm.vldpha.value,
+			posifert_k:frm.posifert_k.value,
+			posifert_ca:frm.posifert_ca.value,
+			posifert_mg:frm.posifert_mg.value,
+			vldsia:frm.vldsia.value,
+			selc:frm.selc.value,
+			limeamo:frm.limeamo.value,
+			cec:frm.cec.value,
+			nit:frm.nit.value,
+			ammo:frm.ammo.value,
+			area1:frm.area1.value,
+			area2:frm.area2.value,
+			crop_cd:frm.crop_cd.value,
+			rice_fert:frm.rice_fert.value,
+			param_crop_gbn:frm.crop_gbn.value // 작물구분 추가 20210806
+		};
+		$.getJSON("/exam/prescript/examPrescriptProc.do" ,param,function(json){
+			frm.pre_n_300.value=json.pre_N_300;//성분량 밑거름 질소
+			frm.pre_p_300.value=json.pre_P_300;//성분량 밑거름 인산
+			frm.pre_k_300.value=json.pre_K_300;//성분량 밑거름 칼륨
+			frm.post_n_300.value=json.post_N_300;//성분량 웃거름 질소
+			frm.post_p_300.value=json.post_P_300;//성분량 웃거름 인산
+			frm.post_k_300.value=json.post_K_300;//성분량 웃거름 칼륨
+			$("#post_n1").val(json.post_N1)  // 웃거름 질소값만 있을경우 요소 추천값
+			$("#post_n2").val(json.post_N2)  // 웃거름 질소값만 있을경우 유안 추천값
+			//frm.pre_result_total.value=json.nh_pre_fertResultTotal; // 주석처리함 (20200611)
+			//frm.post_result_total.value=json.nh_post_fertResultTotal;  // 주석처리함 (20200611)
+/* 			frm.result_n.value=json.nh_fertResult_N;
+			frm.result_p.value=json.nh_fertResult_P;
+			frm.result_k.value=json.nh_fertResult_K; */
+			frm.post_n.value=json.post_N1;
+			frm.post_p.value=json.post_P1;
+			frm.post_k.value=json.post_K1;
+			frm.pre_n.value=json.pre_N1;
+			frm.pre_p.value=json.pre_P1;
+			frm.pre_k.value=json.pre_K1;
+
+			frm.nh_pre_fert_n.value=json.nh_pre_fert_n;
+			frm.nh_pre_fert_p.value=json.nh_pre_fert_p;
+			frm.nh_pre_fert_k.value=json.nh_pre_fert_k;
+
+			 frm.nh_post_fert_n.value=json.nh_post_fert_n;
+			frm.nh_post_fert_p.value=json.nh_post_fert_p;
+			frm.nh_post_fert_k.value=json.nh_post_fert_k;
+
+			//성분량 밑거름, 웃거름 질소(유기자재)
+			var pre_N_300 =  parseFloat(json.pre_N_300);
+			var post_N_300 =  parseFloat(json.post_N_300);
+
+			var pre_P_300 =  parseFloat(json.pre_P_300);
+			var post_P_300 =  parseFloat(json.post_P_300);
+
+			var pre_K_300 =  parseFloat(json.pre_K_300);
+			var post_K_300 =  parseFloat(json.post_K_300);
+
+			var sumN300 = pre_N_300 + post_N_300;
+			var sumP300 = pre_P_300 + post_P_300;
+			var sumK300 = pre_K_300 + post_K_300;
+
+			frm.mtril_sibi_1.value = sumN300.toFixed(1);
+
+			frm.sum_n_300.value = sumN300.toFixed(1);
+			frm.sum_p_300.value = sumP300.toFixed(1);
+			frm.sum_k_300.value = sumK300.toFixed(1);
+
+			var param_crop_gbn = frm.crop_gbn.value;
+			var preViewType = $("input[name=preViewType]:checked").val();
+			//시중유통비료비료 계산
+			if(preViewType == "F") {
+				var organic_fert_nm = $("#organic_fert_nm").val();
+				if( !(organic_fert_nm == "" || organic_fert_nm == null)  ) {
+					SetOrganicNPK(organic_fert_nm);
+				}
+			} else {
+				nhListLoad(pre_N_300,pre_P_300,pre_K_300,post_N_300,post_P_300,post_K_300, param_crop_gbn);
+			}
+			// nhMsgLoad(frm.area1.value, crop_cd.value);
+
+			/* if(frm.post_n.value == 0 || frm.post_k.value == 0){
+				frm.post_result_total.value= "";
+			}else{
+				frm.post_result_total.value=json.nh_post_fertResultTotal;
+			} */
+
+			// 작물별 유기질비료 혼합 비율
+			frm.pre_n_rate_type1.value = json.pre_n_rate_type1;
+			frm.pre_n_rate_type2.value = json.pre_n_rate_type2;
+			frm.pre_n_rate_type3.value = json.pre_n_rate_type3;
+
+			frm.fert_n_rate_type1.value = json.fert_n_rate_type1;
+			frm.fert_n_rate_type2.value = json.fert_n_rate_type2;
+			frm.fert_n_rate_type3.value = json.fert_n_rate_type3;
+
+ 			/*if(post_N_300 != 0 && post_P_300 == 0 &&  post_K_300 == 0){
+				$("#nPostDiv").show();
+				$("#postDiv").hide();
+			}else{  */
+				$("#nPostDiv").hide();
+				$("#postDiv").show();
+			/*}*/
+
+		});
+	}
+
+	/**
+	 * 밑거름 복비추천량 계산
+	 */
+	 function  preFertResult(){
+
+		var frm = document.inForm;
+
+		frm.nh_pre_fert_n.value=frm.nh_pre_fert_n.value;
+		frm.nh_pre_fert_p.value=frm.nh_pre_fert_p.value;
+		frm.nh_pre_fert_k.value=frm.nh_pre_fert_k.value;
+
+		frm.nh_check_user_input.value = "1";
+
+		// validation 1
+		var fert_n = parseFloat(frm.nh_pre_fert_n.value,10);		//질소
+	    var fert_p = parseFloat(frm.nh_pre_fert_p.value,10);		//인산
+		var fert_k = parseFloat(frm.nh_pre_fert_k.value,10);		//칼리
+
+		var txtTot = fert_n + fert_p +fert_k;
+		if ( txtTot > 100) {
+			alert("성분의 합이 100을 초과 할 수 없습니다.");
+			return;
+		}
+
+		// validation 2
+	    var fertN_Value = roundPrecision(parseFloat(fert_n,10),1);
+	    var fertP_Value = roundPrecision(parseFloat(fert_p,10),1);
+	    var fertK_Value = roundPrecision(parseFloat(fert_k,10),1);
+
+		/* if(fertN_Value<=0 && fertP_Value<=0 && fertK_Value<=0){
+			alert("성분의 합이 0%이하가 될 수 없습니다.");
+			return;
+		} */
+		fertValidation();
+	}
+
+	 /**
+		 * 밑거름 복비추천량 계산
+		 */
+		 function postFertResult(){
+
+			var frm = document.inForm;
+
+			frm.nh_post_fert_n.value=frm.nh_post_fert_n.value;
+			frm.nh_post_fert_p.value=frm.nh_post_fert_p.value;
+			frm.nh_post_fert_k.value=frm.nh_post_fert_k.value;
+
+			frm.nh_check_user_input.value = "2";
+
+			// validation 1
+			var fert_n = parseFloat(frm.nh_post_fert_n.value,10);		//질소
+		    var fert_p = parseFloat(frm.nh_post_fert_p.value,10);		//인산
+			var fert_k = parseFloat(frm.nh_post_fert_k.value,10);		//칼리
+
+			var txtTot = fert_n + fert_p +fert_k;
+			if ( txtTot > 100) {
+				alert("성분의 합이 100을 초과 할 수 없습니다.");
+				return;
+			}
+
+			// validation 2
+		    var fertN_Value = roundPrecision(parseFloat(fert_n,10),1);
+		    var fertP_Value = roundPrecision(parseFloat(fert_p,10),1);
+		    var fertK_Value = roundPrecision(parseFloat(fert_k,10),1);
+
+			/* if(fertN_Value<=0 && fertP_Value<=0 && fertK_Value<=0){
+				alert("성분의 합이 0%이하가 될 수 없습니다.");
+				return;
+			} */
+			fertValidation();
+		}
+
+	/**
+	 * 밑거름, 웃거름 복비추천량(시중유통비료)  Validation()
+	 */
+	function fertValidation(){
+		var frm = document.inForm;
+
+		var crop_cd = frm.crop_cd.value;
+		var exam_type=frm.exam_type.value;
+		var rice_fert=frm.rice_fert.value;
+		var nh_pre_fert_n = $("#nh_pre_fert_n").val();
+		var nh_pre_fert_p = $("#nh_pre_fert_p").val();
+		var nh_pre_fert_k = $("#nh_pre_fert_k").val();
+		var nh_pre_fert_qy = $("#nh_pre_fert_qy").val();
+		var nh_post_fert_n = $("#nh_post_fert_n").val();
+		var nh_post_fert_p = $("#nh_post_fert_p").val();
+		var nh_post_fert_k = $("#nh_post_fert_k").val();
+		var nh_post_fert_qy = $("#nh_post_fert_qy").val();
+		var prscrptn_cnd = $("input[name='prscrptn_cnd']:checked").val(); // 처방방식 선택값
+
+		var param={
+			exam_type:exam_type,
+			nh_pre_fert_n:nh_pre_fert_n,
+			nh_pre_fert_p:nh_pre_fert_p,
+			nh_pre_fert_k:nh_pre_fert_k,
+			nh_pre_fert_qy:nh_pre_fert_qy,
+			nh_post_fert_n:nh_post_fert_n,
+			nh_post_fert_p:nh_post_fert_p,
+			nh_post_fert_k:nh_post_fert_k,
+			nh_post_fert_qy:nh_post_fert_qy,
+			checkProgram:frm.checkProgram.value,
+			type:"S",
+			flag:'COMPUTE',
+			acid:frm.acid.value,
+			om:frm.om.value,
+			vldpha:frm.vldpha.value,
+			posifert_k:frm.posifert_k.value,
+			posifert_ca:frm.posifert_ca.value,
+			posifert_mg:frm.posifert_mg.value,
+			vldsia:frm.vldsia.value,
+			selc:frm.selc.value,
+			limeamo:frm.limeamo.value,
+			cec:frm.cec.value,
+			nit:frm.nit.value,
+			ammo:frm.ammo.value,
+			area1:frm.area1.value,
+			area2:frm.area2.value,
+			crop_cd:frm.crop_cd.value,
+			prscrptn_cnd:prscrptn_cnd};
+
+		$.ajax({
+			url:"/exam/prescript/examPrescriptProc.do",
+			data:param,
+			dataType:"json",
+			async:false,
+			success:function(json){
+				/*frm.pre_result_total.value=json.nh_pre_fertResultTotal;
+				frm.post_result_total.value=json.nh_post_fertResultTotal;*/
+				/* frm.result_n.value=json.nh_fertResult_N;
+				frm.result_p.value=json.nh_fertResult_P;
+				frm.result_k.value=json.nh_fertResult_K; */
+
+				frm.pre_n_300.value=json.pre_N_300;
+				frm.pre_p_300.value=json.pre_P_300;
+				frm.pre_k_300.value=json.pre_K_300;
+				frm.post_n_300.value=json.post_N_300;
+				frm.post_p_300.value=json.post_P_300;
+				frm.post_k_300.value=json.post_K_300;
+				frm.post_n.value=json.post_N1;		//추천량 웃거름 요소
+				frm.post_p.value=json.post_P1;		//추천량 웃거름 용성인비
+				frm.post_k.value=json.post_K1;		//추천량 웃거름 염화칼리
+				frm.pre_n.value=json.pre_N1; 	//추천량 밑거름 요소
+				frm.pre_p.value=json.pre_P1;		//추천량 밑거름 용성인비
+				frm.pre_k.value=json.pre_K1;		//추천량 밑거름 염화칼리
+
+				/* 20200611 로직 변경 */
+				if(frm.nh_check_user_input.value == "1") {
+					frm.pre_result_total.value=json.nh_pre_fertResultTotal;
+					frm.pre_result_total2.value=json.nh_pre_fertResultTotal2;
+					frm.pre_result_total3.value=json.nh_pre_fertResultTotal3;
+					if( $('#nh_pre_user_input').is(':checked') ) {
+						if(frm.nh_pre_fert_n.value == 0 && frm.nh_pre_fert_p.value == 0 && frm.nh_pre_fert_k.value == 0  ) {
+							frm.pre_result_total.value = "";
+							frm.pre_result_total2.value = "";
+							frm.pre_result_total3.value = "";
+						} else {
+							frm.pre_result_total.value=json.nh_pre_fertResultTotal;
+							frm.pre_result_total2.value=json.nh_pre_fertResultTotal2;
+							frm.pre_result_total3.value=json.nh_pre_fertResultTotal3;
+						}
+					}
+
+					// 밑거름 복비 추천량이 0일 경우 처방불가 메시지 표출
+					if(frm.pre_result_total.value < 0 || frm.pre_result_total.value == 0) {
+						// 처방불가 메시지
+						$("#prefertMsg").show();
+					} else {
+						$("#prefertMsg").hide();
+					}
+
+				} else if(frm.nh_check_user_input.value == "2") {
+					frm.post_result_total.value=json.nh_post_fertResultTotal;
+					frm.post_result_total2.value=json.nh_post_fertResultTotal2;
+					frm.post_result_total3.value=json.nh_post_fertResultTotal3;
+					if(frm.post_n.value == 0 || frm.post_k.value == 0){
+						frm.post_result_total.value = "";
+						frm.post_result_total2.value = "";
+						frm.post_result_total3.value = "";
+					} else if( $('#nh_post_user_input').is(':checked') ) {
+						if(frm.nh_post_fert_n.value == 0 && frm.nh_post_fert_p.value == 0 && frm.nh_post_fert_k.value == 0  ) {
+							frm.post_result_total.value = "";
+							frm.post_result_total2.value = "";
+							frm.post_result_total3.value = "";
+						}
+					}
+					// 웃거름 복비 추천량이 0일 경우 처방불가 메시지 표출
+					if(frm.post_result_total.value < 0 || frm.post_result_total.value == 0) {
+						// 처방불가 메시지
+						$("#postfertMsg").show();
+					} else {
+						$("#postfertMsg").hide();
+					}
+				} else {
+					// 밑거름 복비 추천량이 0일 경우 처방불가 메시지 표출
+					if(frm.pre_result_total.value < 0 || frm.pre_result_total.value == 0) {
+						// 처방불가 메시지
+						$("#prefertMsg").show();
+					} else {
+						$("#prefertMsg").hide();
+					}
+
+					if(frm.post_result_total.value < 0 || frm.post_result_total.value == 0) {
+						// 처방불가 메시지
+						$("#postfertMsg").show();
+					} else {
+						$("#postfertMsg").hide();
+					}
+				}
+
+				/* if((Number(nh_pre_fert_n)+Number(nh_pre_fert_p)+Number(nh_pre_fert_k)) > 0)
+				{
+					 frm.pre_result_total.value=json.nh_pre_fertResultTotal;
+				}else{
+					 frm.pre_result_total.value = "";
+				}
+
+
+				if((Number(nh_post_fert_n)+Number(nh_post_fert_p)+Number(nh_post_fert_k)) > 0)
+				{
+					if(frm.post_n.value == 0 || frm.post_k.value == 0){
+						frm.post_result_total.value= "";
+					}else{
+						frm.post_result_total.value=json.nh_post_fertResultTotal;
+					}
+				}else{
+					frm.post_result_total.value= "";
+				} */
+			}
+		});
+	}
+
+	//밑거름 비료 질소,인산, 칼리 종류의 조작
+	function SetPregoTempCompute(Flag,mode){
+		var frm = document.inForm;
+
+		//복비는 소수점 없음
+		var fert_n = parseFloat(frm.nh_pre_fert_n.value,10);		//질소
+	    var fert_p = parseFloat(frm.nh_pre_fert_p.value,10);		//인산
+		var fert_k = parseFloat(frm.nh_pre_fert_k.value,10);		//칼리
+
+		var gab;
+	    var roundValue;
+    	if(mode == 'plus'){
+    		gab = 1;
+    	}else{
+    		gab = -1;
+    	}
+    	roundValue = 1;
+
+		var txtTot = fert_n + fert_p +fert_k;
+		if ( txtTot+gab > 100) {
+			alert("성분의 합이 100을 초과 할 수 없습니다.");
+			return;
+		}
+
+	    var target;
+	    if(Flag == 'N') {
+	    	target=frm.nh_pre_fert_n;
+	    }else if(Flag == 'P') {
+	    	target=frm.nh_pre_fert_p;
+	    }else if(Flag == 'K') {
+	    	target=frm.nh_pre_fert_k;
+	    }else if(Flag == 'Qy') {
+	    	target=frm.nh_pre_fert_qy;
+	    }
+	    var returnValue = roundPrecision(parseFloat(target.value,10)+gab,roundValue);// roundPrecision은 반올림
+		if(returnValue<=0){
+			alert("성분은 0%이하가 될 수 없습니다.");
+			return;
+		}
+	    target.value=returnValue;
+	    // fertValidation();
+
+	    preFertResult();
+	}
+
+	//웃거름 비료 질소,인산, 칼리 종류의 조작
+	function SetPostgoTempCompute(Flag,mode){
+		var frm = document.inForm;
+
+		//복비는 소수점 없음
+		var fert_n = parseFloat(frm.nh_post_fert_n.value,10);		//질소
+	    var fert_p = parseFloat(frm.nh_post_fert_p.value,10);		//인산
+		var fert_k = parseFloat(frm.nh_post_fert_k.value,10);		//칼리
+
+		var gab;
+	    var roundValue;
+    	if(mode == 'plus'){
+    		gab = 1;
+    	}else{
+    		gab = -1;
+    	}
+    	roundValue = 1;
+
+		var txtTot = fert_n + fert_p +fert_k;
+		if ( txtTot+gab > 100) {
+			alert("성분의 합이 100을 초과 할 수 없습니다.");
+			return;
+		}
+
+	    var target;
+	    if(Flag == 'N') {
+	    	target=frm.nh_post_fert_n;
+	    }else if(Flag == 'P') {
+	    	target=frm.nh_post_fert_p;
+	    }else if(Flag == 'K') {
+	    	target=frm.nh_post_fert_k;
+	    }else if(Flag == 'Qy') {
+	    	target=frm.nh_post_fert_qy;
+	    }
+	    var returnValue = roundPrecision(parseFloat(target.value,10)+gab,roundValue);// roundPrecision은 반올림
+		if(returnValue<=0){
+			alert("성분은 0%이하가 될 수 없습니다.");
+			return;
+		}
+	    target.value=returnValue;
+	    // fertValidation();
+
+	    postFertResult();
+	}
+
+
+	function preView(){
+		var frm = document.inForm;
+
+		$pre_fn = $('#nh_pre_fert_n').val();
+		$pre_fp = $('#nh_pre_fert_p').val();
+		$pre_fk = $('#nh_pre_fert_k').val();
+
+		$post_fn = $('#nh_post_fert_n').val();
+		$post_fp = $('#nh_post_fert_p').val();
+		$post_fk = $('#nh_post_fert_k').val();
+
+		if($('#nh_pre_user_input').is(":checked")){
+			if((Number($pre_fn)+Number($pre_fp)+Number($pre_fk)) <= 0)
+			{
+				alert('밑거름 처방 시 질소,인산,칼리의 합이 0이하일 수 없습니다.');
+				return;
+			}
+		}
+		if($('#nh_post_user_input').is(":checked")){
+			if((Number($post_fn)+Number($post_fp)+Number($post_fk)) <= 0)
+			{
+				alert('웃거름 처방 시 질소,인산,칼리의 합이 0이하일 수 없습니다.');
+				return;
+			}
+		}
+		var cow_drop_qy = parseFloat(frm.cow_drop_qy.value,10);		// 우분
+	    var pig_drop_qy = parseFloat(frm.pig_drop_qy.value,10);		// 돈분
+		var fowl_drop_qy = parseFloat(frm.fowl_drop_qy.value,10);		// 계분
+		var sawdust_drop_qy = parseFloat(frm.sawdust_drop_qy.value,10);		// 계분
+
+		var compTot = cow_drop_qy + pig_drop_qy +fowl_drop_qy+sawdust_drop_qy;
+		if ( compTot > 100) {
+			alert("혼합가축분 퇴비 성분의 합이 100을 초과 할 수 없습니다.");
+			return;
+		}
+
+
+		if($("#pre_fert_nm").val()  != ""){
+			$("#nh_pre_fert_nm_text").val($("#pre_fert_nm option:selected").text());
+		}else{
+			if($('#nh_pre_user_input').is(":checked")){
+				$("#nh_pre_fert_nm_text").val("사용자 입력");
+			}
+		}
+
+		if($("#post_fert_nm").val()  != ""){
+			$("#nh_post_fert_nm_text").val($("#post_fert_nm option:selected").text());
+		}else{
+			if($('#nh_post_user_input').is(":checked")){
+				$("#nh_post_fert_nm_text").val("사용자 입력");
+			}
+		}
+
+		windowOpen("about:blank","preView",750,900,1,"center",0);
+		frm.target = "preView";
+		frm.action = "/sibi/sibiPrescriptView.do";
+		frm.submit();
+	}
+
+	function insam_preView(){
+		var frm = document.inForm;
+
+		$pre_fn = $('#nh_pre_fert_n').val();
+		$pre_fp = $('#nh_pre_fert_p').val();
+		$pre_fk = $('#nh_pre_fert_k').val();
+
+		$post_fn = $('#nh_post_fert_n').val();
+		$post_fp = $('#nh_post_fert_p').val();
+		$post_fk = $('#nh_post_fert_k').val();
+
+		if($('#nh_pre_user_input').is(":checked")){
+			if((Number($pre_fn)+Number($pre_fp)+Number($pre_fk)) <= 0)
+			{
+				alert('밑거름 처방 시 질소,인산,칼리의 합이 0이하일 수 없습니다.');
+				return;
+			}
+		}
+		if($('#nh_post_user_input').is(":checked")){
+			if((Number($post_fn)+Number($post_fp)+Number($post_fk)) <= 0)
+			{
+				alert('웃거름 처방 시 질소,인산,칼리의 합이 0이하일 수 없습니다.');
+				return;
+			}
+		}
+
+		var cow_drop_qy = parseFloat(frm.i_cow_drop_qy.value,10);		// 우분
+	    var pig_drop_qy = parseFloat(frm.i_pig_drop_qy.value,10);		// 돈분
+		var fowl_drop_qy = parseFloat(frm.i_fowl_drop_qy.value,10);		// 계분
+		var sawdust_drop_qy = parseFloat(frm.i_sawdust_drop_qy.value,10);		// 계분
+
+		var compTot = cow_drop_qy + pig_drop_qy +fowl_drop_qy+sawdust_drop_qy;
+		if ( compTot > 100) {
+			alert("혼합가축분 퇴비 성분의 합이 100을 초과 할 수 없습니다.");
+			return;
+		}
+
+
+		if($("#pre_fert_nm").val()  != ""){
+			$("#nh_pre_fert_nm_text").val($("#pre_fert_nm option:selected").text());
+		}else{
+			if($('#nh_pre_user_input').is(":checked")){
+				$("#nh_pre_fert_nm_text").val("사용자 입력");
+			}
+		}
+
+		if($("#post_fert_nm").val()  != ""){
+			$("#nh_post_fert_nm_text").val($("#post_fert_nm option:selected").text());
+		}else{
+			if($('#nh_post_user_input').is(":checked")){
+				$("#nh_post_fert_nm_text").val("사용자 입력");
+			}
+		}
+
+		windowOpen("about:blank","preView",750,900,1,"center",0);
+		frm.target = "preView";
+		frm.action = "/sibi/sibiPrescriptView.do";
+		frm.submit();
+	}
+
+	function ormt_preView(){
+		var frm = document.inForm;
+
+		var result_mtril_1 =frm.result_mtril_1.value;
+        var result_mtril_2 =frm.result_mtril_2.value;
+        var mtril_2 = $("#mtril_2  option:selected").val();
+
+		if(result_mtril_1 == "" || (mtril_2 !=0  &&  result_mtril_2 == "")){
+        	alert("먼저 계산을 하여야 실행 가능합니다.")
+        	return;
+        }
+
+		windowOpen("about:blank","preView",750,900,1,"center",0);
+		frm.target = "preView";
+		frm.action = "/sibi/ormtSibiPrescriptView.do";
+		frm.submit();
+	}
+
+	// 유기질비료 처방서 미리보기
+	function organic_preView() {
+		var frm = document.inForm;
+
+		if(frm.organic_fert_nm.value == "") {
+    		alert("유기질비료를 선택해주세요.");
+    		frm.organic_fert_nm.focus();
+    		return;
+    	}
+
+		var cow_drop_qy = parseFloat(frm.o_cow_drop_qy.value,10);		// 우분
+	    var pig_drop_qy = parseFloat(frm.o_pig_drop_qy.value,10);		// 돈분
+		var fowl_drop_qy = parseFloat(frm.o_fowl_drop_qy.value,10);		// 계분
+		var sawdust_drop_qy = parseFloat(frm.o_sawdust_drop_qy.value,10);		// 계분
+
+		var compTot = cow_drop_qy + pig_drop_qy +fowl_drop_qy+sawdust_drop_qy;
+		if ( compTot > 100) {
+			alert("혼합가축분 퇴비 성분의 합이 100을 초과 할 수 없습니다.");
+			return;
+		}
+
+    	windowOpen("about:blank","preView",750,900,1,"center",0);
+		frm.target = "preView";
+		frm.action = "/sibi/organicSibiPrescriptView.do";
+		frm.submit();
+	}
+
+	//시중유통 밑거름 비료 선택
+	function SetNhPreNPK(cboFertNm){
+		if (cboFertNm != ""){
+			var tmparr = cboFertNm.split("-");
+			var N = tmparr[0];		//질소
+			var P = tmparr[1];		//인산
+			var K = tmparr[2];		//칼리
+			var Qy = tmparr[3];		//단량
+			var nm = tmparr[4];		//비종명
+			$("#nh_pre_fert_n").val(N);
+			$("#nh_pre_fert_p").val(P);
+			$("#nh_pre_fert_k").val(K);
+			$("#nh_pre_fert_qy").val(Qy);
+
+			$("#pre_fert_nm").val(cboFertNm).attr("selected", true);
+		    $("#nh_pre_fert_nm_text").val(nm);
+		    // alert($("input[name=pre_nh]:checked").text());
+		    preFertResult();
+		}else{
+			$("#nh_pre_fert_n").val("0");
+			$("#nh_pre_fert_p").val("0");
+			$("#nh_pre_fert_k").val("0");
+			$("#nh_post_fert_qy").val("20");
+			$("#nh_pre_fert_nm_text").val("");
+		}
+	}
+
+	//시중유통 웃거름 비료 선택
+	function SetNhPostNPK(cboFertNm){
+		if (cboFertNm != ""){
+			var tmparr = cboFertNm.split("-");
+			var N = tmparr[0];		//웃거름 질소
+			var P = tmparr[1];		//웃거름 인산
+			var K = tmparr[2];		//웃거름 칼리
+			var Qy = tmparr[3];		//웃거름 단량
+			var nm = tmparr[4];		//비종명
+			$("#nh_post_fert_n").val(N);
+			$("#nh_post_fert_p").val(P);
+			$("#nh_post_fert_k").val(K);
+			$("#nh_post_fert_qy").val(Qy);
+
+			$("#post_fert_nm").val(cboFertNm).attr("selected", true);
+		    $("#nh_post_fert_nm_text").val(nm);
+		    postFertResult();
+		}else{
+			$("#nh_post_fert_n").val("0");
+			$("#nh_post_fert_p").val("0");
+			$("#nh_post_fert_k").val("0");
+			$("#nh_post_fert_qy").val("20");
+			$("#nh_post_fert_nm_text").val("");
+		}
+	}
+
+	//유기자재  선택
+	function setMtril_1(mtril){
+		if (mtril != "0"){
+			var tmparr = mtril.split("-");
+			var buld_rate = tmparr[0];		//건물비율
+			var cmo = tmparr[1];		//탄산함량
+			var ntrg = tmparr[2];		//질소함량
+			var ntrg_cmo_rate = tmparr[3];		//탄질비
+			var mitr_rate = tmparr[4];			//수분함량
+
+ 			var frm = document.inForm;
+		    frm.mitr_rate_1.value=mitr_rate;
+		    frm.mtril_cmo_1.value=cmo;
+		    frm.mtril_ntrg_1.value=ntrg;
+		    frm.mtril_ntrg_cmo_rate_1.value=ntrg_cmo_rate;
+		    frm.mtril_inpt_qy_1.value="";
+		    $("#mtril_inpt_qy_1").attr("disabled" , false);
+		    frm.result_mtril_1.value="";
+		    frm.result_mtril_2.value="";
+		} else{
+			var frm = document.inForm;
+			frm.mitr_rate_1.value="";
+			//frm.mtril_buld_rate_1.value="";
+			frm.mtril_cmo_1.value="";
+			frm.mtril_ntrg_1.value="";
+			frm.mtril_ntrg_cmo_rate_1.value="";
+			frm.mtril_inpt_qy_1.value="0";
+			$("#mtril_inpt_qy_1").attr("disabled" , true);
+		    frm.result_mtril_1.value="";
+		    frm.result_mtril_2.value="";
+		}
+	}
+
+	function setMtril_2(mtril){
+		if (mtril != ""){
+			var tmparr = mtril.split("-");
+			var buld_rate = tmparr[0];		//건물비율
+			var cmo = tmparr[1];		//탄산함량
+			var ntrg = tmparr[2];		//질소함량
+			var ntrg_cmo_rate = tmparr[3];		//탄질비
+			var mitr_rate = tmparr[4];	//수분함량
+
+ 			var frm = document.inForm;
+		    frm.mitr_rate_2.value=mitr_rate;
+		    frm.mtril_cmo_2.value=cmo;
+		    frm.mtril_ntrg_2.value=ntrg;
+		    frm.mtril_ntrg_cmo_rate_2.value=ntrg_cmo_rate;
+		    frm.result_mtril_1.value="";
+		    frm.result_mtril_2.value="";
+		} else{
+			var frm = document.inForm;
+			frm.mitr_rate_2.value="";
+			frm.mtril_cmo_2.value="";
+			frm.mtril_ntrg_2.value="";
+			frm.mtril_ntrg_cmo_rate_2.value="";
+		    frm.result_mtril_1.value="";
+		    frm.result_mtril_2.value="";
+		}
+	}
+
+	function setOrmtResult(){
+
+		var frm = document.inForm;
+		var mtril_1 = $("#mtril_1 option:selected").val();
+		var mtril_2 = $("#mtril_2 option:selected").val();
+
+		var mitr_rate_1 = $("#mitr_rate_1").val();
+		var mitr_rate_2 = $("#mitr_rate_2").val();
+		var mtril_ntrg_cmo_rate_1 = $("#mtril_ntrg_cmo_rate_1").val();
+		var mtril_ntrg_cmo_rate_2 = $("#mtril_ntrg_cmo_rate_2").val();
+		var mtril_ntrg_1 = $("#mtril_ntrg_1").val();
+		var mtril_ntrg_2 = $("#mtril_ntrg_2").val();
+		var mtril_inpt_qy_1 = $("#mtril_inpt_qy_1").val();
+
+	    var regType1 = /[^0-9\.\-]+/g;
+
+		if(mtril_2 == ""){
+			alert("유기자원을 선택하세요.");
+			$("#mtril_2").focus();
+			return;
+		}
+		if(mtril_ntrg_2 == ""){
+			alert("유기자원 N 함량을 입력하세요.");
+			$("#mtril_ntrg_2").focus();
+			return;
+		}
+		if(mtril_1 != "0" && mtril_ntrg_1 == ""){
+			alert("이미 투입된 유기자원 N 함량을 입력하세요.");
+			$("#mtril_ntrg_1").focus();
+			return;
+		}
+		if(mtril_ntrg_cmo_rate_2 == ""){
+			alert("유기자원 CN 율을 입력하세요.");
+			$("#mtril_ntrg_cmo_rate_2").focus();
+			return;
+		}
+		if(mtril_1 != "0" && mtril_ntrg_cmo_rate_1 == ""){
+			alert("이미 투입된 유기자원 CN 율을 입력하세요.");
+			$("#mtril_ntrg_cmo_rate_1").focus();
+			return;
+		}
+		if(mitr_rate_2 == ""){
+			alert("유기자원 수분함량을 입력하세요.");
+			$("#mitr_rate_2").focus();
+			return;
+		}
+		if(mtril_1 != "0" && mitr_rate_1 == ""){
+			alert("이미 투입된 유기자원 수분함량을 입력하세요.");
+			$("#mitr_rate_1").focus();
+			return;
+		}
+
+	    if (regType1.test(mtril_ntrg_2))
+	    {
+	     alert('잘못된 숫자 형태 입니다.');
+	     $("#mtril_ntrg_2").focus();
+	  	  return;
+	    }
+	    if (regType1.test(mtril_ntrg_1))
+	    {
+	     alert('잘못된 숫자 형태 입니다.');
+	     $("#mtril_ntrg_1").focus();
+	  	  return;
+	    }
+	    if (regType1.test(mtril_ntrg_cmo_rate_2))
+	    {
+	     alert('잘못된 숫자 형태 입니다.');
+	     $("#mtril_ntrg_cmo_rate_2").focus();
+	  	  return;
+	    }
+	    if (regType1.test(mtril_ntrg_cmo_rate_1))
+	    {
+	     alert('잘못된 숫자 형태 입니다.');
+	     $("#mtril_ntrg_cmo_rate_1").focus();
+	  	  return;
+	    }
+	    if (regType1.test(mitr_rate_2))
+	    {
+	     alert('잘못된 숫자 형태 입니다.');
+	     $("#mitr_rate_2").focus();
+	  	  return;
+	    }
+	    if (regType1.test(mitr_rate_1))
+	    {
+	     alert('잘못된 숫자 형태 입니다.');
+	     $("#mitr_rate_1").focus();
+	  	  return;
+	    }
+		if($("#mtril_inpt_qy_1").val() == ""){
+			alert("이미 투입된 량(kg/10a, 현물)을 입력하세요.");
+			$("#mtril_inpt_qy_1").focus();
+			return;
+		}
+	    if (regType1.test(mtril_inpt_qy_1))
+	    {
+	     alert('잘못된 숫자 형태 입니다.');
+	     $("#mtril_inpt_qy_1").focus();
+	  	  return;
+	    }
+		var tmparr_1 = mtril_1.split("-");
+		var tmparr_2 = mtril_2.split("-");
+		var mtril_cd_1 = tmparr_1[5];
+		var mtril_cd_2 = tmparr_2[5];
+
+		var mtril_buld_rate_2 = 100 - mitr_rate_2;
+		if(mitr_rate_1 == 0 || mitr_rate_1 == ""){
+			var mtril_buld_rate_1 = 0;
+		}else{
+			var mtril_buld_rate_1 = 100 - mitr_rate_1;
+		}
+
+		var param={
+				mtril_cd_1:mtril_cd_1,
+				mtril_cd_2:mtril_cd_2,
+				mtril_sibi_1:frm.mtril_sibi_1.value,
+				mtril_inpt_qy_1:frm.mtril_inpt_qy_1.value,
+				mtril_inpt_qy_2:frm.mtril_inpt_qy_2.value,
+				mtril_buld_rate_1:mtril_buld_rate_1,  //수분함량으로 수정
+				mtril_buld_rate_2:mtril_buld_rate_2,  //수분함량으로 수정
+				mtril_cmo_1:frm.mtril_cmo_1.value,
+				mtril_cmo_2:frm.mtril_cmo_2.value,
+				mtril_ntrg_1:frm.mtril_ntrg_1.value,
+				mtril_ntrg_2:frm.mtril_ntrg_2.value,
+				mtril_ntrg_cmo_rate_1:frm.mtril_ntrg_cmo_rate_1.value,
+				mtril_ntrg_cmo_rate_2:frm.mtril_ntrg_cmo_rate_2.value,
+				flag:'ORMT_COMPUTE'
+				};
+			$.getJSON(
+				"/exam/prescript/examPrescriptProc.do" ,param,function(json){
+
+			    var oDiv1;
+	 			var oDiv2;
+				oDiv1 = document.getElementById ("oDiv1");
+				oDiv2 = document.getElementById ("oDiv2");
+				var mtril_1_text = $("#mtril_1 option:selected").text();
+				var mtril_2_text = $("#mtril_2 option:selected").text();
+
+				if(json.result_1 == "0"  &&  json.result_2  == "0"){
+					alert("최적결과를 찾을 수 없습니다. 유기자원 성분 등을 확인 후 다시 시도해 주세요.");
+					$("#calc_ormt_div").hide();
+					return;
+				}else{
+					frm.mtril_text_1.value = mtril_1_text;
+					frm.mtril_text_2.value = mtril_2_text;
+
+					oDiv1.innerHTML =  mtril_1_text;
+					oDiv2.innerHTML =  mtril_2_text;
+
+					//frm.result_mtril_1.value=json.result_1;
+					frm.result_mtril_2.value=json.result_2;
+
+ 					if(mtril_1 == "0"){
+ 						frm.result_mtril_1.value= "0";
+					}else{
+						frm.result_mtril_1.value=json.result_1;
+					}
+
+					$("#calc_ormt_div").show();
+				}
+		});
+	}
+
+	//초기화
+	function ormt_reset(){
+		var f = document.inForm;
+
+		//f.mtril_sibi_1.value="";
+		f.mtril_1.options[0].selected = true;
+		f.mtril_2.options[0].selected = true;
+		f.mtril_inpt_qy_1.value="";
+		f.mtril_inpt_qy_2.value="";
+		f.mitr_rate_1.value="";
+		f.mitr_rate_2.value="";
+		//f.mtril_cmo_1.value="";
+		//f.mtril_cmo_2.value="";
+		f.mtril_ntrg_1.value="";
+		f.mtril_ntrg_2.value="";
+		f.mtril_ntrg_cmo_rate_1.value="";
+		f.mtril_ntrg_cmo_rate_2.value="";
+		f.mtril_inpt_qy_1.value="0";
+		$("#mtril_inpt_qy_1").attr("disabled" , true);
+
+		$("#calc_ormt_div").hide();
+	}
+
+	function getNearJibun(){
+		var f = document.inForm;
+
+		if(f.bon.value==""){
+			alert("검색하실 본번을 입력하세요.");
+			f.bon.focus();
+			return;
+		}
+
+		var sgg_cd = f.sgg_cd_search.value;
+		var umd_cd = f.umd_cd_search.value;
+
+		var san = f.san.value;
+
+		var bon = f.bon.value;
+		var bu = f.bu.value;
+
+		var jibnText = " ";
+		if(san == "2") jibnText = "산";
+
+		if(bon != "") jibnText = jibnText+bon;
+		if(bu != "") jibnText = jibnText+"-"+bu;
+
+		$("#calc_div").hide();
+		$("#ormt_calc_div").hide();
+		$("#CMPND_FERT").hide();
+		$("#ORMT_MTRIL").hide();
+		//$("#sel_btn").hide();
+
+		$("#crop_fert_recmd").hide();
+
+		var flag = false;
+		//for(var i=60; i<70; i++){
+		 for(var i=0; i<$("#sel_jibn option").size(); i++){
+			if(san == "2"){
+				if($("#sel_jibn option:eq("+i+")").text().substring($("#sel_jibn option:eq("+i+")").text().indexOf("]")+1,$("#sel_jibn option:eq("+i+")").text().length).replace(/(\s*)/g,"") ==jibnText){
+					flag = true;
+					break;
+				}
+			}else{
+				if($("#sel_jibn option:eq("+i+")").text().substring($("#sel_jibn option:eq("+i+")").text().indexOf("]")+1,$("#sel_jibn option:eq("+i+")").text().length) ==jibnText){
+					flag = true;
+					break;
+				}
+			}
+		}
+
+		if(flag == true){
+			$("#sel_jibn option:eq("+i+")").attr("selected", "selected");
+			js_detail();
+			alert("입력하신 지번으로 선택되었습니다.");
+			$("#sel_jibn").focus();
+		}else{
+			alert("입력하신 지번의 검정자료가 존재하지 않으니 지번선택에서 인근 지번을 선택하십시오. 평균값 이용 처방이나 작물별 비료 표준사용량 처방에서도 비료량을 확인할 수 있습니다.");
+			showLoading();
+			$.ajax({
+				type: "POST",
+				url: "/sibi/sibiPrescriptProc.do",
+				dataType: 'html',
+				data: {"mode":"NEAR","sgg_cd":sgg_cd,"umd_cd":umd_cd,"jibn":san+lpadZero(bon,4)+lpadZero(bu,4),"exam_type":$("#exam_type_search").val(),"exam_day_str":$("#exam_day_str").val().replaceAll("-",""),"exam_day_end":$("#exam_day_end").val().replaceAll("-","")},
+				error: function(){
+					alert('Ajax Error');
+				},
+				success: function(resultData){
+					hideLoading();
+					select = "<option value=\"\">지번선택</option>"+resultData;
+					$("#sel_jibn").html(select);
+					$("#sel_jibn").focus();
+				}
+			});
+		}
+	}
+
+	function clearjibnSearch(){
+		$("#san").val("");
+		$("#bon").val("");
+		$("#bu").val("");
+	}
+
+	function openTempPop(sgg_cd, umd_cd, exam_type){
+		var url = "/sibi/sibiPreTempView.do?";
+		if (exam_type == "" )
+			exam_type = '1';
+		url = url + "sgg_cd=" + sgg_cd + "&umd_cd=" + umd_cd + "&exam_type=" + exam_type;
+		windowOpen(url, "tempPop", 896, 1000, 1, "center", 0);
+	}
+
+	$(document).ready(function() {
+
+		$('#nh_pre_user_input').click(function() {
+
+			if ($('#nh_pre_user_input').is(':checked')) {
+				jQuery('#nh_pre_fert_nm').val('0-0-0-20');
+				SetNhPreNPK('0-0-0-20');
+				preFertResult();
+				/* 밑거름 비종선택 활성화/비활성화 : 20200610 */
+				$("#pre_fert_nm").attr("disabled", true);
+				$("#nh_pre_fert_nm_text").val("");
+			} else {
+				$("#pre_fert_nm").attr("disabled", false);
+				$("#nh_pre_fert_nm_text").val("");
+			}
+		});
+
+		$('#nh_post_user_input').click(function() {
+			if ($('#nh_post_user_input').is(':checked')) {
+				jQuery('#nh_post_fert_nm').val('0-0-0-20');
+				SetNhPostNPK('0-0-0-20');
+				postFertResult();
+				/* N,P,K 값에 따라 인산 텍스트를 활성화/비활성화 시킴 + 웃거름 비종선택 활성화/비활성화 : 20200610*/
+				var post_n_temp = $("#post_n").val();
+				var post_p_temp = $("#post_p").val();
+				var post_k_temp = $("#post_k").val();
+
+				$("#post_fert_nm").attr("disabled", true);
+				$("#nh_post_fert_nm_text").val("");
+
+				if( (post_n_temp != 0 && post_k_temp != 0) && post_p_temp == 0 ) {
+					$("#nh_post_fert_p").attr("disabled", true);
+					$("#post_Map_P").css("display","none");
+				} else if ( (post_n_temp != 0 && post_p_temp != 0) && post_k_temp == 0 )  {
+					$("#nh_post_fert_k").attr("disabled", true);
+					$("#post_Map_K").css("display", "none");
+				}
+			}else {
+				$("#nh_post_fert_p").attr("disabled", false);
+				$("#post_Map_P").css("display","inline");
+				$("#nh_post_fert_k").attr("disabled", false);
+				$("#post_Map_K").css("display","inline");
+				$("#post_fert_nm").attr("disabled", false);
+				$("#nh_post_fert_nm_text").val("");
+			}
+		});
+	});
+
+
+	function showSibiCal() {
+		$("#CMPND_FERT").show();
+		$("#ORMT_MTRIL").hide();
+	}
+
+	function showOrmtMtrilCal() {
+		$("#ORMT_MTRIL").show();
+		$("#CMPND_FERT").hide();
+	}
+
+	function setJibnEtc(){
+		var farmData = JSON.parse($("#exam_day_search option:selected").val());
+
+		var jibnEtc = farmData.jibn_etc;
+
+		var oDiv;
+		oDiv = document.getElementById ("oDiv");
+		if(jibnEtc == "" ||  jibnEtc == null ){
+			oDiv.innerHTML = "";
+		}else{
+			oDiv.innerHTML = "[기타지번 : " + jibnEtc + "]";
+		}
+	}
+
+	function compFertResult(){
+		var cow_drop_qy = parseFloat($("#cow_drop_qy").val(),10);
+		var pig_drop_qy = parseFloat($("#pig_drop_qy").val(),10);
+		var fowl_drop_qy = parseFloat($("#fowl_drop_qy").val(),10);
+		var sawdust_drop_qy = parseFloat($("#sawdust_drop_qy").val(),10);
+
+		if(cow_drop_qy > 50 || cow_drop_qy < 0){
+				alert("우분퇴비 사용량은 0 미만 또는  50 을 초과 할 수 없습니다.");
+				$("#cow_drop_qy").val("25");
+				$("#cow_drop_qy").focus();
+				return;
+		}else	if(pig_drop_qy > 50 || pig_drop_qy < 0){
+				alert("돈분퇴비 사용량은 0 미만 또는  50 을 초과 할 수 없습니다.");
+				$("#pig_drop_qy").val("14");
+				$("#pig_drop_qy").focus();
+				return;
+		}else 	if(fowl_drop_qy > 50 || fowl_drop_qy < 0){
+				alert("계분퇴비 사용량은 0 미만 또는  50 을 초과 할 수 없습니다.");
+				$("#fowl_drop_qy").val("26");
+				$("#fowl_drop_qy").focus();
+				return;
+		}else 	if(sawdust_drop_qy > 50 || sawdust_drop_qy < 0){
+				alert("톱밥 사용량은 0 미만 또는  50 을 초과 할 수 없습니다.");
+				$("#sawdust_drop_qy").val("21");
+				$("#sawdust_drop_qy").focus();
+				return;
+		}
+
+		if ( $("#sawdust_drop_qy").val() == '' ) { //톱밥 혼합비를 모르는 경우, 100-(우분+돈분+계분%)을 적용하기 위해, 톱밥이 0이 아닌 빈공간일 경우
+			var sawdust_drop_qy_tmp =  String( 100 - (parseFloat(cow_drop_qy,10)+parseFloat(pig_drop_qy,10)+parseFloat(fowl_drop_qy,10)));
+			$("#sawdust_drop_qy").val(sawdust_drop_qy_tmp);
+			$("#sawdust_drop_qy").focus();
+		}
+
+
+	}
+
+	//유기질비료 리스트 조회
+	function SetOrganicFertList(organic_type, organic_cd){
+		var frm = document.inForm;
+		$("#organic_fert_type").val(organic_type);
+		if (organic_type != ""){
+			$.ajax({
+				type : "post",
+				url : "/sibi/sibiPrescriptProc.do",
+				async : false,
+				data : {mode : "ORGANIC_FERTLIST", organic_type : organic_type},
+				success : function(data) {
+					clearCombo("organic_fert_nm");
+					changeCombo("organic_fert_nm", data);
+					$("#organic_fert_nm").val(organic_cd);
+					frm.fert_n.value = "";
+					frm.fert_p.value = "";
+					frm.fert_k.value = "";
+					frm.result_organic.value = "";
+				}
+			});
+		} else {
+			clearCombo("organic_fert_nm");
+			frm.fert_n.value = "";
+			frm.fert_p.value = "";
+			frm.fert_k.value = "";
+
+		}
+	}
+
+	//유기질비료 NPK값 구하기
+	function SetOrganicNPK(organic_cd){
+		console.log("organic_cd : " + organic_cd);
+		var frm = document.inForm;
+		var exam_type = frm.exam_type.value;
+
+		if(organic_cd != "") {
+			var param = {
+				flag : "ORGANIC_COMPUTE",
+				pre_n_300 : frm.pre_n_300.value,
+				pre_p_300 : frm.pre_p_300.value,
+				pre_k_300 : frm.pre_k_300.value,
+				post_n_300 : frm.post_n_300.value,
+				post_p_300 : frm.post_p_300.value,
+				post_k_300 : frm.post_k_300.value,
+				organic_cd : organic_cd,
+				organic_nm : $("#organic_fert_nm option:selected").text(),
+				exam_type : exam_type,
+				type : frm.type.value,
+				acid : frm.acid.value,
+				om:frm.om.value,
+				vldpha:frm.vldpha.value,
+				posifert_k:frm.posifert_k.value,
+				posifert_ca:frm.posifert_ca.value,
+				posifert_mg:frm.posifert_mg.value,
+				vldsia:frm.vldsia.value,
+				selc:frm.selc.value,
+				limeamo:frm.limeamo.value,
+				cec:frm.cec.value,
+				nit:frm.nit.value,
+				ammo:frm.ammo.value,
+				area1:frm.area1.value,
+				area2:frm.area2.value,
+				crop_cd:frm.crop_cd.value,
+				pre_n_rate_type1:frm.pre_n_rate_type1.value,
+				pre_n_rate_type2:frm.pre_n_rate_type2.value,
+				pre_n_rate_type3:frm.pre_n_rate_type3.value,
+				fert_n_rate_type1:frm.fert_n_rate_type1.value,
+				fert_n_rate_type2:frm.fert_n_rate_type2.value,
+				fert_n_rate_type3:frm.fert_n_rate_type3.value
+
+			};
+			$.getJSON("/exam/prescript/examPrescriptProc.do", param,
+				function(json){
+					organicResult(json);
+				});
+		}else {
+			clear_organic();
+		}
+
+	}
+
+	function organicResult(json) {
+		var frm = document.inForm;
+		frm.result_organic.value = json.result_pre_n;
+
+		frm.pre_n.value = json.result_pre_second_n;
+		frm.pre_p.value = json.result_pre_second_p;
+		frm.pre_k.value = json.result_pre_second_k;
+
+		frm.post_n.value = json.result_post_n;
+		frm.post_p.value = json.result_post_p;
+		frm.post_k.value = json.result_post_k;
+
+		frm.fert_n.value = json.organic_fert_n;
+		frm.fert_p.value = json.organic_fert_p;
+		frm.fert_k.value = json.organic_fert_k;
+	}
+
+	//유기질비료 조회
+	function OrganicSearchSoil() {
+		var crop_cd = $("#crop_cd").val();
+		windowOpen("/sibi/sibiPrescriptOrganicSearch.do?crop_cd="+crop_cd,"sibiOrganicSearch",650,550,1,"center",0);
+	}
+
+	// 석회질비료 show/hide
+	function limingMtrilChange(crop_gbn) {
+		if(crop_gbn == "00") {
+			$("#LIMING_MTRIL_VIEW").css("display", "none");
+			$("#O_LIMING_MTRIL_VIEW").css("display", "none");
+			$("#vldsiaext").css("display", "block");
+		} else {
+			$("#LIMING_MTRIL_VIEW").css("display", "block");
+			$("#O_LIMING_MTRIL_VIEW").css("display", "block");
+			$("#vldsiaext").css("display", "none");
+		}
+	}
+
+	//작물 검색 동적이 아닌 부분
+	function reCropCdPopup(target){
+		var sido_cd = $("#sido_cd_mini").val();
+
+		windowOpen("/common/cropCdSearchExcept.do?target="+target+"&sido_cd="+sido_cd,"address",640,690,1,"center",0);
+	}
+
+	// 밑거름 영역 접기
+	function fnDownArea(obj){
+		$(obj).empty();
+		if($("#downTbArea").css("display") == "none"){
+			$(obj).html("<img src='/images/btn/btn_page_prev02.gif' alt='접기' /> 접기");
+			$("#downTbArea").show();
+		}else{
+			$(obj).html("<img src='/images/btn/btn_page_next02.gif' alt='더보기' /> 더보기");
+			$("#downTbArea").hide();
+		}
+	}
+
+	// 웃거름 영역 접기
+	function fnUpArea(obj){
+		$(obj).empty();
+		if($("#upTbArea").css("display") == "none"){
+			$(obj).html("<img src='/images/btn/btn_page_prev02.gif' alt='접기' /> 접기");
+			$("#upTbArea").show();
+		}else{
+			$(obj).html("<img src='/images/btn/btn_page_next02.gif' alt='더보기' /> 더보기");
+			$("#upTbArea").hide();
+		}
+	}
+
+	// 혼합가축퇴비 영역 접기
+	function fnCompArea(obj){
+		$(obj).empty();
+		if($(".compTbArea").css("display") == "none"){
+			$(obj).html("<img src='/images/btn/btn_page_prev02.gif' alt='접기' /> 접기");
+			$(".compTbArea").show();
+		}else{
+			$(obj).html("<img src='/images/btn/btn_page_next02.gif' alt='더보기' /> 더보기");
+			$("input[name*=cow_drop_qy]").val("25");
+			$("input[name*=pig_drop_qy]").val("14");
+			$("input[name*=fowl_drop_qy]").val("26");
+			$("input[name*=sawdust_drop_qy]").val("21");
+			$(".compTbArea").hide();
+		}
+	}
+
+
+	// 처방방식 선택
+	function fnPrscrptnCndClick(val){
+		SetNhPreNPK($("#pre_fert_nm").val());
+		SetNhPostNPK($("#post_fert_nm").val());
+
+		//처방조건에 따른 추가필요량 텍스트 변경
+		if(val == "1"){
+			$("#span_pre_result_total2").text("인산 추가필요량");
+			$("#span_pre_result_total3").text("칼리 추가필요량");
+			$("#span_post_result_total2").text("인산 추가필요량");
+			$("#span_post_result_total3").text("칼리 추가필요량");
+		} else if(val == "2"){
+			$("#span_pre_result_total2").text("질소 추가필요량");
+			$("#span_pre_result_total3").text("칼리 추가필요량");
+			$("#span_post_result_total2").text("질소 추가필요량");
+			$("#span_post_result_total3").text("칼리 추가필요량");
+		} else if(val == "3"){
+			$("#span_pre_result_total2").text("질소 추가필요량");
+			$("#span_pre_result_total3").text("인산 추가필요량");
+			$("#span_post_result_total2").text("질소 추가필요량");
+			$("#span_post_result_total3").text("인산 추가필요량");
+		}
+	}
+	//]]>
+</script>
+</head>
+<body>
+	<form name="inForm" method="post" id="inForm" action="/sibi/sibiPrescript.do" onsubmit="return false;">
+		<input type="hidden" name="flag" /> <input type="hidden" name="type" value="S" /> <input type="hidden" name="sgg_cd_search"	id="sgg_cd_search" />
+		<input type="hidden" name="umd_cd_search"	id="umd_cd_search" /> <input type="hidden" name="sgg_cd" />
+		 <input	type="hidden" name="any_year" /> <input type="hidden" name="buss_gbn" />
+		<input type="hidden" name="exam_type" /> <input type="hidden" name="exam_no" /> <input type="hidden" name="exam_num" />
+		<input type="hidden" name="seqno" /> <input type="hidden" name="umd_cd" />
+		 <input type="hidden" name="jibn" /> <input type="hidden" name="jibn_etc" />
+		<input type="hidden" name="exam_day" /> <input type="hidden"	name="farmer_nm" />
+		 <input type="hidden" name="farmer_addr" />
+		<input type="hidden" name="clay" /> <input type="hidden" name="acid" />
+		<input	type="hidden" name="om" /> <input type="hidden" name="vldpha" />
+		<input	type="hidden" name="posifert_k" /> <input type="hidden"	name="posifert_ca" /> <input type="hidden" name="posifert_mg" />
+		<input	type="hidden" name="vldsia" /> <input type="hidden" name="selc" />
+		<input	type="hidden" name="limeamo" /> <input type="hidden" name="cec" />
+		<input	type="hidden" name="nit" /> <input type="hidden" name="area1" />
+		<input	type="hidden" name="area2" /> <input type="hidden" name="ammo" />
+		<input	type="hidden" name="soilsign" /> <input type="hidden" name="usr_id" />
+		<input type="hidden" name="rgs_id" /> <input type="hidden"	name="checkProgram" value="main" />
+		 <input type="hidden" name="exam_day_str" id="exam_day_str"	value="2021-01-01" />
+		 <input type="hidden"	name="exam_day_end" id="exam_day_end" value="2026-11-15" />
+		  <input type="hidden"	name="mtril_cmo_1" />
+		   <input type="hidden" name="mtril_cmo_2" />
+		 <input type="hidden" name="mtril_text_1" />
+		 <input	type="hidden" name="mtril_text_2" />
+
+		<input type="hidden" name="pre_n_rate_type1" id="pre_n_rate_type1" value="" /> <!-- 작물별 혼합유기질 질소 밑거름량 추천 비율-->
+		<input type="hidden" name="pre_n_rate_type2" id="pre_n_rate_type2" value=""/> <!-- 작물별 혼합유박 질소 밑거름량 추천 비율-->
+		<input type="hidden" name="pre_n_rate_type3" id="pre_n_rate_type3" value=""/> <!-- 작물별 유기복합 질소 밑거름량 추천 비율-->
+		<input type="hidden" name="fert_n_rate_type1" id="fert_n_rate_type1" value=""/> <!-- 작물별 혼합유기질 질소비효율-->
+		<input type="hidden" name="fert_n_rate_type2" id="fert_n_rate_type2" value=""/> <!-- 작물별 혼합유박 질소비효율-->
+		<input type="hidden" name="fert_n_rate_type3" id="fert_n_rate_type3" value=""/> <!-- 작물별 유기복합 질소비효율-->
+
+		<input type="hidden" name="nh_check_user_input" id="nh_check_user_input"/>
+		<input type="hidden" name="organicGbn" id="organicGbn"/>
+		<input type="hidden" name="modng_at" id="modng_at"/>
+
+<!-- 		 <input	type="hidden" name="mtril_buld_rate_1" />
+		 <input	type="hidden" name="mtril_buld_rate_2" /> -->
+			<!-- header -->
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="skipnavi">
+    <a href="#gnb">주메뉴</a>
+    
+    <a href="#contents">본문 바로가기</a>
+    
+    <a href="#footer">하단</a>
+</div>
+
+<!-- s: 최상단 배너 -->
+<div class="gov_top">
+	<div class="inner1">
+		<span class="gov_desc">
+			<img src="/images/common/img_taegeukgi.png" alt="태극기">이 누리집은 대한민국 공식 전자정부 누리집입니다.
+        </span>
+    </div>
+</div>
+
+<div id="header">
+    <div class="inner">
+        <h1 class="h1Logo">
+        	
+        		<a href="/soil/index.do"><img src="/images/common/h1_logo.png" alt="흙토람"/></a>
+        	
+        </h1>
+
+        <!-- search -->
+        
+        <!-- //search -->
+        
+        <ul class="header-utility">
+			<li>
+				<div class="drop-wrap resize" data-adjust="scale">
+					<button type="button" class="btn drop-btn">화면크기 <i class="svg-icon ico-angle"></i></button>
+					<div class="drop-menu">
+						<div class="drop-in">
+							<ul class="drop-list">
+								<li><button type="button" class="item-link sm" id="zoom01" onclick="zooms('zoomStep01');">작게</button></li>
+								<li><button type="button" class="item-link md active" id="zoom02" onclick="zooms('zoomStep02');">보통</button></li>
+								<li><button type="button" class="item-link lg" id="zoom03" onclick="zooms('zoomStep03');">조금 크게</button></li>
+								<li><button type="button" class="item-link xlg" id="zoom04" onclick="zooms('zoomStep04');">크게</button></li>
+								<li><button type="button" class="item-link xxlg" id="zoom05" onclick="zooms('zoomStep05');">가장크게</button></li>
+							</ul>
+							<div class="drop-bottom">
+								<button type="button" class="btn" onclick="zooms('zoomStep02'); return false;"><i class="svg-icon ico-reset"></i> 초기화</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+            <li><a href="/eng/main/main.do" title="새창열림" class="btn" target="_blank">English <i class="svg-icon ico-go"></i></a></li>
+			<li><a href="/guide/siteMap.do" class="btn">전체메뉴</a></li>
+			<!--<li class="eng"><a href="http://soil.rda.go.kr/ae/aerims/cmm/login/soilAerimsLogin.ae" title="농업환경 현장지원" target="_blank">농업환경자원 통합 플랫폼</a></li> -->
+        </ul>
+        
+        <div class="header-actions">
+			<button type="button" class="btn-navi sch open-modal" title="통합검색 레이어" data-target="popTotalSch">통합검색</button>
+			
+				<button type="button" onclick="javascript:fnLogin(); return false;" class="btn-navi login">로그인</button>
+				<button type="button" onclick="javascript:fnJoin(); return false;" class="btn-navi join">회원가입</button>
+			
+		</div>
+	</div>
+		
+	<div class="main-menu" id="gnb">
+		<div class="inner">
+			<ul class="gnb-menu">
+				
+					<li>
+						<button type="button" class="gnb-main-trigger">시스템 소개</button>
+						
+							<div class="gnb-toggle-wrap">
+								<div class="gnb-main-list" data-has-submenu="true">
+									<ul>
+										
+											
+												<li><a href="/sis/summary.do" class="gnb-sub-trigger is-link">개요</a></li>
+											
+										
+											
+												<li><a href="/sis/composition.do" class="gnb-sub-trigger is-link">구성</a></li>
+											
+										
+											
+												<li><a href="/sis/propulsion.do" class="gnb-sub-trigger is-link">추진현황</a></li>
+											
+										
+									</ul>
+								</div>
+							</div>
+						
+					</li>
+				
+					<li>
+						<button type="button" class="gnb-main-trigger">토양과 농업환경</button>
+						
+							<div class="gnb-toggle-wrap">
+								<div class="gnb-main-list" data-has-submenu="true">
+									<ul>
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">토양소개</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">토양소개</h2>
+															<ul>
+																
+																	<li><a href="/soilact/soilInfo.do">토양의정의와기능</a></li>
+																
+																	<li><a href="/soilact/soilComposition.do">토양의구성</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">우리나라의 토양</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">우리나라의 토양</h2>
+															<ul>
+																
+																	<li><a href="/soilact/agriCulture.do">토양조사</a></li>
+																
+																	<li><a href="/soilact/characterize.do">토양특성</a></li>
+																
+																	<li><a href="/soilact/recommend.do">토양이용 추천 및 유형별 특성</a></li>
+																
+																	<li><a href="/soilact/shape.do">우리나라 논과 밭 형태</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">세계의 토양</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">세계의 토양</h2>
+															<ul>
+																
+																	<li><a href="/soilact/soilWorld.do">세계토양분류</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">농업환경정보 소개</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">농업환경정보 소개</h2>
+															<ul>
+																
+																	<li><a href="/soilact/composition.do">농업환경변동정보 구성요소</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+											
+												<li><a href="/koreaSoils/soilSearch.do" class="gnb-sub-trigger is-link">토양통 검색</a></li>
+											
+										
+									</ul>
+								</div>
+							</div>
+						
+					</li>
+				
+					<li>
+						<button type="button" class="gnb-main-trigger">흙사랑</button>
+						
+							<div class="gnb-toggle-wrap">
+								<div class="gnb-main-list" data-has-submenu="true">
+									<ul>
+										
+											
+												<li><a href="/soillove/story.do" class="gnb-sub-trigger is-link">현해남 교수님의 만화 흙이야기</a></li>
+											
+										
+											
+												<li><a href="/soillove/soilStory.do" class="gnb-sub-trigger is-link">이완주 박사님의 흙이야기</a></li>
+											
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">쉽게 배우는 흙</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">쉽게 배우는 흙</h2>
+															<ul>
+																
+																	<li><a href="/soillove/childSoilStory.do">어린이를 위한 흙이야기</a></li>
+																
+																	<li><a href="/soillove/teenagerSoilStory.do">청소년을 위한 흙이야기</a></li>
+																
+																	<li><a href="/soillove/soilSecret.do">흙의 탄생과 비밀</a></li>
+																
+																	<li><a href="/soillove/soilTreasure.do">흙은 우리의 보물</a></li>
+																
+																	<li><a href="/soillove/soilFriends.do">흙에 사는 친구들</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+									</ul>
+								</div>
+							</div>
+						
+					</li>
+				
+					<li>
+						<button type="button" class="gnb-main-trigger">토양환경지도</button>
+						
+							<div class="gnb-toggle-wrap">
+								<div class="gnb-main-list" data-has-submenu="true">
+									<ul>
+										
+											
+												<li><a href="/soilmap/crop.do" class="gnb-sub-trigger is-link">작물별 토양적성도</a></li>
+											
+										
+											
+												<li><a href="/soilmap/chemistry.do" class="gnb-sub-trigger is-link">농경지 화학성</a></li>
+											
+										
+											
+												<li><a href="/soilmap/characteristic.do" class="gnb-sub-trigger is-link">토양특성</a></li>
+											
+										
+											
+												<li><a href="/soilmap/evmchange.do" class="gnb-sub-trigger is-link">농업환경변동정보</a></li>
+											
+										
+											
+												<li><a href="/soilmap/ecoEvm.do" class="gnb-sub-trigger is-link">친환경 인증</a></li>
+											
+										
+									</ul>
+								</div>
+							</div>
+						
+					</li>
+				
+					<li>
+						<button type="button" class="gnb-main-trigger">비료사용처방</button>
+						
+							<div class="gnb-toggle-wrap">
+								<div class="gnb-main-list" data-has-submenu="true">
+									<ul>
+										
+											
+												<li><a href="/sibi/sibiExam.do" class="gnb-sub-trigger is-link">토양검정정보</a></li>
+											
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">비료사용처방</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">비료사용처방</h2>
+															<ul>
+																
+																	<li><a href="/sibi/sibiPrescript.do">비료사용처방</a></li>
+																
+																	<li><a href="/sibi/gvmexpPrescript.do">관비(물·비료) 처방</a></li>
+																
+																	<li><a href="/sibi/compPrescript.do">화학비료 대체 가축분 퇴비량 처방</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">비료사용처방 체험하기</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">비료사용처방 체험하기</h2>
+															<ul>
+																
+																	<li><a href="/sibi/sibiPrescriptTemp.do">비료사용처방 체험하기</a></li>
+																
+																	<li><a href="/sibi/gvmexpExprn.do">관비(물·비료)처방 체험하기</a></li>
+																
+																	<li><a href="/sibi/compPrescriptTemp.do">화학비료 대체 가축분 퇴비량 추천</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">작물별 비료 표준사용량 처방</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">작물별 비료 표준사용량 처방</h2>
+															<ul>
+																
+																	<li><a href="/sibi/cropSibiPrescript.do">비료사용처방</a></li>
+																
+																	<li><a href="/sibi/cropCompostPrescript.do">화학비료 대체 가축분 퇴비량 처방</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">작물영양진단</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">작물영양진단</h2>
+															<ul>
+																
+																	<li><a href="/nutri/intro.do">작물 영양진단 소개</a></li>
+																
+																	<li><a href="/nutri/introMineral.do">작물 적정 무기성분함량</a></li>
+																
+																	<li><a href="/nutri/nutriObstListChange.do">작물영양진단(작물별)</a></li>
+																
+																	<li><a href="/nutri/nutriObstList.do">작물영양처방(원소별)</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+											
+												<li><a href="/sibi/sibiImprove.do" class="gnb-sub-trigger is-link">객토량 구하기</a></li>
+											
+										
+									</ul>
+								</div>
+							</div>
+						
+					</li>
+				
+					<li>
+						<button type="button" class="gnb-main-trigger">토양수분정보</button>
+						
+							<div class="gnb-toggle-wrap">
+								<div class="gnb-main-list" data-has-submenu="true">
+									<ul>
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">밭작물 물관리 정보</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">밭작물 물관리 정보</h2>
+															<ul>
+																
+																	<li><a href="/water/waterReport.do">노지 밭 물사용 처방</a></li>
+																
+																	<li><a href="/water/system_01.do">밭작물 물관리 지침서</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">밭 가뭄 정보</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">밭 가뭄 정보</h2>
+															<ul>
+																
+																	<li><a href="/soilMitr/soilMitrBoardList.do">전국 밭가뭄 현황 자료</a></li>
+																
+																	<li><a href="/soilMitr/soilMitrDroughtMap.do">전국 밭가뭄 지도</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">토양물리성 현장진단</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">토양물리성 현장진단</h2>
+															<ul>
+																
+																	<li><a href="/water/soilWater.do">현장진단 처방</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+									</ul>
+								</div>
+							</div>
+						
+					</li>
+				
+					<li>
+						<button type="button" class="gnb-main-trigger">통계자료</button>
+						
+							<div class="gnb-toggle-wrap">
+								<div class="gnb-main-list" data-has-submenu="true">
+									<ul>
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">토양통계</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">토양통계</h2>
+															<ul>
+																
+																	<li><a href="/chart/chart.do">작물별토양적성도</a></li>
+																
+																	<li><a href="/chart/chartChmstry.do">농경지화학성</a></li>
+																
+																	<li><a href="/chart/chartSoilType.do">토양특성</a></li>
+																
+																	<li><a href="/chart/chartSoilSeries.do">토양통부호</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+									</ul>
+								</div>
+							</div>
+						
+					</li>
+				
+					<li>
+						<button type="button" class="gnb-main-trigger">토양정보 신청</button>
+						
+							<div class="gnb-toggle-wrap">
+								<div class="gnb-main-list" data-has-submenu="true">
+									<ul>
+										
+											
+												<li><a href="/community/application.do" class="gnb-sub-trigger is-link">토양도 신청</a></li>
+											
+										
+											
+												<li><a href="/openapi/index.do" class="gnb-sub-trigger is-link">공공데이터 신청</a></li>
+											
+										
+									</ul>
+								</div>
+							</div>
+						
+					</li>
+				
+					<li>
+						<button type="button" class="gnb-main-trigger">열린마당</button>
+						
+							<div class="gnb-toggle-wrap">
+								<div class="gnb-main-list" data-has-submenu="true">
+									<ul>
+										
+											
+												<li><a href="/board/boardList.do?bid=1016" class="gnb-sub-trigger is-link">공지사항</a></li>
+											
+										
+											
+												<li><a href="/board/boardList.do?bid=1018" class="gnb-sub-trigger is-link">묻고답하기</a></li>
+											
+										
+											
+												<li>
+													<button type="button" class="gnb-sub-trigger">자료실</button>
+													
+													<div class="gnb-sub-list between">
+														<div class="gnb-sub-content">
+															<h2 class="sub-title">자료실</h2>
+															<ul>
+																
+																	<li><a href="/board/boardListPortal.do">자료실</a></li>
+																
+																	<li><a href="/board/boardListProgram.do">프로그램 자료실</a></li>
+																
+															</ul>
+														</div>
+													</div>
+												</li>
+											
+										
+											
+												<li><a href="/community/relationSite.do" class="gnb-sub-trigger is-link">관련사이트</a></li>
+											
+										
+									</ul>
+								</div>
+							</div>
+						
+					</li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="modal-wrap">
+    <!-- 모달 : 통합 검색 -->
+    <div id="popTotalSch" class="modal modal-popup fade" data-type="full">
+		<!-- modal-dialog -->
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- modal title -->
+				<div class="modal-header sr-only">
+					<h2 class="modal-title">통합검색</h2>
+				</div>
+				<!-- //modal title -->
+				<!-- modal contents -->
+				<div class="modal-conts">
+					<!-- 통합검색 -->
+					<div class="pop-total-serch-wrap">
+						<!-- 통합검색 정보입력 영역 -->
+						<div class="search-total-top">
+							<!-- 검색어 타이틀 -->
+							<div class="search-tit">
+								<label for="txt_search_top">검색어를 입력해주세요</label>
+							</div>
+							<!-- //검색어 타이틀 -->
+							<!-- 검색어 입력 폼 -->
+							<div class="sch-form-wrap">
+								<div class="sch-input" data-delete="true">
+									<input type="text" id="txt_search_top" name="txt_search_top" placeholder="검색어를 입력해주세요." maxlength="40" onkeydown="enterKey('totalSearchFromTop()');" value="">
+									<div class="btn-group">
+                                        <button type="button" class="btn-delete-input" onclick="javascript:delSearchVal();" id="searchValDel">
+                                            <span class="sr-only">내용 삭제</span>
+                                            <i class="svg-icon ico-delete-fill"></i>
+                                        </button>
+                                        <button type="button" class="ico-search" onclick="javascript:totalSearchFromTop()" id="totalSearchFromTop">
+                                            <span class="sr-only">검색</span>
+                                            <i class="svg-icon ico-sch"></i>
+                                        </button>
+                                    </div>
+								</div>
+							</div>
+							<!-- //검색어 입력 폼 -->
+						</div>
+						<!-- //통합검색 정보입력 영역 -->
+					</div>
+					<!-- //통합검색 -->
+				</div>
+				<!-- //modal contents -->
+				<!-- close button -->
+				<button type="button" class="btn-close close-modal">
+					<span class="sr-only">닫기</span>
+					<i class="svg-icon ico-modal-close"></i>
+				</button>
+				<!-- //close button -->
+			</div>
+		</div>
+		<!-- //modal-dialog -->
+		<div class="modal-back"></div>
+    </div>
+    <!-- //모달 : 통합 검색 -->
+</div>
+			<!-- //header -->
+
+			<!-- container -->
+			<div id="container">
+				<!-- quick menu-->
+				
+
+
+
+
+
+
+
+
+
+<!-- <div id="quick">
+	<h2>QUICK MENU</h2>
+	<div>
+		<a href="http://www.nongsaro.go.kr/portal/ps/psq/psqb/farmTermDicLst.ps?menuId=PS00064" target="blank" title="새창 열림">농업용어사전</a>
+		<a href="http://www.nongsaro.go.kr/portal/ps/psz/psza/contentMain.ps?menuId=PS00199" target="blank" title="새창 열림">주간농사정보</a>
+		<a href="https://weather.rda.go.kr/weather/soilSttusSensorMap.do?wmsFlag=Y" target="blank" title="새창 열림">농업기상정보 토양수분</a>
+	</div>
+	<a href="javascript:void(0);" class="btnTop" aria-label="문서 처음으로 이동">TOP</a>
+</div> -->
+
+
+				<div class="inner afterClear">
+					
+
+
+
+
+
+
+
+
+
+<div id="snb">
+	
+				<h2>비료사용처방</h2>
+				<ul class="snb_list">
+				
+				<li class="">
+					<a href="/sibi/sibiExam.do" onclick="javascript:goPage('/sibi/sibiExam.do'); return false;">
+						토양검정정보
+					</a>
+				</li>
+				
+					<li id="MN_0502" class="on">
+				
+					<a href="/sibi/sibiPrescript.do" onclick="javascript:goPage('/sibi/sibiPrescript.do'); return false;">
+						비료사용처방
+					</a>
+					<ul class="over_list">
+				
+				<li class="on">
+					<a href="/sibi/sibiPrescript.do" onclick="javascript:goPage('/sibi/sibiPrescript.do'); return false;">
+						비료사용처방
+					</a>
+				</li>
+				
+				<li class="">
+					<a href="/sibi/gvmexpPrescript.do" onclick="javascript:goPage('/sibi/gvmexpPrescript.do'); return false;">
+						관비(물·비료) 처방
+					</a>
+				</li>
+				
+				<li class="">
+					<a href="/sibi/compPrescript.do" onclick="javascript:goPage('/sibi/compPrescript.do'); return false;">
+						화학비료 대체 가축분 퇴비량 처방
+					</a>
+				</li>
+				
+							</ul>
+					
+					</li>
+					
+							<li id="MN_0503" class="">
+					
+					<a href="/sibi/sibiPrescriptTemp.do" onclick="javascript:goPage('/sibi/sibiPrescriptTemp.do'); return false;">
+						비료사용처방 체험하기
+					</a>
+					<ul class="over_list">
+				
+				<li class="">
+					<a href="/sibi/sibiPrescriptTemp.do" onclick="javascript:goPage('/sibi/sibiPrescriptTemp.do'); return false;">
+						비료사용처방 체험하기
+					</a>
+				</li>
+				
+				<li class="">
+					<a href="/sibi/gvmexpExprn.do" onclick="javascript:goPage('/sibi/gvmexpExprn.do'); return false;">
+						관비(물·비료)처방 체험하기
+					</a>
+				</li>
+				
+				<li class="">
+					<a href="/sibi/compPrescriptTemp.do" onclick="javascript:goPage('/sibi/compPrescriptTemp.do'); return false;">
+						화학비료 대체 가축분 퇴비량 추천
+					</a>
+				</li>
+				
+							</ul>
+					
+					</li>
+					
+							<li id="MN_0504" class="">
+					
+					<a href="/sibi/cropSibiPrescript.do" onclick="javascript:goPage('/sibi/cropSibiPrescript.do'); return false;">
+						작물별 비료 표준사용량 처방
+					</a>
+					<ul class="over_list">
+				
+				<li class="">
+					<a href="/sibi/cropSibiPrescript.do" onclick="javascript:goPage('/sibi/cropSibiPrescript.do'); return false;">
+						비료사용처방
+					</a>
+				</li>
+				
+				<li class="">
+					<a href="/sibi/cropCompostPrescript.do" onclick="javascript:goPage('/sibi/cropCompostPrescript.do'); return false;">
+						화학비료 대체 가축분 퇴비량 처방
+					</a>
+				</li>
+				
+							</ul>
+					
+					</li>
+					
+							<li id="MN_0506" class="">
+					
+					<a href="/nutri/intro.do" onclick="javascript:goPage('/nutri/intro.do'); return false;">
+						작물영양진단
+					</a>
+					<ul class="over_list">
+				
+				<li class="">
+					<a href="/nutri/intro.do" onclick="javascript:goPage('/nutri/intro.do'); return false;">
+						작물 영양진단 소개
+					</a>
+				</li>
+				
+				<li class="">
+					<a href="/nutri/introMineral.do" onclick="javascript:goPage('/nutri/introMineral.do'); return false;">
+						작물 적정 무기성분함량
+					</a>
+				</li>
+				
+				<li class="">
+					<a href="/nutri/nutriObstListChange.do" onclick="javascript:goPage('/nutri/nutriObstListChange.do'); return false;">
+						작물영양진단(작물별)
+					</a>
+				</li>
+				
+				<li class="">
+					<a href="/nutri/nutriObstList.do" onclick="javascript:goPage('/nutri/nutriObstList.do'); return false;">
+						작물영양처방(원소별)
+					</a>
+				</li>
+				
+						</ul>
+						</li>
+				
+				<li class="">
+					<a href="/sibi/sibiImprove.do" onclick="javascript:goPage('/sibi/sibiImprove.do'); return false;">
+						객토량 구하기
+					</a>
+				</li>
+				
+
+	
+		</ul>
+	</div>
+	
+	<script>
+		window.addEventListener('DOMContentLoaded', function() {
+			// 클래스가 on인 li의 a태그 찾기
+			var snbLi = document.querySelector('ul.snb_list li.on a');
+			
+			if (snbLi) {
+				// 하위 li 가 있을 때
+				var overLi = document.querySelector('ul.over_list li.on a');
+				if (overLi) {
+					snbLi.setAttribute('aria-expanded', 'true');
+					overLi.setAttribute('aria-current', 'page');
+				} else {
+					snbLi.setAttribute('aria-current', 'page');
+				}
+			}
+		});
+	</script>
+
+					
+					<div id="contents">
+						
+						<div class="pageTitle">비료사용처방<span>_토양검정 및 작물별 처방에 관련된 서비스를 제공합니다.</span></div>
+						
+						<ul class="location">
+							<li><a href="/">HOME</a></li>
+							<li>비료사용처방</li>
+							<li class="on">비료사용처방</li>
+						</ul>
+
+						
+						<div class="sub_contents">
+							<ul class="tab_btn" id="tab">
+			                    <li class="active"><a onclick="javascript:goPage('/sibi/sibiPrescript.do'); return false;">비료사용처방</a></li>
+			                    <li><a onclick="javascript:goPage('/sibi/sibiPrescriptExcel.do'); return false;">여러 필지 처방서 확인하기</a></li>
+			                </ul>
+
+							<h2 class="h2Title">비료사용처방</h2>
+							<dl class="method">
+							<dt style="width:896px; font-size: 13px;">
+							<a href="javascript:windowOpen('/sibi/sibiPrescript_pop.do','prescript_pop',780,700,1,'center',1);" class="button small colorWhite" style="float: right; font-weight: normal;">조회방법</a>
+							※ 해당서비스는 최근 5년 내 토양검정을 받은 필지를 조회하여 비료사용처방서를 확인할 수 있습니다.</dt>
+							<dd></dd>
+						</dl>
+						<br/>
+
+					<div class="box_a_type1"
+						style="padding-bottom: 0px; margin-bottom: 0px; display:block;">
+						<input type="hidden" name="exam_type_radio" id="exam_type_radio" value="" />
+						<input type="hidden" name="exam_type_search" id="exam_type_search" />
+						
+						<table class="item_a">
+							<caption>토양관리처방 검색 항목</caption>
+							<col style="width:120px;" />
+							<col />
+							<tbody>
+								<!-- <tr>
+									<th scope="col">경지구분</th>
+									<td>
+									<input type="radio" class="radio_box" 	name="exam_type_radio" id="exam_type_radio1"	onclick="jibunExamTypeSearch();" checked="checked" value="" /><label	for="exam_type_radio1">전체</label>
+									<input type="radio"	class="radio_box" name="exam_type_radio" id="exam_type_radio2"	onclick="jibunExamTypeSearch();" value="1" /><label	for="exam_type_radio2">논</label>
+									<input type="radio"	class="radio_box" name="exam_type_radio" id="exam_type_radio3"	onclick="jibunExamTypeSearch();" value="2" /><label	for="exam_type_radio3">밭</label>
+									<input type="radio"	class="radio_box" name="exam_type_radio" id="exam_type_radio4"	onclick="jibunExamTypeSearch();" value="3" /><label	for="exam_type_radio4">시설</label>
+									<input type="radio"	class="radio_box" name="exam_type_radio" id="exam_type_radio5"	onclick="jibunExamTypeSearch();" value="4" /><label	for="exam_type_radio5">과수</label>
+									<input type="radio" class="radio_box" name="exam_type_radio"	id="exam_type_radio10" onclick="jibunExamTypeSearch();"		value="9" /><label for="exam_type_radio10" >유기농(논)</label>
+									<input type="radio" 	class="radio_box" name="exam_type_radio" id="exam_type_radio6"	onclick="jibunExamTypeSearch();" value="5" /><label	for="exam_type_radio6">간척지(논)</label>
+									<input type="radio"	class="radio_box" name="exam_type_radio" id="exam_type_radio7"	onclick="jibunExamTypeSearch();" value="6" /><label	for="exam_type_radio7">간척지(밭)</label>
+									<input type="radio" class="radio_box" name="exam_type_radio"	id="exam_type_radio8" onclick="jibunExamTypeSearch();" 	value="7" /><label for="exam_type_radio8">임야</label>
+									<input type="radio" class="radio_box" name="exam_type_radio"	id="exam_type_radio9" onclick="jibunExamTypeSearch();"		value="8" /><label for="exam_type_radio9">기타</label>
+									<input type="hidden" name="exam_type_search" id="exam_type_search" />
+									</td>
+								</tr> -->
+								<tr>
+									<th scope="col">지역</th>
+									<td>
+										<!-- input type="checkbox" name="area_select" onclick="selectAreaMode()"/> <b>리(동)명으로 검색</b-->
+										<!-- span id="select_tr1"--> <label style="padding: 0px" title="광역시/도 선택">
+										<select name="sido_cd_mini"	id="sido_cd_mini" style="width:160px;"
+											onchange="javascript:changeSidoCombo({sido:'sido_cd_mini',sgg:'sgg_cd_mini',umd:'umd_cd_mini',	ri:'ri_cd_mini',full_yn:'Y'	});"	title="광역시/도">
+												<option value="">광역시/도</option>
+												<option value='51'>강원특별자치도</option><option value='41'>경기도</option><option value='48'>경상남도</option><option value='47'>경상북도</option><option value='27'>대구광역시</option><option value='30'>대전광역시</option><option value='26'>부산광역시</option><option value='11'>서울특별시</option><option value='36'>세종특별자치시</option><option value='31'>울산광역시</option><option value='28'>인천광역시</option><option value='12'>전남광주통합특별시</option><option value='52'>전북특별자치도</option><option value='50'>제주특별자치도</option><option value='44'>충청남도</option><option value='43'>충청북도</option>
+										</select>
+									</label> <label style="padding: 0px" title="시/군/구 선택">
+									 <select 	name="sgg_cd_mini" id="sgg_cd_mini" style="width:135px;" onchange="javascript:changeSggCombo({sido:'sido_cd_mini',sgg:'sgg_cd_mini',umd:'umd_cd_mini',ri:'ri_cd_mini',	full_yn:'Y'	});"	title="시/군/구">
+												<option value="">시/군/구</option>
+												
+										</select>
+									</label> <label style="padding: 0px" title="읍/면/동 선택">
+									<select	name="umd_cd_mini" id="umd_cd_mini" class="w150"	onchange="javascript:changeUmdCombo({	sido:'sido_cd_mini',	sgg:'sgg_cd_mini',umd:'umd_cd_mini',ri:'ri_cd_mini'}); jibunSearch('umdgubun');" 	title="읍/면/동">
+												<option value="">읍/면/동</option>
+												
+										</select>
+									</label> <label style="padding: 0px" title="리 선택">
+									<select	name="ri_cd_mini" id="ri_cd_mini" class="w150"
+											onchange="jibunSearch('rigubun');" title="리">
+												<option value="">리</option>
+												
+										</select>
+									</label> <!-- /span>
+							<span id="select_tr2" style="display:none;">
+								리(동)이름을 입력하세요. [입력 예] 지곡리
+								<input type="text" name="addr_nm" id="addr_nm" size="20" onkeydown="enterKey('addrSearch()',event)"/>
+								<input type="button" value="검색" onclick="addrSearch()" />
+							</span-->
+									<a href="#none;" onclick="javascript:fnAddrPopOpen(); return false;" class="button colorWhite">주소검색</a>
+									</td>
+								</tr>
+								<tr>
+									<th scope="col">작물</th>
+									<td>
+										<select name="crop_gbn" id="crop_gbn" onchange="javascript:changeCropCombo5(this.value,'crop_cd');riceFertView(this.value);limingMtrilChange(this.value);organicAtChng();" style="width:140px"  title="작물유형 선택">
+											<option value="">작물유형 선택</option>
+											<option value='00'>곡류(벼)</option><option value='01'>곡류(기타)</option><option value='02'>유지류</option><option value='03'>서류</option><option value='04'>과채류</option><option value='05'>근채류</option><option value='06'>인경채류</option><option value='07'>경엽채류</option><option value='08'>산채류</option><option value='09'>과수</option><option value='10'>약용작물</option><option value='11'>화훼류</option><option value='14'>사료작물</option><option value='12'>기타</option><option value='13'>미분류</option>
+										</select>
+										<select name="crop_cd" id="crop_cd" onchange="javascript:organicSelectView(this.value);jibunSearch('rigubun');" style="width:200px"  title="작물 선택">
+											<option value="">작물 선택</option>
+										</select>
+										<select name="rice_fert" id="rice_fert" title="품질 선택" style="display:none">
+											<option value="">- 품질 선택 -</option>
+											<option value="1">고품질쌀(9kg)</option>
+											<option value="2">최고쌀(7kg)</option>
+											<option value="3">보통쌀(11kg)</option>
+										</select>
+										<a href="javascript:reCropCdPopup('sibi');" class="button colorWhite">작물명검색</a>
+										<br/>
+										<span id="vldsiaext" style="color:red; display:none; font-size:12px; margin-top:5px;"> ※ 벼 질소시비량 계산시 유효규산 최대 180mg/kg 적용.</span>
+										<div id="organicAtArea" style="display:none">
+											<br/>
+											<input type="radio" id="organicAt1" name="organicAt" onchange="jibunExamTypeSearch();jibunSearch('rigubun');" value="Y" /><label for="organicAt1">유기자재 처방</label>
+											<input type="radio" id="organicAt2" name="organicAt" onchange="jibunExamTypeSearch();jibunSearch('rigubun');" checked="checked" value="N" /><label for="organicAt2">일반 처방</label>
+										</div>
+									</td>
+								</tr>
+
+								<tr id="jibn_search_tr" style="display: none">
+									<th scope="col">지번조회</th>
+									<td><label style="padding: 0px" title="일반/산 선택"> <select 	name="san" id="san" title="일반/산">
+												<option value="1">일반</option>
+												<option value="2">산</option>
+										</select>
+									</label> <label style="padding: 0px" title="본번"><input type="text" title="본" name="bon" id="bon" class="ime_modeDisabled"
+									onblur="removeChar(event)" onkeydown="num_only(event)" onkeyup="removeChar(event)" style="width: 50px" maxlength="4" /></label>-<label style="padding: 0px" title="부번 선택">
+									<input type="text" title="부" name="bu" id="bu" class="ime_modeDisabled"
+									onblur="removeChar(event)" onkeydown="num_only(event)" onkeyup="removeChar(event)" style="width: 50px"	maxlength="4" /></label>
+									<a href="javascript:getNearJibun();" class="button colorWhite">조회</a></td>
+								</tr>
+								<tr id="jibn_tr" style="display: none">
+									<th scope="col"><label for="sel_jibn">지번선택</label></th>
+									<td><select name="sel_jibn" id="sel_jibn" class="w150" onchange="js_detail()" title="지번선택">
+											<option value="">지번 선택</option>
+										</select>
+										<!-- <div  id="JDiv"> </div> -->
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+					<div class="box_a_type1" id="jibun_div" style="padding-top: 0px; display:none;"></div>
+
+					<div id="addrAjaxArea" style="margin-bottom:30px;"></div>
+
+					<div class="section_a" id="chemical_div" style="padding-top: 30px"></div>
+
+					<div id="calc_div" style="display: none">
+					<input type="hidden" value="1" name="enfr_nong_stdd" id="enfr_nong_stdd"  />
+
+						<div class="section_b">
+							<!-- 			성분량 -->
+							<div class="wrap_left">
+								<p class="h5 icon arrowRight mgb_10">성분량(kg/10a)</p>
+								<table class="item_c">
+									<caption>밑거름, 웃거름 성분량</caption>
+									<thead>
+										<tr>
+											<th scope="col"></th>
+											<th scope="col">질소</th>
+											<th scope="col">인산</th>
+											<th scope="col">칼리</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">밑거름</th>
+											<td><label title="밑거름 성분량 질소"><input type="text" class="txt_box w70" name="pre_n_300" id="pre_n_300"	title="밑거름 성분량 질소" value=""  readonly="readonly" /></label></td>
+											<td><label title="밑거름 성분량 인산"><input type="text" class="txt_box w70" name="pre_p_300" id="pre_p_300"	title="밑거름 성분량 인산" value=""  readonly="readonly" /></label></td>
+											<td><label title="밑거름 성분량 칼리"><input type="text" class="txt_box w70" name="pre_k_300" id="pre_k_300"	title="밑거름 성분량 칼리" value=""  readonly="readonly" /></label></td>
+										</tr>
+										<tr>
+											<th scope="row">웃거름</th>
+											<td><label title="웃거름 성분량 질소"><input type="text" class="txt_box w70" name="post_n_300" id="post_n_300"	title="웃거름 성분량 질소" value=""  readonly="readonly" /></label></td>
+											<td><label title="웃거름 성분량 인산"><input type="text" class="txt_box w70" name="post_p_300" id="post_p_300"	title="웃거름 성분량 인산" value=""  readonly="readonly" /></label></td>
+											<td><label title="웃거름 성분량 칼리"><input type="text" class="txt_box w70" name="post_k_300" id="post_k_300"	title="웃거름 성분량 칼리" value=""  readonly="readonly" /></label></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- 				추천량 -->
+							<div class="wrap_right">
+								<p class="h5 icon arrowRight mgb_10">추천량(kg/실면적)</p>
+								<table class="item_c">
+									<caption>밑거름, 웃거름 추천량</caption>
+									<thead>
+										<tr>
+											<th scope="col"></th>
+											<th scope="col">요소</th>
+											<th scope="col">용성인비</th>
+											<th scope="col">염화칼리</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">밑거름</th>
+											<td><label title="밑거름 추천량 요소"><input type="text" class="txt_box w70" name="pre_n" id="pre_n" title="밑거름 추천량 질소"	value=""  readonly="readonly" /></label></td>
+											<td><label title="밑거름 추천량 용성인비"><input	type="text" class="txt_box w70" name="pre_p" id="pre_p"	title="밑거름 추천량 인산" value=""  readonly="readonly" /></label></td>
+											<td><label title="밑거름 추천량 염화칼리"><input	type="text" class="txt_box w70" name="pre_k" id="pre_k"	title="밑거름 추천량 칼리" value=""  readonly="readonly" /></label></td>
+										</tr>
+										<tr>
+											<th scope="row">웃거름</th>
+											<td><label title="웃거름 추천량 요소"><input type="text" class="txt_box w70" name="post_n" id="post_n" title="웃거름 추천량 질소" 	value=""  readonly="readonly" /></label></td>
+											<td><label title="웃거름 추천량 용성인비"><input	type="text" class="txt_box w70" name="post_p" id="post_p"	title="웃거름 추천량 인산" value=""  readonly="readonly" /></label></td>
+											<td><label title="웃거름 추천량 염화칼리"><input 	type="text" class="txt_box w70" name="post_k" id="post_k"	title="웃거름 추천량 칼리" value=""  readonly="readonly" /></label></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div id="preViewTypeBox" class="box_a_type" style="margin-bottom:20px; padding:0; width:896px; background:#ffffff; ">
+							<p class="h5 icon arrowRight mgb_10">비료종류</p>
+							<table class="item_a" style="height:30px; background:#f2f2f2; ">
+								<caption>비료종류선택</caption>
+								<colgroup>
+									<col style="width:120px;"/>
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="col" style="background: url(/images/bullet/dot_a_red.gif) no-repeat left 10px top 15px; padding: 10px 0 0 20px;">비료종류선택</th>
+										<td style="padding: 10px 0 3px 15px;">
+											<input type="radio" class="radio_box" name="preViewType" id="preViewType1" value="N" checked="checked" onclick="showSibi();" /><label for="preViewType1">복합비료</label>
+											<input type="radio" class="radio_box" name="preViewType" id="preViewType2" value="F" onclick="showSibi();" /><label for="preViewType2">유기질비료</label>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+
+
+	<!-- 작물별 비종추천  UI 변경 시작-->
+
+					<div id="crop_fert_recmd" style="display: none; margin-top:-25px;">
+
+						<div class="section_b">
+							<!-- 			성분량 -->
+							<div class="wrap_left">
+								<p class="h5 icon arrowRight mgb_10">복합비료(시중유통비료) 추천 순위</p>
+								<table class="item_c" style="width: 896px;">
+									<caption></caption>
+									<colgroup>
+									<col style="width:85px;" />
+									<col style="width:811px;"/>
+									<!-- <col style="width:100px;" />
+									<col  /> -->
+									</colgroup>
+									<tbody>
+									<tr>
+								        <th>추천 비료<br/>(%)</th>
+								        <td class="last"  style="text-align: left;">
+											<div id="nhList"></div>
+								        </td>
+								    </tr>
+								   <!--  <tr>
+										<th>농협 비료<br/>추천량<br/>(kg/실면적)</th>
+										<td  colspan="3" class="last">
+											<div id="nhMsg"></div>
+										</td>
+									</tr> -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+	<!-- 작물별 비종추천 UI 관련 끝-->
+
+	<!-- 성분량 유기자재 UI 변경 관련 시작-->
+
+					<div id="ormt_calc_div" style="display: none">
+
+						<div class="section_b">
+							<!-- 			성분량 -->
+							<p class="h5 icon arrowRight mgb_10">성분량(kg/10a)</p>
+							<table class="item_c">
+								<caption>밑거름, 웃거름 성분량</caption>
+								<thead>
+									<tr>
+										<th scope="col"></th>
+										<th scope="col">질소</th>
+										<th scope="col">인산</th>
+										<th scope="col">칼리</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">밑거름 + 웃거름</th>
+										<td><label title="거름 성분량 질소"><input type="text" class="txt_box w70" name="sum_n_300" id="sum_n_300"	title="거름 성분량 질소" value=""  readonly="readonly" /></label></td>
+										<td><label title="거름 성분량 인산"><input type="text" class="txt_box w70" name="sum_p_300" id="sum_p_300"	title="거름 성분량 인산" value=""  readonly="readonly" /></label></td>
+										<td><label title="거름 성분량 칼리"><input type="text" class="txt_box w70" name="sum_k_300" id="sum_k_300"	title="거름 성분량 칼리" value=""  readonly="readonly" /></label></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+	<!-- 성분량 유기자재 UI 변경 관련 끝-->
+
+	
+
+					<!-- 대민 : 시중유통비료 처방, 업무당담자 : 시중유통비료 및 기존복합비료 처방 관련 -->
+					<div id="CMPND_FERT" style="display: none">
+						<!-- 처방방식선택 추가 start 20210930 -->
+						<div id="divPrscrptnCnd" class="box_a_type" style="margin-bottom:20px; padding:0; width:896px; background:#ffffff; ">
+							<p class="h5 icon arrowRight mgb_10">복합비료 처방방식</p>
+							<table class="item_a" style="height:30px; background:#f2f2f2; ">
+								<caption>비료종류선택</caption>
+								<colgroup>
+									<col style="width:120px;"/>
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="col" style="background: url(/images/bullet/dot_a_red.gif) no-repeat left 10px top 15px; padding: 10px 0 0 20px;">처방방식 선택</th>
+										<td style="padding: 5px 0 3px 15px;">
+											<input type="radio" name="prscrptn_cnd" value="1" checked title="질소기준처방(기존방식)" onclick="fnPrscrptnCndClick(this.value);"/><label>질소기준처방(기존방식)</label>
+											<input type="radio" name="prscrptn_cnd" value="2" title="인산기준처방" onclick="fnPrscrptnCndClick(this.value);"/><label>인산기준처방</label>
+											<input type="radio" name="prscrptn_cnd" value="3" title="칼리기준처방" onclick="fnPrscrptnCndClick(this.value);"/><label>칼리기준처방</label>
+							     		</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<!-- 처방방식선택 추가 end 20210930 -->
+
+						<div id="downDivArea" style="margin-top:30px;">
+							<!-- 밑거름 복합비료(시중유통비료) 처방 -->
+							<div style="float:left;">
+								<p class="h5 icon arrowRight mgb_10">밑거름 복합비료 처방(kg/실면적)</p>
+							</div>
+							<div style="float:right">
+								<a href="#none" onclick="javascript:fnDownArea(this); return false;">
+									<img src="/images/btn/btn_page_prev02.gif" alt="접기" /> 접기
+								</a>
+							</div>
+							<table class="item_b" id="downTbArea">
+								<caption>밑거름 복합비료(시중유통비료) 처방 입력</caption>
+								<colgroup>
+									<col style="width:125px;" />
+									<col style="width:250px;" />
+									<col style="width:125px;" />
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th><label for="pre_fert_nm">비종선택</label></th>
+										<td colspan="3"><input type="hidden" name="nh_pre_fert_nm_text" id="nh_pre_fert_nm_text" />
+										 <select name="pre_fert_nm" id="pre_fert_nm" class="input_box02" style="width: 160px;"	onchange="SetNhPreNPK(this.value);" title="비종선택">
+												<option value="">선택</option>
+												
+												<option value="12-7-8-15-흙살로POP">
+													흙살로POP
+												</option>
+												
+												<option value="21-6-8-20-흙사랑21">
+													흙사랑21
+												</option>
+												
+												<option value="12-6-8-20-휴믹황원예">
+													휴믹황원예
+												</option>
+												
+												<option value="10-2-7-20-헬리앤드론">
+													헬리앤드론
+												</option>
+												
+												<option value="10-7-7-20-한포애 원예">
+													한포애 원예
+												</option>
+												
+												<option value="12-10-9-20-한아름특호(사과,배,복숭아)">
+													한아름특호(사과,배,복숭아)
+												</option>
+												
+												<option value="30-6-9-20-한번에풀코스">
+													한번에풀코스
+												</option>
+												
+												<option value="32-7-7-20-한번에측조(완효성100%)">
+													한번에측조(완효성100%)
+												</option>
+												
+												<option value="12-5-6-20-한번에원예과수(완효성)">
+													한번에원예과수(완효성)
+												</option>
+												
+												<option value="21-10-11-20-한번에아리커">
+													한번에아리커
+												</option>
+												
+												<option value="18-6-11-20-한번에OK">
+													한번에OK
+												</option>
+												
+												<option value="25-7-8-20-한번애(완효성)">
+													한번애(완효성)
+												</option>
+												
+												<option value="25-7-8-20-한번애">
+													한번애
+												</option>
+												
+												<option value="30-6-7-20-한마지기골드">
+													한마지기골드
+												</option>
+												
+												<option value="12-8-5-20-하이팜">
+													하이팜
+												</option>
+												
+												<option value="23-5-12-20-하이코트(20kg)">
+													하이코트(20kg)
+												</option>
+												
+												<option value="30-5-7-20-하이측조로(완효성)">
+													하이측조로(완효성)
+												</option>
+												
+												<option value="30-5-7-20-하이롱">
+													하이롱
+												</option>
+												
+												<option value="18-7-8-20-하나로완효성">
+													하나로완효성
+												</option>
+												
+												<option value="18-3-18-20-하나로MU잔디 그린">
+													하나로MU잔디 그린
+												</option>
+												
+												<option value="19-19-19-25-폴리피드(19-19-19)">
+													폴리피드(19-19-19)
+												</option>
+												
+												<option value="22-6-9-20-파워한번에OK">
+													파워한번에OK
+												</option>
+												
+												<option value="12-6-6-20-파워원예복합">
+													파워원예복합
+												</option>
+												
+												<option value="10-5-6-20-파워원예복합">
+													파워원예복합
+												</option>
+												
+												<option value="18-7-9-20-파워성장엔플러스(질산태,유황">
+													파워성장엔플러스(질산태,유황
+												</option>
+												
+												<option value="18-1-9-20-파워성장엔추비플러스(질산태,">
+													파워성장엔추비플러스(질산태,
+												</option>
+												
+												<option value="13-8-8-20-파워성장엔(질산태, 유황함유">
+													파워성장엔(질산태, 유황함유
+												</option>
+												
+												<option value="11-8-9-20-파워감자">
+													파워감자
+												</option>
+												
+												<option value="22-8-8-20-파워22복합(완효성함유)">
+													파워22복합(완효성함유)
+												</option>
+												
+												<option value="21-5-8-20-파워 플러스">
+													파워 플러스
+												</option>
+												
+												<option value="15-15-15-20-트리플올원15">
+													트리플올원15
+												</option>
+												
+												<option value="10-10-10-20-트리플10">
+													트리플10
+												</option>
+												
+												<option value="33-4-9-15-투타임33">
+													투타임33
+												</option>
+												
+												<option value="4-2-1-20-토토유박">
+													토토유박
+												</option>
+												
+												<option value="4-2-1-0-토토그린">
+													토토그린
+												</option>
+												
+												<option value="6-14-0-20-토비황">
+													토비황
+												</option>
+												
+												<option value="12-8-10-20-탑원예(과수,마늘,고추)">
+													탑원예(과수,마늘,고추)
+												</option>
+												
+												<option value="9-8-7-20-키움원예">
+													키움원예
+												</option>
+												
+												<option value="22-16-5-20-쾌청(보리,밀,조사료)">
+													쾌청(보리,밀,조사료)
+												</option>
+												
+												<option value="5-20-15-20-콩비료">
+													콩비료
+												</option>
+												
+												<option value="22-7-9-20-측조로한번만(완효성)">
+													측조로한번만(완효성)
+												</option>
+												
+												<option value="18-7-10-20-측조로870(고추,벼 등 완">
+													측조로870(고추,벼 등 완
+												</option>
+												
+												<option value="24-6-8-20-측조골드24">
+													측조골드24
+												</option>
+												
+												<option value="30-6-7-20-측조30">
+													측조30
+												</option>
+												
+												<option value="22-7-9-20-참세대22(22-7-9)">
+													참세대22(22-7-9)
+												</option>
+												
+												<option value="18-1-10-20-질산추비플러스">
+													질산추비플러스
+												</option>
+												
+												<option value="22-6-9-20-진품22">
+													진품22
+												</option>
+												
+												<option value="30-6-7-20-지속N30(완효성)">
+													지속N30(완효성)
+												</option>
+												
+												<option value="21-7-9-20-조비21복합(원예)">
+													조비21복합(원예)
+												</option>
+												
+												<option value="9-9-7-20-제라진">
+													제라진
+												</option>
+												
+												<option value="8-8-9-20-잡곡(콩/깨/땅콩)">
+													잡곡(콩/깨/땅콩)
+												</option>
+												
+												<option value="8-8-9-20-잡곡(콩,땅콩,깨,팥)">
+													잡곡(콩,땅콩,깨,팥)
+												</option>
+												
+												<option value="12-4-8-20-잔디플러스(KG케미칼)">
+													잔디플러스(KG케미칼)
+												</option>
+												
+												<option value="10-6-13-20-잔디비료(KG케미칼)">
+													잔디비료(KG케미칼)
+												</option>
+												
+												<option value="4-8-6-20-잔디박사">
+													잔디박사
+												</option>
+												
+												<option value="22-9-10-20-일회만290">
+													일회만290
+												</option>
+												
+												<option value="13-0-10-20-일석삼조">
+													일석삼조
+												</option>
+												
+												<option value="17-19-15-20-인산칼리맞춤2호">
+													인산칼리맞춤2호
+												</option>
+												
+												<option value="20-18-15-20-인산칼리맞춤1호">
+													인산칼리맞춤1호
+												</option>
+												
+												<option value="27-6-7-20-이편한S">
+													이편한S
+												</option>
+												
+												<option value="26-6-7-20-이편한S">
+													이편한S
+												</option>
+												
+												<option value="30-1-13-20-이편한NK">
+													이편한NK
+												</option>
+												
+												<option value="21-12-6-20-의뜸21(원예)">
+													의뜸21(원예)
+												</option>
+												
+												<option value="9-8-7-20-으뜸풀코스">
+													으뜸풀코스
+												</option>
+												
+												<option value="10-8-9-20-으뜸왕감자">
+													으뜸왕감자
+												</option>
+												
+												<option value="11-8-10-20-유황감자비료">
+													유황감자비료
+												</option>
+												
+												<option value="45-7-5-0-유기농특호">
+													유기농특호
+												</option>
+												
+												<option value="30-6-6-20-원타임파워">
+													원타임파워
+												</option>
+												
+												<option value="30-7-9-20-원타임멀티시그(완효성)">
+													원타임멀티시그(완효성)
+												</option>
+												
+												<option value="22-7-7-20-원타임골드22(완효성)">
+													원타임골드22(완효성)
+												</option>
+												
+												<option value="13-1-12-20-원예추비">
+													원예추비
+												</option>
+												
+												<option value="11-5-5-20-원예전용">
+													원예전용
+												</option>
+												
+												<option value="10-6-7-20-원예전용">
+													원예전용
+												</option>
+												
+												<option value="10-6-6-20-원예범용">
+													원예범용
+												</option>
+												
+												<option value="7-18-17-20-원예맞춤9호(논콩)">
+													원예맞춤9호(논콩)
+												</option>
+												
+												<option value="12-7-6-20-원예맞춤8호(고추)">
+													원예맞춤8호(고추)
+												</option>
+												
+												<option value="11-6-8-20-원예맞춤7호(감자)">
+													원예맞춤7호(감자)
+												</option>
+												
+												<option value="22-16-5-20-원예맞춤6호(보리,밀)">
+													원예맞춤6호(보리,밀)
+												</option>
+												
+												<option value="7-7-18-20-원예맞춤3호(고구마)">
+													원예맞춤3호(고구마)
+												</option>
+												
+												<option value="8-8-9-20-원예맞춤2호(콩,땅콩,깨,팥">
+													원예맞춤2호(콩,땅콩,깨,팥
+												</option>
+												
+												<option value="12-7-9-20-원예과수풍년">
+													원예과수풍년
+												</option>
+												
+												<option value="15-6-8-20-원예과수OK">
+													원예과수OK
+												</option>
+												
+												<option value="13-6-10-20-원예1호복합(유황)">
+													원예1호복합(유황)
+												</option>
+												
+												<option value="11-7-10-20-원예1호복합">
+													원예1호복합
+												</option>
+												
+												<option value="13-8-10-20-원샷특호">
+													원샷특호
+												</option>
+												
+												<option value="12-1-11-20-원샷추비골드">
+													원샷추비골드
+												</option>
+												
+												<option value="12-7-8-20-원샷채소(대파/배추/양배추)">
+													원샷채소(대파/배추/양배추)
+												</option>
+												
+												<option value="20-7-8-20-원샷올인원(완효성)">
+													원샷올인원(완효성)
+												</option>
+												
+												<option value="13-8-9-20-원샷복합">
+													원샷복합
+												</option>
+												
+												<option value="12-8-8-20-원샷동그리 잔디비료">
+													원샷동그리 잔디비료
+												</option>
+												
+												<option value="13-7-7-20-원샷고추">
+													원샷고추
+												</option>
+												
+												<option value="30-7-8-20-원샷30">
+													원샷30
+												</option>
+												
+												<option value="28-8-8-20-원샷28(완효성함유)">
+													원샷28(완효성함유)
+												</option>
+												
+												<option value="24-8-8-20-원샷24">
+													원샷24
+												</option>
+												
+												<option value="8-8-7-20-원샷 콩/땅콩/팥">
+													원샷 콩/땅콩/팥
+												</option>
+												
+												<option value="13-7-8-20-원샷 마늘/양파">
+													원샷 마늘/양파
+												</option>
+												
+												<option value="11-7-8-20-원샷 감자/고구마">
+													원샷 감자/고구마
+												</option>
+												
+												<option value="21-7-7-20-원샷 21">
+													원샷 21
+												</option>
+												
+												<option value="15-8-10-20-원샷 15">
+													원샷 15
+												</option>
+												
+												<option value="10-8-7-20-요망진 월드">
+													요망진 월드
+												</option>
+												
+												<option value="7-6-6-20-요망진 60">
+													요망진 60
+												</option>
+												
+												<option value="15-1-12-20-왕왕질산NK(질산태 질소함유">
+													왕왕질산NK(질산태 질소함유
+												</option>
+												
+												<option value="11-8-7-20-왕왕감자(감자,마늘)">
+													왕왕감자(감자,마늘)
+												</option>
+												
+												<option value="32-6-8-20-올코팅한포로(완효성)">
+													올코팅한포로(완효성)
+												</option>
+												
+												<option value="30-6-8-20-올코팅하이롱">
+													올코팅하이롱
+												</option>
+												
+												<option value="31-6-8-20-올코팅31(완효성)">
+													올코팅31(완효성)
+												</option>
+												
+												<option value="30-7-7-20-올원30(완효성함유)">
+													올원30(완효성함유)
+												</option>
+												
+												<option value="24-7-14-20-오래가통통양파">
+													오래가통통양파
+												</option>
+												
+												<option value="22-5-12-20-오래가통통배추">
+													오래가통통배추
+												</option>
+												
+												<option value="22-16-9-20-오래가쾌청(보리)">
+													오래가쾌청(보리)
+												</option>
+												
+												<option value="30-7-8-20-오래가쎈">
+													오래가쎈
+												</option>
+												
+												<option value="14-6-6-20-오래가논.밭작물(완효성)">
+													오래가논.밭작물(완효성)
+												</option>
+												
+												<option value="18-8-8-20-오래가">
+													오래가
+												</option>
+												
+												<option value="21-17-17-20-엔피코21">
+													엔피코21
+												</option>
+												
+												<option value="11-5-7-20-엔피코 잔디비료">
+													엔피코 잔디비료
+												</option>
+												
+												<option value="31-1-17-20-엔케이31(드론용)">
+													엔케이31(드론용)
+												</option>
+												
+												<option value="17-7-15-15-엔마스터 고추비료">
+													엔마스터 고추비료
+												</option>
+												
+												<option value="12-3-5-20-에코팜골드비료">
+													에코팜골드비료
+												</option>
+												
+												<option value="12-11-18-0-야라밀라">
+													야라밀라
+												</option>
+												
+												<option value="12-11-18-0-야라밀라">
+													야라밀라
+												</option>
+												
+												<option value="15-5-7-15-아미노플러스">
+													아미노플러스
+												</option>
+												
+												<option value="13-7-10-20-썰파원예플러스">
+													썰파원예플러스
+												</option>
+												
+												<option value="11-7-9-20-썰파원예(감자,마늘,생강,유">
+													썰파원예(감자,마늘,생강,유
+												</option>
+												
+												<option value="12-6-6-20-쌀플러스맛나(고추,감자)">
+													쌀플러스맛나(고추,감자)
+												</option>
+												
+												<option value="11-6-6-20-쌀맛나(황산칼륨,부식산함유)">
+													쌀맛나(황산칼륨,부식산함유)
+												</option>
+												
+												<option value="21-6-7-20-신세대특호(감,밤,배추,감자">
+													신세대특호(감,밤,배추,감자
+												</option>
+												
+												<option value="22-7-7-20-신세대22">
+													신세대22
+												</option>
+												
+												<option value="13-1-12-20-스피드추비">
+													스피드추비
+												</option>
+												
+												<option value="18-2-10-20-스피드NK">
+													스피드NK
+												</option>
+												
+												<option value="21-6-7-20-스마트21(복합)">
+													스마트21(복합)
+												</option>
+												
+												<option value="13-8-8-20-슈퍼원예블루">
+													슈퍼원예블루
+												</option>
+												
+												<option value="13-5-7-20-슈퍼원예바짝">
+													슈퍼원예바짝
+												</option>
+												
+												<option value="12-6-8-20-슈퍼원예S">
+													슈퍼원예S
+												</option>
+												
+												<option value="22-7-7-20-슈퍼오래가">
+													슈퍼오래가
+												</option>
+												
+												<option value="19-19-19-20-슈퍼솔 밸런스">
+													슈퍼솔 밸런스
+												</option>
+												
+												<option value="40-4-4-15-슈퍼듀얼요소">
+													슈퍼듀얼요소
+												</option>
+												
+												<option value="12-7-6-20-슈퍼고추">
+													슈퍼고추
+												</option>
+												
+												<option value="6-4-4-20-슈퍼50">
+													슈퍼50
+												</option>
+												
+												<option value="31-7-7-20-슈퍼31(수도작/완효성함유)">
+													슈퍼31(수도작/완효성함유)
+												</option>
+												
+												<option value="12-7-6-20-수퍼고추/감자/마늘양파">
+													수퍼고추/감자/마늘양파
+												</option>
+												
+												<option value="12-6-7-20-성장엔미생물">
+													성장엔미생물
+												</option>
+												
+												<option value="13-16-4-20-산림전용 고형비료">
+													산림전용 고형비료
+												</option>
+												
+												<option value="13-7-8-20-뿌리조은 황플러스">
+													뿌리조은 황플러스
+												</option>
+												
+												<option value="12-7-9-20-뿌리조은">
+													뿌리조은
+												</option>
+												
+												<option value="13-8-9-20-뿌리왕왕PN(고추,참외,호박">
+													뿌리왕왕PN(고추,참외,호박
+												</option>
+												
+												<option value="18-1-10-20-빠른원예추비특호(질산태,유황">
+													빠른원예추비특호(질산태,유황
+												</option>
+												
+												<option value="14-2-12-20-빠른원예추비(질산태,유황함유">
+													빠른원예추비(질산태,유황함유
+												</option>
+												
+												<option value="30-7-7-20-빅센">
+													빅센
+												</option>
+												
+												<option value="21-17-17-20-복합비료(21-17-17)">
+													복합비료(21-17-17)
+												</option>
+												
+												<option value="24-16-5-20-보리24">
+													보리24
+												</option>
+												
+												<option value="21-15-5-20-보리, 밀비료">
+													보리, 밀비료
+												</option>
+												
+												<option value="30-5-10-20-벼사랑">
+													벼사랑
+												</option>
+												
+												<option value="15-4-10-20-배추고형비료">
+													배추고형비료
+												</option>
+												
+												<option value="17-6-6-20-밭장만">
+													밭장만
+												</option>
+												
+												<option value="14-6-10-20-밭작물완효성">
+													밭작물완효성
+												</option>
+												
+												<option value="15-6-7-20-밭에롱(지효성)">
+													밭에롱(지효성)
+												</option>
+												
+												<option value="12-5-6-20-밭사랑">
+													밭사랑
+												</option>
+												
+												<option value="31-5-6-20-반포로프리미엄(완효성)">
+													반포로프리미엄(완효성)
+												</option>
+												
+												<option value="28-7-7-20-반포로OK">
+													반포로OK
+												</option>
+												
+												<option value="32-5-6-20-반포로32">
+													반포로32
+												</option>
+												
+												<option value="13-6-8-20-바짝원예(고추,마늘,양파,">
+													바짝원예(고추,마늘,양파,
+												</option>
+												
+												<option value="25-5-8-20-미생물완효성">
+													미생물완효성
+												</option>
+												
+												<option value="21-7-9-20-미생물완효성">
+													미생물완효성
+												</option>
+												
+												<option value="30-5-7-20-미생물올코팅(완효성)">
+													미생물올코팅(완효성)
+												</option>
+												
+												<option value="28-5-7-20-미생물올코팅">
+													미생물올코팅
+												</option>
+												
+												<option value="12-5-7-20-미생물밭비료">
+													미생물밭비료
+												</option>
+												
+												<option value="13-8-10-20-미생물모든원예(미생물비료)">
+													미생물모든원예(미생물비료)
+												</option>
+												
+												<option value="28-6-7-20-미생물논비료">
+													미생물논비료
+												</option>
+												
+												<option value="15-6-8-20-미생물고형비료">
+													미생물고형비료
+												</option>
+												
+												<option value="11-8-9-20-미래로뿌리왕">
+													미래로뿌리왕
+												</option>
+												
+												<option value="22-6-7-20-미래로22(원예)">
+													미래로22(원예)
+												</option>
+												
+												<option value="11-8-9-20-미래로">
+													미래로
+												</option>
+												
+												<option value="18-9-8-20-명품유비롱">
+													명품유비롱
+												</option>
+												
+												<option value="18-1-13-20-명품규산NK(액상규산함유">
+													명품규산NK(액상규산함유
+												</option>
+												
+												<option value="30-10-8-20-명품300">
+													명품300
+												</option>
+												
+												<option value="30-7-9-20-명품300">
+													명품300
+												</option>
+												
+												<option value="22-7-10-20-명품22">
+													명품22
+												</option>
+												
+												<option value="15-5-20-20-멀티플레이">
+													멀티플레이
+												</option>
+												
+												<option value="9-15-14-20-맥스빈">
+													맥스빈
+												</option>
+												
+												<option value="10-10-7-20-맞춤25호">
+													맞춤25호
+												</option>
+												
+												<option value="13-10-8-20-맞춤24호">
+													맞춤24호
+												</option>
+												
+												<option value="16-10-8-20-맞춤23호">
+													맞춤23호
+												</option>
+												
+												<option value="19-10-8-20-맞춤20호">
+													맞춤20호
+												</option>
+												
+												<option value="20-10-11-20-맞춤19호">
+													맞춤19호
+												</option>
+												
+												<option value="21-13-9-20-맞춤18호">
+													맞춤18호
+												</option>
+												
+												<option value="21-16-10-20-맞춤17호">
+													맞춤17호
+												</option>
+												
+												<option value="22-10-8-20-맞춤16호">
+													맞춤16호
+												</option>
+												
+												<option value="22-8-8-20-만세복합측조(완효성함유)">
+													만세복합측조(완효성함유)
+												</option>
+												
+												<option value="21-7-10-20-롱스타플러스(완효성)">
+													롱스타플러스(완효성)
+												</option>
+												
+												<option value="26-7-9-15-롱스타프리미엄(완효성)">
+													롱스타프리미엄(완효성)
+												</option>
+												
+												<option value="30-6-6-20-롱스타파종상">
+													롱스타파종상
+												</option>
+												
+												<option value="22-7-10-20-롱스타K플러스(롱스타.완효성">
+													롱스타K플러스(롱스타.완효성
+												</option>
+												
+												<option value="19-10-10-20-롱스타K">
+													롱스타K
+												</option>
+												
+												<option value="12-5-7-20-롱런모든작물(완효성)">
+													롱런모든작물(완효성)
+												</option>
+												
+												<option value="12-5-5-20-롱런모든작물">
+													롱런모든작물
+												</option>
+												
+												<option value="6-4-5-20-롯또645">
+													롯또645
+												</option>
+												
+												<option value="21-9-11-20-땅조아">
+													땅조아
+												</option>
+												
+												<option value="28-6-7-20-땅심측조짱">
+													땅심측조짱
+												</option>
+												
+												<option value="28-7-8-20-땅심측조짱">
+													땅심측조짱
+												</option>
+												
+												<option value="15-7-7-20-땅심원예풍년">
+													땅심원예풍년
+												</option>
+												
+												<option value="15-6-7-20-땅심원예특호">
+													땅심원예특호
+												</option>
+												
+												<option value="30-6-9-20-땅심올코팅(완효성)">
+													땅심올코팅(완효성)
+												</option>
+												
+												<option value="21-7-11-20-땅심명가">
+													땅심명가
+												</option>
+												
+												<option value="12-8-9-20-땅심골드(원예)">
+													땅심골드(원예)
+												</option>
+												
+												<option value="30-8-8-20-땅심30">
+													땅심30
+												</option>
+												
+												<option value="21-13-5-20-땅심21">
+													땅심21
+												</option>
+												
+												<option value="18-7-9-20-땅심18복비골드(벼)">
+													땅심18복비골드(벼)
+												</option>
+												
+												<option value="12-5-8-20-땅심 잔디비료">
+													땅심 잔디비료
+												</option>
+												
+												<option value="16-6-8-20-도우미골드">
+													도우미골드
+												</option>
+												
+												<option value="14-6-9-20-더존플러스">
+													더존플러스
+												</option>
+												
+												<option value="12-5-6-20-더존완효성">
+													더존완효성
+												</option>
+												
+												<option value="13-6-8-20-더존(원예)">
+													더존(원예)
+												</option>
+												
+												<option value="13-6-6-15-대풍PNS15(원예)">
+													대풍PNS15(원예)
+												</option>
+												
+												<option value="24-7-9-15-단한포24(완효성)">
+													단한포24(완효성)
+												</option>
+												
+												<option value="13-7-8-20-단한번OK(완효성원예)">
+													단한번OK(완효성원예)
+												</option>
+												
+												<option value="24-7-9-20-단한번24(완효성)">
+													단한번24(완효성)
+												</option>
+												
+												<option value="18-7-9-20-단한번">
+													단한번
+												</option>
+												
+												<option value="30-8-7-20-단번에올코팅">
+													단번에올코팅
+												</option>
+												
+												<option value="12-6-6-20-다드런 골드">
+													다드런 골드
+												</option>
+												
+												<option value="9-8-7-20-다드런">
+													다드런
+												</option>
+												
+												<option value="13-2-10-20-뉴하나로">
+													뉴하나로
+												</option>
+												
+												<option value="12-5-9-20-누보 잔디비료">
+													누보 잔디비료
+												</option>
+												
+												<option value="29-4-6-20-논편한-원타임">
+													논편한-원타임
+												</option>
+												
+												<option value="31-6-8-20-논편한-올코팅">
+													논편한-올코팅
+												</option>
+												
+												<option value="20-7-8-20-논편한 원타임 골드">
+													논편한 원타임 골드
+												</option>
+												
+												<option value="5-16-15-20-논에콩">
+													논에콩
+												</option>
+												
+												<option value="24-5-11-20-넌마늘난양파">
+													넌마늘난양파
+												</option>
+												
+												<option value="30-5-10-20-나락복합비료">
+													나락복합비료
+												</option>
+												
+												<option value="21-10-11-20-광분해 한번에아리커">
+													광분해 한번에아리커
+												</option>
+												
+												<option value="12-5-7-20-과일채소나라(고추,마늘,사과">
+													과일채소나라(고추,마늘,사과
+												</option>
+												
+												<option value="15-6-12-20-과수특호(사과,배,감,복숭아">
+													과수특호(사과,배,감,복숭아
+												</option>
+												
+												<option value="12-7-10-20-과수원탑">
+													과수원탑
+												</option>
+												
+												<option value="15-6-8-20-과수원예도사(사과,배추)">
+													과수원예도사(사과,배추)
+												</option>
+												
+												<option value="28-8-9-20-골드측조">
+													골드측조
+												</option>
+												
+												<option value="15-4-10-20-골드고형비료">
+													골드고형비료
+												</option>
+												
+												<option value="15-7-8-20-고형비료(고추,원예용)">
+													고형비료(고추,원예용)
+												</option>
+												
+												<option value="21-7-8-20-고품질21복합">
+													고품질21복합
+												</option>
+												
+												<option value="12-6-5-20-고추특호">
+													고추특호
+												</option>
+												
+												<option value="15-7-7-20-고추전용 고형비료">
+													고추전용 고형비료
+												</option>
+												
+												<option value="11-6-8-20-고추전용">
+													고추전용
+												</option>
+												
+												<option value="15-6-8-20-고추고형비료">
+													고추고형비료
+												</option>
+												
+												<option value="7-7-18-20-고구마전용">
+													고구마전용
+												</option>
+												
+												<option value="6-5-13-20-고구마PNS15">
+													고구마PNS15
+												</option>
+												
+												<option value="12-4-8-20-Turf F 잔디비료">
+													Turf F 잔디비료
+												</option>
+												
+												<option value="9-11-37-20-S-Feed">
+													S-Feed
+												</option>
+												
+												<option value="12-2-40-20-NPK PLUS">
+													NPK PLUS
+												</option>
+												
+												<option value="16-5-20-20-M·U 페어웨이케어">
+													M·U 페어웨이케어
+												</option>
+												
+												<option value="3-15-43-20-Eco-sol">
+													Eco-sol
+												</option>
+												
+												<option value="12-4-8-20-BS미생물 페어에버">
+													BS미생물 페어에버
+												</option>
+												
+												<option value="21-11-12-20-21플러스">
+													21플러스
+												</option>
+												
+										</select> <label for="nh_pre_user_input">사용자 직접 입력</label> <input type="checkbox" id="nh_pre_user_input" name="nh_pre_user_input" title="사용자 입력" /><span style="font-size: 11px; color: chocolate;"> ※ 질소, 인산 및 칼리 성분을 직접 입력 시 선택하세요.</span></td>
+									</tr>
+									<tr>
+										<th>복합비료 종류(%)</th>
+										<td colspan="3"><label for="nh_pre_fert_n">질소 :</label><input name="nh_pre_fert_n" id="nh_pre_fert_n" type="text" class="txt_box ime_modeDisabled" size="8" onblur="removeChar2(event);" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1); removeChar2(event);" style="text-align: right" value="0" onchange="preFertResult();" />
+											<img src="/images/btn/i_arw.gif" style="vertical-align: middle;" usemap="#Map_N" alt="질소값 변경하기" /> <map	name="Map_N">
+												<area shape="rect" coords="0,0,11,7" 	href="javascript:SetPregoTempCompute('N','plus');" alt="면적" />
+												<area shape="rect" coords="0,9,11,16"	href="javascript:SetPregoTempCompute('N','minus')" alt="면적" />
+											</map>&nbsp;&nbsp;<label for="nh_pre_fert_p">인산 :</label> <input name="nh_pre_fert_p" id="nh_pre_fert_p" type="text" class="txt_box ime_modeDisabled" size="8"	onblur="removeChar2(event);" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1); removeChar2(event);" style="text-align: right" value="0" onchange="preFertResult();" />
+											<img src="/images/btn/i_arw.gif" style="vertical-align: middle;" usemap="#Map_P" alt="인산값 변경하기" /> <map name="Map_P">
+												<area shape="rect" coords="0,0,11,7" href="javascript:SetPregoTempCompute('P','plus');" alt="면적" />
+												<area shape="rect" coords="0,9,11,16" href="javascript:SetPregoTempCompute('P','minus');" alt="면적" />
+											</map>&nbsp;&nbsp;<label for="nh_pre_fert_k">칼리 :</label> <input name="nh_pre_fert_k" id="nh_pre_fert_k" type="text" class="txt_box ime_modeDisabled" size="8" onblur="removeChar2(event);" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1); removeChar2(event);" style="text-align: right" value="0" onchange="preFertResult();" />
+											<img src="/images/btn/i_arw.gif" style="vertical-align: middle;" usemap="#Map_K" alt="칼리 변경하기" /> <map name="Map_K">
+												<area shape="rect" coords="0,0,11,7" 	href="javascript:SetPregoTempCompute('K','plus');" alt="면적" />
+												<area shape="rect" coords="0,9,11,16"	href="javascript:SetPregoTempCompute('K','minus');" alt="면적" />
+											</map>&nbsp;&nbsp;<label for="nh_pre_fert_qy">비료(1포대당) :</label> <input name="nh_pre_fert_qy" id="nh_pre_fert_qy" type="text" class="txt_box ime_modeDisabled" size="8" onblur="removeChar2(event);" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1); removeChar2(event);" style="text-align: right" value="0" onchange="preFertResult();" />
+											<img src="/images/btn/i_arw.gif" style="vertical-align: middle;" usemap="#Map_Qy" alt="단량 변경하기" /> <map name="Map_Qy">
+												<area shape="rect" coords="0,0,11,7" 	href="javascript:SetPregoTempCompute('Qy','plus');" alt="면적" />
+												<area shape="rect" coords="0,9,11,16"	href="javascript:SetPregoTempCompute('Qy','minus');" alt="면적" />
+											</map> kg
+												<!-- <label for="nh_pre_fert_qy">비료(1포대당) :</label> <input name="nh_pre_fert_qy" id="nh_pre_fert_qy" type="text" class="txt_box ime_modeDisabled" size="8" onblur="removeChar2(event);" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1); removeChar2(event);" style="text-align: right" value="20" /> kg -->
+										</td>
+									</tr>
+									<tr>
+										<th><label for="pre_result_total">복합비료 추천량</label></th>
+										<td colspan="3"><input type="text" class="txt_box w150" name="pre_result_total"	id="pre_result_total" value="0" size="10" readonly="readonly"	 disabled="disabled" />
+										</td>
+									</tr>
+									<tr>
+										<th><label for="pre_result_total2"><span id="span_pre_result_total2">인산 추가필요량</span></label></th>
+										<td><input type="text" class="txt_box w150" name="pre_result_total2"	id="pre_result_total2" value="0" size="10" readonly="readonly"	 disabled="disabled" />
+										</td>
+										<th><label for="pre_result_total3"><span id="span_pre_result_total3">칼리 추가필요량</span></label></th>
+										<td><input type="text" class="txt_box w150" name="pre_result_total3"	id="pre_result_total3" value="0" size="10" readonly="readonly"	 disabled="disabled" />
+										</td>
+									</tr>
+									<!-- <tr>
+										<th>추가 단비량</th>
+										<td><label for="result_n">요소 :</label> <input type="text"	class="txt_box" name="result_n" id="result_n" value="0" 	size="10" readonly="readonly" style="text-align: right"
+											disabled="disabled" /> &nbsp;&nbsp;&nbsp; <label for="result_p">용성인비
+												:</label> <input type="text" class="txt_box" name="result_p" id="result_p" value="0" size="10" readonly="readonly"	style="text-align: right" disabled="disabled" />
+											&nbsp;&nbsp;&nbsp; <label for="result_k">염화칼리 :</label> <input 	type="text" class="txt_box" name="result_k" id="result_k" 	value="0" size="10" readonly="readonly" 	style="text-align: right" disabled="disabled" /></td>
+									</tr> -->
+								</tbody>
+							</table>
+							<span id="prefertMsg" style="color:blue; display:none;">* 밑거름 복합비료 추천량이 0이므로 처방을 진행할 수 없습니다.</span>
+							<div style="clear:both"></div>
+						</div>
+
+						<!-- 웃거름 복합비료(시중유통비료) 처방 -->
+						<div id="upDivArea" style="margin-top:30px;">
+							<div style="float:left;">
+								<p class="h5 icon arrowRight mgb_10">웃거름 복합비료 처방(kg/실면적)</p>
+							</div>
+							<div style="float:right;">
+								<a href="#none" onclick="javascript:fnUpArea(this); return false;">
+									<img src="/images/btn/btn_page_prev02.gif" alt="접기" /> 접기
+								</a>
+							</div>
+							<table class="item_b" id="upTbArea">
+								<caption>웃거름 복합비료(시중유통비료) 처방 입력</caption>
+								<colgroup>
+									<col style="width:125px;" />
+									<col style="width:250px;" />
+									<col style="width:125px;" />
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th><label for="post_fert_nm">비종선택</label></th>
+										<td colspan="3"><input type="hidden" name="nh_post_fert_nm_text" id="nh_post_fert_nm_text" />
+										 <select name="post_fert_nm" id="post_fert_nm" class="input_box02" style="width: 160px;"	onchange="SetNhPostNPK(this.value);" title="비종선택">
+												<option value="">선택</option>
+												
+												<option value="32-0-14-20-한포로NK플러스드론">
+													한포로NK플러스드론
+												</option>
+												
+												<option value="30-0-12-20-한포로NK(원예웃거름)">
+													한포로NK(원예웃거름)
+												</option>
+												
+												<option value="15-0-15-10-한번에 쑥 up">
+													한번에 쑥 up
+												</option>
+												
+												<option value="13-2-12-20-파워성장엔추비">
+													파워성장엔추비
+												</option>
+												
+												<option value="21-0-16-20-파워드론NK">
+													파워드론NK
+												</option>
+												
+												<option value="30-0-1-20-칼슘요소">
+													칼슘요소
+												</option>
+												
+												<option value="40-0-5-20-조사료스드킹">
+													조사료스드킹
+												</option>
+												
+												<option value="32-0-14-20-이편한NK(드론용)">
+													이편한NK(드론용)
+												</option>
+												
+												<option value="25-0-15-20-으뜸드론 NK">
+													으뜸드론 NK
+												</option>
+												
+												<option value="18-0-12-20-으뜸규산NK">
+													으뜸규산NK
+												</option>
+												
+												<option value="18-0-12-20-으뜸NK802">
+													으뜸NK802
+												</option>
+												
+												<option value="16-0-11-20-원예추비특호">
+													원예추비특호
+												</option>
+												
+												<option value="13-0-13-20-원예추비">
+													원예추비
+												</option>
+												
+												<option value="13-0-13-20-원예웃거름특호">
+													원예웃거름특호
+												</option>
+												
+												<option value="14-0-12-20-원예웃거름골드(풍농)">
+													원예웃거름골드(풍농)
+												</option>
+												
+												<option value="24-0-13-20-원예맞춤5호(원예추비)">
+													원예맞춤5호(원예추비)
+												</option>
+												
+												<option value="13-0-13-20-원예맞춤4호(원예추비)">
+													원예맞춤4호(원예추비)
+												</option>
+												
+												<option value="28-0-16-20-원예맞춤10호(원예추비)">
+													원예맞춤10호(원예추비)
+												</option>
+												
+												<option value="13-0-13-20-원샷추비특호">
+													원샷추비특호
+												</option>
+												
+												<option value="25-0-10-20-원샷NK">
+													원샷NK
+												</option>
+												
+												<option value="18-0-10-20-엔피코 명품NK">
+													엔피코 명품NK
+												</option>
+												
+												<option value="22-0-14-20-엔케이도골드(웃거름)">
+													엔케이도골드(웃거름)
+												</option>
+												
+												<option value="28-0-12-20-엔케이도BS">
+													엔케이도BS
+												</option>
+												
+												<option value="18-0-14-20-엔케이804">
+													엔케이804
+												</option>
+												
+												<option value="15-1-10-20-알부자NK">
+													알부자NK
+												</option>
+												
+												<option value="28-0-16-20-신세대NK">
+													신세대NK
+												</option>
+												
+												<option value="17-0-14-20-시설관주특호">
+													시설관주특호
+												</option>
+												
+												<option value="16-0-15-20-스피드NK">
+													스피드NK
+												</option>
+												
+												<option value="33-0-4-20-슈퍼칼(사료작물)">
+													슈퍼칼(사료작물)
+												</option>
+												
+												<option value="34-0-13-15-슈퍼드론NK">
+													슈퍼드론NK
+												</option>
+												
+												<option value="28-0-20-20-슈퍼NK820">
+													슈퍼NK820
+												</option>
+												
+												<option value="24-0-13-20-슈퍼NK24">
+													슈퍼NK24
+												</option>
+												
+												<option value="13-0-13-20-빠른N">
+													빠른N
+												</option>
+												
+												<option value="29-0-15-20-반포로NK">
+													반포로NK
+												</option>
+												
+												<option value="22-0-12-20-바짝엔케이22(질산태)">
+													바짝엔케이22(질산태)
+												</option>
+												
+												<option value="16-0-15-20-무레타">
+													무레타
+												</option>
+												
+												<option value="17-0-14-20-맞춤추비30호">
+													맞춤추비30호
+												</option>
+												
+												<option value="13-0-10-20-맞춤추비29호">
+													맞춤추비29호
+												</option>
+												
+												<option value="17-0-10-20-맞춤추비28호">
+													맞춤추비28호
+												</option>
+												
+												<option value="20-0-9-20-맞춤추비27호">
+													맞춤추비27호
+												</option>
+												
+												<option value="30-0-11-20-땅심파워NK">
+													땅심파워NK
+												</option>
+												
+												<option value="18-0-15-20-땅심엔케이">
+													땅심엔케이
+												</option>
+												
+												<option value="18-0-16-20-땅심NK16">
+													땅심NK16
+												</option>
+												
+												<option value="30-0-12-20-드론파원엔케이">
+													드론파원엔케이
+												</option>
+												
+												<option value="33-0-10-20-드론엔케이(완효성함유)">
+													드론엔케이(완효성함유)
+												</option>
+												
+												<option value="34-0-13-15-더블드론NK">
+													더블드론NK
+												</option>
+												
+												<option value="34-0-13-15-더블NK">
+													더블NK
+												</option>
+												
+												<option value="17-0-13-20-납작이플러스">
+													납작이플러스
+												</option>
+												
+												<option value="13-0-12-20-납작이">
+													납작이
+												</option>
+												
+												<option value="18-0-14-20-규산NK">
+													규산NK
+												</option>
+												
+												<option value="18-1-15-20-NK+인(엔케이플러스인)">
+													NK+인(엔케이플러스인)
+												</option>
+												
+												<option value="18-0-16-20-18-0-16">
+													18-0-16
+												</option>
+												
+										</select> <label for="nh_post_user_input">사용자 직접 입력</label> <input type="checkbox" id="nh_post_user_input" name="nh_post_user_input" title="사용자 입력" /><span style="font-size: 11px; color: chocolate;"> ※ 질소, 인산 및 칼리 성분을 직접 입력 시 선택하세요.</span></td>
+									</tr>
+									<tr>
+										<th>복합비료 종류(%)</th>
+										<td colspan="3"><label for="nh_post_fert_n">질소 :</label><input name="nh_post_fert_n" id="nh_post_fert_n" type="text" class="txt_box ime_modeDisabled" size="8" onblur="removeChar2(event);" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1); removeChar2(event);" style="text-align: right" value="0" onchange="postFertResult();" />
+											<img src="/images/btn/i_arw.gif" style="vertical-align: middle;" usemap="#post_Map_N" alt="질소값 변경하기" /> <map	name="post_Map_N">
+												<area shape="rect" coords="0,0,11,7" 	href="javascript:SetPostgoTempCompute('N','plus');" alt="면적" />
+												<area shape="rect" coords="0,9,11,16"	href="javascript:SetPostgoTempCompute('N','minus')" alt="면적" />
+											</map>&nbsp;&nbsp;<label for="nh_post_fert_p">인산 :</label> <input name="nh_post_fert_p" id="nh_post_fert_p" type="text" class="txt_box ime_modeDisabled" size="8"	onblur="removeChar2(event);" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1); removeChar2(event);" style="text-align: right" value="0" onchange="postFertResult();" />
+											<img src="/images/btn/i_arw.gif" style="vertical-align: middle;" usemap="#post_Map_P" alt="인산값 변경하기" id="post_Map_P" /> <map name="post_Map_P">
+												<area shape="rect" coords="0,0,11,7" href="javascript:SetPostgoTempCompute('P','plus');" alt="면적" />
+												<area shape="rect" coords="0,9,11,16" href="javascript:SetPostgoTempCompute('P','minus');" alt="면적" />
+											</map>&nbsp;&nbsp;<label for="nh_post_fert_k">칼리 :</label> <input name="nh_post_fert_k" id="nh_post_fert_k" type="text" class="txt_box ime_modeDisabled" size="8" onblur="removeChar2(event);" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1); removeChar2(event);" style="text-align: right" value="0" onchange="postFertResult();" />
+											<img src="/images/btn/i_arw.gif" style="vertical-align: middle;" usemap="#post_Map_K" alt="칼리 변경하기"  id="post_Map_K"/> <map name="post_Map_K">
+												<area shape="rect" coords="0,0,11,7" 	href="javascript:SetPostgoTempCompute('K','plus');" alt="면적" />
+												<area shape="rect" coords="0,9,11,16"	href="javascript:SetPostgoTempCompute('K','minus');" alt="면적" />
+											</map>&nbsp;&nbsp;<label for="nh_post_fert_qy">비료(1포대당) :</label> <input name="nh_post_fert_qy" id="nh_post_fert_qy" type="text" class="txt_box ime_modeDisabled" size="8" onblur="removeChar2(event);" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1); removeChar2(event);" style="text-align: right" value="0" onchange="postFertResult();" />
+											<img src="/images/btn/i_arw.gif" style="vertical-align: middle;" usemap="#post_Map_Qy" alt="단량 변경하기" /> <map name="post_Map_Qy">
+												<area shape="rect" coords="0,0,11,7" 	href="javascript:SetPostgoTempCompute('Qy','plus');" alt="면적" />
+												<area shape="rect" coords="0,9,11,16"	href="javascript:SetPostgoTempCompute('Qy','minus');" alt="면적" />
+											</map> kg
+												<!-- <label for="nh_post_fert_qy">비료(1포대당) :</label> <input name="nh_post_fert_qy" id="nh_post_fert_qy" type="text" class="txt_box ime_modeDisabled" size="8" onblur="removeChar2(event);" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1); removeChar2(event);" style="text-align: right" value="20" /> kg -->
+										</td>
+									</tr>
+									<tr>
+										<th><label for="post_result_total">복합비료 추천량</label></th>
+										<td colspan="3">
+												<div id="postDiv" style="display: none"><input type="text" class="txt_box w150" name="post_result_total"	id="post_result_total" value="0" size="10" readonly="readonly"	 disabled="disabled" /></div>
+												<div  id="nPostDiv" style="display: none">
+														요소 : <input type="text" class="txt_box" name="post_n1"	id="post_n1" value="0" size="10" readonly="readonly"	 disabled="disabled" title="요소" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+														유안 : <input type="text" class="txt_box" name="post_n2"	id="post_n2" value="0" size="10" readonly="readonly"	 disabled="disabled" title="유안" />
+												</div>
+										</td>
+									</tr>
+									<tr>
+										<th><label for="post_result_total2"><span id="span_post_result_total2">인산 추가필요량</span></label></th>
+										<td>
+											<input type="text" class="txt_box w150" name="post_result_total2"	id="post_result_total2" value="0" size="10" readonly="readonly"	 disabled="disabled" />
+										</td>
+										<th><label for="post_result_total3"><span id="span_post_result_total3">칼리 추가필요량</span></label></th>
+										<td>
+											<input type="text" class="txt_box w150" name="post_result_total3"	id="post_result_total3" value="0" size="10" readonly="readonly"	 disabled="disabled" />
+										</td>
+									</tr>
+									<!-- <tr>
+										<th>추가 단비량</th>
+										<td><label for="result_n">요소 :</label> <input type="text"	class="txt_box" name="result_n" id="result_n" value="0" 	size="10" readonly="readonly" style="text-align: right"
+											disabled="disabled" /> &nbsp;&nbsp;&nbsp; <label for="result_p">용성인비
+												:</label> <input type="text" class="txt_box" name="result_p" id="result_p" value="0" size="10" readonly="readonly"	style="text-align: right" disabled="disabled" />
+											&nbsp;&nbsp;&nbsp; <label for="result_k">염화칼리 :</label> <input 	type="text" class="txt_box" name="result_k" id="result_k" 	value="0" size="10" readonly="readonly" 	style="text-align: right" disabled="disabled" /></td>
+									</tr> -->
+								</tbody>
+							</table>
+							<span id="postfertMsg" style="color:blue; display:none;">* 웃거름 복합비료 추천량이 0이므로 처방을 진행할 수 없습니다.</span>
+							<div style="clear:both"></div>
+						</div>
+
+						<div id="LIMING_MTRIL_VIEW" style="display: block; margin-top:30px;">
+							<!-- 혼합가축분퇴비 계산정보 입력 -->
+							<p class="h5 icon arrowRight mgb_10">석회질비료 선택</p>
+							<table class="item_b" >
+								<caption>석회질비료</caption>
+								<colgroup>
+									<col style="width:125px;" />
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>석회질비료선택</th>
+										<td>
+											<select name="limingMtril" id="limingMtril" class="input_box02"
+											style="width: 160px;" title="석회질비료선택">
+												<option value="">선택</option>
+												
+												<option value="00001">
+													생석회
+												</option>
+												
+												<option value="00002">
+													소석회
+												</option>
+												
+												<option value="00003">
+													탄산석회
+												</option>
+												
+												<option value="00004">
+													석회고토
+												</option>
+												
+												<option value="00005">
+													부산소석회
+												</option>
+												
+												<option value="00006">
+													부산석회
+												</option>
+												
+												<option value="00007">
+													패화석
+												</option>
+												
+										</select>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div id="LIMING_MTRIL_PS" style="color: chocolate; margin-top: 5px; display:none;">
+								※ pH가 6.5 이상이거나 석회소요량이 0인 검정자료의 경우 석회질비료를 선택할 수 없습니다.
+							</div>
+						</div>
+
+						<div id="COMP_FERT_C" style="display: block; margin-top:30px;">
+							<div style="float:left;">
+								<!-- 혼합가축분퇴비 계산정보 입력 -->
+								<p class="h5 icon arrowRight mgb_10">혼합가축분퇴비 처방(kg/실면적)</p>
+							</div>
+							<div style="float:right;">
+								<a href="#none" onclick="javascript:fnCompArea(this); return false;">
+									<img src="/images/btn/btn_page_prev02.gif" alt="접기" /> 접기
+								</a>
+							</div>
+							<table class="item_b compTbArea" >
+								<caption>혼합가축분퇴비 계산 입력</caption>
+								<colgroup>
+									<col style="width:125px;" />
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>가축분 혼합 비율</th>
+											<td>
+											<label for="cow_drop_qy" >우분 :</label>
+											<label><input type="text" class="txt_box" name="cow_drop_qy" id="cow_drop_qy" value="25" size="6"  style="text-align:right" onchange="compFertResult();" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1);"/></label>(%)
+											&nbsp;&nbsp;
+											<label for="pig_drop_qy">돈분 :</label>
+											<label><input type="text" class="txt_box" name="pig_drop_qy" id="pig_drop_qy" value="14" size="6"  style="text-align:right" onchange="compFertResult();" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1);"/></label>(%)
+											&nbsp;&nbsp;
+											<label for="fowl_drop_qy">계분 :</label>
+											<label><input type="text" class="txt_box" name="fowl_drop_qy" id="fowl_drop_qy"  value="26" size="6" style="text-align:right" onchange="compFertResult();" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1);"/></label>(%)
+											&nbsp;&nbsp;
+											<label for="sawdust_drop_qy">톱밥 :</label>
+											<label><input type="text" class="txt_box" name="sawdust_drop_qy" id="sawdust_drop_qy"  value="21" size="6" style="text-align:right" onchange="compFertResult();" onkeydown="num_only2_1(1);" onkeyup="num_only2_1(1);"/></label>(%)
+											</td>
+									</tr>
+								</tbody>
+							</table>
+							<div style="color: chocolate; margin-top: 5px;" class="compTbArea">※ 퇴비에 가축분 혼합비율이 표기되어 있을 경우 입력하세요.(미입력시 평균값 적용)
+							<br/>&nbsp;&nbsp;&nbsp;&nbsp;우분, 돈분, 계분, 톱밥 중 한 종류가 50% 이상일 경우에는 기존의 우분, 돈분, 계분퇴비, 톱밥 추천량을 참고하면 됩니다.
+							<br/>&nbsp;&nbsp;&nbsp;&nbsp;유기물 적정범위를 초과할 경우에는 가축분퇴비 추천량이 계산되지 않습니다. </div>
+						</div>
+
+						<div style="clear:both"></div>
+
+						<div class="btn_wrap_b">
+							<a href="javascript:preView();" class="button colorOrange">처방서 보기</a>
+							<a href="javascript:showSibi();" class="button colorWhite">초기화</a>
+						</div>
+
+					</div>
+
+					<!-- 인삼 작물 선택시 -->
+					<div id="INSAM_CMPND_FERT" style="display: none">
+						<div id="COMP_FERT_A" style="display: block; margin-top:30px;">
+							<!-- 혼합가축분퇴비 계산정보 입력 -->
+							<div style="float:left">
+								<p class="h5 icon arrowRight mgb_10">혼합가축분퇴비 처방(kg/실면적)</p>
+							</div>
+							<div style="float:right;">
+								<a href="#none" onclick="javascript:fnCompArea(this); return false;">
+									<img src="/images/btn/btn_page_prev02.gif" alt="접기" /> 접기
+								</a>
+							</div>
+							<table class="item_b compTbArea" >
+								<caption>혼합가축분퇴비 계산 입력</caption>
+								<colgroup>
+									<col style="width:125px;" />
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>가축분 혼합 비율</th>
+											<td class="last">
+													<label for="i_cow_drop_qy" >우분 :</label>
+													<label><input type="text" class="txt_box" name="i_cow_drop_qy" id="i_cow_drop_qy" value="25" size="6"  style="text-align:right" onkeyup="num_only2_1(1);"  onchange="compFertResult();"/></label>(%)
+													&nbsp;&nbsp;
+													<label for="i_pig_drop_qy">돈분 :</label>
+													<label><input type="text" class="txt_box" name="i_pig_drop_qy" id="i_pig_drop_qy" value="14" size="6"  style="text-align:right" onkeyup="num_only2_1(1);"  onchange="compFertResult();"/></label>(%)
+													&nbsp;&nbsp;
+													<label for="i_fowl_drop_qy">계분 :</label>
+													<label><input type="text" class="txt_box" name="i_fowl_drop_qy" id="i_fowl_drop_qy"  value="26" size="6" style="text-align:right" onkeyup="num_only2_1(1);"  onchange="compFertResult();"/></label>(%)
+													&nbsp;&nbsp;
+													<label for="i_sawdust_drop_qy">톱밥 :</label>
+													<label><input type="text" class="txt_box" name="i_sawdust_drop_qy" id="i_sawdust_drop_qy"  value="21" size="6" style="text-align:right" onkeyup="num_only2_1(1);"  onchange="compFertResult();"/></label>(%)
+											</td>
+									</tr>
+								</tbody>
+							</table>
+							<div style="color: chocolate; margin-top: 5px;" class="compTbArea" > ※ 퇴비에 가축분 혼합비율이 표기되어 있을 경우 입력하세요.(미입력시 평균값 적용)
+							<br/>&nbsp;&nbsp;&nbsp;&nbsp;우분, 돈분, 계분, 톱밥 중 한 종류가 50% 이상일 경우에는 기존의 우분, 돈분, 계분퇴비, 톱밥 추천량을 참고하면 됩니다.
+							<br/>&nbsp;&nbsp;&nbsp;&nbsp;유기물 적정범위를 초과할 경우에는 가축분퇴비 추천량이 계산되지 않습니다. </div>
+						</div>
+
+						<div style="clear:both"></div>
+
+						<div class="btn_wrap_b">
+							<a href="javascript:insam_preView();" class="button colorOrange">처방서 보기</a>
+							<a href="javascript:showSibi();" class="button colorWhite">초기화</a>
+						</div>
+					</div>
+
+					<!-- 유기질비료 처방 관련 -->
+					<div id="ORGANIC_FERT" style="display: none">
+						<!-- 밑거름 복합비료(시중유통비료) 처방 -->
+						<p class="h5 icon arrowRight mgb_10">유기질비료
+							<a href="javascript:OrganicSearchSoil();" class="button small colorWhite" style="float: right; font-weight: normal; margin-bottom: 5px;">유기질비료명 조회</a>
+						</p>
+						<table class="item_b" >
+							<caption>유기질비료 종류, 유기질비료명, 유기질비료 함량, 유기질비료 추천량으로 구성되어있습니다.</caption>
+							<tr>
+								<th>유기질비료 종류</th>
+						        <td class="last">
+						        	<select name="organic_fert_type" id="organic_fert_type" class="w150" onchange="SetOrganicFertList(this.value)" title="유기질비료 종류">
+						        		<option value="">선택</option>
+						        		<option value="1">혼합유기질</option>
+						        		<option value="2">혼합유박</option>
+						        		<option value="3">유기복합</option>
+						        	</select>
+						        </td>
+						        <th>유기질비료명</th>
+						        <td class="last">
+						        	<input type="hidden" name="organic_fert_nm_text" id="organic_fert_nm_text" />
+							       	<select name="organic_fert_nm" id="organic_fert_nm" class="input_box02" style="width:160px;" onchange="SetOrganicNPK(this.value);" title="유기질비료명">
+										<option value="">선택</option>
+									</select>
+						        </td>
+						    </tr>
+							<tr>
+						        <th>유기질비료 함량(%)</th>
+						        <td  colspan="3" class="last" >
+									<label for="fert_n">질소</label> :
+								<input name="fert_n" id="fert_n" type="text" class="txtbox" size="10" onkeyup="num_only2(1)"  value="0"/>
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<label for="fert_p">인산</label> :
+					                <input name="fert_p" id="fert_p" type="text"  class="txtbox" size="10" onkeyup="num_only2(1)" value="0"/>
+									&nbsp;&nbsp;&nbsp;&nbsp;
+									<label for="fert_k">칼리</label> :
+									<input name="fert_k" id="fert_k" type="text" class="txtbox" size="10" onkeyup="num_only2(1)" value="0"/>
+									<!-- <span class="button black small"  style="margin-left: 30px">
+							            <input type="button"  value="초기화" onclick="nh_pre_fert_Init()"/>
+									</span> -->
+						        </td>
+						    </tr>
+						    <tr>
+								<th><label for="result_organic">유기질비료<br/>추천량</label></th>
+								<td colspan="3" class="last">
+									<input type="text" class="txt_box" name="result_organic"  id="result_organic" size="10" readonly="readonly" style="text-align:right; border:0px; background:#ffffff; font-weight: bold;" /> kg/실면적 <span id="chiper"></span>
+								</td>
+							</tr>
+						</table>
+
+						<div id="O_LIMING_MTRIL_VIEW" style="display: block; margin-top:30px;">
+							<!-- 혼합가축분퇴비 계산정보 입력 -->
+							<p class="h5 icon arrowRight mgb_10">석회질비료 선택</p>
+							<table class="item_b" >
+								<caption>석회질비료</caption>
+								<colgroup>
+									<col style="width:125px;" />
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>석회질비료선택</th>
+										<td>
+											<select name="o_limingMtril" id="o_limingMtril" class="input_box02"
+												style="width: 160px;" title="석회질비료선택">
+													<option value="">선택</option>
+													
+													<option value="00001">
+														생석회
+													</option>
+													
+													<option value="00002">
+														소석회
+													</option>
+													
+													<option value="00003">
+														탄산석회
+													</option>
+													
+													<option value="00004">
+														석회고토
+													</option>
+													
+													<option value="00005">
+														부산소석회
+													</option>
+													
+													<option value="00006">
+														부산석회
+													</option>
+													
+													<option value="00007">
+														패화석
+													</option>
+													
+											</select>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div id="O_LIMING_MTRIL_PS" style="color: chocolate; margin-top: 5px; display:none;">
+								※ pH가 6.5 이상이거나 석회소요량이 0인 검정자료의 경우 석회질비료를 선택할 수 없습니다.
+							</div>
+						</div>
+
+						<div id="COMP_FERT_B" style="display: block; margin-top:30px;">
+							<!-- 혼합가축분퇴비 계산정보 입력 -->
+							<div style="float:left">
+								<p class="h5 icon arrowRight mgb_10">혼합가축분퇴비 처방(kg/실면적)</p>
+							</div>
+							<div style="float:right">
+								<a href="#none" onclick="javascript:fnCompArea(this); return false;">
+									<img src="/images/btn/btn_page_prev02.gif" alt="접기" /> 접기
+								</a>
+							</div>
+
+							<table class="item_b compTbArea" >
+								<caption>혼합가축분퇴비 계산 입력</caption>
+								<colgroup>
+									<col style="width:125px;" />
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>가축분 혼합 비율</th>
+											<td class="last">
+													<label for="o_cow_drop_qy" >우분 :</label>
+													<label><input type="text" class="txt_box" name="o_cow_drop_qy" id="o_cow_drop_qy" value="25" size="6"  style="text-align:right" onkeyup="num_only2_1(1);"  onchange="compFertResult();"/></label>(%)
+													&nbsp;&nbsp;
+													<label for="o_pig_drop_qy">돈분 :</label>
+													<label><input type="text" class="txt_box" name="o_pig_drop_qy" id="o_pig_drop_qy" value="14" size="6"  style="text-align:right" onkeyup="num_only2_1(1);"  onchange="compFertResult();"/></label>(%)
+													&nbsp;&nbsp;
+													<label for="o_fowl_drop_qy">계분 :</label>
+													<label><input type="text" class="txt_box" name="o_fowl_drop_qy" id="o_fowl_drop_qy"  value="26" size="6" style="text-align:right" onkeyup="num_only2_1(1);"  onchange="compFertResult();"/></label>(%)
+													&nbsp;&nbsp;
+													<label for="o_sawdust_drop_qy">톱밥 :</label>
+													<label><input type="text" class="txt_box" name="o_sawdust_drop_qy" id="o_sawdust_drop_qy"  value="21" size="6" style="text-align:right" onkeyup="num_only2_1(1);"  onchange="compFertResult();"/></label>(%)
+											</td>
+									</tr>
+								</tbody>
+							</table>
+							<div style="color: chocolate; margin-top: 5px;" class="compTbArea">※ 퇴비에 가축분 혼합비율이 표기되어 있을 경우 입력하세요.(미입력시 평균값 적용)
+							<br/>&nbsp;&nbsp;&nbsp;&nbsp;우분, 돈분, 계분, 톱밥 중 한 종류가 50% 이상일 경우에는 기존의 우분, 돈분, 계분퇴비, 톱밥 추천량을 참고하면 됩니다.
+							<br/>&nbsp;&nbsp;&nbsp;&nbsp;유기물 적정범위를 초과할 경우에는 가축분퇴비 추천량이 계산되지 않습니다. </div>
+						</div>
+
+						<div style="clear:both"></div>
+
+						<div class="btn_wrap_b">
+							<a href="javascript:organic_preView();" class="button colorOrange">처방서 보기</a>
+							<a href="javascript:showSibi();" class="button colorWhite">초기화</a>
+						</div>
+
+					</div>
+
+					<div id="ORMT_MTRIL" style="display: none">
+						<!--유기자재 처방 -->
+						<p class="h5 icon arrowRight mgb_10">유기자재 처방</p>
+						<table class="item_b" >
+							<caption>유기자재 처방 기본값 입력</caption>
+							<colgroup>
+								<col style="width:180px;" />
+								<col style="width:200px;" />
+								<col style="width:200px;" />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th><label for="mtril_sibi_1">토양검정시비량</label></th>
+									<td><input name="mtril_sibi_1" id="mtril_sibi_1"	type="text" class="txt_box" size="34" disabled="disabled"  style="margin-left: -5px;" /></td>
+									<td><label for="mtril_sibi_2"	style="overflow: hidden; width: 0px; height: 0px; font-size: 0; line-height: 0">자재2</label>
+									<input name="mtril_sibi_2" id="mtril_sibi_2" type="text" class="txt_box" size="34" disabled="disabled"/></td>
+								</tr>
+								<tr>
+									<th><label for="mtril_2">유기자원</label></th>
+									<td><p style="margin-left: -4px;">유기자원</p>
+									<select name="mtril_2" id="mtril_2" class="input_box02"	style="width: 219px; margin-left: -4px;" onchange="setMtril_2(this.value);"	title="재료2">
+										<option value="">선택</option>
+											
+											<option value="50-19.69-1.17-16.8-50-00009">
+												계분퇴비(평균)
+											</option>
+											
+											<option value="50-17.94-0.99-18.2-50-00010">
+												돈분퇴비(평균)
+											</option>
+											
+											<option value="90.1-40.8-0.5-78.2-9.9-00003">
+												볏짚
+											</option>
+											
+											<option value="75.3-25.9-1.8-14.2-24.7-00005">
+												볏짚퇴비
+											</option>
+											
+											<option value="90.2-47.3-2.6-18.5-9.8-00004">
+												쌀겨
+											</option>
+											
+											<option value="50-14.24-0.58-24.7-50-00011">
+												우분퇴비(평균)
+											</option>
+											
+											<option value="92.1-39.3-4.675-8.4-7.9-00008">
+												유박
+											</option>
+											
+											<option value="22.5-38.6-2.2-17.3-77.5-00002">
+												자운영
+											</option>
+											
+											<option value="23.7-43.9-3.7-12-76.3-00001">
+												헤어리벳치
+											</option>
+											
+											<option value="53.1-43.4-0.495-87.7-46.9-00007">
+												호밀
+											</option>
+											
+									</select>
+									</td>
+									<td><p style="margin-left: 9px">이미 투입된 유기자원(풋거름 작물 등)</p>
+										<label for="mtril_1" style="overflow: hidden; width: 0px; height: 0px; font-size: 0; line-height: 0">재료 종류1</label>
+										<select name="mtril_1" id="mtril_1" class="input_box02"	style="width: 219px; margin-left: 9px;" onchange="setMtril_1(this.value);" title="재료1">
+												<option value="0" style="color: red;">없음</option>
+												
+												<option value="50-19.69-1.17-16.8-50-00009">
+													계분퇴비(평균)
+												</option>
+												
+												<option value="50-17.94-0.99-18.2-50-00010">
+													돈분퇴비(평균)
+												</option>
+												
+												<option value="90.1-40.8-0.5-78.2-9.9-00003">
+													볏짚
+												</option>
+												
+												<option value="75.3-25.9-1.8-14.2-24.7-00005">
+													볏짚퇴비
+												</option>
+												
+												<option value="90.2-47.3-2.6-18.5-9.8-00004">
+													쌀겨
+												</option>
+												
+												<option value="50-14.24-0.58-24.7-50-00011">
+													우분퇴비(평균)
+												</option>
+												
+												<option value="92.1-39.3-4.675-8.4-7.9-00008">
+													유박
+												</option>
+												
+												<option value="22.5-38.6-2.2-17.3-77.5-00002">
+													자운영
+												</option>
+												
+												<option value="23.7-43.9-3.7-12-76.3-00001">
+													헤어리벳치
+												</option>
+												
+												<option value="53.1-43.4-0.495-87.7-46.9-00007">
+													호밀
+												</option>
+												
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th><label for="mtril_ntrg_2">N함량(%)</label></th>
+									<td><input	name="mtril_ntrg_2" id="mtril_ntrg_2" type="text" class="txt_box" size="34" style="margin-left: -5px;" /></td>
+									<td><label for="mtril_ntrg_1" style="overflow: hidden; width: 0px; height: 0px; font-size: 0; line-height: 0">자재2 N 함량</label>
+									<input name="mtril_ntrg_1" id="mtril_ntrg_1"	type="text" class="txt_box" size="34" /></td>
+								</tr>
+								<tr>
+									<th><label for="mtril_ntrg_cmo_rate_2">CN 율</label></th>
+									<td><input	name="mtril_ntrg_cmo_rate_2" id="mtril_ntrg_cmo_rate_2" type="text" class="txt_box" size="34"  style="margin-left: -5px;" /></td>
+									<td><label for="mtril_ntrg_cmo_rate_1" style="overflow: hidden; width: 0px; height: 0px; font-size: 0; line-height: 0">자재2 CN율</label>
+									<input name="mtril_ntrg_cmo_rate_1" id="mtril_ntrg_cmo_rate_1" type="text"	class="txt_box" size="34" /></td>
+								</tr>
+								<tr>
+									<th><label for="mitr_rate_2">수분함량(%)</label></th>
+									<td><input	name="mitr_rate_2" id="mitr_rate_2" type="text"	class="txt_box" size="34" style="margin-left: -5px;" /></td>
+									<td><label for="mitr_rate_1"	style="overflow: hidden; width: 0px; height: 0px; font-size: 0; line-height: 0">자재2 수분함량</label>
+									<input name="mitr_rate_1" id="mitr_rate_1" type="text" class="txt_box" size="34" /></td>
+								</tr>
+	<!-- 							<tr>
+									<th><label for="mtril_cmo_2">재료 C함량(%)</label></th>
+									<td><input	name="mtril_cmo_2" id="mtril_cmo_2" type="text" class="txt_box" size="34"  style="margin-left: -5px;" /></td>
+									<td><label for="mtril_cmo_1" style="overflow: hidden; width: 0px; height: 0px; font-size: 0; line-height: 0">자재2</label>
+									<input name="mtril_cmo_1" id="mtril_cmo_1" type="text"	class="txt_box" size="34" /></td>
+								</tr> -->
+								<tr>
+									<th><label for="mtril_inpt_qy_2">이미 투입된 량(kg/10a, 현물)</label></th>
+									<td><input	name="mtril_inpt_qy_2" id="mtril_inpt_qy_2" type="text"	class="txt_box" size="34" style="margin-left: -5px;" disabled="disabled"/></td>
+									<td><label for="mtril_inpt_qy_1"	style="overflow: hidden; width: 0px; height: 0px; font-size: 0; line-height: 0" >자재 2이미 투입된량(kg/10a, 현물)</label>
+									<input name="mtril_inpt_qy_1" id="mtril_inpt_qy_1" type="text" class="txt_box" size="34" disabled="disabled" value="0" /></td>
+								</tr>
+								<!-- 				<tr>
+						<th><label for="purps_slwtr_1">목적함수 설정</label></th>
+						<td>
+							<select name="purps_slwtr_1" id="purps_slwtr_1" class="input_box02" style="width:70px;" onchange="SetNPK(this.value);" title="목적함수1">
+				          		<option value="1">기본값</option>
+				          		<option value="2">계산값</option>
+							</select>
+								<label for="purps_slwtr_vl_1" style="overflow: hidden;width: 0px;height: 0px;font-size: 0;line-height: 0">목적함수1</label><input name="purps_slwtr_vl_1" id="purps_slwtr_vl_1" type="text" class="txt_box" size="21" disabled="disabled" />
+						</td>
+						<td>
+							<select name="purps_slwtr_2" id="purps_slwtr_2" class="input_box02" style="width:70px;" onchange="SetNPK(this.value);" title="목적함수1">
+				          		<option value="1">기본값</option>
+				          		<option value="2">계산값</option>
+							</select>
+								<label for="purps_slwtr_vl_2" style="overflow: hidden;width: 0px;height: 0px;font-size: 0;line-height: 0">목적함수2</label><input name="purps_slwtr_vl_2" id="purps_slwtr_vl_2" type="text" class="txt_box" size="21" disabled="disabled"/>
+						</td>
+					</tr> -->
+							</tbody>
+						</table>
+						<br/><p style="text-align: right; font-weight: bold; color: gray;">※ 출처 : 국립농업과학원 유기농업과</p>
+
+						<div class="btn_wrap_b">
+							<a href="javascript:setOrmtResult()"><img
+								src="/images/btn/btn_c_result.gif" alt="결과값" /></a>
+						</div>
+
+						<div id="calc_ormt_div" style="display: none">
+
+							<div class="section_b">
+								<!-- 			유기자재추천량 -->
+								<p class="h5 icon arrowRight mgb_10">유기자재 추천량</p>
+								<table class="item_c" >
+									<caption>유기자재 추천량</caption>
+									<colgroup>
+										<col style="width:220px;" />
+										<col style="width:249px;" />
+										<col style="width:249px;" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col"></th>
+											<th scope="col" id="oDiv2"></th>
+											<th scope="col" id="oDiv1"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">유기자원 투입량(kg/10a 현물)</th>
+											<td><label for="result_mtril_2"	style="overflow: hidden; width: 0px; height: 0px; font-size: 0; line-height: 0">재료2</label>
+											<input	type="text" class="txt_box" name="result_mtril_2" 	id="result_mtril_2" title="재료2 추천량" value="" size="34"	readonly="readonly" style="margin-left: -15px;" /></td>
+											<td><label for="result_mtril_1"	style="overflow: hidden; width: 0px; height: 0px; font-size: 0; line-height: 0">재료1</label>
+											<input	type="text" class="txt_box" name="result_mtril_1"	id="result_mtril_1" title="재료1 추천량" value="" size="34"	readonly="readonly" style="margin-left: -15px;" /></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="btn_wrap_b">
+								<a href="javascript:ormt_preView()" class="button colorOrange">처방서 보기</a>
+								<a href="javascript:ormt_reset()" class="button colorWhite">초기화</a>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 2025.10.20 각 메뉴 하단 담당자 정보 추가 --> 
+<div id="personDivWrap" class="personDivWrap">
+		<div class="personDiv">
+			<p class="fs13">
+		
+			<strong class="fs13">담당부서 : </strong> 토양물환경과 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		
+			<strong class="fs13">문의전화 : </strong> 063-238-2446 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		
+			<strong class="fs13">갱신주기 : </strong> 수시 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+	</p>
+	</div>
+</div>
+
+					</div>
+				</div>
+			</div>
+
+
+
+		<!-- //container -->
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- footer -->
+		
+
+
+<footer id="footer">
+	<div class="foot-quick">
+		<ul class="inner">
+			<li class="group">
+				<button type="button" class="link" title="상세 링크 펼치기">관련시스템</button>
+				<div class="quick_detail">
+					<div class="list">
+						<a href="/exam/">검정업무시스템</a>
+						<a href="https://www.naas.go.kr/">국립농업과학원</a>
+						<a href="http://www.rda.go.kr/">농촌진흥청</a>
+						<a href="http://www.mafra.go.kr">농림축산식품부</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="inner">
+		<div class="f-logo"><span class="sr-only">국립농업과학원</span></div>
+		<div class="f-cnt">
+			<div class="f-info">
+				<p class="info-addr">(55365) 전북특별자치도  완주군 이서면 농생명로 166 국립농업과학원</p>
+				<ul class="info-cs">
+					<li><strong>전산장애지원 콜센터 1544-2472 <span>(월~금 9:00 ~ 18:00)</span></strong></li>
+				</ul>
+			</div>
+			<div class="f-link">
+				<div class="link-go">
+					<a href="https://www.naas.go.kr/04_intro/Intro_Greeting.do?mmode=9&menu_code=4" target="_blank" title="새창열림">찾아오시는 길 <i class="svg-icon ico-angle right"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="f-btm">
+			<div class="f-btm-text">
+				<div class="f-menu">
+					<a href="https://www.naas.go.kr/05_etc/Etc_List.do?mmode=5&menu_code=6" target="_blank" title="새창열림" class="point" style="font-weight: bold; color: #19468d;">개인정보처리방침</a>
+					<a href="https://www.naas.go.kr/05_etc/Etc_List.do?menu_code=6&tg=1&mmode=3" target="_blank" title="새창열림">저작권정책</a>
+					<a href="http://www.juso.go.kr/openIndexPage.do" target="_blank" title="새창열림">도로명주소안내</a>
+					<a href="https://www.kogl.or.kr" target="_blank" title="새창 열림">OPEN 공공누리</a>
+				</div>
+				<p class="f-copy">COPYRIGHT ⓒ NATIONAL INSTITUTE OF AGRICULTURAL SCIENCES, RDA. ALL RIGHT RESERVED.</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script>
+function menuEtcMove() {
+	var siteList = document.getElementById("siteList");
+	var siteUrl = (siteList.options[siteList.selectedIndex].value);
+
+	if(siteUrl == "" || siteUrl == null) {
+		alert("관련시스템을 선택해주세요.")
+		$("#siteList").focus();
+	} else {
+		window.open(siteUrl, '_blank');
+	}
+}
+
+/**
+ * 숨은 농다락 찾기 이벤트
+ * ※ 이벤트 태그를 동적 생성하여 <body> 태그의 첫번째 자식태그로 추가.
+ * ※ 사용자지정 변수 값
+ *    - EVENT_START_DT	: 이벤트 시작 일시 (기본값: 2026-11-16 09:00:00)
+ *    - EVENT_END_DT	: 이벤트 종료 일시 (기본값: 2026-11-27 18:00:00)
+ *    - EVENT_EXPSR_RT	: 이벤트 노출 비율 (기본값: 30%)
+ * ※ 기능 테스트
+ *    - 이벤트 function을 호출하는 URL에 파라미터 eventTestAt=Y 를 추가하여 기능 테스트 진행.
+ *    - EVENT_TEST_EXPSR_RT	: 이벤트 테스트 노출 비율 (기본값: 100%)
+ */
+window.onload = cfEventFindIsaaci();
+function cfEventFindIsaaci(){
+	const EVNET_NAME	= '[숨은 농다락 찾기 이벤트] ';
+	const IS_CONSOLE	= false;
+
+	// 기능 테스트를 위해 테스트 파라미터 체크
+	const params		= new URL(location).searchParams;
+	const eventTestAt	= ( params.get('eventTestAt') == null || params.get('eventTestAt') != 'Y' ) ? 'N' : 'Y';
+	if( IS_CONSOLE ){	console.info(EVNET_NAME+'eventTestAt: ' + eventTestAt);		}
+
+	// 이벤트 기간 체크
+	const CURRENT_DT		= new Date();
+	const EVENT_START_DT	= ( eventTestAt != 'Y' ) ? new Date('2026-11-16 09:00:00') : new Date('2026-11-16 09:00:00');	// 이벤트 시작 일시
+	const EVENT_END_DT	= new Date('2026-11-27 18:00:00');	// 이벤트 종료 일시
+	if( CURRENT_DT < EVENT_START_DT || EVENT_END_DT < CURRENT_DT ){
+		if( IS_CONSOLE ){	console.info(EVNET_NAME+'이벤트 기간이 아닙니다.');		}
+		if( IS_CONSOLE ){	console.info('현재일시: ' + CURRENT_DT);			}
+		if( IS_CONSOLE ){	console.info('이벤트 시작일시: ' + EVENT_START_DT);	}
+		if( IS_CONSOLE ){	console.info('이벤트 종료일시: ' + EVENT_END_DT);		}
+		return false;
+	}
+
+	// 이벤트 노출 비율 체크
+	const EVENT_EXPSR_RT		= 30;	// 이벤트 노출 비율
+	const EVENT_TEST_EXPSR_RT	= 100;	// 이벤트 테스트 노출 비율
+	const EXPSR_RT				= ( eventTestAt != 'Y' ) ? EVENT_EXPSR_RT : EVENT_TEST_EXPSR_RT;	// 이벤트 노출 비율
+	// 이벤트 노출비율에 맞지 않는 경우 이벤트 태그 생성하지 않고 종료.
+	if( Math.floor(Math.random() * 100) > EXPSR_RT ){
+		if( IS_CONSOLE ){	console.info(EVNET_NAME+'이벤트 노출 제한.(노출률: ' + EXPSR_RT + '%)');	}
+		return false;
+	}
+
+	// 혹시나 중복 생성 될 경우 기존 생성한 이벤트 태그는 삭제처리.
+	if( $('#chatbot-Isaaci').length > 0  ){
+		$('#chatbot-Isaaci').remove();
+	}
+
+	// 동적태그 생성 파라미터 설정
+	const HOST_NAME			= 'https://soil.rda.go.kr';
+    //const HOST_NAME			= '';
+	const EVENT_IMG_URL		= HOST_NAME+'/chatbot/img/nongdarak.png';						// 이벤트 이미지 URL
+	const EVENT_IMG_ALT		= '농다락아이콘';													// 이벤트 이미지 alt
+	const CLOSE_BUTTON_URL	= HOST_NAME+'/ps/img/cmmImg_2020/common/ico_close.png';			// 닫기버튼 이미지 background URL
+	let imgWidth			= 143;															// 이벤트 이미지 넓이 143
+	let imgHeight			= 151;															// 이벤트 이미지 높이 151
+	// 이미지 넖이/높이 계산(이벤트 이미지 변경가능성이 예상되어 넓이/높이 계산 추가)
+	let img = new Image();
+	img.onload = function(){
+		imgWidth	= this.width;
+		imgHeight	= this.height;
+	};
+	img.src = EVENT_IMG_URL;
+	if( IS_CONSOLE ){	console.info(EVNET_NAME+'이미지 넓이, 높이: ', imgWidth, imgHeight);				}
+	const IMG_POSITION_X	= Math.floor(Math.random() * (window.innerWidth-imgWidth));		// 이벤트 태그 동적생성 위치 X좌표
+	const IMG_POSITION_Y	= Math.floor(Math.random() * (window.innerHeight-imgHeight));	// 이벤트 태그 동적생성 위치 Y좌표
+	if( IS_CONSOLE ){	console.info(EVNET_NAME+'이미지 좌표(x,y): ', IMG_POSITION_X, IMG_POSITION_Y);	}
+
+	// 동적태그 style 설정 - span
+	let dymEventSpanStyle = [];
+	dymEventSpanStyle.push('position: absolute');
+	dymEventSpanStyle.push('z-index: 100002');
+	dymEventSpanStyle.push('left: ' + IMG_POSITION_X + 'px');
+	dymEventSpanStyle.push('top: ' + IMG_POSITION_Y + 'px');
+	dymEventSpanStyle.push('width: 200px');  // 농다락 이벤트 끝나면 삭제
+	dymEventSpanStyle.push('');
+	// 동적태그 style 설정 - button
+	let dymEventButtonStyle = [];
+	dymEventButtonStyle.push('position: absolute');
+	dymEventButtonStyle.push('top: 0');
+	dymEventButtonStyle.push('right: 0rem');
+	dymEventButtonStyle.push('z-index: 3');
+	dymEventButtonStyle.push('width: 1.5rem');
+	dymEventButtonStyle.push('height: 1.5rem');
+	dymEventButtonStyle.push('background: #FFF url('+CLOSE_BUTTON_URL+') center center no-repeat');
+	dymEventButtonStyle.push('background-size: 80%');
+	dymEventButtonStyle.push('border: 1px solid #676767');
+	dymEventButtonStyle.push('border-radius: 10%');
+	dymEventButtonStyle.push('padding: 1px');
+	dymEventButtonStyle.push('');
+	// 동적태그 style 설정 - button > span
+	let dymEventButtonSpanStyle = [];
+	dymEventButtonSpanStyle.push('position: absolute');
+	dymEventButtonSpanStyle.push('width: 1px');
+	dymEventButtonSpanStyle.push('height: 1px');
+	dymEventButtonSpanStyle.push('overflow: hidden');
+	dymEventButtonSpanStyle.push('margin: -1px');
+	dymEventButtonSpanStyle.push('padding: 0');
+	dymEventButtonSpanStyle.push('border: 0');
+	dymEventButtonSpanStyle.push('');
+	// 동적태그 style 설정 - img
+	let dymEventImgStyle = [];
+	dymEventImgStyle.push('filter: drop-shadow(4px 4px 2px #888)');
+	dymEventImgStyle.push('max-width:100%');
+
+	// 동적태그 생성
+	let $eventSpan			= $('<span>', {id: 'chatbot-Isaaci', style: dymEventSpanStyle.join('; ').trim(), draggable: true});
+	let $eventButton		= /**/$('<button>', {type: 'button', style: dymEventButtonStyle.join('; ').trim()});
+	let $eventButtonSpan	= /**//**/$('<span>', {style: dymEventButtonSpanStyle.join('; ').trim()}).html('레이어 닫기');
+	let $eventImg			= /**/$('<img>', {src: EVENT_IMG_URL, alt: EVENT_IMG_ALT, style: dymEventImgStyle.join('; ').trim()});
+
+	// 동적태그 조합
+	$eventButton.append($eventButtonSpan);
+	$eventSpan.append($eventButton);
+	$eventSpan.append($eventImg);
+	$eventSpan.prependTo('body');
+	if( IS_CONSOLE ){	console.info(EVNET_NAME+'이벤트 태그 노출!!');	}
+
+	// 동적태그에 이벤트 추가(마우스로 위치 이동)
+	$('#chatbot-Isaaci > img').off('drop').on('drop', function(e){
+		$('#chatbot-Isaaci').css('left', (e.pageX < 0 ? 0 : e.pageX));
+		$('#chatbot-Isaaci').css('top', (e.pageY < 0 ? 0 : e.pageY));
+	});
+	// 동적태그에 이벤트 추가(닫기 버튼 클릭 이벤트)
+	$('#chatbot-Isaaci > button').off('click').on('click', function(e){
+		// 돟적생성된 이벤트태그 삭제 처리.
+		$.each($('#chatbot-Isaaci'), function(idx, item){
+			$(item).remove();
+		});
+	});
+}
+
+</script>
+
+<!-- AceCounter Log Gathering Script V.8.0.2019080601 -->
+<!-- 운영시 주석 풀기 -->
+<script language='javascript'>
+	var _AceGID=(function(){var Inf=['gtp5.acecounter.com','8080','AH5A45530989964','AW','0','NaPm,Ncisy','ALL','0']; var _CI=(!_AceGID)?[]:_AceGID.val;var _N=0;var _T=new Image(0,0);if(_CI.join('.').indexOf(Inf[3])<0){ _T.src ="https://"+Inf[0]+'/?cookie'; _CI.push(Inf);  _N=_CI.length; } return {o: _N,val:_CI}; })();
+	var _AceCounter=(function(){var G=_AceGID;var _sc=document.createElement('script');var _sm=document.getElementsByTagName('script')[0];if(G.o!=0){var _A=G.val[G.o-1];var _G=(_A[0]).substr(0,_A[0].indexOf('.'));var _C=(_A[7]!='0')?(_A[2]):_A[3];var _U=(_A[5]).replace(/\,/g,'_');_sc.src='https:'+'//cr.acecounter.com/Web/AceCounter_'+_C+'.js?gc='+_A[2]+'&py='+_A[4]+'&gd='+_G+'&gp='+_A[1]+'&up='+_U+'&rd='+(new Date().getTime());_sm.parentNode.insertBefore(_sc,_sm);return _sc.src;}})();
+</script>
+<!-- AceCounter Log Gathering Script End -->
+<!-- //footer -->
+		<!-- //footer -->
+	</form>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{
+  "snapshot_id": "SMARTFARM-PFS_0000001_01-20230725",
+  "date": "2023-07-25",
+  "fields": {
+    "TI": {
+      "status": "available",
+      "record_count": 24,
+      "minimum": "24.67",
+      "maximum": "32.33",
+      "passed": true,
+      "errors": [],
+      "missing_values": 0,
+      "duplicate_timestamps": 0,
+      "first_timestamp": "2023-07-25 00:00:00",
+      "last_timestamp": "2023-07-25 23:00:00",
+      "observed_wall_clock_intervals_seconds": [
+        3600
+      ],
+      "timestamp_interpretation": "naive_record_spacing_not_sensor_frequency_or_hourly_average",
+      "unit_confirmed": false,
+      "timezone_confirmed": false,
+      "aggregation_confirmed": false,
+      "source_record": "data/references/smartfarm/environment_20230725/TI.json",
+      "source_file_sha256": "cf99b5575a0badc05afb242c327ff8ccf991c6ef1b02c2729e0e52fb05edb7f0",
+      "source_canonical_sha256": "ff48f88504531bec444d171e0a357ac95c4d78a869c1357b24a20e4ee65e0e87"
+    },
+    "HI": {
+      "status": "available",
+      "record_count": 24,
+      "minimum": "76.33",
+      "maximum": "97.00",
+      "passed": true,
+      "errors": [],
+      "missing_values": 0,
+      "duplicate_timestamps": 0,
+      "first_timestamp": "2023-07-25 00:00:00",
+      "last_timestamp": "2023-07-25 23:00:00",
+      "observed_wall_clock_intervals_seconds": [
+        3600
+      ],
+      "timestamp_interpretation": "naive_record_spacing_not_sensor_frequency_or_hourly_average",
+      "unit_confirmed": false,
+      "timezone_confirmed": false,
+      "aggregation_confirmed": false,
+      "source_record": "data/references/smartfarm/environment_20230725/HI.json",
+      "source_file_sha256": "796a5808d327e7c0f38fd85b76661a1268c664eb8272dcb85926336cb7f3c459",
+      "source_canonical_sha256": "49bce051158c44a993be8e5134986462716968aa62fcf43df0a6ff7538d163d9"
+    },
+    "HI02": {
+      "status": "no_data",
+      "record_count": 0,
+      "minimum": null,
+      "maximum": null,
+      "passed": true,
+      "errors": [],
+      "missing_values": 0,
+      "duplicate_timestamps": 0,
+      "first_timestamp": null,
+      "last_timestamp": null,
+      "observed_wall_clock_intervals_seconds": [],
+      "timestamp_interpretation": "naive_record_spacing_not_sensor_frequency_or_hourly_average",
+      "unit_confirmed": false,
+      "timezone_confirmed": false,
+      "aggregation_confirmed": false,
+      "source_record": "data/references/smartfarm/environment_20230725/HI02.json",
+      "source_file_sha256": "be41b602aa0496e7f23e3a43aea20718cb94ed30fe389a790c3590b95be7311f",
+      "source_canonical_sha256": "6733d6b419983d1b05c7d06be46af3052c711ec83c40cd26f99a7cd60a9dfb66"
+    },
+    "CI": {
+      "status": "available",
+      "record_count": 24,
+      "minimum": "401.00",
+      "maximum": "506.00",
+      "passed": true,
+      "errors": [],
+      "missing_values": 0,
+      "duplicate_timestamps": 0,
+      "first_timestamp": "2023-07-25 00:00:00",
+      "last_timestamp": "2023-07-25 23:00:00",
+      "observed_wall_clock_intervals_seconds": [
+        3600
+      ],
+      "timestamp_interpretation": "naive_record_spacing_not_sensor_frequency_or_hourly_average",
+      "unit_confirmed": false,
+      "timezone_confirmed": false,
+      "aggregation_confirmed": false,
+      "source_record": "data/references/smartfarm/environment_20230725/CI.json",
+      "source_file_sha256": "acb85b51d14be4dc2caf91e15dbf0c1eefddbec8334e318e340b01b5691e378e",
+      "source_canonical_sha256": "1171c944fa24af80f502b2138a80c6975ecf93fbb2f393ef7e0f73abf560cb9a"
+    }
+  },
+  "interpretation": "raw_record_integrity_and_reference_audit_not_unit_confirmation",
+  "passed": true
+}

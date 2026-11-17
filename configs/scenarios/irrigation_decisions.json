@@ -1,0 +1,21 @@
+{
+  "version": "1.0-demo",
+  "purpose": "Manually fixed synthetic software labels; not agricultural ground truth",
+  "base_snapshot": {
+    "snapshot_id": "SYNTHETIC-001", "version": "0.1.0-demo",
+    "crop": "demo_crop", "growth_stage": "demo_stage", "cultivation_system": "demo_soil",
+    "soil_moisture_value": 18.0, "soil_moisture_unit": "percent_vwc", "source_ids": ["synthetic_fixture"]
+  },
+  "cases": [
+    {"case_id": "SYNTHETIC-BELOW", "category": "boundary", "overrides": {"soil_moisture_value": 19.9}, "expected_decision": "IRRIGATION_REQUIRED", "expected_code": "RULE_MATCH"},
+    {"case_id": "SYNTHETIC-EQUAL", "category": "boundary", "overrides": {"soil_moisture_value": 20.0}, "expected_decision": "IRRIGATION_NOT_REQUIRED", "expected_code": "RULE_NOT_MATCH"},
+    {"case_id": "SYNTHETIC-ABOVE", "category": "boundary", "overrides": {"soil_moisture_value": 20.1}, "expected_decision": "IRRIGATION_NOT_REQUIRED", "expected_code": "RULE_NOT_MATCH"},
+    {"case_id": "SYNTHETIC-ZERO", "category": "zero", "overrides": {"soil_moisture_value": 0.0}, "expected_decision": "IRRIGATION_REQUIRED", "expected_code": "RULE_MATCH"},
+    {"case_id": "SYNTHETIC-MISSING", "category": "missing", "overrides": {"soil_moisture_value": null}, "expected_decision": "INSUFFICIENT_INFORMATION", "expected_code": "MISSING_INPUT"},
+    {"case_id": "SYNTHETIC-UNIT", "category": "applicability", "overrides": {"soil_moisture_unit": "kpa_tension"}, "expected_decision": "INSUFFICIENT_INFORMATION", "expected_code": "UNIT_MISMATCH"},
+    {"case_id": "SYNTHETIC-STAGE", "category": "applicability", "overrides": {"growth_stage": "other_stage"}, "expected_decision": "INSUFFICIENT_INFORMATION", "expected_code": "STAGE_MISMATCH"},
+    {"case_id": "SYNTHETIC-CROP", "category": "applicability", "overrides": {"crop": "other_crop"}, "expected_decision": "INSUFFICIENT_INFORMATION", "expected_code": "CROP_MISMATCH"},
+    {"case_id": "SYNTHETIC-SYSTEM", "category": "applicability", "overrides": {"cultivation_system": "hydroponic"}, "expected_decision": "INSUFFICIENT_INFORMATION", "expected_code": "CULTIVATION_MISMATCH"},
+    {"case_id": "SYNTHETIC-RANGE", "category": "range", "overrides": {"soil_moisture_value": 101.0}, "expected_decision": "INSUFFICIENT_INFORMATION", "expected_code": "VALUE_OUT_OF_RANGE"}
+  ]
+}

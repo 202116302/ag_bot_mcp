@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "pnu_code": "5271033027105280033",
+  "requested_crop_code": "04017",
+  "address": "전북특별자치도 완주군 이서면 용서리 일반 528-33",
+  "crop_name": "토마토(시설)",
+  "status": "available",
+  "http_status": 200,
+  "service_code": "200",
+  "service_message": "정상",
+  "amounts": {
+    "basal_n": {
+      "value": "14.4",
+      "unit": "kg/10a",
+      "provider_field": "pre_Fert_N"
+    },
+    "basal_p": {
+      "value": "3.0",
+      "unit": "kg/10a",
+      "provider_field": "pre_Fert_P"
+    },
+    "basal_k": {
+      "value": "3.0",
+      "unit": "kg/10a",
+      "provider_field": "pre_Fert_K"
+    },
+    "topdressing_n": {
+      "value": "10.9",
+      "unit": "kg/10a",
+      "provider_field": "post_Fert_N"
+    },
+    "topdressing_p": {
+      "value": "0.0",
+      "unit": "kg/10a",
+      "provider_field": "post_Fert_P"
+    },
+    "topdressing_k": {
+      "value": "0.0",
+      "unit": "kg/10a",
+      "provider_field": "post_Fert_K"
+    },
+    "compost_cattle": {
+      "value": "0",
+      "unit": "kg/10a",
+      "provider_field": "pre_Compost_Cattl"
+    },
+    "compost_pig": {
+      "value": "0",
+      "unit": "kg/10a",
+      "provider_field": "pre_Compost_Pig"
+    },
+    "compost_chicken": {
+      "value": "0",
+      "unit": "kg/10a",
+      "provider_field": "pre_Compost_Chick"
+    },
+    "compost_mix": {
+      "value": "0",
+      "unit": "kg/10a",
+      "provider_field": "pre_Compost_Mix"
+    }
+  },
+  "missing_fields": [],
+  "retrieved_at": "2026-11-15T01:18:07.532281Z",
+  "source_record": "data/references/fertilizer/wanju_tomato_20261115.json",
+  "source_sha256": "cb894d73957c68b6ba45d40e17041db72ebd04b34a2b2e2279fc1471eb074e35",
+  "provider_endpoint": "https://apis.data.go.kr/1390802/SoilEnviron/FrtlzrUse/getSoilFrtlzrExamInfo",
+  "unit_reference": "data/OPEN API기술명세서_비료사용처방 정보.pdf",
+  "result_origin": "provider_prescription",
+  "soil_tested_at": null,
+  "actual_crop_confirmed": false,
+  "applicability_status": "not_reviewed"
+}
