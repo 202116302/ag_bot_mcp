@@ -4,20 +4,15 @@
     "cultivation": "open_field",
     "domain": "task",
     "type": "simple",
-    "question": "지금 3번 화방에 꽃이 4개 피었는데 착과제 뿌려도 돼?",
+    "question": "오늘 평균기온 18℃, 최고 26℃야. 3번 화방에 꽃이 4개 피었는데 착과제 뿌려도 돼?",
     "user_values": {
       "truss": 3,
       "open_flowers": 4
     },
     "system_values": {
-      "weather": {
-        "temp_mean": 18.0,
-        "temp_max": 26.0
-      },
       "crop": {
         "cultivation": "open_field",
-        "cropping_type": "노지",
-        "stage": "fruit_set"
+        "cropping_type": "노지"
       }
     },
     "expected": {
@@ -41,26 +36,22 @@
         "temp_max": 26.0,
         "open_flowers": 4
       }
-    }
+    },
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "TSK-OF-002",
     "cultivation": "open_field",
     "domain": "task",
     "type": "boundary",
-    "question": "꽃이 3개 폈는데 착과제 몇 배로 타야 돼?",
+    "question": "오늘 평균기온이 20℃인데 꽃이 3개 폈어. 착과제 몇 배로 타야 돼?",
     "user_values": {
       "open_flowers": 3
     },
     "system_values": {
-      "weather": {
-        "temp_mean": 20.0,
-        "temp_max": 25.0
-      },
       "crop": {
         "cultivation": "open_field",
-        "cropping_type": "노지",
-        "stage": "fruit_set"
+        "cropping_type": "노지"
       }
     },
     "expected": {
@@ -85,27 +76,23 @@
         "temp_max": 25.0,
         "open_flowers": 3
       }
-    }
+    },
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "TSK-OF-003",
     "cultivation": "open_field",
     "domain": "task",
     "type": "complex",
-    "question": "지금 3번 화방 꽃이 3개 피었는데 착과제 뿌려도 돼?",
+    "question": "오늘 평균 22℃, 최고 31℃야. 3번 화방 꽃이 3개 피었는데 착과제 뿌려도 돼?",
     "user_values": {
       "truss": 3,
       "open_flowers": 3
     },
     "system_values": {
-      "weather": {
-        "temp_mean": 22.0,
-        "temp_max": 31.0
-      },
       "crop": {
         "cultivation": "open_field",
-        "cropping_type": "노지",
-        "stage": "fruit_set"
+        "cropping_type": "노지"
       }
     },
     "expected": {
@@ -129,14 +116,15 @@
         "temp_max": 31.0,
         "open_flowers": 3
       }
-    }
+    },
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "TSK-GH-004",
     "cultivation": "greenhouse_hydroponic",
     "domain": "task",
     "type": "calculation",
-    "question": "수확은 7월 20일에 끝낼 건데 순지르기는 언제 해야 돼? 지금 5화방까지 올라왔어.",
+    "question": "반촉성 하우스야. 오늘 5월 20일이고 수확은 7월 20일에 끝낼 건데 순지르기는 언제 해? 지금 5화방까지 올라왔어.",
     "user_values": {
       "harvest_end_date": "2026-07-20",
       "current_truss": 5
@@ -145,8 +133,7 @@
       "crop": {
         "cultivation": "greenhouse_hydroponic",
         "cropping_type": "반촉성",
-        "hydroponic": true,
-        "today": "2026-05-20"
+        "hydroponic": true
       }
     },
     "expected": {
@@ -173,14 +160,15 @@
         "today": "2026-05-20",
         "current_truss": 5
       }
-    }
+    },
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "TSK-GH-005",
     "cultivation": "greenhouse_hydroponic",
     "domain": "task",
     "type": "missing",
-    "question": "토마토 착색이 30%쯤 됐는데 지금 따도 돼?",
+    "question": "억제재배 하우스인데 착색이 30%쯤 됐어. 지금 따도 돼?",
     "user_values": {
       "coloring_pct": 30
     },
@@ -212,6 +200,7 @@
         "coloring_pct": 30
       }
     },
-    "reference_status": "insufficient_data"
+    "reference_status": "insufficient_data",
+    "question_style": "values_in_question"
   }
 ]

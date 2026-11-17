@@ -1,0 +1,264 @@
+<title>판정 검수 v3.1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* layout: 한 열의 검수 카드 + 상단 고정 진행·필터 바. 카드 안은 정답(왼쪽)과 응답(오른쪽)을 나란히 비교 */
+:root {
+  --bg: #f4f6f0; --surface: #ffffff; --sunk: #eef1e9; --ink: #1c231b; --muted: #5a6656; --line: #dbe1d3;
+  --accent: #2e6a3a; --accent-soft: #e2eedf; --ok: #2b7a40; --ok-soft: #e1f1e4; --bad: #bf3d2c; --bad-soft: #f8e4df;
+  --warn: #9a6a0e; --warn-soft: #f6edd8;
+  --f-body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --f-head: "IBM Plex Sans KR", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111510; --surface: #191f18; --sunk: #141913; --ink: #e6ebdf; --muted: #9ba696; --line: #2b3428;
+  --accent: #82c890; --accent-soft: #1f3322; --ok: #74c486; --ok-soft: #1c3121; --bad: #ef7b67; --bad-soft: #3a1f1a;
+  --warn: #e1b75c; --warn-soft: #352a14; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111510; --surface: #191f18; --sunk: #141913; --ink: #e6ebdf; --muted: #9ba696; --line: #2b3428;
+  --accent: #82c890; --accent-soft: #1f3322; --ok: #74c486; --ok-soft: #1c3121; --bad: #ef7b67; --bad-soft: #3a1f1a;
+  --warn: #e1b75c; --warn-soft: #352a14; color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.6; margin: 0 }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 64px }
+h1, h2, h3 { font-family: var(--f-head); text-wrap: balance; margin: 0 }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums }
+
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface) }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line) }
+.bar-in { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 12px; display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center }
+.bar h1 { font-size: 18px; font-weight: 600 }
+.bar .run { color: var(--muted); font-size: 12px }
+.progress { display: flex; align-items: center; gap: 10px; flex: 1 1 240px; min-width: 0 }
+.track { flex: 1; height: 6px; border-radius: 3px; background: var(--sunk); overflow: hidden }
+.fill { height: 100%; width: 0; background: var(--accent); transition: width .25s }
+.counts { font-size: 13px; color: var(--muted); white-space: nowrap }
+.counts b { color: var(--ink); font-weight: 600 }
+
+.controls { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; width: 100% }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; flex-wrap: wrap }
+.seg button { font: inherit; font-size: 13px; border: 0; background: transparent; color: var(--muted); padding: 5px 11px; cursor: pointer }
+.seg button + button { border-left: 1px solid var(--line) }
+.seg button[aria-pressed="true"] { background: var(--accent-soft); color: var(--ink); font-weight: 500 }
+.toggle { font-size: 13px; color: var(--muted); display: inline-flex; gap: 6px; align-items: center; cursor: pointer }
+
+.intro { margin: 20px 0 8px; color: var(--muted); max-width: 70ch; font-size: 14px }
+.intro b { color: var(--ink); font-weight: 500 }
+.status { margin: 8px 0 0; font-size: 13px; padding: 8px 12px; border-radius: 8px; background: var(--warn-soft); color: var(--ink) }
+
+.list { display: grid; gap: 16px; margin-top: 16px }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 14px; min-width: 0 }
+.card[data-v="O"] { border-left: 4px solid var(--ok) }
+.card[data-v="X"] { border-left: 4px solid var(--bad) }
+.card[data-v="?"] { border-left: 4px solid var(--warn) }
+.head { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; font-size: 12px }
+.head .no { font-family: var(--f-mono); font-size: 13px; color: var(--muted); margin-right: 4px }
+.chip { border: 1px solid var(--line); border-radius: 999px; padding: 1px 9px; color: var(--muted); white-space: nowrap }
+.chip.cond-mcp { border-color: var(--accent); color: var(--accent); font-weight: 500 }
+.chip.cond-rag { border-color: var(--muted); color: var(--ink); font-weight: 500 }
+.q { font-family: var(--f-head); font-size: 18px; font-weight: 500 }
+.sit { font-size: 13px; color: var(--muted); background: var(--sunk); border-radius: 8px; padding: 8px 12px; white-space: pre-line }
+.sit::before { content: "현재 상황"; display: block; font-size: 11px; letter-spacing: .04em; color: var(--muted); font-weight: 500; margin-bottom: 2px }
+
+.cmp { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 14px }
+@media (max-width: 720px) { .cmp { grid-template-columns: 1fr } }
+.box { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; min-width: 0 }
+.box h3 { font-size: 11px; letter-spacing: .05em; color: var(--muted); font-weight: 600; margin-bottom: 6px }
+.box.exp { background: var(--accent-soft); border-color: transparent }
+.dec { font-weight: 700 }
+.req { margin: 8px 0 0; padding-left: 18px; font-size: 14px }
+.ans { margin-top: 6px; white-space: pre-line; overflow-wrap: anywhere }
+.kv { display: flex; flex-wrap: wrap; gap: 4px 6px; margin-top: 8px }
+.kv span { font-family: var(--f-mono); font-size: 12px; background: var(--sunk); border-radius: 5px; padding: 1px 7px }
+details { margin-top: 8px; font-size: 13px; color: var(--muted) }
+summary { cursor: pointer; color: var(--ink) }
+details pre { font-family: var(--f-mono); font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; margin: 6px 0 0 }
+
+.verdict { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; border-top: 1px dashed var(--line); padding-top: 12px }
+.pick { display: inline-flex; gap: 6px }
+.pick button { font: inherit; font-size: 14px; font-weight: 500; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; padding: 6px 14px; cursor: pointer }
+.pick button:hover { border-color: var(--muted) }
+.pick button[data-v="O"][aria-pressed="true"] { background: var(--ok-soft); border-color: var(--ok); color: var(--ok) }
+.pick button[data-v="X"][aria-pressed="true"] { background: var(--bad-soft); border-color: var(--bad); color: var(--bad) }
+.pick button[data-v="?"][aria-pressed="true"] { background: var(--warn-soft); border-color: var(--warn); color: var(--warn) }
+.note { flex: 1 1 260px; min-width: 0; font: inherit; font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px }
+.saved { font-size: 12px; color: var(--muted); min-width: 4em }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+
+.others { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; font-size: 13px }
+.other { background: var(--sunk); border-radius: 8px; padding: 8px 12px }
+.other b { font-family: var(--f-mono) }
+.tag-ok { color: var(--ok); font-weight: 700 }
+.tag-bad { color: var(--bad); font-weight: 700 }
+.diff { color: var(--warn); font-weight: 500 }
+.empty { color: var(--muted); padding: 32px 0; text-align: center }
+@media (prefers-reduced-motion: reduce) { .fill { transition: none } }
+</style>
+
+<header class="bar">
+  <div class="bar-in">
+    <div>
+      <h1>판정 검수 v3.1</h1>
+      <div class="run mono" id="run"></div>
+    </div>
+    <div class="progress">
+      <div class="track" aria-hidden="true"><div class="fill" id="fill"></div></div>
+      <div class="counts" id="counts"></div>
+    </div>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="보기 필터" id="filters">
+        <button type="button" data-f="all" aria-pressed="true">전체</button>
+        <button type="button" data-f="todo" aria-pressed="false">미검수</button>
+        <button type="button" data-f="split" aria-pressed="false">채점기·2차 검토 불일치</button>
+        <button type="button" data-f="rag" aria-pressed="false">RAG</button>
+        <button type="button" data-f="mcp" aria-pressed="false">MCP</button>
+      </div>
+      <label class="toggle"><input type="checkbox" id="show-others"> 채점기·2차 검토 판정 보기</label>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="intro">각 카드에서 <b>응답의 판정이 정답과 실질적으로 같은지</b> 보고 정답·오답·애매 중 하나를 고릅니다. 표현은 달라도 됩니다. 필수 항목이 빠졌거나 정답 자체가 이상하면 메모에 적어 주세요. 다른 판정에 끌려가지 않도록 채점기와 2차 검토 결과는 기본으로 숨겨 두었습니다.</p>
+  <div class="status" id="status" hidden></div>
+  <div class="list" id="list"></div>
+</main>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+const DATA = JSON.parse(document.getElementById("data").textContent);
+const TYPE = { simple: "단순", boundary: "경계", complex: "복합", calculation: "계산", missing: "누락" };
+const DOMAIN = { climate: "환경제어", nutrient: "양액관리", fertilizer: "시비", weather: "기상대응", task: "작업관리" };
+const state = {};          // key -> {verdict, note}
+const pending = {};        // key -> promise chain (한 문서에 한 번에 하나씩 쓰기)
+let db = null, filter = "all", showOthers = false;
+
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const $ = id => document.getElementById(id);
+$("run").textContent = DATA.run + " · 표본 " + DATA.items.length + "건";
+
+function setStatus(msg) { const s = $("status"); s.hidden = !msg; s.textContent = msg || ""; }
+
+function card(it) {
+  const c = el("article", "card"); c.dataset.key = it.key;
+  const h = el("div", "head");
+  h.append(el("span", "no", "#" + String(it.no).padStart(2, "0")), el("span", "chip mono", it.sid),
+    el("span", "chip cond-" + it.cond, it.cond.toUpperCase()), el("span", "chip", TYPE[it.type] || it.type),
+    el("span", "chip", DOMAIN[it.domain] || it.domain), el("span", "chip", it.rep + "회차"));
+  c.append(h, el("div", "q", it.question), el("div", "sit", it.situation.replace(/^- /gm, "")));
+
+  const cmp = el("div", "cmp");
+  const exp = el("section", "box exp"); exp.append(el("h3", null, "정답"), el("div", "dec", it.expected));
+  const ul = el("ul", "req"); it.required.forEach(r => ul.append(el("li", null, r)));
+  exp.append(el("h3", null, "필수 항목"), ul); exp.lastElementChild.previousElementSibling.style.marginTop = "10px";
+
+  const res = el("section", "box"); res.append(el("h3", null, "응답 (" + it.cond.toUpperCase() + ")"), el("div", "dec", it.decision || "(판정 없음)"), el("div", "ans", it.answer));
+  if (it.key_values.length) { const kv = el("div", "kv"); it.key_values.forEach(v => kv.append(el("span", null, v.name + " " + v.value + " " + v.unit))); res.append(kv); }
+  if (it.basis) { const d = el("details"); d.append(el("summary", null, "근거 문장"), el("pre", null, it.basis)); res.append(d); }
+  const trace = el("details"); trace.append(el("summary", null, it.cond === "mcp" ? "도구 호출" : "검색된 문단"));
+  let t = "";
+  if (it.cond === "mcp") {
+    t = "호출 순서: " + (it.tools.join(" → ") || "없음");
+    if (it.tool_decision) t += "\n판정 도구: " + it.tool_decision.name + "\n넘긴 값: " + JSON.stringify(it.tool_decision.args, null, 1) + "\n도구 결과: " + it.tool_decision.result + " (" + it.tool_decision.status + ")";
+    else t += "\n판정 도구를 호출하지 않음";
+  } else t = it.retrieved.join(", ");
+  t += "\n출처 표기: " + (it.sources.join(", ") || "없음");
+  trace.append(el("pre", null, t)); res.append(trace);
+  cmp.append(exp, res); c.append(cmp);
+
+  const v = el("div", "verdict"); const pick = el("div", "pick"); pick.setAttribute("role", "group"); pick.setAttribute("aria-label", "판정");
+  [["O", "정답"], ["X", "오답"], ["?", "애매"]].forEach(([code, label]) => {
+    const b = el("button", null, label + " " + code); b.type = "button"; b.dataset.v = code; b.setAttribute("aria-pressed", "false");
+    b.addEventListener("click", () => save(it.key, { verdict: state[it.key]?.verdict === code ? "" : code }));
+    pick.append(b);
+  });
+  const note = el("input", "note"); note.id = "note-" + it.key; note.placeholder = "메모 (빠진 필수 항목, 정답 문제 등)"; note.setAttribute("aria-label", "메모");
+  note.addEventListener("change", () => save(it.key, { note: note.value.trim() }));
+  const saved = el("span", "saved"); saved.setAttribute("aria-live", "polite");
+  v.append(pick, note, saved); c.append(v);
+
+  const others = el("div", "others"); others.hidden = true;
+  const j = el("div", "other"); j.append(el("div", null, "LLM 채점기"));
+  const jl = el("div"); jl.append(el("b", it.judge.verdict === "O" ? "tag-ok" : "tag-bad", it.judge.verdict), document.createTextNode(" · 필수 항목 " + it.judge.items + " · " + it.judge.error));
+  j.append(jl, el("div", null, it.judge.comment));
+  others.append(j);
+  if (it.second) {
+    const s = el("div", "other"); s.append(el("div", null, "2차 검토 (Claude)"));
+    const sl = el("div"); sl.append(el("b", it.second.verdict === "O" ? "tag-ok" : "tag-bad", it.second.verdict));
+    if (it.second.verdict !== it.judge.verdict) sl.append(el("span", "diff", " · 채점기와 다름"));
+    s.append(sl); if (it.second.note) s.append(el("div", null, it.second.note)); others.append(s);
+  }
+  const mine = el("div", "other mine"); others.append(mine);
+  c.append(others);
+  return c;
+}
+
+const cards = {};
+DATA.items.forEach(it => { const c = card(it); cards[it.key] = c; $("list").append(c); });
+const empty = el("p", "empty", "이 필터에 해당하는 카드가 없습니다."); empty.hidden = true; $("list").append(empty);
+
+function render() {
+  let done = 0, o = 0, x = 0, q = 0, shown = 0;
+  DATA.items.forEach(it => {
+    const s = state[it.key] || {}, c = cards[it.key];
+    c.dataset.v = s.verdict || "";
+    c.querySelectorAll(".pick button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === s.verdict)));
+    const note = c.querySelector(".note"); if (document.activeElement !== note) note.value = s.note || "";
+    if (s.verdict) { done++; if (s.verdict === "O") o++; else if (s.verdict === "X") x++; else q++; }
+    const mine = c.querySelector(".mine"); mine.textContent = "";
+    mine.append(el("div", null, "내 판정"));
+    if (s.verdict) {
+      const ml = el("div"); ml.append(el("b", s.verdict === "O" ? "tag-ok" : s.verdict === "X" ? "tag-bad" : "diff", s.verdict));
+      if ((s.verdict === "O" || s.verdict === "X") && s.verdict !== it.judge.verdict) ml.append(el("span", "diff", " · 채점기와 다름"));
+      mine.append(ml);
+    } else mine.append(el("div", null, "아직 없음"));
+    c.querySelector(".others").hidden = !showOthers;
+    const split = it.second && it.second.verdict !== it.judge.verdict;
+    const visible = filter === "all" || (filter === "todo" && !s.verdict) || (filter === "split" && split) || filter === it.cond;
+    c.hidden = !visible; if (visible) shown++;
+  });
+  empty.hidden = shown > 0;
+  const n = DATA.items.length;
+  $("fill").style.width = (done / n * 100) + "%";
+  $("counts").textContent = "";
+  $("counts").append(document.createTextNode("검수 "), el("b", null, done + " / " + n), document.createTextNode(" · 정답 " + o + " · 오답 " + x + " · 애매 " + q));
+}
+
+$("filters").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  filter = b.dataset.f;
+  $("filters").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  render();
+});
+$("show-others").addEventListener("change", e => { showOthers = e.target.checked; render(); });
+
+function save(key, patch) {
+  const next = { ...(state[key] || {}), ...patch };
+  if (JSON.stringify(next) === JSON.stringify(state[key] || {})) return;
+  state[key] = next; render();
+  const saved = cards[key].querySelector(".saved");
+  if (!db) { saved.textContent = "저장 안 됨"; return; }
+  saved.textContent = "저장 중…";
+  const body = { verdict: next.verdict || "", note: next.note || "", updated_at: new Date().toISOString() };
+  pending[key] = (pending[key] || Promise.resolve()).then(() => db.doc("reviews/" + key).set(body))
+    .then(() => { saved.textContent = "저장됨"; })
+    .catch(err => { saved.textContent = "저장 실패"; setStatus("저장하지 못했습니다 (" + (err && err.code || "오류") + "). 이 화면에 편집 권한이 있는지 확인해 주세요."); });
+}
+
+render();
+
+(async () => {
+  try { db = await window.claude?.use?.("db"); } catch (e) { db = null; }
+  if (!db) { setStatus("이 화면에서는 판정을 저장할 수 없습니다 (로그인하지 않았거나 저장 기능이 꺼져 있음). 고른 내용은 새로고침하면 사라집니다."); return; }
+  const timer = setTimeout(() => setStatus("저장된 판정을 아직 불러오지 못했습니다. 연결 상태를 확인해 주세요."), 10000);
+  db.collection("reviews").onSnapshot(snap => {
+    if (!snap.metadata.fromCache) { clearTimeout(timer); setStatus(""); }
+    snap.docs.forEach(d => { const v = d.data(); if (v) state[d.id] = { verdict: v.verdict || "", note: v.note || "" }; });
+    render();
+  }, err => { clearTimeout(timer); setStatus("저장된 판정을 불러오지 못했습니다 (" + err.code + ")."); });
+})();
+</script>

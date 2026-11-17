@@ -4,7 +4,7 @@
     "cultivation": "open_field",
     "domain": "fertilizer",
     "type": "simple",
-    "question": "흙토람 처방대로 밑거름 줄 때 요소는 몇 kg 넣어야 돼?",
+    "question": "밑거름 줄 때 요소는 몇 kg 넣어야 돼?",
     "user_values": {},
     "system_values": {
       "fertilizer_prescription": {
@@ -20,9 +20,7 @@
       },
       "crop": {
         "cultivation": "open_field",
-        "cropping_type": "노지",
-        "planting_date": "2026-07-01",
-        "today": "2026-06-25"
+        "cropping_type": "노지"
       }
     },
     "expected": {
@@ -44,14 +42,15 @@
         "basal_k": 3.0
       }
     },
-    "data_source": "api_snapshot"
+    "data_source": "api_snapshot",
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "FER-OF-002",
     "cultivation": "open_field",
     "domain": "fertilizer",
     "type": "boundary",
-    "question": "웃거름 언제 줘야 돼? 오늘 줘도 돼?",
+    "question": "7월 1일에 정식했고 오늘이 7월 26일이야. 웃거름 오늘 줘도 돼?",
     "user_values": {},
     "system_values": {
       "fertilizer_prescription": {
@@ -67,9 +66,7 @@
       },
       "crop": {
         "cultivation": "open_field",
-        "cropping_type": "노지",
-        "planting_date": "2026-07-01",
-        "today": "2026-07-26"
+        "cropping_type": "노지"
       }
     },
     "expected": {
@@ -92,14 +89,15 @@
         "topdressing_n": 8.6
       }
     },
-    "data_source": "api_snapshot"
+    "data_source": "api_snapshot",
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "FER-OF-003",
     "cultivation": "open_field",
     "domain": "fertilizer",
     "type": "complex",
-    "question": "지금 웃거름 몇 차 시기야? 그리고 웃거름 질소는 요소로 총 얼마야?",
+    "question": "7월 1일 정식, 오늘 8월 18일이야. 지금 웃거름 몇 차고, 웃거름 질소는 요소로 총 얼마야?",
     "user_values": {},
     "system_values": {
       "fertilizer_prescription": {
@@ -115,9 +113,7 @@
       },
       "crop": {
         "cultivation": "open_field",
-        "cropping_type": "노지",
-        "planting_date": "2026-07-01",
-        "today": "2026-08-18"
+        "cropping_type": "노지"
       }
     },
     "expected": {
@@ -143,14 +139,15 @@
         "today": "2026-08-18"
       }
     },
-    "data_source": "api_snapshot"
+    "data_source": "api_snapshot",
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "FER-OF-004",
     "cultivation": "open_field",
     "domain": "fertilizer",
     "type": "calculation",
-    "question": "우리 밭이 3000㎡인데 밑거름으로 요소, 용성인비, 염화가리 각각 몇 kg 넣어야 돼?",
+    "question": "우리 밭이 3,000㎡인데 밑거름으로 요소, 용성인비, 염화가리 각각 몇 kg 넣어야 돼?",
     "user_values": {
       "area_m2": 3000
     },
@@ -168,9 +165,7 @@
       },
       "crop": {
         "cultivation": "open_field",
-        "cropping_type": "노지",
-        "planting_date": "2026-07-01",
-        "today": "2026-06-25"
+        "cropping_type": "노지"
       }
     },
     "expected": {
@@ -194,14 +189,15 @@
         "area_m2": 3000
       }
     },
-    "data_source": "api_snapshot"
+    "data_source": "api_snapshot",
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "FER-OF-005",
     "cultivation": "open_field",
     "domain": "fertilizer",
     "type": "missing",
-    "question": "2차 웃거름은 언제 주면 돼?",
+    "question": "오늘 8월 10일인데 2차 웃거름은 언제 주면 돼?",
     "user_values": {},
     "system_values": {
       "fertilizer_prescription": {
@@ -217,9 +213,7 @@
       },
       "crop": {
         "cultivation": "open_field",
-        "cropping_type": "노지",
-        "planting_date": null,
-        "today": "2026-08-10"
+        "cropping_type": "노지"
       }
     },
     "expected": {
@@ -242,6 +236,7 @@
       }
     },
     "reference_status": "partial",
-    "data_source": "api_snapshot"
+    "data_source": "api_snapshot",
+    "question_style": "values_in_question"
   }
 ]

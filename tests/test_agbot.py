@@ -29,6 +29,19 @@ def test_keyword_search(monkeypatch):
     assert {"doc_id", "chunk_id", "page", "text", "score"} <= set(hits[0])
 
 
+def test_farm_reference():
+    r = data.get_farm_reference(7, "day")
+    assert r["temp_c"]["farms"] >= 1 and r["temp_c"]["farm_mean_range"][0] <= r["temp_c"]["farm_mean_median"]
+    assert "참고" in r["note"]
+
+
+def test_questions_carry_values():
+    """값 포함 질문: 시스템은 흙토람 처방·재배 정보만 주고, 하우스·양액·기상 값은 주지 않는다."""
+    for s in data.load_scenarios():
+        assert set(s["system_values"]) <= {"crop", "fertilizer_prescription"}, s["scenario_id"]
+    assert "33℃" in data.get_scenario("ENV-GH-001")["question"]
+
+
 def test_situation_text_marks_missing():
     text = situation_text({"greenhouse_env": {"temp": 26.0, "rh": None}})
     assert "하우스 내 기온(℃) 26.0" in text and "상대습도(%) 자료 없음" in text
@@ -46,20 +59,20 @@ def test_mcp_server_tools_and_scenario_values():
             return names, status, decision
 
     names, status, decision = asyncio.run(run())
-    assert len(names) == 12
-    assert {"get_weather", "search_guideline", "task_decision", "fertilizer_schedule"} <= names
-    assert status["drain_volume"] == 840
+    assert len(names) == 13
+    assert {"get_weather", "search_guideline", "get_farm_reference", "task_decision", "fertilizer_schedule"} <= names
+    assert status["available"] is False  # 값은 이제 질문 안에 있고, 시스템은 양액 값을 주지 않는다
     assert decision["result"]["drain_rate_pct"] == 35.0 and decision["rule_ids"] == ["NUT-02"]
 
 
-@pytest.mark.parametrize("scenario_id, key", [("TSK-OF-003", "100배액"), ("NUT-GH-004", "급액량 감소"),
-                                               ("ENV-GH-003", "송풍"), ("WTH-OF-003", "배수로")])
-def test_ask_mcp_mock(scenario_id, key):
+@pytest.mark.parametrize("scenario_id, tool", [("TSK-OF-003", "task_decision"), ("NUT-GH-004", "nutrient_decision"),
+                                                ("ENV-GH-003", "climate_control_decision"), ("WTH-OF-003", "weather_risk_decision")])
+def test_ask_mcp_mock_pipeline(scenario_id, tool):
+    """Mock은 질문 속 값을 추출하지 않으므로 판정 내용이 아니라 MCP 왕복 흐름만 확인한다."""
     s = data.get_scenario(scenario_id)
     result = ask(s["question"], scenario_id, "mcp", mock=True)
     assert result["error"] is None
-    assert key in result["decision"]
-    assert result["tool_calls"][-1]["output"]["status"] in ("decided", "partial")
+    assert result["tool_calls"][-1]["name"] == tool
 
 
 def test_ask_rag_mock():

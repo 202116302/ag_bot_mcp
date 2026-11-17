@@ -30,7 +30,10 @@ MCP_INSTRUCTIONS = COMMON + """
 - 조회 도구(get_*)로 현재 농장 값을 확인하고, 질문에 들어 있는 값(화방 수, 개화 수, 날짜 등)은 직접 추출해
   해당 판정 도구(*_decision, fertilizer_schedule)에 인자로 넘긴다.
 - 판정은 판정 도구의 결과(result, status)를 그대로 따르고 바꾸지 않는다. 당신은 결과를 설명한다.
-- 도구 결과의 rule_ids·sources를 근거로 제시한다. 설명에 문서가 더 필요하면 search_guideline을 쓴다."""
+- 도구 결과의 rule_ids·sources를 근거로 제시한다. 설명에 문서가 더 필요하면 search_guideline을 쓴다.
+- 하우스 온도·습도에 관한 질문이면 get_farm_reference(월, 시간대)로 비슷한 시기 다른 시설 토마토 농가의 실제 기록을
+  확인하고, answer 끝에 한두 문장으로 비교해 덧붙인다(예: "같은 시기 다른 농가 n곳의 낮 평균은 ○~○℃").
+  이 참고 자료로 판정을 바꾸지 않으며, sources에는 doc_id "SMARTFARM-DATAMART"로 표기한다."""
 
 LABELS = {
     "temp": "하우스 내 기온(℃)", "rh": "하우스 내 상대습도(%)", "time_of_day": "시간대(day=주간, night=야간)",

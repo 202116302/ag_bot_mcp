@@ -168,6 +168,7 @@ def main():
             "evidence_presented": int(j["evidence_presented"]), "actions": "|".join(sorted(set(j["actions"]))),
             "error_type": j["error_type"], "input_mismatch": "; ".join(mismatch), "system_error": r["error"] or "",
             "decision": r.get("decision", ""), "tools": "|".join(c["name"] for c in r["tool_calls"]),
+            "reference_called": int(any(c["name"] == "get_farm_reference" for c in r["tool_calls"])),
             "seconds": r["seconds"], "review_sample": int(rng.random() < 0.1), "judge_comment": j["comment"],
         })
         print(f"[{i}/{len(records)}] {r['scenario_id']} {r['condition']} #{r['repeat']} "
@@ -180,6 +181,10 @@ def main():
     errs = Counter((r["condition"], r["error_type"]) for r in rows)
     write_csv(folder / "errors.csv", [{"condition": c, "error_type": e, "count": n} for (c, e), n in sorted(errs.items())])
     print(f"\n저장: {folder}/results.csv, summary.csv, errors.csv")
+    climate_mcp = [r for r in rows if r["condition"] == "mcp" and r["domain"] == "climate"]
+    if climate_mcp:
+        n = sum(r["reference_called"] for r in climate_mcp)
+        print(f"  MCP 환경제어 응답 중 다른 농가 참고(get_farm_reference) 사용: {n}/{len(climate_mcp)}")
     for s in summary:
         if s["group"] == "all":
             print(f"  {s['condition'].upper()}: 정확도 {s['accuracy']:.1%}, 일치율 {s['consistency']:.1%}, "

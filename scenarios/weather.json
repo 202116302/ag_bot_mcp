@@ -4,16 +4,9 @@
     "cultivation": "open_field",
     "domain": "weather",
     "type": "simple",
-    "question": "노지 토마토 밭인데 내일 예보 보고 대비할 거 있어?",
+    "question": "노지 토마토 밭인데 내일 최저 7℃, 최고 22℃로 예보됐어. 대비할 거 있어?",
     "user_values": {},
     "system_values": {
-      "weather": {
-        "station": "대관령(가상 시나리오)",
-        "tmin_forecast": 7.0,
-        "tmax_forecast": 22.0,
-        "rain_forecast_mm": 0,
-        "heavy_rain_warning": false
-      },
       "crop": {
         "cultivation": "open_field",
         "cropping_type": "노지",
@@ -38,23 +31,17 @@
         "tmax_forecast": 22.0,
         "heavy_rain_warning": false
       }
-    }
+    },
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "WTH-OF-002",
     "cultivation": "open_field",
     "domain": "weather",
     "type": "boundary",
-    "question": "노지 토마토 밭인데 예보 보니까 덥다던데 대응해야 해?",
+    "question": "노지 토마토 밭인데 내일 최고기온이 30℃래. 대응해야 해?",
     "user_values": {},
     "system_values": {
-      "weather": {
-        "station": "대관령(가상 시나리오)",
-        "tmin_forecast": 12.0,
-        "tmax_forecast": 30.0,
-        "rain_forecast_mm": 0,
-        "heavy_rain_warning": false
-      },
       "crop": {
         "cultivation": "open_field",
         "cropping_type": "노지",
@@ -79,23 +66,17 @@
         "tmax_forecast": 30.0,
         "heavy_rain_warning": false
       }
-    }
+    },
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "WTH-OF-003",
     "cultivation": "open_field",
     "domain": "weather",
     "type": "complex",
-    "question": "노지 토마토 밭인데 이번 주 날씨 보고 미리 할 일 있어?",
+    "question": "노지 토마토 밭인데 이번 주 최고 31℃에 호우특보까지 떴어. 미리 할 일 있어?",
     "user_values": {},
     "system_values": {
-      "weather": {
-        "station": "대관령(가상 시나리오)",
-        "tmin_forecast": 18.0,
-        "tmax_forecast": 31.0,
-        "rain_forecast_mm": 120,
-        "heavy_rain_warning": true
-      },
       "crop": {
         "cultivation": "open_field",
         "cropping_type": "노지",
@@ -121,7 +102,8 @@
         "tmax_forecast": 31.0,
         "heavy_rain_warning": true
       }
-    }
+    },
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "WTH-OF-004",
@@ -134,13 +116,6 @@
       "flood_days": 1.5
     },
     "system_values": {
-      "weather": {
-        "station": "대관령(가상 시나리오)",
-        "tmin_forecast": 17.0,
-        "tmax_forecast": 25.0,
-        "rain_forecast_mm": 10,
-        "heavy_rain_warning": false
-      },
       "crop": {
         "cultivation": "open_field",
         "cropping_type": "노지",
@@ -164,7 +139,8 @@
         "flood_type": "ridge",
         "flood_days": 1.5
       }
-    }
+    },
+    "question_style": "values_in_question"
   },
   {
     "scenario_id": "WTH-OF-005",
@@ -174,13 +150,6 @@
     "question": "노지 토마토 밭인데 다음 주에 추워진다던데 보온 덮어야 해?",
     "user_values": {},
     "system_values": {
-      "weather": {
-        "station": "대관령(가상 시나리오)",
-        "tmin_forecast": null,
-        "tmax_forecast": null,
-        "rain_forecast_mm": null,
-        "heavy_rain_warning": null
-      },
       "crop": {
         "cultivation": "open_field",
         "cropping_type": "노지",
@@ -203,6 +172,7 @@
       "tool": "weather_risk_decision",
       "args": {}
     },
-    "reference_status": "insufficient_data"
+    "reference_status": "insufficient_data",
+    "question_style": "values_in_question"
   }
 ]

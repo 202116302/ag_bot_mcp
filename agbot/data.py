@@ -140,6 +140,45 @@ def _fetch_weather_live(fallback: dict) -> dict:
 LOADERS = {"fertilizer": get_fertilizer, "environment": get_environment, "weather": get_weather}
 
 
+# ---------------------------------------------------------------- 다른 농가 참고 (스마트팜 데이터마트)
+DAY_HOURS, NIGHT_HOURS = range(10, 17), (20, 21, 22, 23, 0, 1, 2, 3, 4)
+
+
+def get_farm_reference(month: int, time_of_day: str = "day") -> dict:
+    """같은 시기(±1개월, 농가가 3곳 미만이면 ±2개월) 다른 시설 토마토 농가의 하우스 온도·습도 기록.
+    판정 기준이 아니라 참고용 비교 자료다."""
+    snap = _load("snapshots/smartfarm_reference.json")
+    hours = set(DAY_HOURS if time_of_day == "day" else NIGHT_HOURS)
+    month_gap = lambda m: min(abs(m - month), 12 - abs(m - month))
+    for window in (1, 2):
+        farms = [f for f in snap["farms"] if month_gap(f["month"]) <= window]
+        if len(farms) >= 3:
+            break
+
+    def summarize(key: str) -> dict | None:
+        per_farm = []
+        for f in farms:
+            vals = [v for h, v in f[key].items() if int(h) in hours]
+            if vals:
+                per_farm.append({"facility": f["facility"], "date": f["date"], "mean": round(sum(vals) / len(vals), 1),
+                                 "min": min(vals), "max": max(vals)})
+        if not per_farm:
+            return None
+        means = sorted(p["mean"] for p in per_farm)
+        mid = len(means) // 2
+        median = means[mid] if len(means) % 2 else round((means[mid - 1] + means[mid]) / 2, 1)
+        return {"farms": len(per_farm), "farm_mean_median": median, "farm_mean_range": [means[0], means[-1]],
+                "highest_record": max(p["max"] for p in per_farm), "lowest_record": min(p["min"] for p in per_farm),
+                "per_farm": per_farm}
+
+    return {
+        "query": {"month": month, "time_of_day": time_of_day, "months_window": f"±{window}개월"},
+        "temp_c": summarize("temp"), "rh_pct": summarize("rh"),
+        "source": "스마트팜 빅데이터 데이터마트, 다른 시설 토마토 농가의 실제 기록 (과거 작기, 농가당 하루)",
+        "note": "단위가 API에 표기되지 않아 ℃·%로 가정. 판정 기준이 아닌 참고용 비교 자료.",
+    }
+
+
 # ---------------------------------------------------------------- 시나리오 (v3)
 SCENARIO_DIR = DATA.parent / "scenarios"
 

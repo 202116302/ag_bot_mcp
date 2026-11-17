@@ -58,6 +58,13 @@ def get_crop_status() -> dict:
 
 
 @mcp.tool()
+def get_farm_reference(month: int, time_of_day: str = "day") -> dict:
+    """다른 시설 토마토 농가 참고 기록(스마트팜 데이터마트): 같은 시기(월)·시간대(day/night) 하우스 온도·습도의
+    농가별 평균과 범위. 판정 기준이 아니라 '실제 농가들은 이렇게 관리했다'는 비교 참고용."""
+    return data.get_farm_reference(month, time_of_day)
+
+
+@mcp.tool()
 def search_guideline(query: str, k: int = 5) -> list[dict]:
     """토마토 재배 기준 문서(제주농기원 토마토, 농진청 기상재해 가이드북, 양액 논문)에서 관련 문단을 검색한다."""
     return docs.search_guideline(query, k)
