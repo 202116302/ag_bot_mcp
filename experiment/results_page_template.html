@@ -1,0 +1,190 @@
+<title>__TITLE__</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@500;600&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* layout: 상단 요약·필터 바 + 시나리오 카드 목록. 카드 안에서 정답 아래 RAG(왼쪽)와 MCP(오른쪽) 응답을 나란히 비교 */
+:root {
+  --bg: #f4f6f2; --surface: #ffffff; --sunk: #eef1ec; --ink: #1c2320; --muted: #5b6660; --line: #dbe1dc;
+  --rag: #c0661c; --rag-soft: #fbeedf; --mcp: #23825c; --mcp-soft: #e1f2ea;
+  --ok: #2b7a40; --bad: #bf3d2c; --exp: #eef2f7; --exp-line: #cfd8e3;
+  --f-body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --f-head: "IBM Plex Sans KR", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111513; --surface: #191f1c; --sunk: #141916; --ink: #e5ebe7; --muted: #9aa69f; --line: #2a332e;
+  --rag: #f0a35e; --rag-soft: #3a2614; --mcp: #6fcb9f; --mcp-soft: #17332a;
+  --ok: #74c486; --bad: #ef7b67; --exp: #1c2430; --exp-line: #2e3a4a; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111513; --surface: #191f1c; --sunk: #141916; --ink: #e5ebe7; --muted: #9aa69f; --line: #2a332e;
+  --rag: #f0a35e; --rag-soft: #3a2614; --mcp: #6fcb9f; --mcp-soft: #17332a;
+  --ok: #74c486; --bad: #ef7b67; --exp: #1c2430; --exp-line: #2e3a4a; color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.6; margin: 0 }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 64px }
+h1, h2, h3 { font-family: var(--f-head); text-wrap: balance; margin: 0 }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums }
+
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface) }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line) }
+.bar-in { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 12px; display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center }
+.bar h1 { font-size: 18px; font-weight: 600 }
+.run { color: var(--muted); font-size: 12px }
+.score { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted) }
+.score b { font-family: var(--f-mono); font-size: 16px }
+.score .r b { color: var(--rag) } .score .m b { color: var(--mcp) }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; width: 100% }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; flex-wrap: wrap }
+.seg button { font: inherit; font-size: 13px; border: 0; background: transparent; color: var(--muted); padding: 5px 11px; cursor: pointer }
+.seg button + button { border-left: 1px solid var(--line) }
+.seg button[aria-pressed="true"] { background: var(--sunk); color: var(--ink); font-weight: 500 }
+.toggle { font-size: 13px; color: var(--muted); display: inline-flex; gap: 6px; align-items: center; cursor: pointer }
+
+.intro { margin: 20px 0 4px; color: var(--muted); max-width: 72ch; font-size: 14px }
+.list { display: grid; gap: 18px; margin-top: 16px }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 14px; min-width: 0 }
+.head { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; font-size: 12px }
+.chip { border: 1px solid var(--line); border-radius: 999px; padding: 1px 9px; color: var(--muted); white-space: nowrap }
+.badges { margin-left: auto; display: flex; gap: 6px }
+.badge { font-family: var(--f-mono); font-size: 12px; border-radius: 6px; padding: 2px 8px; font-weight: 500 }
+.badge.rag { background: var(--rag-soft); color: var(--rag) } .badge.mcp { background: var(--mcp-soft); color: var(--mcp) }
+.q { font-family: var(--f-head); font-size: 18px; font-weight: 500 }
+.exp { background: var(--exp); border: 1px solid var(--exp-line); border-radius: 8px; padding: 10px 14px; font-size: 14px }
+.exp .lbl { font-size: 11px; letter-spacing: .05em; color: var(--muted); font-weight: 600; margin-right: 8px }
+.exp ul { margin: 4px 0 0; padding-left: 18px; color: var(--muted) }
+
+.cmp { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px }
+@media (max-width: 760px) { .cmp { grid-template-columns: 1fr } }
+.col { border: 1px solid var(--line); border-top: 3px solid var(--c); border-radius: 8px; padding: 12px 14px; min-width: 0; display: grid; gap: 8px; align-content: start }
+.col.rag { --c: var(--rag) } .col.mcp { --c: var(--mcp) }
+.col-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap }
+.col-head h3 { font-size: 14px; color: var(--c) }
+.dots { display: flex; gap: 4px; flex-wrap: wrap }
+.dots button { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid transparent; font: 500 11px var(--f-mono); cursor: pointer; padding: 0; color: #fff }
+.dots button.o { background: var(--ok) } .dots button.x { background: var(--bad) }
+.dots button[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: 1px }
+.dec { font-weight: 700; display: flex; gap: 8px; align-items: baseline }
+.mark { font-family: var(--f-mono); font-size: 13px; font-weight: 700 }
+.mark.o { color: var(--ok) } .mark.x { color: var(--bad) }
+.ans { white-space: pre-line; overflow-wrap: anywhere; font-size: 14px }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 6px; font-size: 12px }
+.meta span { background: var(--sunk); border-radius: 5px; padding: 1px 7px; color: var(--muted) }
+.meta span.ref { background: var(--mcp-soft); color: var(--mcp) }
+details { font-size: 13px; color: var(--muted) }
+summary { cursor: pointer; color: var(--ink) }
+details pre { font-family: var(--f-mono); font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; margin: 6px 0 0 }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px }
+.empty { color: var(--muted); padding: 32px 0; text-align: center }
+</style>
+
+<header class="bar">
+  <div class="bar-in">
+    <div><h1>__TITLE__</h1><div class="run mono" id="run"></div></div>
+    <div class="score" id="score"></div>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="영역" id="domains"></div>
+      <label class="toggle"><input type="checkbox" id="gap-only"> 두 조건 차이가 5회 이상인 문항만</label>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="intro">시나리오마다 같은 질문을 RAG와 MCP로 10회씩 물었습니다. 색 칸은 회차별 정답(초록)·오답(빨강)이고, 칸을 누르면 그 회차의 실제 응답을 볼 수 있습니다. 처음에는 각 조건에서 더 많이 나온 결과의 회차를 보여줍니다.</p>
+  <div class="list" id="list"></div>
+</main>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+const DATA = JSON.parse(document.getElementById("data").textContent);
+const TYPE = { simple: "단순", boundary: "경계", complex: "복합", calculation: "계산", missing: "정보 누락" };
+const DOMAIN = { climate: "환경제어", nutrient: "양액관리", fertilizer: "시비", weather: "기상대응", task: "작업관리" };
+const ERR = { none: "", interpretation_error: "해석 오류", missing_info_ignored: "누락 정보 추측", input_transfer_error: "입력값 전달 오류",
+  retrieval_failure: "검색 실패", calculation_error: "계산 오류", evasion: "판정 회피", range_answer: "범위로 답함", explanation_error: "설명 오류", other: "기타" };
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const $ = id => document.getElementById(id);
+const pct = v => (Number(v) * 100).toFixed(1) + "%";
+
+$("run").textContent = DATA.run + " · 시나리오 " + DATA.scenarios.length + "개 × 10회";
+const sc = $("score");
+[["r", "RAG", "rag"], ["m", "MCP", "mcp"]].forEach(([cls, label, k]) => {
+  const s = el("div", cls); s.append(document.createTextNode(label + " 판정 정확도 "), el("b", null, pct(DATA.overall[k].accuracy)));
+  s.append(document.createTextNode(" · 필수 항목 누락 " + pct(DATA.overall[k].missing_rate))); sc.append(s);
+});
+
+let domain = "all", gapOnly = false;
+const segs = $("domains");
+[["all", "전체"], ...Object.entries(DOMAIN)].forEach(([k, label], i) => {
+  const b = el("button", null, label); b.type = "button"; b.dataset.d = k; b.setAttribute("aria-pressed", String(i === 0));
+  b.addEventListener("click", () => { domain = k; segs.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); filter(); });
+  segs.append(b);
+});
+$("gap-only").addEventListener("change", e => { gapOnly = e.target.checked; filter(); });
+
+function column(s, cond) {
+  const col = el("section", "col " + cond);
+  const head = el("div", "col-head"); head.append(el("h3", null, cond.toUpperCase() + " · " + s.score[cond] + "/10 정답"));
+  const dots = el("div", "dots"); dots.setAttribute("role", "group"); dots.setAttribute("aria-label", cond.toUpperCase() + " 회차");
+  head.append(dots); col.append(head);
+  const body = el("div"); body.style.display = "grid"; body.style.gap = "8px"; col.append(body);
+  const runs = s.runs[cond];
+  const majorityOk = s.score[cond] >= 5;
+  let pick = runs.findIndex(r => r.ok === majorityOk); if (pick < 0) pick = 0;
+  runs.forEach((r, i) => {
+    const b = el("button", r.ok ? "o" : "x", String(i + 1)); b.type = "button";
+    b.setAttribute("aria-label", (i + 1) + "회차 " + (r.ok ? "정답" : "오답"));
+    b.addEventListener("click", () => show(i)); dots.append(b);
+  });
+  function show(i) {
+    pick = i; const r = runs[i];
+    dots.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-pressed", String(j === i)));
+    body.textContent = "";
+    const dec = el("div", "dec"); dec.append(el("span", "mark " + (r.ok ? "o" : "x"), r.ok ? "O" : "X"), el("span", null, r.decision || "(판정 없음)"));
+    body.append(dec, el("div", "ans", r.answer));
+    const meta = el("div", "meta");
+    meta.append(el("span", null, (i + 1) + "회차"), el("span", null, "필수 항목 " + r.items));
+    if (!r.ok && ERR[r.err]) meta.append(el("span", null, ERR[r.err]));
+    if (cond === "mcp" && r.reference) meta.append(el("span", "ref", "다른 농가 참고 사용"));
+    meta.append(el("span", null, r.seconds + "초"));
+    body.append(meta);
+    const d = el("details"); d.append(el("summary", null, cond === "mcp" ? "도구 호출과 근거" : "검색 문서와 근거"));
+    let t = "";
+    if (cond === "mcp") {
+      t = "호출 순서: " + (r.tools.join(" → ") || "없음");
+      t += r.tool ? "\n판정 도구: " + r.tool.name + "\n넘긴 값: " + JSON.stringify(r.tool.args) + "\n도구 판정: " + r.tool.result : "\n판정 도구를 호출하지 않음";
+    } else {
+      const cnt = {}; r.retrieved.forEach(x => cnt[x] = (cnt[x] || 0) + 1);
+      t = "검색된 문단 5개의 출처: " + Object.entries(cnt).map(([k, v]) => k + " " + v).join(", ");
+    }
+    if (r.basis) t += "\n\n근거: " + r.basis;
+    t += "\n출처 표기: " + (r.sources.join(", ") || "없음");
+    d.append(el("pre", null, t)); body.append(d);
+  }
+  show(pick);
+  return col;
+}
+
+const cards = DATA.scenarios.map(s => {
+  const c = el("article", "card"); c.dataset.d = s.domain; c.dataset.gap = Math.abs(s.score.mcp - s.score.rag);
+  const h = el("div", "head");
+  h.append(el("span", "chip mono", s.sid), el("span", "chip", DOMAIN[s.domain]), el("span", "chip", TYPE[s.type]));
+  const badges = el("div", "badges"); badges.append(el("span", "badge rag", "RAG " + s.score.rag + "/10"), el("span", "badge mcp", "MCP " + s.score.mcp + "/10"));
+  h.append(badges);
+  const exp = el("div", "exp"); exp.append(el("span", "lbl", "정답"), document.createTextNode(s.expected));
+  const ul = el("ul"); s.required.forEach(x => ul.append(el("li", null, x))); exp.append(ul);
+  const cmp = el("div", "cmp"); cmp.append(column(s, "rag"), column(s, "mcp"));
+  c.append(h, el("div", "q", s.question), exp, cmp);
+  $("list").append(c);
+  return c;
+});
+const empty = el("p", "empty", "조건에 맞는 문항이 없습니다."); empty.hidden = true; $("list").append(empty);
+
+function filter() {
+  let n = 0;
+  cards.forEach(c => { const v = (domain === "all" || c.dataset.d === domain) && (!gapOnly || Number(c.dataset.gap) >= 5); c.hidden = !v; if (v) n++; });
+  empty.hidden = n > 0;
+}
+filter();
+</script>
