@@ -89,7 +89,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--ink); outli
 </header>
 
 <main class="wrap">
-  <p class="intro">같은 질문을 RAG와 MCP 방식으로 각각 10회씩 물었습니다. 번호를 누르면 그 회차의 실제 답변을 볼 수 있습니다.</p>
+  <p class="intro">같은 질문을 RAG와 MCP 방식으로 물었을 때의 답변입니다. 각 방식에서 10회 반복 중 가장 많이 나온 결과에 해당하는 답변을 보여줍니다.</p>
   <div class="list" id="list"></div>
 </main>
 
@@ -117,25 +117,17 @@ const segs = $("domains");
 function column(s, cond) {
   const col = el("section", "col " + cond);
   const head = el("div", "col-head"); head.append(el("h3", null, cond.toUpperCase()));
-  const dots = el("div", "dots"); dots.setAttribute("role", "group"); dots.setAttribute("aria-label", cond.toUpperCase() + " 회차");
-  head.append(dots); col.append(head);
+  col.append(head);
   const body = el("div"); body.style.display = "grid"; body.style.gap = "8px"; col.append(body);
   const runs = s.runs[cond];
   const majorityOk = s.score[cond] >= 5;
   let pick = runs.findIndex(r => r.ok === majorityOk); if (pick < 0) pick = 0;
-  runs.forEach((r, i) => {
-    const b = el("button", null, String(i + 1)); b.type = "button";
-    b.setAttribute("aria-label", (i + 1) + "회차");
-    b.addEventListener("click", () => show(i)); dots.append(b);
-  });
   function show(i) {
     pick = i; const r = runs[i];
-    dots.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-pressed", String(j === i)));
     body.textContent = "";
     const dec = el("div", "dec"); dec.append(el("span", null, r.decision || "(판정 없음)"));
     body.append(dec, el("div", "ans", r.answer));
     const meta = el("div", "meta");
-    meta.append(el("span", null, (i + 1) + "회차"));
     if (cond === "mcp" && r.reference) meta.append(el("span", "ref", "다른 농가 참고 사용"));
     meta.append(el("span", null, r.seconds + "초"));
     body.append(meta);
