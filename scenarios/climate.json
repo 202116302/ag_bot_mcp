@@ -5,7 +5,12 @@
     "domain": "climate",
     "type": "simple",
     "question": "7월 낮 2시인데 하우스 온도가 33℃, 습도 60%야. 바깥은 24℃고. 환기해야 돼?",
-    "user_values": {},
+    "user_values": {
+      "greenhouse_temp": 33.0,
+      "greenhouse_rh": 60,
+      "outdoor_temp": 24.0,
+      "time_of_day": "day"
+    },
     "system_values": {
       "crop": {
         "cultivation": "greenhouse_hydroponic"
@@ -39,7 +44,11 @@
     "domain": "climate",
     "type": "boundary",
     "question": "7월 낮인데 하우스 온도가 딱 30℃고 습도 55%야. 뭐 조치해야 돼?",
-    "user_values": {},
+    "user_values": {
+      "greenhouse_temp": 30.0,
+      "greenhouse_rh": 55,
+      "time_of_day": "day"
+    },
     "system_values": {
       "crop": {
         "cultivation": "greenhouse_hydroponic"
@@ -61,7 +70,6 @@
       "args": {
         "greenhouse_temp": 30.0,
         "greenhouse_rh": 55,
-        "outdoor_temp": 22.0,
         "time_of_day": "day"
       }
     },
@@ -73,7 +81,12 @@
     "domain": "climate",
     "type": "complex",
     "question": "11월 밤 10시인데 하우스 습도가 85%, 온도는 16℃야. 바깥은 8℃고. 환기할까?",
-    "user_values": {},
+    "user_values": {
+      "greenhouse_temp": 16.0,
+      "greenhouse_rh": 85,
+      "outdoor_temp": 8.0,
+      "time_of_day": "night"
+    },
     "system_values": {
       "crop": {
         "cultivation": "greenhouse_hydroponic"
@@ -109,7 +122,10 @@
     "domain": "climate",
     "type": "calculation",
     "question": "7월 낮에 하우스가 32℃까지 올라갔어. 차광막 치면 몇 도까지 내려갈 수 있어?",
-    "user_values": {},
+    "user_values": {
+      "greenhouse_temp": 32.0,
+      "time_of_day": "day"
+    },
     "system_values": {
       "crop": {
         "cultivation": "greenhouse_hydroponic"
@@ -132,12 +148,11 @@
       "tool": "climate_control_decision",
       "args": {
         "greenhouse_temp": 32.0,
-        "greenhouse_rh": 60,
-        "outdoor_temp": 27.0,
         "time_of_day": "day"
       }
     },
-    "question_style": "values_in_question"
+    "question_style": "values_in_question",
+    "reference_status": "partial"
   },
   {
     "scenario_id": "ENV-GH-005",
@@ -145,7 +160,10 @@
     "domain": "climate",
     "type": "missing",
     "question": "낮에 하우스 온도는 26℃인데 열과 생길까 봐 걱정이야. 송풍기 틀어야 해?",
-    "user_values": {},
+    "user_values": {
+      "greenhouse_temp": 26.0,
+      "time_of_day": "day"
+    },
     "system_values": {
       "crop": {
         "cultivation": "greenhouse_hydroponic"
@@ -166,7 +184,6 @@
       "tool": "climate_control_decision",
       "args": {
         "greenhouse_temp": 26.0,
-        "outdoor_temp": 20.0,
         "time_of_day": "day"
       }
     },

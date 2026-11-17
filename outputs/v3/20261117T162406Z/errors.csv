@@ -1,0 +1,15 @@
+﻿condition,error_type,count
+mcp,calculation_error,1
+mcp,evasion,3
+mcp,explanation_error,1
+mcp,input_transfer_error,34
+mcp,interpretation_error,6
+mcp,missing_info_ignored,14
+mcp,none,190
+mcp,other,1
+rag,calculation_error,2
+rag,evasion,9
+rag,interpretation_error,32
+rag,missing_info_ignored,62
+rag,none,139
+rag,retrieval_failure,6

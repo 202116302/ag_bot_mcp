@@ -5,7 +5,10 @@
     "domain": "weather",
     "type": "simple",
     "question": "노지 토마토 밭인데 내일 최저 7℃, 최고 22℃로 예보됐어. 대비할 거 있어?",
-    "user_values": {},
+    "user_values": {
+      "tmin_forecast": 7.0,
+      "tmax_forecast": 22.0
+    },
     "system_values": {
       "crop": {
         "cultivation": "open_field",
@@ -28,8 +31,7 @@
       "tool": "weather_risk_decision",
       "args": {
         "tmin_forecast": 7.0,
-        "tmax_forecast": 22.0,
-        "heavy_rain_warning": false
+        "tmax_forecast": 22.0
       }
     },
     "question_style": "values_in_question"
@@ -40,7 +42,9 @@
     "domain": "weather",
     "type": "boundary",
     "question": "노지 토마토 밭인데 내일 최고기온이 30℃래. 대응해야 해?",
-    "user_values": {},
+    "user_values": {
+      "tmax_forecast": 30.0
+    },
     "system_values": {
       "crop": {
         "cultivation": "open_field",
@@ -62,9 +66,7 @@
     "reference_call": {
       "tool": "weather_risk_decision",
       "args": {
-        "tmin_forecast": 12.0,
-        "tmax_forecast": 30.0,
-        "heavy_rain_warning": false
+        "tmax_forecast": 30.0
       }
     },
     "question_style": "values_in_question"
@@ -75,7 +77,10 @@
     "domain": "weather",
     "type": "complex",
     "question": "노지 토마토 밭인데 이번 주 최고 31℃에 호우특보까지 떴어. 미리 할 일 있어?",
-    "user_values": {},
+    "user_values": {
+      "tmax_forecast": 31.0,
+      "heavy_rain_warning": true
+    },
     "system_values": {
       "crop": {
         "cultivation": "open_field",
@@ -98,7 +103,6 @@
     "reference_call": {
       "tool": "weather_risk_decision",
       "args": {
-        "tmin_forecast": 18.0,
         "tmax_forecast": 31.0,
         "heavy_rain_warning": true
       }

@@ -17,7 +17,7 @@ def _section(name: str) -> dict:
         values = data.live_section(name)
     else:
         values = data.get_scenario(scenario)["system_values"].get(name)
-    return values if values is not None else {"available": False, "note": "이 농장에는 해당 자료가 없습니다."}
+    return values if values is not None else {"available": False, "note": "시스템에 등록된 측정값이 없습니다. 질문에 값이 나와 있으면 그 값을 사용하세요."}
 
 
 # ------------------------------------------------------------------ 조회 도구

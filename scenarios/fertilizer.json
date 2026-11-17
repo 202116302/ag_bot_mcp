@@ -51,7 +51,10 @@
     "domain": "fertilizer",
     "type": "boundary",
     "question": "7월 1일에 정식했고 오늘이 7월 26일이야. 웃거름 오늘 줘도 돼?",
-    "user_values": {},
+    "user_values": {
+      "planting_date": "2026-07-01",
+      "today": "2026-07-26"
+    },
     "system_values": {
       "fertilizer_prescription": {
         "unit": "kg/10a",
@@ -85,8 +88,7 @@
       "tool": "fertilizer_schedule",
       "args": {
         "planting_date": "2026-07-01",
-        "today": "2026-07-26",
-        "topdressing_n": 8.6
+        "today": "2026-07-26"
       }
     },
     "data_source": "api_snapshot",
@@ -98,7 +100,10 @@
     "domain": "fertilizer",
     "type": "complex",
     "question": "7월 1일 정식, 오늘 8월 18일이야. 지금 웃거름 몇 차고, 웃거름 질소는 요소로 총 얼마야?",
-    "user_values": {},
+    "user_values": {
+      "planting_date": "2026-07-01",
+      "today": "2026-08-18"
+    },
     "system_values": {
       "fertilizer_prescription": {
         "unit": "kg/10a",
@@ -198,7 +203,9 @@
     "domain": "fertilizer",
     "type": "missing",
     "question": "오늘 8월 10일인데 2차 웃거름은 언제 주면 돼?",
-    "user_values": {},
+    "user_values": {
+      "today": "2026-08-10"
+    },
     "system_values": {
       "fertilizer_prescription": {
         "unit": "kg/10a",
@@ -231,7 +238,6 @@
     "reference_call": {
       "tool": "fertilizer_schedule",
       "args": {
-        "topdressing_n": 8.6,
         "today": "2026-08-10"
       }
     },

@@ -5,7 +5,9 @@
     "domain": "nutrient",
     "type": "simple",
     "question": "오늘 적산일사량이 210 J/㎠ 됐는데 지금 급액해야 돼?",
-    "user_values": {},
+    "user_values": {
+      "solar_accum": 210
+    },
     "system_values": {
       "crop": {
         "cultivation": "greenhouse_hydroponic"
@@ -36,7 +38,10 @@
     "domain": "nutrient",
     "type": "boundary",
     "question": "배액 EC가 3.0, 급액 EC가 1.5인데 괜찮은 거야?",
-    "user_values": {},
+    "user_values": {
+      "supply_ec": 1.5,
+      "drain_ec": 3.0
+    },
     "system_values": {
       "crop": {
         "cultivation": "greenhouse_hydroponic"
@@ -70,7 +75,11 @@
     "domain": "nutrient",
     "type": "complex",
     "question": "오늘 1,000mL 줬는데 배액이 100mL밖에 안 나오고 배액 EC도 1.6이야. 급액 어떻게 조정해?",
-    "user_values": {},
+    "user_values": {
+      "supply_volume": 1000,
+      "drain_volume": 100,
+      "drain_ec": 1.6
+    },
     "system_values": {
       "crop": {
         "cultivation": "greenhouse_hydroponic"
@@ -106,7 +115,10 @@
     "domain": "nutrient",
     "type": "calculation",
     "question": "오늘 급액 2,400mL에 배액 840mL 나왔어. 배액률 계산해서 급액량 조정해줘.",
-    "user_values": {},
+    "user_values": {
+      "supply_volume": 2400,
+      "drain_volume": 840
+    },
     "system_values": {
       "crop": {
         "cultivation": "greenhouse_hydroponic"
@@ -139,7 +151,9 @@
     "domain": "nutrient",
     "type": "missing",
     "question": "오늘 2,000mL 급액했는데 배액률이 적당한지 봐줘.",
-    "user_values": {},
+    "user_values": {
+      "supply_volume": 2000
+    },
     "system_values": {
       "crop": {
         "cultivation": "greenhouse_hydroponic"
