@@ -46,7 +46,6 @@ def main(folder: str, title: str = "RAG vs MCP 응답 비교"):
         runs = {c: [run(sid, c, i) for i in range(1, 11)] for c in ("rag", "mcp")}
         scenarios.append({
             "sid": sid, "domain": s["domain"], "type": s["type"], "question": s["question"],
-            "expected": s["expected"]["decision"], "required": s["expected"]["required_items"],
             "score": {c: sum(x["ok"] for x in runs[c]) for c in runs}, "runs": runs,
         })
     overall = {c: {k: summary[(c, "all", "all")][k] for k in ("accuracy", "consistency", "missing_rate", "evidence_rate")}

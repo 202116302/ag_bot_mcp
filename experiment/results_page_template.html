@@ -63,9 +63,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .col-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap }
 .col-head h3 { font-size: 14px; color: var(--c) }
 .dots { display: flex; gap: 4px; flex-wrap: wrap }
-.dots button { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid transparent; font: 500 11px var(--f-mono); cursor: pointer; padding: 0; color: #fff }
-.dots button.o { background: var(--ok) } .dots button.x { background: var(--bad) }
-.dots button[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: 1px }
+.dots button { width: 24px; height: 24px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); font: 500 11px var(--f-mono); cursor: pointer; padding: 0; color: var(--muted) }
+.dots button[aria-pressed="true"] { background: var(--c); border-color: var(--c); color: var(--surface) }
 .dec { font-weight: 700; display: flex; gap: 8px; align-items: baseline }
 .mark { font-family: var(--f-mono); font-size: 13px; font-weight: 700 }
 .mark.o { color: var(--ok) } .mark.x { color: var(--bad) }
@@ -83,16 +82,14 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--ink); outli
 <header class="bar">
   <div class="bar-in">
     <div><h1>__TITLE__</h1><div class="run mono" id="run"></div></div>
-    <div class="score" id="score"></div>
     <div class="controls">
       <div class="seg" role="group" aria-label="영역" id="domains"></div>
-      <label class="toggle"><input type="checkbox" id="gap-only"> 두 조건 차이가 5회 이상인 문항만</label>
     </div>
   </div>
 </header>
 
 <main class="wrap">
-  <p class="intro">시나리오마다 같은 질문을 RAG와 MCP로 10회씩 물었습니다. 색 칸은 회차별 정답(초록)·오답(빨강)이고, 칸을 누르면 그 회차의 실제 응답을 볼 수 있습니다. 처음에는 각 조건에서 더 많이 나온 결과의 회차를 보여줍니다.</p>
+  <p class="intro">같은 질문을 RAG와 MCP 방식으로 각각 10회씩 물었습니다. 번호를 누르면 그 회차의 실제 답변을 볼 수 있습니다.</p>
   <div class="list" id="list"></div>
 </main>
 
@@ -108,24 +105,18 @@ const $ = id => document.getElementById(id);
 const pct = v => (Number(v) * 100).toFixed(1) + "%";
 
 $("run").textContent = DATA.run + " · 시나리오 " + DATA.scenarios.length + "개 × 10회";
-const sc = $("score");
-[["r", "RAG", "rag"], ["m", "MCP", "mcp"]].forEach(([cls, label, k]) => {
-  const s = el("div", cls); s.append(document.createTextNode(label + " 판정 정확도 "), el("b", null, pct(DATA.overall[k].accuracy)));
-  s.append(document.createTextNode(" · 필수 항목 누락 " + pct(DATA.overall[k].missing_rate))); sc.append(s);
-});
 
-let domain = "all", gapOnly = false;
+let domain = "all";
 const segs = $("domains");
 [["all", "전체"], ...Object.entries(DOMAIN)].forEach(([k, label], i) => {
   const b = el("button", null, label); b.type = "button"; b.dataset.d = k; b.setAttribute("aria-pressed", String(i === 0));
   b.addEventListener("click", () => { domain = k; segs.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); filter(); });
   segs.append(b);
 });
-$("gap-only").addEventListener("change", e => { gapOnly = e.target.checked; filter(); });
 
 function column(s, cond) {
   const col = el("section", "col " + cond);
-  const head = el("div", "col-head"); head.append(el("h3", null, cond.toUpperCase() + " · " + s.score[cond] + "/10 정답"));
+  const head = el("div", "col-head"); head.append(el("h3", null, cond.toUpperCase()));
   const dots = el("div", "dots"); dots.setAttribute("role", "group"); dots.setAttribute("aria-label", cond.toUpperCase() + " 회차");
   head.append(dots); col.append(head);
   const body = el("div"); body.style.display = "grid"; body.style.gap = "8px"; col.append(body);
@@ -133,19 +124,18 @@ function column(s, cond) {
   const majorityOk = s.score[cond] >= 5;
   let pick = runs.findIndex(r => r.ok === majorityOk); if (pick < 0) pick = 0;
   runs.forEach((r, i) => {
-    const b = el("button", r.ok ? "o" : "x", String(i + 1)); b.type = "button";
-    b.setAttribute("aria-label", (i + 1) + "회차 " + (r.ok ? "정답" : "오답"));
+    const b = el("button", null, String(i + 1)); b.type = "button";
+    b.setAttribute("aria-label", (i + 1) + "회차");
     b.addEventListener("click", () => show(i)); dots.append(b);
   });
   function show(i) {
     pick = i; const r = runs[i];
     dots.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-pressed", String(j === i)));
     body.textContent = "";
-    const dec = el("div", "dec"); dec.append(el("span", "mark " + (r.ok ? "o" : "x"), r.ok ? "O" : "X"), el("span", null, r.decision || "(판정 없음)"));
+    const dec = el("div", "dec"); dec.append(el("span", null, r.decision || "(판정 없음)"));
     body.append(dec, el("div", "ans", r.answer));
     const meta = el("div", "meta");
-    meta.append(el("span", null, (i + 1) + "회차"), el("span", null, "필수 항목 " + r.items));
-    if (!r.ok && ERR[r.err]) meta.append(el("span", null, ERR[r.err]));
+    meta.append(el("span", null, (i + 1) + "회차"));
     if (cond === "mcp" && r.reference) meta.append(el("span", "ref", "다른 농가 참고 사용"));
     meta.append(el("span", null, r.seconds + "초"));
     body.append(meta);
@@ -170,12 +160,8 @@ const cards = DATA.scenarios.map(s => {
   const c = el("article", "card"); c.dataset.d = s.domain; c.dataset.gap = Math.abs(s.score.mcp - s.score.rag);
   const h = el("div", "head");
   h.append(el("span", "chip mono", s.sid), el("span", "chip", DOMAIN[s.domain]), el("span", "chip", TYPE[s.type]));
-  const badges = el("div", "badges"); badges.append(el("span", "badge rag", "RAG " + s.score.rag + "/10"), el("span", "badge mcp", "MCP " + s.score.mcp + "/10"));
-  h.append(badges);
-  const exp = el("div", "exp"); exp.append(el("span", "lbl", "정답"), document.createTextNode(s.expected));
-  const ul = el("ul"); s.required.forEach(x => ul.append(el("li", null, x))); exp.append(ul);
   const cmp = el("div", "cmp"); cmp.append(column(s, "rag"), column(s, "mcp"));
-  c.append(h, el("div", "q", s.question), exp, cmp);
+  c.append(h, el("div", "q", s.question), cmp);
   $("list").append(c);
   return c;
 });
@@ -183,7 +169,7 @@ const empty = el("p", "empty", "조건에 맞는 문항이 없습니다."); empt
 
 function filter() {
   let n = 0;
-  cards.forEach(c => { const v = (domain === "all" || c.dataset.d === domain) && (!gapOnly || Number(c.dataset.gap) >= 5); c.hidden = !v; if (v) n++; });
+  cards.forEach(c => { const v = domain === "all" || c.dataset.d === domain; c.hidden = !v; if (v) n++; });
   empty.hidden = n > 0;
 }
 filter();
