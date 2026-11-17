@@ -1,4 +1,4 @@
-<title>판정 검수 v3.1</title>
+<title>__TITLE__</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,7 +102,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); ou
 <header class="bar">
   <div class="bar-in">
     <div>
-      <h1>판정 검수 v3.1</h1>
+      <h1>__TITLE__</h1>
       <div class="run mono" id="run"></div>
     </div>
     <div class="progress">
@@ -249,6 +249,7 @@ function save(key, patch) {
     .catch(err => { saved.textContent = "저장 실패"; setStatus("저장하지 못했습니다 (" + (err && err.code || "오류") + "). 이 화면에 편집 권한이 있는지 확인해 주세요."); });
 }
 
+if (!DATA.items.some(it => it.second)) document.querySelector('#filters [data-f="split"]').hidden = true;
 render();
 
 (async () => {

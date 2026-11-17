@@ -15,7 +15,7 @@ from agbot.data import get_scenario  # noqa: E402
 TEMPLATE = Path(__file__).parent / "review_page_template.html"
 
 
-def main(folder: str):
+def main(folder: str, title: str = "판정 검수"):
     folder = Path(folder)
     rows = [r for r in csv.DictReader((folder / "results.csv").open(encoding="utf-8-sig")) if r["review_sample"] == "1"]
     raw = {(r["scenario_id"], r["condition"], r["repeat"]): r
@@ -53,9 +53,9 @@ def main(folder: str):
         })
     data = json.dumps({"run": folder.name, "items": items}, ensure_ascii=False).replace("</", "<\\/")
     out = folder / "review_page.html"
-    out.write_text(TEMPLATE.read_text(encoding="utf-8").replace("__DATA__", data), encoding="utf-8")
+    out.write_text(TEMPLATE.read_text(encoding="utf-8").replace("__DATA__", data).replace("__TITLE__", title), encoding="utf-8")
     print(f"{out} ({len(items)}건)")
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else "판정 검수")
