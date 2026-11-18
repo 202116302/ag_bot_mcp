@@ -10,7 +10,7 @@ import copy
 import json
 import time
 
-from . import config
+from . import config, data, docs
 from .chat import _ask_mcp, _UsageTracker
 from .llm import ANSWER_SCHEMA, ModelError, make_model, output_text
 
@@ -60,13 +60,47 @@ APP_INSTRUCTIONS = """당신은 토마토 재배 농가를 돕는 AI 상담 챗�
 - 이전 대화 내용을 이어서 이해한다."""
 
 
-def ask_app(messages: list[dict], mock: bool = False) -> dict:
-    """messages: [{"role": "user"|"assistant", "content": str}, ...] 마지막은 user."""
+APP_RAG_INSTRUCTIONS = """당신은 토마토 재배 농가를 돕는 AI 상담 챗봇이다. 한국어로 짧고 친절하게, 바로 행동할 수 있게 답한다.
+- [현재 데이터](기상청 실시간 예보, 흙토람 처방, 스마트팜 데이터마트 과거 기록)와 [참고 문서]를 읽고 직접 판단·계산해 답한다.
+- 문서와 데이터에 없는 내용은 지어내지 말고 모른다고 하거나 필요한 값을 묻는다.
+- sources에는 근거 문서의 doc_id와 문구를 넣는다. decision은 사람이 읽는 짧은 결론으로 쓴다.
+- 사용자가 그래프·차트를 요청하면 [현재 데이터]의 실제 수치로 chart를 채우고 show=true로 한다.
+  그래프 요청이 아니면 show=false, 나머지는 빈 값. 이전 대화 내용을 이어서 이해한다."""
+
+
+def _turns(messages: list[dict]) -> list[dict]:
     turns = [m for m in messages if m.get("role") in ("user", "assistant") and str(m.get("content", "")).strip()]
     turns = turns[-(MAX_TURNS * 2 - 1):]
     if not turns or turns[-1]["role"] != "user":
         raise ValueError("마지막 메시지는 사용자 질문이어야 합니다.")
-    inputs = [{"role": m["role"], "content": str(m["content"])[:2000]} for m in turns]
+    return [{"role": m["role"], "content": str(m["content"])[:2000]} for m in turns]
+
+
+def ask_app_rag(messages: list[dict], mock: bool = False) -> dict:
+    """비교용 RAG: 실시간 데이터 전체 + 검색 문단 5개를 프롬프트에 넣고 GPT가 직접 답한다 (도구 없음)."""
+    inputs = _turns(messages)
+    model = make_model(mock)
+    start = time.perf_counter()
+    result = {"model": model.name, "tool_calls": [], "error": None, "retrieved": [],
+              "usage": {"model_calls": 0, "input_tokens": 0, "cached_tokens": 0, "output_tokens": 0}}
+    tracked = _UsageTracker(model, result["usage"])
+    try:
+        situation = json.dumps(data.live_scenario()["system_values"], ensure_ascii=False)
+        hits = docs.search_guideline(inputs[-1]["content"])
+        result["retrieved"] = [h["chunk_id"] for h in hits]
+        doc_text = "\n\n".join(f"[doc_id: {h['doc_id']} | {h['source_title']}]\n{h['text']}" for h in hits)
+        context = {"role": "developer", "content": f"[현재 데이터]\n{situation}\n\n[참고 문서]\n{doc_text}"}
+        reply = tracked.complete(APP_RAG_INSTRUCTIONS, [context] + inputs, [], schema=APP_SCHEMA)
+        result.update(json.loads(output_text(reply)))
+    except (ModelError, ValueError, RuntimeError, json.JSONDecodeError) as exc:
+        result["error"] = f"{type(exc).__name__}: {exc}"
+    result["seconds"] = round(time.perf_counter() - start, 2)
+    return result
+
+
+def ask_app(messages: list[dict], mock: bool = False) -> dict:
+    """messages: [{"role": "user"|"assistant", "content": str}, ...] 마지막은 user."""
+    inputs = _turns(messages)
     model = make_model(mock)
     start = time.perf_counter()
     result = {"model": model.name, "tool_calls": [], "error": None,

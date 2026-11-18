@@ -18,7 +18,9 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-from .app_chat import ask_app
+from concurrent.futures import ThreadPoolExecutor
+
+from .app_chat import ask_app, ask_app_rag
 from .config import ROOT
 
 app = FastAPI(title="토마토 재배 상담 챗봇", docs_url=None, redoc_url=None)
@@ -35,6 +37,7 @@ class Message(BaseModel):
 
 
 class FeedbackRequest(BaseModel):
+    mode: str = Field(default="mcp", max_length=10)
     question: str = Field(default="", max_length=2000)
     answer: str = Field(default="", max_length=6000)
     decision: str = Field(default="", max_length=300)
@@ -44,6 +47,7 @@ class FeedbackRequest(BaseModel):
 class ChatRequest(BaseModel):
     messages: list[Message] = Field(min_length=1, max_length=24)
     code: str = ""
+    mode: str = Field(default="mcp", pattern="^(mcp|rag|both)$")
 
 
 def _check_code(code: str):
@@ -79,18 +83,35 @@ def auth(req: dict):
     return {"ok": True, "required": required}
 
 
+KEEP = ("answer", "decision", "key_values", "basis", "sources", "chart", "seconds", "error")
+
+
+def _public(result: dict) -> dict:
+    out = {k: result.get(k) for k in KEEP}
+    out["tools"] = [c["name"] for c in result.get("tool_calls", [])]
+    out["retrieved"] = sorted({c.rsplit("-", 1)[0] for c in result.get("retrieved", [])})
+    if out["error"]:
+        out["error"] = "답변을 만드는 중 문제가 생겼습니다."
+    return out
+
+
 @app.post("/api/chat")
 def chat(req: ChatRequest, request: Request):
+    """mode: mcp(기본) | rag | both(같은 질문을 두 방식으로 동시에 처리해 비교)"""
     _check_code(req.code)
     _check_rate(request.headers.get("x-forwarded-for", request.client.host if request.client else "?").split(",")[0])
+    messages = [m.model_dump() for m in req.messages]
+    runners = {"mcp": ask_app, "rag": ask_app_rag}
+    modes = ["rag", "mcp"] if req.mode == "both" else [req.mode]
     try:
-        result = ask_app([m.model_dump() for m in req.messages])
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            futures = {m: pool.submit(runners[m], messages) for m in modes}
+            results = {m: _public(f.result()) for m, f in futures.items()}
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from None
-    if result.get("error"):
+    if all(r["error"] for r in results.values()):
         raise HTTPException(status_code=502, detail="답변을 만드는 중 문제가 생겼습니다. 다시 시도해 주세요.")
-    keep = ("answer", "decision", "key_values", "basis", "sources", "chart", "seconds")
-    return {**{k: result.get(k) for k in keep}, "tools": [c["name"] for c in result["tool_calls"]]}
+    return results if req.mode == "both" else results[req.mode]
 
 
 @app.post("/api/feedback")
@@ -101,7 +122,7 @@ def feedback(req: FeedbackRequest, request: Request):
     if not comment:
         raise HTTPException(status_code=400, detail="의견을 입력해 주세요.")
     row = {"at": datetime.now(timezone(timedelta(hours=9))).isoformat(timespec="seconds"),
-           "question": req.question, "decision": req.decision, "answer": req.answer, "comment": comment}
+           "mode": req.mode, "question": req.question, "decision": req.decision, "answer": req.answer, "comment": comment}
     with _fb_lock:
         FEEDBACK_FILE.parent.mkdir(parents=True, exist_ok=True)
         with FEEDBACK_FILE.open("a", encoding="utf-8") as f:
