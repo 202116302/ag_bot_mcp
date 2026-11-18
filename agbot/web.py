@@ -63,7 +63,8 @@ def _check_rate(ip: str):
 
 @app.get("/")
 def index():
-    return FileResponse(PAGE, media_type="text/html; charset=utf-8")
+    # 수정한 화면이 바로 반영되도록 캐시하지 않는다
+    return FileResponse(PAGE, media_type="text/html; charset=utf-8", headers={"Cache-Control": "no-store"})
 
 
 @app.get("/healthz")
@@ -73,8 +74,9 @@ def health():
 
 @app.post("/api/auth")
 def auth(req: dict):
+    required = bool(os.environ.get("APP_PASSCODE", ""))
     _check_code(str(req.get("code", "")))
-    return {"ok": True}
+    return {"ok": True, "required": required}
 
 
 @app.post("/api/chat")

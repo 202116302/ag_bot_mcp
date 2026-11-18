@@ -183,9 +183,10 @@ document.getElementById("gate-form").addEventListener("submit", async e => {
 
 addBot({ answer: "안녕하세요! 토마토 재배 상담 챗봇입니다.\n하우스 환경, 양액, 비료, 날씨 대응, 적심·착과제·수확, ToBRFV 바이러스에 대해 물어보세요. \"그래프 그려줘\"라고 하면 그래프로도 보여드려요.", decision: "" });
 (async () => {
+  // 접속 코드는 서버가 요구할 때(401)만 묻는다. 연결 오류로는 코드 창을 띄우지 않는다.
   code = store.get("agbot-code");
   const r = await fetch("api/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code }) }).catch(() => null);
-  if (!r || !r.ok) showGate("");
+  if (r && r.status === 401) showGate("");
 })();
 </script>
 </body>
