@@ -135,3 +135,18 @@ python experiment/plot.py outputs/v3/<폴더>
 - 규칙이 충돌할 때의 우선순위:
   - 야간 고습인데 외기온이 10℃ 이하이면 환기 대신 송풍한다(ENV-08).
   - 배액률 기준과 근권 EC 조절 방향이 반대이면 배액률 기준을 우선한다.
+
+## 웹 챗봇 (모바일)
+
+MCP 방식 + 실시간 API(LIVE: 기상청·흙토람·스마트팜 데이터마트)로 답하는 대화형 챗봇이다. 그래프 요청과 ToBRFV 질문에도 답한다.
+
+```bash
+# 서버: 저장소 루트에 .env 작성 (git에 올리지 않음)
+#   OPENAI_API_KEY=... / FERTILIZER_API_KEY=... / SMARTFARM_API_KEY=... / APP_PASSCODE=<접속 코드>
+docker build -t agbot-chat .
+docker run -d --name agbot-chat --env-file .env -p 8110:8110 -v agbot_chroma:/app/knowledge/chroma --restart unless-stopped agbot-chat
+```
+
+- 첫 실행 때 문서 벡터 DB(721문단)를 OpenAI 임베딩으로 만든다(1~2분).
+- `agbot/web.py`(FastAPI), `agbot/app_chat.py`(대화·그래프), `webapp/index.html`(화면).
+- ToBRFV 자료: `knowledge/tobrfv_sources.md` (2026-11-18 웹 조사, 문단별 출처).

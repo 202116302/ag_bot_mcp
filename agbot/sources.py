@@ -97,6 +97,7 @@ def fetch_greenhouse_env(facility_id: str, day: str, hour: int | None = None) ->
     return {"temp": out["temp"], "rh": out["rh"], "time_of_day": "day" if 6 <= h < 19 else "night",
             "facility_id": facility_id, "measured_at": f"{day} {h:02d}:00" if hour is not None else day,
             "temp_range": [min(hourly["temp"].values()), max(hourly["temp"].values())],
+            "hourly_temp": hourly["temp"], "hourly_rh": hourly["rh"],
             "source": "스마트팜 빅데이터 데이터마트 (단위 미표기: ℃, %로 가정)"}
 
 
@@ -115,7 +116,8 @@ def fetch_weather(region: str = config.WEATHER_REGION) -> dict:
 
     tomorrow = str(date.today() + timedelta(days=1))
     pick = lambda rows: next((float(r["fcst_value"]) for r in rows if r["fcst_date"] == tomorrow), None)
-    tmp = [float(r["fcst_value"]) for r in forecast("TMP", 80) if r["fcst_date"] == tomorrow]
+    tmp_rows = sorted((r["fcst_time"], float(r["fcst_value"])) for r in forecast("TMP", 80) if r["fcst_date"] == tomorrow)
+    tmp = [v for _, v in tmp_rows]
     pop = [float(r["fcst_value"]) for r in forecast("POP", 80) if r["fcst_date"] == tomorrow]
     pcp = sorted({r["fcst_value"] for r in forecast("PCP", 80) if r["fcst_date"] == tomorrow and r["fcst_value"] != "강수없음"})
     return {
@@ -124,6 +126,7 @@ def fetch_weather(region: str = config.WEATHER_REGION) -> dict:
         "forecast_date": tomorrow, "tmin_forecast": pick(forecast("TMN", 10)), "tmax_forecast": pick(forecast("TMX", 10)),
         "temp_mean": round(mean(tmp), 1) if tmp else None, "temp_max": max(tmp) if tmp else None,
         "pop_max": max(pop) if pop else None, "rain_forecast": pcp or ["강수없음"],
+        "hourly_temp_forecast": {f"{t[:2]}:{t[2:]}": v for t, v in tmp_rows},
         "heavy_rain_warning": None,
         "note": "호우 특보는 이 API에서 제공하지 않음(None). 평균기온·최고기온은 내일 시간별 기온(TMP) 기준.",
         "source": "기상청 단기예보·초단기실황 (weather-rda.digitalag.kr)",

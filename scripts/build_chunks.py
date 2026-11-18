@@ -70,6 +70,31 @@ def tags(text: str, table: dict) -> list[str]:
     return found or ["common"]
 
 
+TOBRFV = ROOT / "knowledge" / "tobrfv_sources.md"
+
+
+def tobrfv_chunks() -> list[dict]:
+    """웹 조사 문서(knowledge/tobrfv_sources.md): 문단 하나 + 바로 아래 '출처:' 줄 = 문단 1개(출처 포함)."""
+    if not TOBRFV.exists():
+        return []
+    rows, section, para = [], "", []
+    for line in TOBRFV.read_text(encoding="utf-8").splitlines():
+        if line.startswith("## "):
+            section = line[3:].strip()
+        elif line.startswith("출처:") and para:
+            text = f"[ToBRFV · {section}]\n" + " ".join(para) + "\n" + line
+            rows.append({"doc_id": "TOBRFV-2026", "chunk_id": f"TOBRFV-2026-{len(rows) + 1:03d}", "page": 0,
+                         "source_title": "ToBRFV(토마토갈색주름과실바이러스) 웹 조사 자료 (2026-11-18)", "text": text,
+                         "crop": "tomato", "cultivation": ["common"], "domain": ["pest"]})
+            para = []
+        elif line.strip() and not line.startswith(("#", "- ")):
+            para.append(line.strip())
+        elif not line.strip():
+            pass
+    print(f"TOBRFV-2026: {len(rows)} chunks")
+    return rows
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     rows = []
@@ -89,6 +114,7 @@ def main():
                     "cultivation": tags(piece, CULTIVATION_WORDS), "domain": tags(piece, DOMAIN_WORDS),
                 })
         print(f"{doc['doc_id']}: {n} chunks")
+    rows += tobrfv_chunks()
     if CURATED.exists():
         curated = [json.loads(line) for line in CURATED.read_text(encoding="utf-8").splitlines() if line.strip()]
         rows += curated

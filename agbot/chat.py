@@ -110,17 +110,21 @@ def _ask_rag(model, question: str, scenario_id: str, result: dict) -> dict:
     return model.complete(RAG_INSTRUCTIONS, inputs, tools=[])
 
 
-async def _ask_mcp(model, question: str, scenario_id: str, result: dict, mock: bool) -> dict:
+async def _ask_mcp(model, question: str, scenario_id: str, result: dict, mock: bool,
+                   instructions: str = MCP_INSTRUCTIONS, inputs: list | None = None, schema: dict | None = None,
+                   extra_env: dict | None = None) -> dict:
+    """MCP 도구 루프. 실험은 기본값을 쓰고, 웹 챗봇은 지시문·대화 이력·응답 형식을 바꿔 넘긴다."""
     env = {**os.environ, "PYTHONIOENCODING": "utf-8", "AGBOT_SCENARIO": scenario_id,
-           "AGBOT_SEARCH": "keyword" if mock else os.environ.get("AGBOT_SEARCH", "")}
+           "AGBOT_SEARCH": "keyword" if mock else os.environ.get("AGBOT_SEARCH", ""), **(extra_env or {})}
+    kwargs = {"schema": schema} if schema else {}
     params = StdioServerParameters(command=sys.executable, args=["-m", "agbot.mcp_server"], cwd=str(config.ROOT), env=env)
     async with stdio_client(params) as (read, write), ClientSession(read, write) as session:
         await session.initialize()
         tools = [{"type": "function", "name": t.name, "description": t.description or "", "parameters": t.inputSchema}
                  for t in (await session.list_tools()).tools]
-        inputs = [{"role": "user", "content": question}]
+        inputs = list(inputs) if inputs else [{"role": "user", "content": question}]
         for _ in range(config.MAX_MODEL_CALLS):
-            reply = model.complete(MCP_INSTRUCTIONS, inputs, tools)
+            reply = model.complete(instructions, inputs, tools, **kwargs)
             calls = function_calls(reply)
             if not calls:
                 return reply

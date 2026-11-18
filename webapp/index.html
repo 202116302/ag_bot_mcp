@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1E9A72">
+<title>토마토 재배 상담</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* 모바일 우선 채팅 화면: 상단 바 / 대화 / 하단 입력. 색: 잎 초록(MCP) 강조, 토마토 빨강은 경고에만 */
+:root {
+  --bg: #f3f6f3; --surface: #ffffff; --ink: #1d2520; --muted: #66726b; --line: #dde4df;
+  --accent: #1e9a72; --accent-soft: #e3f4ec; --me: #1e9a72; --me-ink: #ffffff; --warn: #c8442f;
+  --font: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --bg: #101411; --surface: #1a201c; --ink: #e6ece8; --muted: #9aa69f; --line: #2b332e;
+  --accent: #5fc79e; --accent-soft: #183028; --me: #2a8f6b; --me-ink: #ffffff; --warn: #f07a66; color-scheme: dark } }
+* { box-sizing: border-box }
+html, body { height: 100%; margin: 0 }
+body { background: var(--bg); color: var(--ink); font: 15px/1.6 var(--font); display: flex; flex-direction: column }
+header { background: var(--surface); border-bottom: 1px solid var(--line);
+  padding: calc(10px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)) }
+header h1 { margin: 0; font-size: 17px; font-weight: 700 }
+header p { margin: 2px 0 0; font-size: 12px; color: var(--muted) }
+main { flex: 1; overflow-y: auto; padding: 16px max(16px, env(safe-area-inset-right, 0px)) 8px max(16px, env(safe-area-inset-left, 0px)) }
+.wrap { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px }
+.msg { max-width: 88%; padding: 10px 14px; border-radius: 16px; white-space: pre-wrap; overflow-wrap: anywhere }
+.me { align-self: flex-end; background: var(--me); color: var(--me-ink); border-bottom-right-radius: 4px }
+.bot { align-self: flex-start; background: var(--surface); border: 1px solid var(--line); border-bottom-left-radius: 4px; width: 88% }
+.decision { display: inline-block; font-size: 12px; font-weight: 700; color: var(--accent); background: var(--accent-soft); border-radius: 999px; padding: 2px 10px; margin-bottom: 6px }
+.kv { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px }
+.kv span { font-size: 12px; background: var(--bg); border-radius: 6px; padding: 2px 8px; color: var(--muted) }
+.chart { margin-top: 10px; position: relative; height: 230px }
+details { margin-top: 8px; font-size: 12.5px; color: var(--muted) }
+summary { cursor: pointer }
+details ul { margin: 6px 0 0; padding-left: 18px }
+.err { color: var(--warn) }
+.typing { color: var(--muted); font-size: 13px }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 2px; scrollbar-width: none }
+.chips button { flex: none; font: inherit; font-size: 13px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px; cursor: pointer }
+footer { background: var(--surface); border-top: 1px solid var(--line);
+  padding: 8px max(12px, env(safe-area-inset-right, 0px)) calc(8px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)) }
+form { max-width: 720px; margin: 0 auto; display: flex; gap: 8px }
+textarea { flex: 1; min-width: 0; resize: none; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 9px 14px; max-height: 120px }
+form button { font: inherit; font-weight: 700; border: 0; border-radius: 20px; background: var(--accent); color: #fff; padding: 0 18px; cursor: pointer }
+form button:disabled { opacity: .5 }
+button:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+#gate { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; padding: 24px }
+#gate form { flex-direction: column; width: min(340px, 100%) }
+#gate input { font: inherit; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink) }
+#gate button { padding: 12px }
+</style>
+</head>
+<body>
+<header>
+  <h1>🍅 토마토 재배 상담</h1>
+  <p>기상청 · 흙토람 · 스마트팜코리아 데이터와 재배 지침 기반 (MCP)</p>
+</header>
+<main id="scroll"><div class="wrap" id="log"></div></main>
+<footer>
+  <div class="chips" id="chips"></div>
+  <form id="ask">
+    <textarea id="q" rows="1" placeholder="궁금한 점을 물어보세요" aria-label="질문"></textarea>
+    <button id="send" type="submit">보내기</button>
+  </form>
+</footer>
+<div id="gate" hidden>
+  <form id="gate-form">
+    <h1 style="margin:0 0 4px;font-size:18px">🍅 토마토 재배 상담</h1>
+    <p style="margin:0 0 8px;color:var(--muted);font-size:14px">접속 코드를 입력하세요.</p>
+    <input id="code" type="password" autocomplete="current-password" aria-label="접속 코드">
+    <button type="submit" style="background:var(--accent);color:#fff;border:0;border-radius:12px;font:inherit;font-weight:700">입장</button>
+    <p id="gate-err" class="err" style="margin:0;font-size:13px"></p>
+  </form>
+</div>
+<script>
+const SUGGEST = ["내일 날씨 보고 밭에 대비할 거 있어?", "내일 시간별 기온 그래프 그려줘", "ToBRFV가 뭐야? 어떻게 막아?",
+  "밤 10시인데 하우스 습도 85%, 16℃야. 바깥은 8℃. 환기할까?", "우리 밭 3,000㎡인데 밑거름 요소 몇 kg 넣어?", "RAG랑 MCP 실험 결과 그래프로 보여줘"];
+const log = document.getElementById("log"), scroll = document.getElementById("scroll");
+const q = document.getElementById("q"), send = document.getElementById("send");
+let history = [], code = "";
+const store = { get(k) { try { return localStorage.getItem(k) || ""; } catch { return ""; } },
+                set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+const el = (t, c, txt) => { const e = document.createElement(t); if (c) e.className = c; if (txt != null) e.textContent = txt; return e; };
+
+function rich(text) {  // **굵게**만 지원, 나머지는 그대로 텍스트로 넣는다
+  const d = el("div"); text.split("**").forEach((part, i) => d.append(i % 2 ? el("strong", null, part) : document.createTextNode(part)));
+  return d;
+}
+function bottom() { scroll.scrollTop = scroll.scrollHeight; }
+function addMe(text) { log.append(el("div", "msg me", text)); bottom(); }
+
+function addBot(r) {
+  const b = el("div", "msg bot");
+  if (r.decision) b.append(el("div", "decision", r.decision));
+  b.append(rich(r.answer || ""));
+  if (r.key_values && r.key_values.length) {
+    const kv = el("div", "kv"); r.key_values.slice(0, 8).forEach(v => kv.append(el("span", null, `${v.name} ${v.value}${v.unit}`))); b.append(kv);
+  }
+  if (r.chart && r.chart.show && r.chart.labels.length && window.Chart) {
+    const box = el("div", "chart"), cv = el("canvas"); box.append(cv); b.append(box);
+    const palette = ["#1e9a72", "#f2a65a", "#3f6cb0", "#c8442f"];
+    new Chart(cv, { type: r.chart.type, data: { labels: r.chart.labels, datasets: r.chart.datasets.map((d, i) => ({
+        label: d.label, data: d.data, borderColor: palette[i % 4], backgroundColor: palette[i % 4] + (r.chart.type === "bar" ? "cc" : "33"),
+        tension: .35, fill: r.chart.type === "line" && r.chart.datasets.length === 1, pointRadius: 2, borderRadius: 6 })) },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { title: { display: !!r.chart.title, text: r.chart.title },
+        legend: { display: r.chart.datasets.length > 1 } },
+        scales: { x: { title: { display: !!r.chart.x_label, text: r.chart.x_label } }, y: { title: { display: !!r.chart.y_label, text: r.chart.y_label } } } } });
+  }
+  const src = (r.sources || []).filter(s => s.doc_id || s.clause);
+  if (src.length || r.basis || (r.tools || []).length) {
+    const d = el("details"); d.append(el("summary", null, "근거 보기"));
+    if (r.basis) d.append(el("p", null, r.basis));
+    const ul = el("ul"); src.forEach(s => ul.append(el("li", null, `${s.doc_id}${s.clause ? " — " + s.clause : ""}`))); d.append(ul);
+    if ((r.tools || []).length) d.append(el("p", null, "사용 도구: " + r.tools.join(", ")));
+    b.append(d);
+  }
+  log.append(b); bottom();
+}
+
+async function ask(text) {
+  addMe(text); history.push({ role: "user", content: text });
+  const wait = el("div", "typing", "답변을 준비하고 있어요… (10초 정도 걸려요)"); log.append(wait); bottom();
+  send.disabled = true;
+  try {
+    const res = await fetch("api/chat", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: history.slice(-11), code }) });
+    const data = await res.json().catch(() => ({}));
+    wait.remove();
+    if (res.status === 401) { showGate("접속 코드가 맞지 않습니다."); history.pop(); return; }
+    if (!res.ok) { log.append(el("div", "msg bot err", data.detail || "문제가 생겼습니다. 다시 시도해 주세요.")); history.pop(); return; }
+    addBot(data);
+    history.push({ role: "assistant", content: `${data.decision ? "[" + data.decision + "] " : ""}${data.answer || ""}` });
+  } catch { wait.remove(); log.append(el("div", "msg bot err", "서버에 연결할 수 없습니다.")); history.pop(); }
+  finally { send.disabled = false; bottom(); }
+}
+
+document.getElementById("ask").addEventListener("submit", e => { e.preventDefault(); const t = q.value.trim(); if (!t || send.disabled) return; q.value = ""; q.style.height = ""; ask(t); });
+q.addEventListener("input", () => { q.style.height = "auto"; q.style.height = Math.min(q.scrollHeight, 120) + "px"; });
+q.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); document.getElementById("ask").requestSubmit(); } });
+const chips = document.getElementById("chips");
+SUGGEST.forEach(s => { const b = el("button", null, s); b.type = "button"; b.addEventListener("click", () => { if (!send.disabled) ask(s); }); chips.append(b); });
+
+function showGate(msg) { document.getElementById("gate").hidden = false; document.getElementById("gate-err").textContent = msg || ""; document.getElementById("code").focus(); }
+document.getElementById("gate-form").addEventListener("submit", async e => {
+  e.preventDefault(); const c = document.getElementById("code").value.trim();
+  const r = await fetch("api/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code: c }) }).catch(() => null);
+  if (r && r.ok) { code = c; store.set("agbot-code", c); document.getElementById("gate").hidden = true; q.focus(); }
+  else showGate("접속 코드가 맞지 않습니다.");
+});
+
+addBot({ answer: "안녕하세요! 토마토 재배 상담 챗봇입니다.\n하우스 환경, 양액, 비료, 날씨 대응, 적심·착과제·수확, ToBRFV 바이러스에 대해 물어보세요. \"그래프 그려줘\"라고 하면 그래프로도 보여드려요.", decision: "" });
+(async () => {
+  code = store.get("agbot-code");
+  const r = await fetch("api/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code }) }).catch(() => null);
+  if (!r || !r.ok) showGate("");
+})();
+</script>
+</body>
+</html>

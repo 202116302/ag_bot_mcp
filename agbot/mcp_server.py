@@ -89,5 +89,37 @@ for name, fn in rules.DECISION_TOOLS.items():
     mcp.add_tool(fn, name=name, description=DESCRIPTIONS[name])
 
 
+# ------------------------------------------------------------------ 웹 챗봇 전용 (실험에는 노출하지 않음)
+if os.environ.get("AGBOT_APP") == "1":
+    @mcp.tool()
+    def get_experiment_summary() -> dict:
+        """본 연구의 RAG vs MCP 비교 실험(v3.3, 시나리오 25개 × 10회) 결과: 전체·유형별·영역별 판정 정확도 등(%)."""
+        import csv
+
+        from .config import OUTPUTS
+        rows = list(csv.DictReader((OUTPUTS / "v3" / "v3.3_combined" / "summary.csv").open(encoding="utf-8-sig")))
+        pct = lambda v: round(float(v) * 100, 1)
+        out = {}
+        for r in rows:
+            out.setdefault(r["group"], {}).setdefault(r["value"], {})[r["condition"].upper()] = {
+                "판정 정확도": pct(r["accuracy"]), "판정 일치율": pct(r["consistency"]),
+                "필수 항목 누락률": pct(r["missing_rate"]), "근거 제시율": pct(r["evidence_rate"])}
+        return {"note": "group: all(전체) / type(유형) / domain(영역)", "results": out}
+
+    @mcp.tool()
+    def get_tobrfv_status() -> dict:
+        """ToBRFV(토마토갈색주름과실바이러스) 국내 발생·검역 현황과 농가 예방·관리 자료(2026-11-18 조사, 문단별 출처 포함).
+        ToBRFV 질문에는 이 도구를 먼저 호출한다."""
+        from .config import ROOT
+        text = (ROOT / "knowledge" / "tobrfv_sources.md").read_text(encoding="utf-8")
+        sections = {}
+        for block in text.split("\n## ")[1:]:
+            title, _, body = block.partition("\n")
+            sections[title.strip()] = body.strip()
+        keep = [t for t in sections if t.startswith(("1.", "3.", "5."))]
+        return {"as_of": "2026-11-18 웹 조사", "sections": {t: sections[t] for t in keep},
+                "note": "국내 현황은 3절이 최신(국내 발생 확인). EPPO 등 해외 DB는 국내 발생을 아직 반영하지 않았을 수 있음"}
+
+
 if __name__ == "__main__":
     mcp.run(transport="stdio")
