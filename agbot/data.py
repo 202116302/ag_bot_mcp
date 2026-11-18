@@ -192,9 +192,8 @@ def load_scenarios() -> list[dict]:
 
 def live_section(name: str) -> dict | None:
     """LIVE 시나리오: 조회 도구가 불릴 때 외부 API를 실시간 호출한다."""
-    from datetime import date
-
     from . import sources
+    from .sources import today_kst
     from .config import LIVE_FARM as f
 
     try:
@@ -207,7 +206,7 @@ def live_section(name: str) -> dict | None:
     except sources.SourceError as exc:
         return {"available": False, "error": str(exc)}
     if name == "crop":
-        return {"today": str(date.today()), "note": "작형·정식일·화방 수 등은 질문에서 알려 주세요."}
+        return {"today": str(today_kst()), "note": "작형·정식일·화방 수 등은 질문에서 알려 주세요."}
     return None
 
 

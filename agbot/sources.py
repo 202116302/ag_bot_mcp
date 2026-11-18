@@ -7,7 +7,7 @@
 반환값은 MCP 조회 도구가 그대로 돌려주는 형태(dict). 키는 결과·오류 메시지에 남기지 않는다.
 """
 import xml.etree.ElementTree as ET
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from statistics import mean
 from urllib.parse import quote, unquote
 
@@ -21,6 +21,14 @@ CROP_CODES = {"open_field": "04016", "greenhouse": "04017"}  # 토마토(노지)
 FERT_FIELDS = {"basal_n": "pre_Fert_N", "basal_p": "pre_Fert_P", "basal_k": "pre_Fert_K",
                "topdressing_n": "post_Fert_N", "topdressing_p": "post_Fert_P", "topdressing_k": "post_Fert_K"}
 SMARTFARM_CODES = {"TI": "temp", "HI": "rh"}  # 내부온도, 내부습도 (단위는 API 미표기: ℃·%로 가정)
+
+
+KST = timezone(timedelta(hours=9))
+
+
+def today_kst() -> date:
+    """서버(컨테이너)가 UTC여도 한국 날짜 기준으로 '오늘·내일'을 계산한다."""
+    return datetime.now(KST).date()
 
 
 class SourceError(Exception):
@@ -114,7 +122,7 @@ def fetch_weather(region: str = config.WEATHER_REGION) -> dict:
         return _get(f"{base}/api/kma/forecast/short/latest",
                     params={"region_name": region, "category": category, "limit": limit}).json()
 
-    tomorrow = str(date.today() + timedelta(days=1))
+    tomorrow = str(today_kst() + timedelta(days=1))
     pick = lambda rows: next((float(r["fcst_value"]) for r in rows if r["fcst_date"] == tomorrow), None)
     tmp_rows = sorted((r["fcst_time"], float(r["fcst_value"])) for r in forecast("TMP", 80) if r["fcst_date"] == tomorrow)
     tmp = [v for _, v in tmp_rows]
