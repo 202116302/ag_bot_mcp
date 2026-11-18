@@ -20,3 +20,5 @@ knowledge/chroma/
 # API keys (root)
 API_key.txt
 *key*.txt
+
+feedback/

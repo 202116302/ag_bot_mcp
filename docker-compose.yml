@@ -7,7 +7,9 @@ services:
     env_file: .env          # OPENAI_API_KEY, FERTILIZER_API_KEY, SMARTFARM_API_KEY, APP_PASSCODE (git에 올리지 않음)
     volumes:
       - agbot_chroma:/app/knowledge/chroma
+      - agbot_feedback:/app/feedback
     restart: unless-stopped
 
 volumes:
   agbot_chroma:
+  agbot_feedback:

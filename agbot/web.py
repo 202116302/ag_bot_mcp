@@ -6,9 +6,13 @@
 환경 변수: OPENAI_API_KEY, FERTILIZER_API_KEY, SMARTFARM_API_KEY, APP_PASSCODE(설정 시 접속 코드 필요)
 """
 import hmac
+import json
 import os
+import threading
 import time
 from collections import defaultdict, deque
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse
@@ -21,11 +25,20 @@ app = FastAPI(title="토마토 재배 상담 챗봇", docs_url=None, redoc_url=N
 PAGE = ROOT / "webapp" / "index.html"
 RATE_LIMIT, WINDOW = 15, 60.0          # IP당 1분에 15회
 _hits: dict[str, deque] = defaultdict(deque)
+FEEDBACK_FILE = Path(os.environ.get("FEEDBACK_DIR", str(ROOT / "feedback"))) / "feedback.jsonl"
+_fb_lock = threading.Lock()
 
 
 class Message(BaseModel):
     role: str = Field(pattern="^(user|assistant)$")
     content: str = Field(max_length=4000)
+
+
+class FeedbackRequest(BaseModel):
+    question: str = Field(default="", max_length=2000)
+    answer: str = Field(default="", max_length=6000)
+    decision: str = Field(default="", max_length=300)
+    comment: str = Field(min_length=1, max_length=2000)
 
 
 class ChatRequest(BaseModel):
@@ -76,3 +89,19 @@ def chat(req: ChatRequest, request: Request):
         raise HTTPException(status_code=502, detail="답변을 만드는 중 문제가 생겼습니다. 다시 시도해 주세요.")
     keep = ("answer", "decision", "key_values", "basis", "sources", "chart", "seconds")
     return {**{k: result.get(k) for k in keep}, "tools": [c["name"] for c in result["tool_calls"]]}
+
+
+@app.post("/api/feedback")
+def feedback(req: FeedbackRequest, request: Request):
+    """답변에 대한 수정사항·의견 (로그인 없음, 선택 사항). feedback/feedback.jsonl에 한 줄씩 쌓는다."""
+    _check_rate(request.headers.get("x-forwarded-for", request.client.host if request.client else "?").split(",")[0])
+    comment = req.comment.strip()
+    if not comment:
+        raise HTTPException(status_code=400, detail="의견을 입력해 주세요.")
+    row = {"at": datetime.now(timezone(timedelta(hours=9))).isoformat(timespec="seconds"),
+           "question": req.question, "decision": req.decision, "answer": req.answer, "comment": comment}
+    with _fb_lock:
+        FEEDBACK_FILE.parent.mkdir(parents=True, exist_ok=True)
+        with FEEDBACK_FILE.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+    return {"ok": True}

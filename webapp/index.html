@@ -39,6 +39,13 @@ details { margin-top: 8px; font-size: 12.5px; color: var(--muted) }
 summary { cursor: pointer }
 details ul { margin: 6px 0 0; padding-left: 18px }
 .err { color: var(--warn) }
+.fb-open { margin-top: 8px; font: inherit; font-size: 12.5px; color: var(--muted); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline }
+.fb { margin-top: 8px; display: grid; gap: 6px }
+.fb textarea { font: inherit; font-size: 14px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; resize: vertical; min-height: 64px }
+.fb-row { display: flex; gap: 8px; justify-content: flex-end }
+.fb-row button { font: inherit; font-size: 13px; border-radius: 8px; padding: 5px 12px; cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--ink) }
+.fb-row button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700 }
+.fb-done { margin-top: 8px; font-size: 12.5px; color: var(--accent) }
 .typing { color: var(--muted); font-size: 13px }
 .chips { display: flex; gap: 8px; overflow-x: auto; padding: 4px 0 2px; scrollbar-width: none }
 .chips button { flex: none; font: inherit; font-size: 13px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px; cursor: pointer }
@@ -94,7 +101,27 @@ function rich(text) {  // **굵게**만 지원, 나머지는 그대로 텍스트
 function bottom() { scroll.scrollTop = scroll.scrollHeight; }
 function addMe(text) { log.append(el("div", "msg me", text)); bottom(); }
 
-function addBot(r) {
+function feedbackBox(question, r) {
+  const open = el("button", "fb-open", "✏️ 수정·의견 남기기"); open.type = "button";
+  open.addEventListener("click", () => {
+    const box = el("div", "fb"), ta = el("textarea"); ta.placeholder = "틀린 내용이나 고칠 점이 있으면 적어 주세요 (선택)"; ta.maxLength = 2000;
+    ta.setAttribute("aria-label", "수정·의견");
+    const row = el("div", "fb-row"), cancel = el("button", null, "닫기"), ok = el("button", "primary", "보내기");
+    cancel.type = ok.type = "button"; row.append(cancel, ok); box.append(ta, row); open.replaceWith(box); ta.focus();
+    cancel.addEventListener("click", () => box.replaceWith(open));
+    ok.addEventListener("click", async () => {
+      const comment = ta.value.trim(); if (!comment) { ta.focus(); return; }
+      ok.disabled = true;
+      const res = await fetch("api/feedback", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question, answer: r.answer || "", decision: r.decision || "", comment }) }).catch(() => null);
+      if (res && res.ok) box.replaceWith(el("div", "fb-done", "의견이 전달됐어요. 고맙습니다!"));
+      else { ok.disabled = false; ok.textContent = "다시 보내기"; }
+    });
+  });
+  return open;
+}
+
+function addBot(r, question) {
   const b = el("div", "msg bot");
   if (r.decision) b.append(el("div", "decision", r.decision));
   b.append(rich(r.answer || ""));
@@ -119,6 +146,7 @@ function addBot(r) {
     if ((r.tools || []).length) d.append(el("p", null, "사용 도구: " + r.tools.join(", ")));
     b.append(d);
   }
+  if (question) b.append(feedbackBox(question, r));
   log.append(b); bottom();
 }
 
@@ -133,7 +161,7 @@ async function ask(text) {
     wait.remove();
     if (res.status === 401) { showGate("접속 코드가 맞지 않습니다."); history.pop(); return; }
     if (!res.ok) { log.append(el("div", "msg bot err", data.detail || "문제가 생겼습니다. 다시 시도해 주세요.")); history.pop(); return; }
-    addBot(data);
+    addBot(data, text);
     history.push({ role: "assistant", content: `${data.decision ? "[" + data.decision + "] " : ""}${data.answer || ""}` });
   } catch { wait.remove(); log.append(el("div", "msg bot err", "서버에 연결할 수 없습니다.")); history.pop(); }
   finally { send.disabled = false; bottom(); }

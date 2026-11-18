@@ -144,7 +144,7 @@ MCP 방식 + 실시간 API(LIVE: 기상청·흙토람·스마트팜 데이터마
 # 서버: 저장소 루트에 .env 작성 (git에 올리지 않음)
 #   OPENAI_API_KEY=... / FERTILIZER_API_KEY=... / SMARTFARM_API_KEY=... / APP_PASSCODE=<접속 코드>
 docker build -t agbot-chat .
-docker run -d --name agbot-chat --env-file .env -p 8110:8110 -v agbot_chroma:/app/knowledge/chroma --restart unless-stopped agbot-chat
+docker run -d --name agbot-chat --env-file .env -p 8110:8110 -v agbot_chroma:/app/knowledge/chroma -v agbot_feedback:/app/feedback --restart unless-stopped agbot-chat
 ```
 
 - 첫 실행 때 문서 벡터 DB(721문단)를 OpenAI 임베딩으로 만든다(1~2분).
